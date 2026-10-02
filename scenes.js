@@ -122,7 +122,7 @@
   .dest p{grid-column:1;font:500 22px/1.45 var(--body);color:var(--muted)}
   .dest .tapb{grid-row:1/3;grid-column:2;padding:12px 18px;border-radius:14px;background:var(--brand);color:#fff;font:700 20px var(--body);white-space:nowrap}
   .curve{position:absolute;left:680px;top:330px;width:320px;height:560px;overflow:visible}
-  .curve path{fill:none;stroke:var(--brand);stroke-width:4;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420}
+  .curve path{fill:none;stroke:var(--brand);stroke-width:4;stroke-linecap:round;stroke-dasharray:100 120;stroke-dashoffset:101}
 
   .pdf{left:150px;top:250px;width:760px;height:780px;background:#fff;border-radius:6px;box-shadow:0 40px 90px rgba(14,28,48,.35);padding:56px 60px;z-index:20;transform:rotate(-2.5deg);color:#111}
   .pdf h4{font:800 34px var(--display);text-align:center;letter-spacing:.1em;margin-bottom:26px}
@@ -184,10 +184,6 @@
   .cl-title em{color:var(--glow)}
   .cl-ask{right:120px;top:540px;width:560px;text-align:right;padding:34px 40px;border-radius:28px;background:rgba(6,18,31,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(143,208,255,.25)}
   .cl-ask strong{color:var(--glow)}
-  .cl-qr{right:120px;top:150px;width:560px;display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:center;padding:26px;border-radius:28px;background:#fff;color:var(--ink);box-shadow:0 30px 70px rgba(0,0,0,.4)}
-  .cl-qr img{width:200px;height:200px;display:block}
-  .cl-qr b{display:block;font:800 32px/1.25 var(--display);letter-spacing:-.02em}
-  .cl-qr span{display:block;margin-top:10px;font:500 21px/1.5 var(--body);color:var(--muted)}
   .cl-ask b{display:block;font:900 72px/1.1 var(--display);letter-spacing:-.03em}
   .cl-ask span{display:block;margin-top:18px;font:500 28px/1.5 var(--body);color:#cfe0f3}
 
@@ -847,7 +843,7 @@
     notes: "핵심은 <b>한 번 등록, 한 번 누르기</b>입니다. 서명은 <b>본인만 보고 바꿀 수 있고 관리자도 못 봅니다.</b> 문서에는 선생님이 그 문서에서 직접 누를 때만 들어가고, 누른 순간의 그림을 문서에 따로 남겨서 나중에 서명을 바꿔도 낸 문서는 그대로입니다. 그림 서명이라 학교 내부 문서용이며 <b>에듀파인 전자결재는 그대로</b>입니다.",
     html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip">디지털 서명</span></div><h2 class="title">한 번 등록하고, <em>문서마다 한 번 누르기</em></h2>' +
       '<div class="abs card hub"><h3>내 서명 <span class="badge-new">한 번만</span></h3><div class="pad"><span class="pen" style="opacity:0">홍길동</span><span class="stamp-mk" style="opacity:0">홍길<br>동인</span></div><p>손가락으로 그린 손 서명, 또는 종이 도장 사진. 하나를 기본으로.</p></div>' +
-      '<svg class="curve" viewBox="0 0 320 560"><path d="M0 120 C 160 120, 160 70, 320 70"/><path d="M0 120 C 160 120, 160 270, 320 270"/><path d="M0 120 C 160 120, 160 470, 320 470"/></svg>' +
+      '<svg class="curve" viewBox="0 0 320 560"><path pathLength="100" d="M0 120 C 160 120, 160 70, 320 70"/><path pathLength="100" d="M0 120 C 160 120, 160 270, 320 270"/><path pathLength="100" d="M0 120 C 160 120, 160 470, 320 470"/></svg>' +
       '<div class="abs card dest" style="top:340px"><h3>회의 서명부</h3><p>참석자에게 알림 → 서명 → <b>PDF</b> 한 장</p><span class="tapb">내 서명으로 서명하기</span></div>' +
       '<div class="abs card dest" style="top:540px"><h3>파일로 서명 받기</h3><p>서식의 (서명)·(인) 자리에 여러 선생님 서명</p><span class="tapb">내 서명으로 서명하기</span></div>' +
       '<div class="abs card dest" style="top:740px"><h3>수업교체 신고서</h3><p>신청할 때 내 서명, 상대는 <b>수락 = 서명</b></p><span class="tapb">내 서명으로 이 안 요청</span></div>' +
@@ -863,7 +859,7 @@
           A.hide(".sgp");
         },
         function (A) {
-          A.stagger(".curve path", [{ strokeDashoffset: 420 }, { strokeDashoffset: 0 }], { d: 700, each: 160, e: E.cam });
+          A.stagger(".curve path", [{ strokeDashoffset: 101 }, { strokeDashoffset: 0 }], { d: 700, each: 160, e: E.cam });
           A.stagger(".dest", [{ opacity: 0, transform: "translateX(60px)" }, { opacity: 1, transform: "none" }], { d: 760, delay: 350, each: 160 });
           A.pop(".dest .tapb", { delay: 800, each: 160 });
         },
@@ -1180,9 +1176,9 @@
     chips: [{ t: "실습 13 · 전자칠판 알림" }, { t: "둘러보기 1분", c: "ghost" }], title: "전자칠판 알림 화면 둘러보기",
     steps: [
       { t: '<span class="k">더보기</span> → <span class="q">「학생」</span> 묶음의 <span class="k">전자칠판 알림</span>', s: 0, r: [17, 471, 378, 56] },
-      { t: '<span class="q">「안내 | 긴급」</span>. 긴급은 경보음과 함께 뜹니다', s: 1, r: [24, 112, 364, 44] },
+      { t: '<span class="q">「안내 | 긴급」</span>. 긴급은 경보음과 함께 뜹니다', s: 1, r: [32, 136, 349, 49] },
       { t: '대상은 전체·학년, 또는 <span class="q">「교실 고르기」</span>로 반을 고릅니다', s: 1, r: [284, 230, 92, 38], z: 1.9 },
-      { t: '글과 <span class="q">「유지 시간」</span>(안내 3~30분). 링크를 넣으면 칠판에 큰 QR', s: 2, r: [20, 560, 372, 44] },
+      { t: '글과 <span class="q">「유지 시간」</span>(안내 3~30분). 링크를 넣으면 칠판에 큰 QR', s: 2, r: [28, 560, 290, 40] },
       { t: '<b>오늘은 <span class="k">…곳에 띄우기</span>를 누르지 않습니다</b>', g: '<span class="k">…곳에 띄우기</span>를 누르면 고른 교실 칠판에 바로 뜹니다', s: 2, r: [31, 650, 350, 50], warn: "실제 교실 칠판에 바로 뜹니다" },
       { t: '<span class="q">「오늘 칠판에 나간 알림」</span>: 점 색으로 도착·확인을 봅니다', s: 2, r: [16, 735, 380, 44] }
     ],
@@ -1215,7 +1211,6 @@
     html: darkBg("closing") +
       '<h2 class="abs cl-title"><span class="ln">이제, 휴대폰에서</span><span class="ln"><em>바로</em> 쓰시면 됩니다</span></h2>' +
       '<div class="abs cl-done">' + DONE.map(function (t) { return "<div><i>" + CHECK + "</i>" + t + "</div>"; }).join("") + "</div>" +
-      '<div class="abs cl-qr"><img src="img/qr-guide.svg" alt="연수 자료 다시 보기 주소 QR 코드"><p><b>오늘 내용<br>다시 보기</b><span>따라하기 안내와 발표를 휴대폰으로 언제든</span></p></div>' +
       '<p class="abs cl-ask"><b>질문 받겠습니다</b><span>막히거나 궁금하면<br><strong>교목실</strong>로 오세요</span></p>',
     build: function (el, A) {
       return [
@@ -1225,7 +1220,6 @@
           A.kinetic(".cl-title", { delay: 400, each: 40, punch: 2.2 });
           A.hide(".cl-done");
           A.hide(".cl-ask");
-          A.hide(".cl-qr");
         },
         function (A) {
           A.go(".cl-done", [{ opacity: 1 }, { opacity: 1 }], { d: 1 });
@@ -1234,8 +1228,6 @@
         },
         function (A) {
           A.go(".cl-ask", [{ opacity: 0, transform: "translateX(60px)" }, { opacity: 1, transform: "none" }], { d: 900, e: E.out });
-          A.go(".cl-qr", [{ opacity: 0, transform: "perspective(1200px) translateX(120px) rotateY(-30deg)" }, { opacity: 1, transform: "perspective(1200px) translateX(0px) rotateY(0deg)" }], { d: 1100, delay: 250, e: E.out });
-          A.sfx("lt", { delay: 300 });
         }
       ];
     }
