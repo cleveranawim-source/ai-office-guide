@@ -253,7 +253,7 @@
         return [function (A) {
           var f = o.flip ? "scaleX(-1) " : "";
           A.go(".art-wrap img", [{ transform: f + "scale(1.42) translate(3%, 2%)", filter: "brightness(.4) blur(6px)" }, { transform: f + "scale(1.16) translate(1.5%, 1%)", filter: "brightness(1) blur(0px)" }], { d: 1600, e: E.out });
-          A.later(function () { A.kenburns(".art-wrap img", { from: f + "scale(1.16) translate(1.5%, 1%)", to: f + "scale(1.04) translate(-2%, -1.5%)", d: 14000 }); }, 1600);
+          A.kenburns(".art-wrap img", { from: f + "scale(1.16) translate(1.5%, 1%)", to: f + "scale(1.06) translate(-1.5%, -1%)", d: 30000, delay: 1600 });
           A.sfx("riser", { d: 1.05, delay: 120 });
           A.go(".op-num", [{ transform: "translateX(320px)", opacity: 0 }, { transform: "none", opacity: 1 }], { d: 1800, e: E.out });
           A.wipe(".op-kicker > *", { delay: 250, each: 120 });
@@ -411,7 +411,7 @@
     build: function (el, A) {
       return [function (A) {
         A.go(".art-wrap img", [{ transform: "scale(1.35)", filter: "brightness(.3)" }, { transform: "scale(1.12)", filter: "brightness(1)" }], { d: 2200, e: E.out });
-        A.later(function () { A.kenburns(".art-wrap img", { from: "scale(1.12)", to: "scale(1.02) translate(-2%, 1%)", d: 18000 }); }, 2200);
+        A.kenburns(".art-wrap img", { from: "scale(1.12)", to: "scale(1.03) translate(-1.5%, 0.8%)", d: 60000, delay: 2200 });
         A.pop(".cv-brand img", { delay: 200, s: 0.4 });
         A.wipe(".cv-brand div", { delay: 380 });
         A.wipe(".cv-kicker", { delay: 520 });
@@ -1216,7 +1216,7 @@
       return [
         function (A) {
           A.go(".art-wrap img", [{ transform: "scale(1.3) translate(2%,2%)", filter: "brightness(.35)" }, { transform: "scale(1.1)", filter: "brightness(1)" }], { d: 2000, e: E.out });
-          A.later(function () { A.kenburns(".art-wrap img", { from: "scale(1.1)", to: "scale(1.02) translate(-1.5%,-1%)", d: 16000 }); }, 2000);
+          A.kenburns(".art-wrap img", { from: "scale(1.1)", to: "scale(1.03) translate(-1.2%, -0.8%)", d: 45000, delay: 2000 });
           A.kinetic(".cl-title", { delay: 400, each: 40, punch: 2.2 });
           A.hide(".cl-done");
           A.hide(".cl-ask");

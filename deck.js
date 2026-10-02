@@ -152,11 +152,12 @@
       });
       return t;
     };
-    // 켄번스: 그림이 천천히 밀리고 커진다(끝없이 왕복)
+    // 켄번스: 그림이 한 방향으로 아주 천천히 흐르다가 멎는다.
+    // (왕복시키면 오래 띄워 둔 장면에서 숨 쉬듯 출렁여 부자연스럽다.) 앞선 등장 움직임과 같은 시계로 이어 붙인다(delay).
     A.kenburns = function (sel, o) {
       o = o || {}; var el = A.$(sel); if (!el) return;
       var from = o.from || "scale(1.18) translate(2%, 1.5%)", to = o.to || "scale(1.04) translate(-2%, -1%)";
-      A.go(el, [{ transform: from }, { transform: to }], { d: o.d || 16000, e: "cubic-bezier(.33,0,.67,1)", iter: Infinity, dir: "alternate", ambient: true });
+      A.go(el, [{ transform: from }, { transform: to }], { d: o.d || 40000, delay: o.delay || 0, e: "cubic-bezier(.37,0,.63,1)", fill: "forwards", ambient: true });
     };
     // 마스크 닦기(왼쪽→오른쪽)
     A.wipe = function (sel, o) {
