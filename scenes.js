@@ -184,6 +184,10 @@
   .cl-title em{color:var(--glow)}
   .cl-ask{right:120px;top:540px;width:560px;text-align:right;padding:34px 40px;border-radius:28px;background:rgba(6,18,31,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(143,208,255,.25)}
   .cl-ask strong{color:var(--glow)}
+  .cl-qr{right:120px;top:150px;width:560px;display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:center;padding:26px;border-radius:28px;background:#fff;color:var(--ink);box-shadow:0 30px 70px rgba(0,0,0,.4)}
+  .cl-qr img{width:200px;height:200px;display:block}
+  .cl-qr b{display:block;font:800 32px/1.25 var(--display);letter-spacing:-.02em}
+  .cl-qr span{display:block;margin-top:10px;font:500 21px/1.5 var(--body);color:var(--muted)}
   .cl-ask b{display:block;font:900 72px/1.1 var(--display);letter-spacing:-.03em}
   .cl-ask span{display:block;margin-top:18px;font:500 28px/1.5 var(--body);color:#cfe0f3}
 
@@ -1211,6 +1215,7 @@
     html: darkBg("closing") +
       '<h2 class="abs cl-title"><span class="ln">이제, 휴대폰에서</span><span class="ln"><em>바로</em> 쓰시면 됩니다</span></h2>' +
       '<div class="abs cl-done">' + DONE.map(function (t) { return "<div><i>" + CHECK + "</i>" + t + "</div>"; }).join("") + "</div>" +
+      '<div class="abs cl-qr"><img src="img/qr-guide.svg" alt="연수 자료 다시 보기 주소 QR 코드"><p><b>오늘 내용<br>다시 보기</b><span>따라하기 안내와 발표를 휴대폰으로 언제든</span></p></div>' +
       '<p class="abs cl-ask"><b>질문 받겠습니다</b><span>막히거나 궁금하면<br><strong>교목실</strong>로 오세요</span></p>',
     build: function (el, A) {
       return [
@@ -1220,6 +1225,7 @@
           A.kinetic(".cl-title", { delay: 400, each: 40, punch: 2.2 });
           A.hide(".cl-done");
           A.hide(".cl-ask");
+          A.hide(".cl-qr");
         },
         function (A) {
           A.go(".cl-done", [{ opacity: 1 }, { opacity: 1 }], { d: 1 });
@@ -1228,6 +1234,8 @@
         },
         function (A) {
           A.go(".cl-ask", [{ opacity: 0, transform: "translateX(60px)" }, { opacity: 1, transform: "none" }], { d: 900, e: E.out });
+          A.go(".cl-qr", [{ opacity: 0, transform: "perspective(1200px) translateX(120px) rotateY(-30deg)" }, { opacity: 1, transform: "perspective(1200px) translateX(0px) rotateY(0deg)" }], { d: 1100, delay: 250, e: E.out });
+          A.sfx("lt", { delay: 300 });
         }
       ];
     }
