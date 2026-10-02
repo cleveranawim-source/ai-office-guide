@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI 교무실 따라하기</title>
+<meta name="theme-color" content="#163d73">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="phone.css">
+<style>
+/* 레이아웃: 휴대폰 세로로 읽는 한 줄 문서. 실습마다 카드 하나, 그 안에 「화면 ↔ 단계」 묶음을 차례로.
+   화면 위 번호 원은 아래 단계 번호와 같다. 넓은 화면에서는 휴대폰 옆에 단계가 선다. */
+:root {
+  --bg: #f2f5f9; --surface: #ffffff; --ink: #0e1c30; --muted: #55677f; --line: #dbe3ec;
+  --brand: #295c9e; --brand-deep: #163d73; --brand-tint: #e3edf8;
+  --new: #f5a524; --new-ink: #3b2600; --warn: #c2461f; --warn-tint: #fdeae3; --ok: #1f8a5a; --on-brand: #ffffff;
+  --body: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+  --pen: 'Apple SD Gothic Neo', cursive;
+  --ps: .56;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-deep: #a9d1f7; --brand-tint: #17304f; --warn: #ff8a62; --warn-tint: #3a1d14; --on-brand: #06121f; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-deep: #a9d1f7; --brand-tint: #17304f; --warn: #ff8a62; --warn-tint: #3a1d14; --on-brand: #06121f; color-scheme: dark; }
+@media (min-width: 760px) { :root { --ps: .62; } }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.65 var(--body); word-break: keep-all; overflow-wrap: anywhere; -webkit-font-smoothing: antialiased; }
+a { color: var(--brand); }
+p, h1, h2, h3, ol { margin: 0; }
+.g-top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.g-top .in { max-width: 1040px; margin: 0 auto; padding: 10px 16px; display: flex; gap: 10px; align-items: center; }
+.g-top a.back { text-decoration: none; font-weight: 700; color: var(--ink); display: flex; gap: 8px; align-items: center; white-space: nowrap; }
+.g-top a.back img { width: 28px; height: 28px; border-radius: 8px; background: #fff; padding: 3px; }
+.g-top .parts { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin-left: auto; min-width: 0; }
+.g-top .parts a { flex: none; text-decoration: none; font: 600 13px var(--body); color: var(--muted); padding: 6px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); }
+main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid; gap: 28px; }
+.g-head h1 { font: 900 30px/1.2 var(--body); letter-spacing: -.02em; text-wrap: balance; }
+.g-head p { color: var(--muted); margin-top: 8px; max-width: 40em; }
+.g-head .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 16px; border-radius: 12px; font: 700 15px var(--body); text-decoration: none; background: var(--brand); color: var(--on-brand); }
+.btn.ghost { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+.toc { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.toc section { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; min-width: 0; }
+.toc h3 { font: 700 15px var(--body); display: flex; gap: 8px; align-items: baseline; margin-bottom: 6px; }
+.toc h3 span { font: 600 12px var(--mono); color: var(--brand); }
+.toc ol { list-style: none; padding: 0; display: grid; gap: 2px; }
+.toc li a { display: flex; gap: 8px; align-items: baseline; padding: 6px 4px; border-radius: 8px; text-decoration: none; color: var(--ink); font-size: 15px; }
+.toc li a:hover { background: var(--brand-tint); }
+.toc li i { font: 600 12px var(--mono); color: var(--muted); font-style: normal; min-width: 2.6em; }
+.nw { display: inline-block; font: 800 11px var(--mono); letter-spacing: .06em; background: var(--new); color: var(--new-ink); border-radius: 4px; padding: 1px 6px; vertical-align: 2px; }
+.part-h { display: grid; gap: 4px; padding-top: 8px; }
+.part-h .pn { font: 600 13px var(--mono); color: var(--brand); letter-spacing: .1em; }
+.part-h h2 { font: 900 26px/1.25 var(--body); letter-spacing: -.02em; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.part-h p { color: var(--muted); }
+.g-card { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 22px 18px; display: grid; gap: 18px; min-width: 0; }
+.g-card header { display: grid; gap: 6px; }
+.g-card .eyebrow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font: 700 13px var(--body); color: var(--brand); }
+.g-card .eyebrow .min { font: 600 12px var(--mono); color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; }
+.g-card .eyebrow .care { color: var(--warn); }
+.g-card h3 { font: 800 23px/1.3 var(--body); letter-spacing: -.02em; text-wrap: balance; }
+.g-card h3 em { font-style: normal; color: var(--brand); }
+.g-note { padding: 12px 14px; border-radius: 12px; background: var(--brand-tint); color: var(--ink); font-size: 15px; }
+.g-note.warn { background: var(--warn-tint); }
+.g-note b { font-weight: 700; }
+.g-group { display: grid; gap: 14px; justify-items: center; }
+@media (min-width: 760px) {
+  .g-group { grid-template-columns: auto minmax(0, 1fr); justify-items: start; align-items: start; gap: 24px; }
+  .g-card { padding: 26px 28px; }
+}
+.g-ph { width: calc(440px * var(--ps)); height: calc(892px * var(--ps)); position: relative; flex: none; }
+.g-ph .phone { transform: scale(var(--ps)); transform-origin: 0 0; position: absolute; left: 0; top: 0; box-shadow: 0 20px 50px rgba(10, 25, 45, .22), 0 0 0 2px #2b3a50 inset, 0 0 0 1px #0b1420; }
+.g-mk { position: absolute; border: 5px solid var(--mk, #295c9e); border-radius: 14px; z-index: 12; pointer-events: none; box-shadow: 0 0 0 6px rgba(41, 92, 158, .16); }
+.g-mk b { position: absolute; top: -26px; right: -26px; width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; background: var(--mk, #295c9e); color: #fff; font: 700 28px var(--mono); box-shadow: 0 4px 10px rgba(0, 0, 0, .25); }
+.g-mk.warn { --mk: #c2461f; box-shadow: 0 0 0 6px rgba(194, 70, 31, .18); }
+.g-mk.new { --mk: #d98a00; box-shadow: 0 0 0 6px rgba(245, 165, 36, .22); }
+.g-steps { list-style: none; padding: 0; display: grid; gap: 8px; width: 100%; max-width: 560px; }
+.g-steps li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; align-items: start; padding: 10px 12px; border-radius: 12px; background: var(--bg); font-size: 16px; line-height: 1.55; }
+.g-steps li > i { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--brand); color: var(--on-brand); font: 700 14px var(--mono); font-style: normal; margin-top: 1px; }
+.g-steps li.warn { background: var(--warn-tint); }
+.g-steps li.warn > i { background: var(--warn); }
+.g-steps .k { display: inline-block; padding: 0 8px; border-radius: 6px; background: var(--brand); color: var(--on-brand); font-weight: 700; font-size: .92em; line-height: 1.5; }
+.g-steps .q { font-weight: 700; color: var(--brand-deep); }
+.g-steps .nw { margin-left: 2px; }
+.faq { display: grid; gap: 10px; }
+.faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; }
+.faq summary { font-weight: 700; cursor: pointer; }
+.faq p { color: var(--muted); margin-top: 6px; }
+footer { color: var(--muted); font-size: 13px; text-align: center; padding: 10px 0 0; }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="g-top"><div class="in">
+  <a class="back" href="index.html"><img src="img/symbol-128.png" alt="">따라하기</a>
+  <nav class="parts" id="parts" aria-label="부분 바로가기"></nav>
+</div></div>
+<main>
+  <header class="g-head">
+    <h1>AI 교무실, 하나씩 따라 해 보기</h1>
+    <p>교직원 연수에서 함께 해 본 실습을 화면과 단계로 정리했습니다. 화면 위 <b>번호 원</b>이 아래 단계 번호와 같습니다.</p>
+    <div class="acts">
+      <a class="btn" href="https://mjms-office.vercel.app" target="_blank" rel="noopener">AI 교무실 열기</a>
+      <a class="btn ghost" href="deck.html">연수 발표 다시 보기</a>
+      <a class="btn ghost" href="#faq">안 될 때</a>
+    </div>
+  </header>
+  <div class="toc" id="toc"></div>
+  <div id="body" style="display:grid;gap:28px"></div>
+  <section id="faq" class="faq">
+    <div class="part-h"><span class="pn">FAQ</span><h2>안 될 때</h2></div>
+    <details><summary>“그 이름을 찾지 못했습니다”</summary><p>띄어쓰기 없이 이름만 적거나, 초성(예: ㅎㄱㄷ)으로 찾습니다.</p></details>
+    <details><summary>“비밀번호가 맞지 않습니다”</summary><p>교목실에서 바로 맞춰 드립니다.</p></details>
+    <details><summary>아이폰에서 [켜기] 대신 안내문이 떠요</summary><p>사파리 창이 아니라 <b>홈 화면의 AI 교무실 아이콘</b>으로 열어야 알림을 켤 수 있습니다.</p></details>
+    <details><summary>“알림 권한이 거부되어 있습니다”</summary><p>휴대폰 설정 → 알림 → AI 교무실을 허용합니다. 다시 열어 [켜기]를 누르고 시험 발송으로 확인합니다.</p></details>
+    <details><summary>앱 설치 메뉴가 안 보여요(안드로이드)</summary><p>삼성 인터넷이나 다른 앱 안에서 열렸다면 주소(mjms-office.vercel.app)를 <b>크롬</b>에 붙여 넣어 다시 엽니다.</p></details>
+    <details><summary>AI 도우미에 무엇을 넣으면 안 되나요?</summary><p>학생 이름과 실제 생기부 기록 문장은 넣지 않습니다. 질문은 외부 AI로 전송되며 하루 60개까지 물을 수 있습니다.</p></details>
+  </section>
+  <footer>AI 교무실 · 명지중학교 교직원 연수 자료 · 화면 속 이름 일부는 가렸고, 「홍길동」·「김하늘」 등은 예시입니다.</footer>
+</main>
+<script>
+  // 발표 화면과 같은 장면 데이터(scenes.js)를 읽는다
+  window.DECK = { E: {}, PARTS: [], list: [], parts: function (l) { var P = this.PARTS; l.forEach(function (p) { P[p.n] = p; }); }, add: function (d) { this.list.push(d); }, h: function () {} };
+</script>
+<script src="scenes.js"></script>
+<script>
+(function () {
+  var D = window.DECK, list = D.list;
+  function strip(s) { return String(s).replace(/<br>/g, " ").replace(/<[^>]+>/g, ""); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function rectOf(el, scr) { var x = 0, y = 0, n = el; while (n && n !== scr) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; } return [x, y, el.offsetWidth, el.offsetHeight]; }
+
+  // 부분별로 묶기: 파트 시작(opener)의 「이제는」 한 줄을 부분 소개로
+  var parts = {};
+  list.forEach(function (d) {
+    var p = d.part; if (!(p >= 1 && p <= 7)) return;
+    parts[p] = parts[p] || { intro: null, items: [] };
+    if (d.opener) parts[p].intro = d.opener;
+    if (d.guide) parts[p].items.push(d);
+  });
+
+  var nav = "", toc = "", body = "";
+  Object.keys(parts).forEach(function (p) {
+    var P = D.PARTS[p], g = parts[p];
+    nav += '<a href="#part' + p + '">' + p + "부</a>";
+    toc += '<section><h3><span>' + p + "부</span>" + P.name + (P.isNew ? ' <b class="nw">NEW</b>' : "") + "</h3><ol>" +
+      g.items.map(function (d) {
+        var o = d.guide;
+        return '<li><a href="#' + d.id + '"><i>' + (o.num ? "실습 " + o.num : "보기") + "</i><span>" + esc(strip(o.title)) + (d.isNew ? ' <b class="nw">NEW</b>' : "") + "</span></a></li>";
+      }).join("") + "</ol></section>";
+    body += '<section id="part' + p + '" style="display:grid;gap:18px"><div class="part-h"><span class="pn">PART ' + String(p).padStart(2, "0") + "</span><h2>" + p + "부 · " + P.name + (P.isNew ? ' <b class="nw">NEW</b>' : "") + "</h2>" + (g.intro ? "<p>" + g.intro.now + "</p>" : "") + "</div>" +
+      g.items.map(card).join("") + "</section>";
+  });
+  document.getElementById("parts").innerHTML = nav + '<a href="#faq">안 될 때</a>';
+  document.getElementById("toc").innerHTML = toc;
+  document.getElementById("body").innerHTML = body;
+
+  function card(d) {
+    var o = d.guide;
+    var chips = (o.chips || []).map(function (c) { return c.t; }).filter(function (t) { return !/^\d+분$/.test(t) && t !== "NEW" && !/^NEW /.test(t); });
+    var eyebrow = chips.map(function (t) {
+      if (/보기만/.test(t)) return '<span class="care">' + esc(t.replace(/^보기만 · /, "")) + " · 누르면 실제로 반영돼요</span>";
+      return "<span>" + esc(t) + "</span>";
+    }).join("") + (d.isNew ? '<b class="nw">NEW</b>' : "") + (o.practiceMin ? '<span class="min">' + o.practiceMin + "분</span>" : "");
+    // 같은 화면을 쓰는 단계끼리 묶는다
+    var groups = [];
+    o.steps.forEach(function (st, i) {
+      var s = st.s != null ? st.s : 0, g = groups[groups.length - 1];
+      if (!g || g.s !== s) { g = { s: s, steps: [] }; groups.push(g); }
+      g.steps.push({ n: i + 1, st: st });
+    });
+    var html = '<article class="g-card" id="' + d.id + '"><header><div class="eyebrow">' + eyebrow + "</div><h3>" + String(o.title).replace(/<br>/g, " ") + "</h3></header>";
+    groups.forEach(function (g, gi) {
+      var scr = String(o.screens[g.s] || "").replace(/<img /g, '<img loading="lazy" decoding="async" ');
+      html += '<div class="g-group" data-g="' + gi + '"><div class="g-ph"><div class="phone"><div class="screen">' + scr + "</div></div></div>" +
+        '<ol class="g-steps">' + g.steps.map(function (x) {
+          return '<li class="' + (x.st.warn ? "warn" : "") + '"><i>' + x.n + "</i><span>" + (x.st.g || x.st.t) + "</span></li>";
+        }).join("") + "</ol></div>";
+    });
+    if (o.note) html += '<p class="g-note ' + (o.note.tone || "") + '">' + o.note.html.replace(/<img[^>]*>/g, "") + "</p>";
+    return html + "</article>";
+  }
+
+  // 화면 위에 단계 번호 원(그린 뒤에 위치를 잰다: 모형 화면은 요소를 찾아서)
+  list.forEach(function (d) {
+    if (!d.guide) return;
+    var o = d.guide, art = document.getElementById(d.id); if (!art) return;
+    var groups = art.querySelectorAll(".g-group"), gi = -1, lastS = null;
+    o.steps.forEach(function (st, i) {
+      var s = st.s != null ? st.s : 0;
+      if (s !== lastS) { gi++; lastS = s; }
+      if (!st.r) return;
+      var screen = groups[gi].querySelector(".screen"), scr = screen.querySelector(".scr"), r = st.r;
+      if (typeof r === "string") { var t = scr.querySelector(r); if (!t) return; r = rectOf(t, scr); }
+      var m = document.createElement("div");
+      m.className = "g-mk" + (st.warn ? " warn" : st.newf ? " new" : "");
+      m.style.cssText = "left:" + (r[0] - 6) + "px;top:" + (r[1] - 6) + "px;width:" + (r[2] + 12) + "px;height:" + (r[3] + 12) + "px";
+      m.innerHTML = "<b>" + (i + 1) + "</b>";
+      screen.appendChild(m);
+    });
+  });
+  // 번호 원이 화면 밖으로 나가지 않게
+  document.querySelectorAll(".g-mk").forEach(function (m) {
+    var b = m.querySelector("b"), l = m.offsetLeft, t = m.offsetTop, w = m.offsetWidth;
+    if (l + w + 26 > 412) { b.style.right = "auto"; b.style.left = "-26px"; }
+    if (t - 26 < 0) { b.style.top = "auto"; b.style.bottom = "-26px"; }
+  });
+  if (location.hash) { var el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView({ behavior: "instant", block: "start" }); }
+})();
+</script>
+</body>
+</html>

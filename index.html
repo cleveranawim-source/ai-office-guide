@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI 교무실 사용 안내</title>
+<meta name="description" content="명지중학교 교직원 AI 교무실 연수 자료 — 따라하기 안내와 연수 발표 다시 보기">
+<meta name="theme-color" content="#06121f">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="교무실 안내">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* 레이아웃: 위는 연수 표지와 같은 밤하늘 띠(배경 그림이 천천히 밀린다), 아래는 두 갈래 큰 카드(따라하기 · 발표 다시 보기)와 「처음이라면」 세 단계. */
+:root {
+  --bg: #f2f5f9; --surface: #ffffff; --ink: #0e1c30; --muted: #55677f; --line: #dbe3ec;
+  --night: #06121f; --glow: #8fd0ff; --brand: #295c9e; --brand-tint: #e3edf8; --new: #f5a524; --new-ink: #3b2600;
+  --body: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-tint: #17304f; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-tint: #17304f; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.65 var(--body); word-break: keep-all; -webkit-font-smoothing: antialiased; }
+p, h1, h2, h3, ol { margin: 0; }
+a { color: inherit; }
+.hero { position: relative; overflow: hidden; background: var(--night); color: #fff; }
+.hero .art { position: absolute; inset: -6%; background: url(img/art/cover.jpg) 70% 50% / cover no-repeat; animation: kb 22s ease-in-out infinite alternate; }
+.hero .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4, 12, 24, .95) 0%, rgba(4, 12, 24, .78) 45%, rgba(4, 12, 24, .35) 100%), linear-gradient(0deg, rgba(4, 12, 24, .8), transparent 50%); }
+@keyframes kb { from { transform: scale(1.12) translate(2%, 1%); } to { transform: scale(1.02) translate(-2%, -1%); } }
+.hero .in { position: relative; max-width: 1040px; margin: 0 auto; padding: 36px 16px 44px; display: grid; gap: 14px; }
+.brand { display: flex; gap: 12px; align-items: center; }
+.brand img { width: 44px; height: 44px; border-radius: 12px; background: #fff; padding: 6px; }
+.brand small { display: block; font: 600 11px var(--mono); letter-spacing: .24em; color: var(--glow); }
+.brand b { font: 800 18px var(--body); }
+.hero h1 { font: 900 clamp(34px, 8vw, 60px)/1.1 var(--body); letter-spacing: -.035em; margin-top: 18px; text-wrap: balance; }
+.hero h1 em { font-style: normal; color: var(--glow); }
+.hero p { color: #cfe0f3; max-width: 34em; }
+main { max-width: 1040px; margin: -26px auto 0; padding: 0 16px 60px; position: relative; display: grid; gap: 22px; }
+.ways { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.way { display: grid; gap: 8px; align-content: start; padding: 22px 22px 20px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); text-decoration: none; box-shadow: 0 16px 40px rgba(14, 28, 48, .08); min-width: 0; }
+.way:hover { border-color: var(--brand); }
+.way .tag { font: 600 12px var(--mono); letter-spacing: .12em; color: var(--brand); }
+.way h2 { font: 800 24px/1.3 var(--body); letter-spacing: -.02em; }
+.way p { color: var(--muted); font-size: 15px; }
+.way .go { margin-top: 6px; font-weight: 700; color: var(--brand); }
+.first { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 20px 22px; display: grid; gap: 12px; }
+.first h2 { font: 800 19px var(--body); }
+.first ol { list-style: none; padding: 0; display: grid; gap: 8px; counter-reset: f; }
+.first li a { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 12px; border-radius: 14px; background: var(--bg); text-decoration: none; }
+.first li a::before { counter-increment: f; content: counter(f); width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--brand); color: var(--bg); font: 700 15px var(--mono); }
+.first li b { font-weight: 700; }
+.first li small { display: block; color: var(--muted); font-size: 13px; }
+.first li span.arrow { color: var(--muted); }
+.new { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 20px 22px; display: grid; gap: 10px; }
+.new h2 { font: 800 19px var(--body); display: flex; gap: 8px; align-items: center; }
+.new ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; color: var(--ink); }
+.nw { font: 800 11px var(--mono); letter-spacing: .06em; background: var(--new); color: var(--new-ink); border-radius: 4px; padding: 2px 6px; }
+.add { color: var(--muted); font-size: 14px; text-align: center; }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .hero .art { animation: none; } }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="art"></div><div class="shade"></div>
+  <div class="in">
+    <div class="brand"><img src="img/symbol-128.png" alt=""><div><small>MYONGJI MIDDLE SCHOOL</small><b>AI 교무실</b></div></div>
+    <h1>AI 교무실,<br><em>다시 보기</em></h1>
+    <p>교직원 연수에서 함께 해 본 것을 언제든 다시 볼 수 있어요. 휴대폰에서는 따라하기 안내가, 컴퓨터에서는 발표 다시 보기가 편합니다.</p>
+  </div>
+</header>
+<main>
+  <div class="ways">
+    <a class="way" href="guide.html">
+      <span class="tag">휴대폰 세로로</span>
+      <h2>따라하기 안내</h2>
+      <p>실습 14개를 실제 화면과 단계로. 화면 위 번호를 따라 누르면 됩니다.</p>
+      <span class="go">열기 →</span>
+    </a>
+    <a class="way" href="deck.html">
+      <span class="tag">가로 화면 · 컴퓨터</span>
+      <h2>연수 발표 다시 보기</h2>
+      <p>연수 때 본 발표 그대로. 화면을 누르거나 → 키로 넘깁니다.</p>
+      <span class="go">열기 →</span>
+    </a>
+    <a class="way" href="https://mjms-office.vercel.app" target="_blank" rel="noopener">
+      <span class="tag">mjms-office.vercel.app</span>
+      <h2>AI 교무실 열기</h2>
+      <p>교직원 전용입니다. 처음 받은 비밀번호로 로그인하세요.</p>
+      <span class="go">열기 ↗</span>
+    </a>
+  </div>
+  <section class="first">
+    <h2>처음이라면, 이 세 가지부터</h2>
+    <ol>
+      <li><a href="guide.html#p1"><span><b>로그인하고 비밀번호 바꾸기</b><small>처음 로그인하면 8자 이상 새 비밀번호를 정합니다</small></span><span class="arrow">›</span></a></li>
+      <li><a href="guide.html#p2a"><span><b>앱으로 설치하기</b><small>안드로이드는 크롬, 아이폰은 사파리 → 홈 화면에 추가</small></span><span class="arrow">›</span></a></li>
+      <li><a href="guide.html#p3"><span><b>알림 켜기</b><small>평일 아침 7시 50분, 오늘 일정이 알림으로 옵니다</small></span><span class="arrow">›</span></a></li>
+    </ol>
+  </section>
+  <section class="new">
+    <h2><span class="nw">NEW</span> 10월 첫 주에 새로 생긴 것</h2>
+    <ul>
+      <li><a href="guide.html#p8">내 서명 등록</a>, <a href="guide.html#sheet">회의 서명부</a>, <a href="guide.html#signfile">파일로 서명 받기</a></li>
+      <li><a href="guide.html#audience">넵 받는 사람을 부서·교과·직책으로 고르기</a></li>
+      <li><a href="guide.html#p5">진도 「한 달」 도장판</a></li>
+      <li><a href="guide.html#home">새 홈 화면: 날씨·퇴근 인사·가운데 AI 버튼·할 일 숫자</a></li>
+    </ul>
+  </section>
+  <p class="add">이 페이지를 홈 화면에 추가하면 앱처럼 열 수 있어요.</p>
+</main>
+</body>
+</html>
