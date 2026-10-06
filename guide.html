@@ -182,7 +182,8 @@ footer { color: var(--muted); font-size: 13px; text-align: center; padding: 10px
           return '<li class="' + (x.st.warn ? "warn" : "") + '"><i>' + x.n + "</i><span>" + (x.st.g || x.st.t) + "</span></li>";
         }).join("") + "</ol></div>";
     });
-    if (o.note) html += '<p class="g-note ' + (o.note.tone || "") + '">' + o.note.html.replace(/<img[^>]*>/g, "") + "</p>";
+    var nt = o.gnote || o.note; // gnote: 따라하기 안내에만 싣는 덧붙임(발표 화면에는 자막 띠로 나오는 것)
+    if (nt) html += '<p class="g-note ' + (nt.tone || "") + '">' + nt.html.replace(/<img[^>]*>/g, "") + "</p>";
     return html + "</article>";
   }
 
