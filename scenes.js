@@ -69,11 +69,11 @@
   .ag-total{right:120px;top:186px;font:600 34px var(--mono);color:var(--muted)}
   .ag-total b{font-size:64px;color:var(--ink)}
 
-  .nf{left:120px;top:330px;width:1680px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .nf .c{padding:30px 32px 32px;min-height:250px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+  .nf{left:120px;top:310px;width:1680px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .nf .c{padding:26px 26px 28px;min-height:300px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
   .nf .where{align-self:flex-start;font:700 17px var(--mono);letter-spacing:.08em;background:var(--new);color:var(--new-ink);border-radius:6px;padding:3px 10px}
-  .nf h3{font:800 38px/1.2 var(--display);letter-spacing:-.025em}
-  .nf p{font:500 24px/1.5 var(--body);color:var(--muted)}
+  .nf h3{font:800 33px/1.2 var(--display);letter-spacing:-.025em}
+  .nf p{font:500 22px/1.5 var(--body);color:var(--muted)}
   .nf p b{color:var(--ink)}
 
   .nn{top:330px;width:350px;min-height:260px}
@@ -159,10 +159,6 @@
   .aibar .strip{width:412px;height:96px;border-radius:18px;overflow:hidden;background:url(img/ai.jpg) 0 -768px/412px 864px no-repeat;box-shadow:0 14px 34px rgba(14,28,48,.15);transform:scale(1.25);transform-origin:left center}
   .aibar p{font:600 26px var(--body);margin-left:110px}
 
-  .fl{top:360px;width:296px;min-height:300px;padding:26px 24px}
-  .fl h3{font-size:30px}
-  .fl p{font-size:22px}
-  .fl .pen{position:static;display:block;font-size:46px;margin-top:10px;opacity:0;color:var(--brand-deep)}
 
   .dev{left:120px;top:340px;width:760px;padding:34px;display:grid;gap:16px}
   .dev .hd{font:700 22px var(--body);color:var(--muted);letter-spacing:.06em}
@@ -188,17 +184,17 @@
   .cl-ask b{display:block;font:900 72px/1.1 var(--display);letter-spacing:-.03em}
   .cl-ask span{display:block;margin-top:18px;font:500 28px/1.5 var(--body);color:#cfe0f3}
 
-  .bnl{left:120px;top:330px;width:780px;display:grid;gap:16px}
-  .bnl .c{padding:20px 26px;display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:center;transition:box-shadow .4s,border-color .4s}
+  .bnl{left:120px;top:300px;width:800px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .bnl .c{padding:16px 20px 18px;display:flex;flex-direction:column;gap:6px;transition:box-shadow .4s,border-color .4s}
   .bnl .c.on{border-color:var(--new);box-shadow:0 0 0 3px rgba(245,165,36,.2),0 18px 46px rgba(245,165,36,.12)}
-  .bnl .tg{grid-row:1/3;align-self:start;padding:6px 14px;border-radius:999px;background:var(--brand-tint);color:var(--brand-deep);font:700 20px var(--body)}
+  .bnl .tg{align-self:flex-start;padding:4px 12px;border-radius:999px;background:var(--brand-tint);color:var(--brand-deep);font:700 17px var(--body)}
   .bnl .tg.w{background:var(--warn-tint);color:var(--warn)}
   .bnl .tg.n{background:#fff4d6;color:#7a4b00}
-  .bnl b{font:800 32px var(--display);letter-spacing:-.02em}
-  .bnl p{font:500 22px/1.45 var(--body);color:var(--muted)}
-  .bnl p b{font:700 22px var(--body);color:var(--ink);letter-spacing:0}
-  .bnl .pre{display:flex;flex-wrap:wrap;gap:8px}
-  .bnl .pre i{font-style:normal;padding:4px 12px;border-radius:10px;border:2px solid #d9c7a8;background:#faf6ef;color:#7a4b00;font:700 18px var(--body)}
+  .bnl b{font:800 27px var(--display);letter-spacing:-.02em}
+  .bnl p{font:500 19px/1.45 var(--body);color:var(--muted)}
+  .bnl p b{font:700 19px var(--body);color:var(--ink);letter-spacing:0}
+  .bnl .pre{display:flex;flex-wrap:wrap;gap:6px}
+  .bnl .pre i{font-style:normal;padding:2px 9px;border-radius:10px;border:2px solid #d9c7a8;background:#faf6ef;color:#7a4b00;font:700 15px var(--body)}
   .bnl .pre i:nth-child(2){border-color:#e8b4a0;color:#b4400c;background:#fdf1ec}
   .bnl .pre i:nth-child(3){border-color:#b9bfa6;color:#4d5b2a;background:#f2f3ee}
   .bnl .pre i:nth-child(4){border-color:#c9b3f0;color:#6d28d9;background:#f5f0fd}
@@ -219,6 +215,25 @@
   .bdx .ph i::after{content:"";position:absolute;right:22%;top:18%;width:34px;height:34px;border-radius:50%;background:#fff3c4}
   .bdx .note p{font:700 30px/1.35 var(--body);text-align:center}
   .bdx .note small,.bdx .urg small{font:500 18px var(--body);opacity:.8}
+  .bdx .note .hd,.bdx .vid .hd{background:rgba(253,224,71,.2);color:#fde047}
+  .bdx .note small,.bdx .vid small{color:#fde047;opacity:1}
+  .bdx .memo{background:#f6f3ea;color:#1c2533}
+  .bdx .memo .ls{position:absolute;left:44px;top:40px;right:360px;display:grid;gap:16px}
+  .bdx .memo .ls b{font:800 34px var(--body)}
+  .bdx .memo .ls i{display:block;height:16px;border-radius:8px;background:#ddd6c4}
+  .bdx .memo .yn{position:absolute;right:20px;top:20px;width:290px;padding:14px 16px;border-radius:10px;background:#fde047;color:#3b2600;box-shadow:0 12px 28px rgba(0,0,0,.28);transform:rotate(1.5deg)}
+  .bdx .memo .yn small{display:block;font:700 15px var(--body);opacity:.75;margin-bottom:6px}
+  .bdx .memo .yn p{font:800 23px/1.35 var(--body)}
+  .bdx .vid{background:#14532d;display:grid;grid-template-columns:230px 1fr;gap:28px;align-items:center;padding:56px 36px 24px}
+  .bdx .vid .hd{position:absolute;left:30px;top:18px}
+  .bdx .vid .qrw{display:grid;gap:12px;justify-items:center}
+  .bdx .vid .qrw img{width:190px;height:190px;background:#fff;padding:10px;border-radius:12px;display:block}
+  .bdx .vid .play{padding:10px 18px;border-radius:12px;background:#fff;color:#14532d;font:800 22px var(--body);white-space:nowrap}
+  .bdx .vid p{font:700 30px/1.4 var(--body)}
+  .bdx .vid small{display:block;margin-top:14px;font:500 18px var(--body)}
+  .bdx .exam .box i{font-style:normal}
+  .bdx .exam .box .t-ab{color:#fca5a5}
+  .bdx .exam .box .t-sep{color:#7dd3fc}
   .bdx .urg{background:#b91c1c;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:22px;padding:30px 40px;text-align:center}
   .bdx .urg .hd{align-self:center;font-size:44px;padding:6px 26px;background:rgba(255,255,255,.2)}
   .bdx .urg p{font:800 36px/1.4 var(--body)}
@@ -421,7 +436,7 @@
   function notiPage(on, extra) {
     return mk('<div class="top"><b>알림 설정</b><span>평일 7시 50분 아침 · 11시 30분 점심 요약 푸시</span></div>' +
       '<div class="card"><div class="row"><h4 style="margin:0">푸시 알림</h4><span class="pill' + (on ? " ok" : "") + '">' + (on ? "켜짐" : "꺼짐") + "</span></div>" +
-      '<p class="muted" style="margin-top:6px">' + (on ? "이 기기로 아침·점심 요약과 새 공지·넵·서명 요청이 옵니다." : "평일 7시 50분 아침, 11시 30분 점심 요약을 받아보세요.") + "</p>" +
+      '<p class="muted" style="margin-top:6px">' + (on ? "평일 7시 50분 아침, 11시 30분 점심 알림을 받습니다." : "평일 7시 50분 아침, 11시 30분 점심 요약을 받아보세요.") + "</p>" +
       (on ? '<div class="btn ghost" data-t="test">내 기기로 시험 발송</div>' : '<div class="btn" data-t="on">켜기</div>') + "</div>" +
       '<div class="card"><div class="row"><h4 style="margin:0">보건실 입실 알림</h4><i class="sw"></i></div><p class="muted" style="margin-top:6px">우리 반 학생이 보건실에 들어오면(담임), 또는 내 수업 중에 그 반 학생이 들어오면(교과) 알립니다. 이름 없이 반과 성별만.</p></div>' +
       (extra || ""));
@@ -445,6 +460,61 @@
     '<div style="margin:14px 20px 4px;font:600 13px var(--body);color:#6b7a90">명단</div>' +
     '<div class="card" style="padding:4px 18px"><div class="person" style="border:0"><span>1&nbsp; 김하늘 · 교과</span><b style="color:#1f8a5a">✓ 15:42</b></div><div class="person"><span>2&nbsp; 나 · 교목실</span><span class="muted st">아직</span></div><div class="person"><span>3&nbsp; 박서준 · 교과</span><span class="muted">아직</span></div></div>' +
     '<div style="position:absolute;left:16px;right:16px;top:430px"><div class="btn" data-t="sign" style="position:relative;overflow:hidden">내 서명으로 서명하기<span class="dn" style="position:absolute;inset:0;display:grid;place-items:center;background:#1f8a5a;opacity:0">✓ 서명했습니다</span></div><p style="text-align:center;margin-top:10px;color:#295c9e;font-weight:700">이번만 손으로</p></div>');
+  // 10월 둘째 주에 새로 생긴 화면(캡처 전이라 모형): 빼꼼·넵 마감·넵 속 일정·수업교체 계산하기·전자칠판 쪽지
+  function hd(title, link, attr) { return '<div class="row" ' + (attr || "") + '><h4 style="margin:0">' + title + "</h4>" + (link ? '<span class="lk">' + link + "</span>" : "") + "</div>"; }
+  function li(tm, txt, pill) { return '<div class="li"><b class="tm">' + tm + "</b><span>" + txt + "</span>" + (pill || "") + "</div>"; }
+  M.today = mk('<div class="top"><b>빼꼼</b><span>오늘 학교를 빼꼼 — 공지와 평소 시간표에서 달라진 것</span></div>' +
+    '<div class="card" data-t="board">' + hd('알림판 <span class="cnt">1</span>', "전체 보기") + li('<span class="pill">공지</span>', "10월 교직원 협의회 안내", '<span class="pill gr">고정</span>') + "</div>" +
+    '<div class="days" data-t="days"><span>월<small>10/12</small></span><span>화<small>10/13</small></span><span class="on">오늘<small>10/14</small></span><span>목<small>10/15</small></span><span>금<small>10/16</small></span></div>' +
+    '<p class="dayln">10월 14일 수요일 · 지금 3교시</p>' +
+    '<div class="card" data-t="nep">' + hd('내 넵 <span class="cnt">1</span>', "넵") + li("16:30", "2학기 평가계획서 제출", '<span class="pill">제출요청 마감</span>') + "</div>" +
+    '<div class="card" data-t="ev">' + hd('특별 일정 <span class="cnt">2</span>', "주간소식") + li("5~6교시", "동아리활동") + li("15:30", "10월 교직원 협의회", '<span class="pill wk">주간소식</span>') + "</div>" +
+    '<div class="card" data-t="chg">' + hd('바뀐 수업 <span class="cnt">2</span>') + li("3교시", "2-3 국어 → 수학 김하늘", '<span class="pill ok">지금</span>') + li("5교시", "1-4 과학", '<span class="pill warn">보강 필요</span>') + "</div>");
+  M.nepDue = mk('<div class="top"><b style="font-size:20px">‹&nbsp; 넵 보내기</b></div>' +
+    '<div class="card"><p class="lbl">유형</p><div class="chips"><span>알림</span><span class="on">확인요청</span><span>업무요청</span><span>제출요청</span></div>' +
+    '<p class="lbl">제목</p><div class="inp">2학기 평가계획서 확인</div>' +
+    '<p class="lbl">본문</p><div class="inp" style="height:76px">10월 16일까지 확인하고 [넵] 눌러 주세요. 10월 20일 7교시 교과협의회에서 함께 봅니다.</div>' +
+    '<p class="muted" style="margin:12px 0 4px">첨부 · 링크 · 받는 사람 ⋯</p>' +
+    '<p class="lbl" data-t="duelabel">마감 (선택)</p>' +
+    '<div class="hint" data-t="due">글에서 찾은 날짜를 마감으로 넣었어요. 다르면 다른 날짜를 누르거나 칸을 고쳐 주세요. 마감은 받는 분 일정에도 뜹니다.<div class="chips" style="margin-top:8px"><span class="on">10월 16일(금) 오후 4시 30분</span><span>10월 20일(화) 오후 4시 30분</span></div></div>' +
+    '<div class="inp">2026. 10. 16. 오후 04:30</div><p class="lk" style="margin-top:8px">마감 빼기</p>' +
+    '<div class="btn">보내기</div></div>');
+  M.nepEvents = mk('<div class="top"><b style="font-size:20px">‹&nbsp; 넵</b></div>' +
+    '<div class="card"><span class="pill">확인요청</span><h4 style="font-size:20px;margin-top:8px">2학기 평가계획서 확인</h4><p class="muted">보낸 사람 나 · 마감 10월 16일(금) 16:30</p><p style="margin-top:10px">10월 16일까지 확인하고 [넵] 눌러 주세요. 10월 20일 7교시 교과협의회에서 함께 봅니다.</p></div>' +
+    '<div class="card" data-t="ev">' + hd("넵 속 일정") +
+    '<div class="row" style="gap:8px;justify-content:flex-start;margin-top:8px" data-t="evbtn"><span class="tb">AI로 다시 찾기</span><span class="tb">+ 더하기</span></div>' +
+    li("10/20(화)", "7교시 교과협의회", '<span class="lk">고치기 · 빼기</span>') +
+    '<p class="muted" style="margin-top:8px">받는 분들의 일정·시간표·빼꼼·아침 알림에 이 일정이 보여요. 받는 분과 나에게만 보입니다.</p></div>' +
+    '<div class="card"><div class="row"><span class="muted">처리</span><b>3 / 7</b></div><div class="bar2"><i style="width:43%"></i></div></div>');
+  M.swapCalc = mk('<div class="top"><b>수업교체</b><span>교체안과 수업교체 신고서 · 학사일정 반영</span></div>' +
+    '<div class="seg3" style="grid-template-columns:1fr 1fr"><span class="on">계산하기</span><span>요청</span></div>' +
+    '<div class="card" data-t="cond"><h4>교체 조건</h4>' +
+    '<p class="lbl">선생님</p><div class="inp">홍길동 ▾</div>' +
+    '<div class="two"><div><p class="lbl">날짜</p><div class="inp">2026. 10. 20.</div></div><div><p class="lbl">사유</p><div class="inp">출장 ▾</div></div></div>' +
+    '<div class="row" style="margin-top:12px"><p class="lbl" style="margin:0">교시 · 화요일 · 홍길동 선생님 수업 1·3교시</p></div>' +
+    '<div class="per" data-t="per"><span class="on">1<i></i></span><span>2</span><span class="on">3<i></i></span><span>4</span><span>5</span><span>6</span><span>7</span></div>' +
+    '<p class="lk" style="margin-top:6px">하루 전체</p>' +
+    '<p class="cal" data-t="cal">이날 학사일정: 동아리활동5-6 — 5~6교시 수업 없음</p>' +
+    '<div class="btn" data-t="go">경우의 수 찾기</div></div>' +
+    '<div class="card"><div class="row"><b style="font-size:15px">앞으로 4주, 시간표가 바뀌는 날</b><span class="muted">6일 ›</span></div></div>');
+  M.swapPlan = mk('<div class="card" style="margin-top:18px"><h4 style="margin:0">수업 교체안</h4><p class="muted">10월 20일(화) 1·3교시 · 출장</p>' +
+    '<p class="cal" style="margin-top:8px"><b>반영한 학사일정</b> 10/20(화) 동아리활동5-6 — 5~6교시 수업 없음<br>이미 잡힌 다른 교체 1건을 반영했습니다.</p></div>' +
+    '<div class="card" data-t="plan"><div class="row"><b>1안 · 추천</b><span class="pill ok">전부 해결</span></div><p class="muted">상대 김하늘, 박서준 · 부담 낮음</p>' +
+    '<div class="sw2"><b>화 1교시</b><span><s>2-3 국어 홍길동</s> → 수학 김하늘</span></div>' +
+    '<div class="sw2"><b>화 3교시</b><span><s>1-4 국어 홍길동</s> → 과학 박서준</span></div>' +
+    '<div class="sw2" data-t="date"><b>목 2교시</b><span><s>2-3 수학 김하늘</s> → 국어 홍길동</span><em class="sel">10/22(목) ▾</em></div>' +
+    '<div class="opts"><span class="on">10/22(목)</span><span>10/29(목)</span><span class="no">11/5(목) — 다른 교체와 겹침</span></div>' +
+    '<div class="sw2"><b>금 4교시</b><span><s>1-4 과학 박서준</s> → 국어 홍길동</span><em class="sel">10/23(금) ▾</em></div>' +
+    '<div class="btn" data-t="req">내 서명으로 이 안 요청</div><p class="lk" style="text-align:center;margin-top:8px">이번만 손으로</p>' +
+    '<div class="row" style="justify-content:flex-start;gap:8px;margin-top:10px" data-t="tools"><span class="tb">요약 복사</span><span class="tb">신고서</span></div></div>' +
+    '<div class="card"><div class="row"><b>2안</b><span class="lk">자세히 보기</span></div></div>');
+  M.boardMemo = mk('<div class="top"><b>전자칠판 알림</b><span>교실 칠판에 안내·긴급을 띄웁니다</span></div>' +
+    '<div class="card"><div class="seg3" style="margin:0 0 12px" data-t="memo"><span>안내</span><span class="on">쪽지</span><span>긴급</span></div>' +
+    '<p class="lbl">대상</p><div class="chips"><span>전체</span><span class="on">1학년</span><span>2학년</span><span>3학년</span><span>교실 고르기</span></div>' +
+    '<p class="lbl">글</p><div class="inp" style="height:62px" data-t="text">점심시간에 반장은 교무실로 와 주세요</div><p class="muted" style="margin-top:4px">19/60</p>' +
+    '<p class="muted" style="margin-top:6px">수업 화면을 가리지 않고 칠판 오른쪽 위에 노란 쪽지로 뜹니다(「띵」 한 번). 학생들도 보니 이름 같은 민감한 내용은 쓰지 마세요.</p>' +
+    '<p class="lbl">유지 시간</p><div class="chips"><span>5분</span><span class="on">10분</span><span>20분</span><span>30분</span></div>' +
+    '<div class="btn" data-t="send">10곳에 쪽지 보내기</div></div>');
 
   // ════════════════════════════════════════════════════════════
   // 0부 · 시작
@@ -454,7 +524,7 @@
     notes: "연수 시작 전부터 이 화면을 띄워 둡니다. <b>휴대폰 카메라로 QR을 찍어 AI 교무실을 열고, 처음 받은 비밀번호를 준비</b>해 달라고 안내합니다. 오늘은 듣기보다 <b>휴대폰으로 함께 해 보는</b> 연수라는 점을 먼저 말씀드립니다.",
     html: darkBg("cover") +
       '<div class="abs cv-brand"><img src="img/symbol-128.png" alt=""><div><small>MYONGJI MIDDLE SCHOOL</small><b>AI 교무실</b></div></div>' +
-      '<p class="abs cv-kicker">교직원 연수 · 약 50분 · 휴대폰과 함께</p>' +
+      '<p class="abs cv-kicker">교직원 연수 · 약 55분 · 휴대폰과 함께</p>' +
       '<h1 class="abs cv-title"><span class="ln">AI 교무실,</span><span class="ln">함께 <em>써 봅니다</em></span></h1>' +
       '<p class="abs cv-lead">휴대폰 카메라로 오른쪽 <b>QR</b>을 찍어 주세요.<br>처음 받은 <b>비밀번호</b>도 준비해 주세요.</p>' +
       '<div class="abs cv-qr"><img src="img/qr.svg" alt="mjms-office.vercel.app 주소 QR 코드"><p>mjms-office.vercel.app</p><small>카메라로 찍으면 바로 열립니다</small></div>',
@@ -532,13 +602,13 @@
   });
 
   var AGENDA = [
-    [1, "기본 설정", "로그인·비밀번호, 앱 설치, 알림 켜기, 보건실 알림, 새 홈 화면", 9],
-    [2, "시간표·진도표", "빈 교실 찾기, 오늘 진도 한 줄, 「한 달」 도장판", 5],
-    [3, "넵", "나에게 업무요청, 받는 사람 고르기, 받은 넵 처리", 6],
+    [1, "기본 설정", "로그인, 앱 설치, 알림 켜기, 보건실 알림, 새 홈 화면·빼꼼", 10],
+    [2, "시간표·진도표", "빈 교실·칸 속 일정, 오늘 진도 한 줄, 「한 달」 도장판", 5],
+    [3, "넵", "나에게 업무요청, 마감이 내 일정에, 받는 사람, 받은 넵", 7],
     [4, "디지털 서명", "내 서명 등록, 회의 서명부(AI로도), 파일로 서명 받기", 8, true],
-    [5, "AI에게 부탁하기", "자료실·파일 묻기, 가정통신문·수리 요청 카드, 수업교체", 8],
+    [5, "AI에게 부탁하기", "자료실·드라이브·파일 묻기, 요청 카드, 수업교체 계산", 9],
     [6, "세특 도우미", "과세특 초안 한 명 만들어 보기", 5],
-    [7, "전자칠판·자료실", "칠판 알림(사진·예약·시험 화면) 둘러보기, 자료 찾고 올리기", 5]
+    [7, "전자칠판·자료실", "칠판 알림(사진·예약·쪽지·시험 화면), 자료 찾고 올리기", 5]
   ];
   D.add({
     id: "agenda", part: 0, label: "오늘 순서", kind: "light", min: 0.5, trans: "whip",
@@ -555,23 +625,25 @@
         A.rise(".ag .r", { delay: 500, each: 90, y: 30, snd: "pluck", v: 0.07 });
         A.stagger(".ag .tm i", [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { delay: 800, each: 90, d: 900, e: E.out });
         A.wipe(".ag-total", { delay: 600 });
-        A.later(function () { A.count("[data-total]", 0, 50, 1500); }, 800);
+        A.later(function () { A.count("[data-total]", 0, 55, 1500); }, 800);
       }];
     }
   });
 
   var NEWF = [
-    ["4부", "디지털 서명", "<b>내 서명</b>을 한 번 등록하면 회의 서명부·파일 서명·수업교체 신고서에 <b>한 번 누르기</b>로. 회의 서명부는 <b>AI에게 말로</b>도."],
-    ["7부", "전자칠판 알림", "<b>사진 3장·예약 전송·긴급 단추</b>, 특별실은 층별로. 시험 날에는 칠판이 <b>시험 화면</b>으로."],
-    ["5부", "AI가 파일도 읽어요", "<b>📎로 PDF·사진·한글·엑셀</b>을 붙이거나 웹 주소를 붙여 넣으면 읽고 답합니다."],
-    ["1부", "알림 종 · 현황판", "홈 오른쪽 위 <b>종</b>에 나에게 온 알림 30일. 더보기 맨 위 <b>현황판</b>에 오늘 바뀐 수업."],
-    ["3부", "받는 사람 고르기", "넵·서명을 <b>부서·교과·직책</b>(부장단·교과 주임단)으로 보내고, 고르면 <b>이름이 펼쳐져</b> 보입니다."],
-    ["2부", "진도 「한 달」 도장판", "반마다 이달 수업이 <b>동그라미</b>로. 빈 동그라미를 누르면 그 주를 바로 적습니다."]
+    ["1부", "빼꼼 · 오늘 알림", "현황판이 <b>빼꼼</b>으로. 공지·내 넵·특별 일정·바뀐 수업을 한곳에, 홈에는 <b>「오늘 알림」</b>."],
+    ["1부", "아침 알림 「내 줄」", "내 당번·<b>바뀐 내 수업</b>·내 수업과 겹치는 일정·오늘 마감 넵이 알림 <b>맨 위</b>에."],
+    ["2부", "시간표 칸에 일정", "수업 시간과 겹치는 <b>학사일정·주간소식</b>이 그 칸에 띠로. 띠를 누르면 전체 글."],
+    ["3부", "넵 마감이 내 일정에", "글 속 날짜가 <b>마감 칸에 저절로</b>. 마감과 넵 속 일정이 받는 분 <b>일정·빼꼼</b>에."],
+    ["4부", "디지털 서명", "<b>내 서명</b> 한 번 등록으로 회의 서명부·파일 서명·수업교체 신고서에 <b>한 번 누르기</b>."],
+    ["5부", "AI가 더 많이 읽어요", "<b>📎 파일·웹 주소</b>, <b>학교 공유 드라이브</b>, 주간소식까지. 넵도 <b>카드로 보내기</b>."],
+    ["5부", "수업교체 계산하기", "<b>학사일정을 반영</b>해 교체안을 계산하고, 갚는 수업의 <b>날짜를 고릅니다</b>."],
+    ["7부", "전자칠판 알림", "사진·예약·긴급 단추에 이어 <b>쪽지</b>와 <b>▶ 영상 틀기</b>. 시험 날은 <b>시험 화면</b>."]
   ];
   D.add({
-    id: "whatsnew", part: 0, label: "이번 주 새 기능", kind: "light", min: 1, isNew: true,
-    notes: "미리 써 보신 분도 계시니, <b>10월에 새로 들어온 여섯 가지</b>를 먼저 짚습니다. 각 기능이 몇 부에서 나오는지 오른쪽 위 표시를 가리키며 “뒤에서 직접 해 봅니다” 정도로 짧게 넘깁니다.",
-    html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip ghost">10월</span></div><h2 class="title">10월에 <em>새로 들어온</em> 여섯 가지</h2>' +
+    id: "whatsnew", part: 0, label: "10월 새 기능", kind: "light", min: 1.2, isNew: true,
+    notes: "미리 써 보신 분도 계시니, <b>10월에 새로 들어온 여덟 가지</b>를 먼저 짚습니다. 특히 둘째 주에 바뀐 것 — <b>현황판이 「빼꼼」으로</b> 이름이 바뀌고 공지가 그 안으로 들어간 것, <b>수업교체 계산하기</b>, <b>넵 마감이 내 일정에</b> 뜨는 것 — 은 이미 써 보신 분도 헷갈릴 수 있으니 한 번 더 말씀드립니다. 각 기능이 몇 부에서 나오는지 왼쪽 위 표시를 가리키며 “뒤에서 직접 봅니다” 정도로 짧게 넘깁니다.",
+    html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip ghost">10월</span></div><h2 class="title">10월에 <em>새로 들어온</em> 여덟 가지</h2>' +
       '<div class="abs nf">' + NEWF.map(function (f) { return '<div class="card c"><span class="where">' + f[0] + "에서</span><h3>" + f[1] + "</h3><p>" + f[2] + "</p></div>"; }).join("") + "</div>",
     build: function (el, A) {
       return [function (A) {
@@ -587,9 +659,9 @@
   // 1부 · 기본 설정
   // ════════════════════════════════════════════════════════════
   opener({
-    part: 1, art: "basics", min: 9, lines: ["한 번 켜 두면", "<em>아침마다</em> 옵니다"],
+    part: 1, art: "basics", min: 10, lines: ["한 번 켜 두면", "<em>아침마다</em> 옵니다"],
     was: "오늘 일정·경건회·등교지도를 여기저기서 확인", now: "평일 아침 7시 50분, 알림 한 번으로",
-    notes: "1부는 <b>로그인 → 앱 설치 → 알림 켜기</b>까지 함께 합니다. 이 세 가지만 해 두면 내일 아침부터 7시 50분에 오늘 일정이 휴대폰으로 옵니다."
+    notes: "1부는 <b>로그인 → 앱 설치 → 알림 켜기</b>까지 함께 합니다. 이 세 가지만 해 두면 내일 아침부터 7시 50분에 오늘 일정이 휴대폰으로 옵니다. 끝으로 바뀐 홈 화면과 옛 현황판인 <b>「빼꼼」</b>을 둘러봅니다."
   });
 
   practice({
@@ -601,7 +673,7 @@
       { t: '받은 비밀번호를 넣고 <span class="k">로그인</span>', s: 0, r: [58, 489, 296, 50] },
       { t: '처음이면 새 비밀번호를 정합니다. <b>8자 이상, 영문과 숫자</b>를 함께', s: 1, r: [31, 117, 350, 48] },
       { t: '<span class="k">비밀번호 변경</span>을 누르면 끝', s: 1, r: [31, 288, 350, 50] },
-      { t: "홈 화면: 오늘 내 수업·공지·급식이 한눈에", s: 2 }
+      { t: '홈 화면: 오늘 내 수업·<span class="q">「오늘 알림」</span>·급식이 한눈에', s: 2 }
     ],
     note: { html: '<img src="img/qr.svg" alt="" style="width:76px;height:76px;flex:none;border-radius:8px"><span>이름이 안 나오면 <b>초성(ㅇㅅㅇ)</b>으로도 찾습니다. 비밀번호를 잊으셨으면 <b>교목실</b>에서 바로 맞춰 드립니다.</span>' },
     screens: [shot("login"), shot("password"), shot("home")],
@@ -648,9 +720,9 @@
       { t: '휴대폰이 물으면 <span class="q">「허용」</span>', s: 3, r: "[data-t=allow]", z: 1.9 },
       { t: '<span class="k">내 기기로 시험 발송</span> → 알림이 오면 끝', s: 4, r: "[data-t=test]", fn: function (A, P) { A.later(function () { P.wide(); A.banner(P.el(4), { title: "시험 알림", body: "이 기기로 알림이 잘 옵니다." }); }, 1300); } }
     ],
-    note: { html: "<span>평일 <b>7시 50분</b> 아침 요약, <b>11시 30분</b> 점심 요약. 새 공지·넵·서명 요청·<b>보건실 입실</b>도 알림으로 옵니다.</span>" },
+    note: { html: "<span>평일 <b>7시 50분</b> 아침, <b>11시 30분</b> 점심 알림. 맨 위에는 선생님마다 <b>「내 줄」</b>(내 당번·바뀐 내 수업·내 수업과 겹치는 일정·오늘 마감 넵)이 옵니다. 새 공지·넵·서명 요청·<b>보건실 입실</b>도 알림으로 옵니다.</span>" },
     screens: [shot("home"), shot("more-bottom"), M.notiOff, M.notiAsk, M.notiOn],
-    notes: "오늘 연수에서 <b>가장 중요한 실습</b>입니다. 지금 알림을 켠 계정이 열 분 남짓이에요. 「허용」을 실수로 거절하셨으면 휴대폰 설정 → 알림 → AI 교무실에서 허용합니다. <b>시험 발송까지 해서 알림이 오는 것을 꼭 확인</b>해 주세요."
+    notes: "오늘 연수에서 <b>가장 중요한 실습</b>입니다. 지금 알림을 켠 계정이 열 분 남짓이에요. 아침·점심 알림 맨 위에는 이제 선생님마다 다른 <b>「내 줄」</b>이 옵니다 — 내 당번(등교지도·경건회 인도·급식지도), 바뀐 내 수업, 내 수업 시간과 겹치는 일정, 오늘 마감인 넵, 그리고 AI가 학사일정을 읽어 고른 <b>나와 관련된 일정</b>입니다. 「허용」을 실수로 거절하셨으면 휴대폰 설정 → 알림 → AI 교무실에서 허용합니다. <b>시험 발송까지 해서 알림이 오는 것을 꼭 확인</b>해 주세요."
   });
 
   D.add({
@@ -691,23 +763,41 @@
   });
 
   practice({
-    id: "home", part: 1, num: null, label: "새 홈 화면 둘러보기", min: 0.9, isNew: true,
+    id: "home", part: 1, num: null, label: "새 홈 화면 둘러보기", min: 1, isNew: true,
     chips: [{ t: "NEW", c: "new" }, { t: "둘러보기", c: "ghost" }], title: "홈 화면이 이렇게 바뀌었어요",
     steps: [
       { t: '날짜 옆에 <b>지금 날씨·미세먼지</b>', s: 0, r: [205, 66, 197, 34], newf: true, z: 1.85 },
       { t: '오른쪽 위 <span class="k">종</span>: 나에게 온 알림 30일, 확인하면 지워집니다', s: 0, r: [352, 14, 56, 56], newf: true, z: 1.9 },
-      { t: '<b>오후 4시 20분</b>이 지나면 수고 인사와 <b>내일 미리보기</b>', s: 0, r: [16, 96, 380, 122], newf: true },
-      { t: '오늘 시간표 카드에서 바로 <span class="k">진도 기록</span>', s: 0, r: [17, 360, 378, 124] },
-      { t: '가운데 볼록한 <span class="k">AI</span> 버튼, 「일정」은 더보기로', s: 0, r: [158, 768, 96, 88], newf: true, z: 1.8 },
-      { t: '할 일이 있으면 <b>더보기 탭·앱 아이콘에 숫자</b>', s: 0, r: [327, 790, 81, 62], newf: true, z: 1.8, fn: function (A, P) {
+      { t: '큰 글씨는 <b>그날에 맞춘 한마디</b>. <b>오후 4시 20분</b>이 지나면 수고 인사와 <b>내일 미리보기</b>', s: 0, r: [16, 96, 380, 122], newf: true },
+      { t: '세 칸 <span class="q">수업 · 일정 · 빼꼼</span>: 「빼꼼」은 공지와 오늘 바뀐 수업 수', s: 0, r: [275, 227, 121, 61], newf: true, z: 1.9 },
+      { t: '오늘 시간표 카드에서 바로 <span class="k">진도 기록</span>. 칸의 점은 그 교시에 겹친 일정', s: 0, r: [17, 360, 378, 124] },
+      { t: '<span class="q">「오늘 알림」</span>: 공지·오늘 바뀐 수업·오늘 마감 넵·특별 일정. 없으면 다정한 한 줄', s: 0, r: [17, 497, 378, 81], newf: true },
+      { t: '할 일이 있으면 <b>더보기 탭·앱 아이콘에 숫자</b>. 가운데 볼록한 <span class="k">AI</span> 버튼은 5부에서', s: 0, r: [327, 790, 81, 62], newf: true, z: 1.8, fn: function (A, P) {
         var b = h('<div class="over" style="left:371px;top:796px;min-width:24px;height:24px;padding:0 7px;border-radius:12px;background:#e5484d;color:#fff;font:700 14px/24px var(--body);text-align:center;box-shadow:0 0 0 2px #fff">3</div>');
         P.el(0).appendChild(b); A.pop(b, { delay: 500, s: 0.2 });
-      } },
-      { t: '더보기 맨 위 <span class="k">현황판</span>: 오늘 바뀐 수업·특별 일정', s: 1, r: [17, 77, 378, 56], newf: true }
+      } }
     ],
-    screens: [shot("home"), shot("more-top")],
+    screens: [shot("home")],
     lt: { tag: "NEW", title: "새 홈 화면", sub: "10월에 바뀐 것들" },
-    notes: "10월에 바뀐 홈 화면입니다. 날씨·미세먼지, <b>오른쪽 위 종(나에게 온 알림 모아 보기)</b>, 퇴근 시간 뒤의 수고 인사와 내일 미리보기, 가운데 AI 버튼, 할 일 숫자를 짚어 줍니다. <b>할 일 숫자</b>는 넵·수업교체·서명할 것이 남아 있을 때만 뜹니다(지금 화면의 빨간 숫자는 예시입니다). 더보기 맨 위의 <b>현황판</b>에는 오늘 평소 시간표와 달라진 수업과 특별 일정만 모여 있습니다."
+    notes: "10월에 바뀐 홈 화면입니다. 날씨·미세먼지, <b>오른쪽 위 종(나에게 온 알림 모아 보기)</b>, 그날에 맞춘 한마디와 퇴근 시간 뒤의 내일 미리보기를 짚어 줍니다. 예전 「공지」 칸과 카드는 <b>「빼꼼」 칸과 「오늘 알림」 카드</b>로 바뀌었습니다 — 공지 세 줄, 오늘 바뀐 수업, 오늘 마감인 넵, 특별 일정을 한 카드에 모았고, 알릴 것이 없으면 「새 소식이 없어요」 같은 한 줄만 뜹니다. 오늘 시간표 칸의 작은 점은 그 교시에 겹친 일정입니다. <b>할 일 숫자</b>는 넵·수업교체·서명할 것이 남아 있을 때만 뜹니다(지금 화면의 빨간 숫자는 예시입니다)."
+  });
+
+  practice({
+    id: "today", part: 1, num: null, label: "빼꼼 둘러보기", min: 0.8, isNew: true,
+    chips: [{ t: "NEW", c: "new" }, { t: "둘러보기 · 옛 현황판", c: "ghost" }], title: "오늘 달라진 것은 <em>빼꼼</em>",
+    steps: [
+      { t: '더보기 맨 위 <span class="k">빼꼼</span>(옛 현황판)', g: '더보기 맨 위 <span class="k">빼꼼</span>(옛 현황판). 홈의 「빼꼼」 칸·「오늘 알림」에서도 들어갑니다', s: 0, r: [17, 77, 378, 56], newf: true },
+      { t: '맨 위 <span class="q">「알림판」</span>: 고정한 공지와 올린 지 하루가 안 된 공지', s: 1, r: "[data-t=board]", newf: true },
+      { t: '요일을 눌러 이번 주 다른 날도 봅니다', s: 1, r: "[data-t=days]" },
+      { t: '<span class="q">「내 넵」</span>: 그날 마감인 넵과 넵 속 일정. <b>나에게만</b> 보입니다', s: 1, r: "[data-t=nep]", newf: true },
+      { t: '<span class="q">「특별 일정」</span>: 학사일정과 <b>주간소식</b> 일정을 한 목록으로', s: 1, r: "[data-t=ev]" },
+      { t: '<span class="q">「바뀐 수업」</span>: 평소와 달라진 수업만(사유는 안 보임)', g: '<span class="q">「바뀐 수업」</span>: 평소 시간표와 달라진 수업만. 교체 사유는 보이지 않습니다', s: 1, r: "[data-t=chg]" }
+    ],
+    note: { html: "<span>공지는 이제 빼꼼 맨 위 <b>알림판</b>에. 화면은 모형입니다.</span>" },
+    gnote: { html: "<span>공지는 이제 빼꼼 맨 위 <b>알림판</b>에 걸립니다. 열어 두면 1분마다 새로 읽습니다. 화면은 모형이고 일정·이름은 예시입니다.</span>" },
+    screens: [shot("more-top"), M.today],
+    lt: { tag: "NEW", title: "빼꼼", sub: "현황판 이름이 바뀌고, 공지가 맨 위로 들어왔어요" },
+    notes: "더보기 맨 위의 <b>현황판이 「빼꼼」으로</b> 이름이 바뀌었습니다. 「오늘 학교를 빼꼼」 들여다본다는 뜻입니다. 공지 메뉴는 따로 없고 <b>빼꼼 맨 위 「알림판」</b>에 고정 공지와 하루 안 된 공지가 걸립니다. 그 아래는 그날 나의 넵 마감·넵 속 일정(「내 넵」, 나에게만), 학사일정과 주간소식의 특별 일정, 평소 시간표와 달라진 수업 순서입니다. 누가 왜 자리를 비우는지는 싣지 않습니다. 화면은 모형이고 일정·이름은 예시입니다."
   });
 
   D.add({
@@ -756,11 +846,17 @@
       { t: '아래 <span class="k">시간표</span> 탭: 내 시간표가 먼저, 오늘 요일이 표시됩니다', s: 0, r: [85, 797, 81, 55], z: 1.8 },
       { t: '위쪽 <span class="q">「교사 · 학급 · 교실 · 전체」</span>로 보는 기준을 바꿉니다', s: 0, r: [19, 79, 376, 44] },
       { t: '아래로 내리면 <span class="q">「빈 교실」</span>. 수업 시간엔 지금 교시로 보여 줍니다', s: 0, r: [17, 637, 378, 147] },
+      { t: '이번 주 칸에 <b>학사일정·주간소식</b>이 주황 띠로 붙습니다. 띠를 누르면 <b>전체 글</b>이 작은 창으로 <span class="nw">NEW</span>', s: 0, r: [126, 319, 61, 47], newf: true, z: 1.9, fn: function (A, P) {
+        var band = h('<div class="over" style="left:129px;top:352px;width:55px;height:12px;border-radius:3px;background:#fdeae3;color:#b0532b;font:700 8px/12px var(--body);text-align:center;overflow:hidden;white-space:nowrap">학교폭력예방</div>');
+        var pop = h('<div class="over" style="left:96px;top:372px;width:220px;padding:10px 12px;border-radius:12px;background:#fff;box-shadow:0 10px 26px rgba(18,33,58,.22);font:400 14px/1.45 var(--body);color:#1c2533"><b style="display:block;font-size:13px;color:#55677f">화 3교시 · 1-9</b>10:00 학교폭력예방교육(1학년)</div>');
+        P.el(0).appendChild(band); P.el(0).appendChild(pop);
+        A.pop(band, { delay: 500, s: 0.4 }); A.go(pop, [{ opacity: 0, transform: "translateY(-6px)" }, { opacity: 1, transform: "none" }], { d: 400, delay: 1300 });
+      } },
       { t: '<span class="q">「학급」</span>에서 반을 고르면 그 반 시간표와 담임 선생님', s: 1, r: [16, 134, 380, 44] }
     ],
-    note: { html: "<span>수업 시간이 아닐 때는 <b>월요일 1교시</b>를 보여 줍니다. 요일·교시를 골라 다른 시간의 빈 교실과 공강인 선생님도 봅니다.</span>" },
+    note: { html: "<span>수업 시간이 아닐 때는 <b>월요일 1교시</b>를 보여 줍니다. 요일·교시를 골라 다른 시간의 빈 교실과 공강인 선생님도 봅니다. 칸의 띠는 <b>이번 주 그 날짜에만</b> 붙습니다(교사·학급 보기, 내 시간표에는 넵 속 일정도).</span>" },
     screens: [shot("timetable"), shot("timetable-class")],
-    notes: "시간표 탭은 <b>내 시간표</b>부터 보여 줍니다. 「교실」로 바꾸면 특별실이 언제 비는지, 아래 「빈 교실」에서는 지금 쓸 수 있는 교실을 바로 봅니다. 결강·보강 때 가장 많이 쓰시는 화면입니다."
+    notes: "시간표 탭은 <b>내 시간표</b>부터 보여 줍니다. 「교실」로 바꾸면 특별실이 언제 비는지, 아래 「빈 교실」에서는 지금 쓸 수 있는 교실을 바로 봅니다. 수업 교체·보강 때 가장 많이 쓰시는 화면입니다. 새로 <b>수업 시간과 겹치는 학사일정·주간소식이 그 칸에 주황 띠</b>로 붙습니다 — 칸이 좁아 글이 잘리니 띠를 누르면 전체 글이 작은 창으로 뜹니다(띠와 창은 발표용 예시입니다). 학급 시간표에는 그 반 학년 일정만, 내 시간표에는 넵 속 일정도 붙습니다."
   });
 
   practice({
@@ -785,16 +881,16 @@
   // 3부 · 넵
   // ════════════════════════════════════════════════════════════
   opener({
-    part: 3, art: "nep", min: 6, lines: ["읽었는지, 했는지", "<em>한눈에</em> 보입니다"],
+    part: 3, art: "nep", min: 7, lines: ["읽었는지, 했는지", "<em>한눈에</em> 보입니다"],
     was: "부탁하고 나서 읽었는지 몰라 다시 묻기", now: "버튼 하나로 답하고, 처리 현황이 보입니다",
-    notes: "3부는 업무 연락 도구 <b>넵</b>입니다. 메신저와 다른 점은 <b>받는 사람이 버튼 하나로 답하고, 보낸 사람은 누가 했는지 바로 본다</b>는 것입니다."
+    notes: "3부는 업무 연락 도구 <b>넵</b>입니다. 메신저와 다른 점은 <b>받는 사람이 버튼 하나로 답하고, 보낸 사람은 누가 했는지 바로 본다</b>는 것입니다. 이제 넵의 <b>마감과 글 속 일정이 받는 분 일정에</b> 저절로 들어갑니다."
   });
 
   D.add({
     id: "nepIntro", part: 3, label: "넵 알아보기", kind: "light", min: 1, trans: "zoom",
-    notes: "넵은 네 가지입니다. <b>알림</b>은 읽으면 끝, <b>확인요청</b>은 [넵], <b>업무요청</b>은 [완료], <b>제출요청</b>은 [제출]. 보내는 시각도 배려합니다 — 받는 분이 <b>수업 중이면 교시가 끝난 뒤</b>, <b>근무 시간 밖이면 다음 근무일 아침</b>에 도착합니다. 긴급만 바로 울리고 한 달 5번까지입니다.",
+    notes: "넵은 네 가지입니다. <b>알림</b>은 읽으면 끝, <b>확인요청</b>은 [넵](마감은 넣어도 되고 안 넣어도 됩니다), <b>업무요청</b>은 [완료], <b>제출요청</b>은 [제출]. 마감은 이제 <b>받는 분의 일정·빼꼼에도</b> 뜹니다. 보내는 시각도 배려합니다 — 받는 분이 <b>수업 중이면 교시가 끝난 뒤</b>, <b>근무 시간 밖이면 다음 근무일 아침</b>에 도착합니다. 긴급만 바로 울리고 한 달 5번까지입니다.",
     html: '<div class="chiprow"><span class="chip">넵</span></div><h2 class="title">요청은 넵으로 보내고, <em>답은 버튼 하나로</em></h2>' +
-      '<div class="pills nepts"><span class="p"><b>알림</b>읽으면 끝</span><span class="p"><b>확인요청</b>[넵]</span><span class="p"><b>업무요청</b>[완료] · 마감</span><span class="p"><b>제출요청</b>[제출] · 마감</span></div>' +
+      '<div class="pills nepts"><span class="p"><b>알림</b>읽으면 끝</span><span class="p"><b>확인요청</b>[넵] · 마감(선택)</span><span class="p"><b>업무요청</b>[완료] · 마감</span><span class="p"><b>제출요청</b>[제출] · 마감</span></div>' +
       '<div class="card side abs" style="left:120px"><p class="who2">보내는 사람</p><h3>2학기 평가계획서 제출</h3><p>제출요청 · 2학년 담임 10명</p><div class="meter"><div class="lb"><span>처리</span><span><b class="mtr">3</b> / 10</span></div><div class="tr"><i style="width:100%"></i></div></div></div>' +
       '<i class="abs lane"></i><div class="abs gate"><span class="gt">3교시<br>수업 중</span></div><div class="abs env"></div>' +
       '<div class="card side abs" style="left:1280px"><p class="who2">받는 사람</p><h3>2학기 평가계획서 제출</h3><p>제출요청 · 마감 10월 9일(금)</p><div class="rbtn">제출<span class="dn">넵 처리했습니다</span></div></div>' +
@@ -843,12 +939,12 @@
       { t: '<span class="k">더보기</span> 맨 위의 <span class="k">넵</span>', s: 0, r: [17, 133, 378, 56] },
       { t: '<span class="k">나에게</span>: 나에게 보내는 할 일 메모', s: 1, r: [322, 665, 73, 45], z: 1.9 },
       { t: '유형은 <span class="q">「업무요청」</span> (받으면 <span class="k">완료</span>를 누름)', s: 2, r: [178, 117, 80, 44], z: 1.9 },
-      { t: '제목 <span class="q">「연수 실습: 진도 적기」</span>, 마감 날짜 고르기', s: 2, r: [31, 224, 350, 48] },
-      { t: '맨 아래로 내려 <span class="k">보내기</span>', s: 2 }
+      { t: '제목 <span class="q">「연수 실습: 진도 적기」</span>. 글에 날짜가 있으면 <b>마감 칸에 저절로</b> 들어갑니다', s: 2, r: [31, 224, 350, 48] },
+      { t: '맨 아래 <span class="q">「마감」</span>을 확인하고 <span class="k">보내기</span>. 마감은 <b>내 일정·빼꼼</b>에도 뜹니다', s: 2 }
     ],
     note: { tone: "warn", html: "<span><b>근무시간이 끝난 뒤</b>에 보내면 다음 근무일 아침에 도착합니다. 도착하면 [완료]를 눌러 보세요.</span>" },
     screens: [shot("more-top"), shot("nep"), shot("nep-new")],
-    notes: "「나에게」는 <b>나에게 보내는 할 일 메모</b>입니다. 밤에 써 두면 다음 근무일 아침에 도착하고, [완료]를 누를 때까지 남습니다. 지금 직접 한 건 보내 보세요."
+    notes: "「나에게」는 <b>나에게 보내는 할 일 메모</b>입니다. 밤에 써 두면 다음 근무일 아침에 도착하고, [완료]를 누를 때까지 남습니다. 마감은 <b>일정 달력·빼꼼 「내 넵」·홈 「오늘 알림」</b>에도 떠서 잊지 않게 해 줍니다. 지금 직접 한 건 보내 보세요."
   });
 
   practice({
@@ -865,6 +961,23 @@
     screens: [shot("nep-roles")],
     lt: { tag: "NEW", title: "받는 사람 고르기", sub: "2학기 업무분장·명렬표로 만든 교직원 조직표" },
     notes: "이번 주에 <b>교직원 조직표</b>(2학기 업무분장·명렬표)를 넣어서, 받는 사람을 부서·교과·직책으로 고를 수 있습니다. 고르면 <b>이름이 펼쳐져</b> 잘못 보낼 걱정이 줄어듭니다. 연락처는 담지 않았습니다."
+  });
+
+  practice({
+    id: "nepDue", part: 3, num: null, label: "넵 마감·넵 속 일정", min: 1, isNew: true,
+    chips: [{ t: "NEW", c: "new" }, { t: "둘러보기 · 넵", c: "ghost" }], title: "넵 마감이 <em>받는 분 일정에</em>",
+    steps: [
+      { t: '글 속 날짜가 <b>마감 칸에 저절로</b>. 다르면 날짜 단추나 칸을 고칩니다', g: '넵을 쓰면 제목·본문에서 찾은 날짜가 <b>마감 칸에 저절로</b> 들어갑니다. 다르면 다른 날짜 단추를 누르거나 칸을 고칩니다', s: 0, r: "[data-t=due]", newf: true },
+      { t: '확인요청도 <span class="q">「마감 (선택)」</span>. 필요 없으면 <span class="k">마감 빼기</span>', s: 0, r: "[data-t=duelabel]", z: 1.9 },
+      { t: '보내면 AI가 글 속 일정을 <span class="q">「넵 속 일정」</span>에 적습니다', g: '보내면 AI가 글 속 일정(날짜·교시·시각)을 찾아 <span class="q">「넵 속 일정」</span>에 적습니다', s: 1, r: "[data-t=ev]", newf: true },
+      { t: '보낸 사람은 <span class="k">고치기</span>·<span class="k">빼기</span>·<span class="k">+ 더하기</span>·<span class="k">AI로 다시 찾기</span>', s: 1, r: "[data-t=evbtn]", z: 1.9 },
+      { t: '받는 분의 <b>일정·시간표·빼꼼·아침 알림</b>에 뜹니다(두 분에게만)', g: '마감과 넵 속 일정은 받는 분의 <b>일정·시간표·빼꼼 「내 넵」·아침 알림</b>에 뜹니다. 보낸 분과 받는 분에게만 보입니다', s: 1 }
+    ],
+    note: { html: "<span>달력의 테두리 「넵」은 마감, 점선은 넵 속 일정. 화면은 모형입니다.</span>" },
+    gnote: { html: "<span>일정 달력에서 테두리만 있는 「넵」은 마감, 점선은 넵 속 일정입니다. 마감은 처리하면 사라지고, 학교 학사일정에는 들어가지 않습니다. 화면은 모형입니다.</span>" },
+    screens: [M.nepDue, M.nepEvents],
+    lt: { tag: "NEW", title: "넵 마감·넵 속 일정", sub: "받는 분의 일정·빼꼼·아침 알림에 저절로" },
+    notes: "넵 쓰기 화면이 <b>제목·본문의 날짜를 찾아 마감 칸에 미리 채웁니다</b>(시각이 없으면 오후 4시 30분). 보내기 전에 보이니 다르면 고치거나 뺍니다. 확인요청도 이제 마감을 넣을 수 있습니다. 보내고 나면 AI가 글 속의 일정 — 예를 들어 「10월 20일 7교시 교과협의회」 — 을 찾아 <b>넵 속 일정</b>으로 적고, 받는 분의 일정 달력(점선)·시간표 칸·빼꼼·아침 알림에 띄웁니다. 보낸 분과 받는 분에게만 보이고, 잘못 찾았으면 보낸 분이 고치거나 뺍니다. 화면은 모형입니다."
   });
 
   practice({
@@ -1034,17 +1147,17 @@
   // 5부 · AI에게 부탁하기
   // ════════════════════════════════════════════════════════════
   opener({
-    part: 5, art: "ai", min: 8, lines: ["묻고,", "<em>부탁하세요</em>"],
+    part: 5, art: "ai", min: 9, lines: ["묻고,", "<em>부탁하세요</em>"],
     was: "자료실 파일을 열어 찾고, 신청 시트를 열어 직접 적기", now: "말로 묻고 부탁하면, 확인 카드로 처리",
-    notes: "5부는 <b>AI 도우미</b>입니다. 이번 주부터 아래 탭 가운데의 볼록한 AI 버튼으로 바로 엽니다."
+    notes: "5부는 <b>AI 도우미</b>입니다. 아래 탭 가운데의 볼록한 AI 버튼으로 바로 엽니다. 이제 <b>학교 공유 드라이브</b>와 주간소식도 읽고, 넵도 카드로 보냅니다. 끝으로 학사일정을 반영한 <b>수업교체 계산하기</b>를 봅니다."
   });
 
   D.add({
     id: "aiIntro", part: 5, label: "AI에게 부탁하기 알아보기", kind: "light", min: 1, trans: "zoom",
-    notes: "세 단계입니다. <b>묻기</b> — 시간표·급식·학사일정은 물론 자료실 한글·PDF 파일 본문까지 찾아 답하고 출처를 붙입니다. 새로 <b>📎로 붙인 파일(PDF·사진·한글·엑셀)과 붙여 넣은 웹 주소</b>도 읽습니다. <b>부탁하기</b> — 가정통신문, 기기 수리 같은 신청을 말로 하면 필요한 것만 되묻습니다. <b>확인 카드</b> — 카드에서 고친 뒤 [등록]을 눌러야 실제로 적힙니다. <b>오늘 실습은 카드가 뜨는 데까지만</b> 합니다.",
+    notes: "세 단계입니다. <b>묻기</b> — 시간표·급식·학사일정·주간소식은 물론 자료실 한글·PDF 파일 본문까지 찾아 답하고 출처를 붙입니다. 자료실에 없으면 <b>학교 공유 드라이브</b>(부서 자료·교육계획서·교과 자료 등)도 찾아 읽습니다. <b>📎로 붙인 파일(PDF·사진·한글·엑셀)과 붙여 넣은 웹 주소</b>도 읽습니다. <b>부탁하기</b> — 가정통신문, 기기 수리 같은 신청을 말로 하면 필요한 것만 되묻습니다. 넵도 초안 카드로 만들어 [넵 보내기]를 누르면 갑니다. <b>확인 카드</b> — 카드에서 고친 뒤 [등록]을 눌러야 실제로 적힙니다. <b>오늘 실습은 카드가 뜨는 데까지만</b> 합니다.",
     html: '<div class="chiprow"><span class="chip">AI에게 부탁하기</span></div><h2 class="title">묻고, 부탁하고, <em>확인 카드에서 정합니다</em></h2>' +
-      '<div class="abs card askc" style="left:120px"><span class="sn">1</span><h3>묻기</h3><p>자료실의 한글·PDF <b>본문까지</b> 찾아 답하고, 답 끝에 출처 링크가 붙습니다.</p><div class="chips"><span>빈 교실</span><span>급식</span><span>학사일정</span><span>담임</span><span>자료실 내용</span><span>생기부 기재요령</span><span class="nwc">📎 붙인 파일·웹 주소</span></div></div>' +
-      '<div class="abs card askc" style="left:700px"><span class="sn">2</span><h3>부탁하기</h3><p>말로 부탁하면 AI가 <b>필요한 것만</b> 되묻고 초안을 만듭니다.</p><div class="chips"><span>가정통신문</span><span>통신문 번호</span><span>기기 수리</span><span>도서관 이용</span><span>희망도서</span><span>교과협의록</span><span>회의 서명부</span><span>수업교체</span></div></div>' +
+      '<div class="abs card askc" style="left:120px"><span class="sn">1</span><h3>묻기</h3><p>자료실·공유 드라이브 파일의 <b>본문까지</b> 찾아 답하고, 출처 링크를 붙입니다.</p><div class="chips"><span>빈 교실</span><span>급식</span><span>학사일정·주간소식</span><span>담임</span><span>자료실 내용</span><span>생기부 기재요령</span><span class="nwc">공유 드라이브</span><span class="nwc">📎 파일·웹 주소</span></div></div>' +
+      '<div class="abs card askc" style="left:700px"><span class="sn">2</span><h3>부탁하기</h3><p>말로 부탁하면 AI가 <b>필요한 것만</b> 되묻고 초안을 만듭니다.</p><div class="chips"><span>가정통신문</span><span>통신문 번호</span><span>기기 수리</span><span>도서관 이용</span><span>희망도서</span><span>교과협의록</span><span>회의 서명부</span><span class="nwc">넵 보내기</span><span class="nwc">수업교체 계산</span></div></div>' +
       '<div class="abs card askc confirm" style="left:1280px"><span class="sn">3</span><h3>확인 카드</h3><p>카드에서 고친 뒤 <b>[등록]</b>을 눌러야 실제로 적힙니다. 누르기 전 초안은 나만 봅니다.</p></div>' +
       '<div class="abs aibar"><div class="strip"></div><p><span class="badge-new">NEW</span>&nbsp; 아래 탭 가운데 볼록한 AI 버튼</p></div>',
     build: function (el, A) {
@@ -1074,12 +1187,12 @@
       { t: '아래 탭 가운데 <span class="k">AI</span> 버튼 <span class="nw">NEW</span>', s: 0, r: [158, 768, 96, 88], newf: true, z: 1.8 },
       { t: '칸에 묻습니다: <span class="q">「2학기 평가계획 수정은 어떻게 해?」</span>', s: 0, r: [68, 388, 251, 70], fn: function (A, P) { typeOver(A, P, 0, [70, 390, 247, 66], "2학기 평가계획 수정은 어떻게 해?", { delay: 700 }); } },
       { t: '<span class="k">📎</span>로 파일·웹 주소를 붙여도 <b>읽고 답합니다</b>', s: 0, r: [16, 410, 44, 48], newf: true, z: 1.9 },
-      { t: 'AI가 자료실 파일의 <b>본문까지</b> 찾아 읽고 답합니다', s: 1 },
+      { t: 'AI가 자료실 파일의 <b>본문까지</b> 찾아 읽고 답합니다. 자료실에 없으면 <b>학교 공유 드라이브</b>에서도 찾습니다 <span class="nw">NEW</span>', s: 1 },
       { t: '답 끝의 <span class="q">「자료 제목(부서) N쪽」</span> 링크로 원문을 바로 엽니다', s: 1, r: [40, 640, 160, 50] }
     ],
     note: { tone: "warn", html: "<span><b>학생 이름·실제 기록 문장은 넣지 않습니다.</b> 대화는 본인만 보고 「대화 기록 지우기」로 언제든 지웁니다.</span>" },
     screens: [shot("ai"), shot("ai-ask")],
-    notes: "자료실에 올라온 한글·PDF 파일의 <b>본문까지</b> 읽고 답하기 때문에, 어느 폴더에 있었는지 몰라도 찾을 수 있습니다. 답 끝 출처 링크로 원문을 꼭 확인하시라고 말씀드립니다. 새로 <b>📎로 PDF·사진·한글·엑셀 파일을 붙이거나 웹 주소를 붙여 넣으면</b> 그 내용도 읽고 답합니다. 질문과 붙인 자료는 외부 AI로 전송되고 하루 60개까지입니다. <b>학생 이름이나 실제 생기부 문장은 넣지 않습니다.</b> 대화는 본인만 보고 [대화 기록 지우기]로 언제든 지웁니다."
+    notes: "자료실에 올라온 한글·PDF 파일의 <b>본문까지</b> 읽고 답하기 때문에, 어느 폴더에 있었는지 몰라도 찾을 수 있습니다. 답 끝 출처 링크로 원문을 꼭 확인하시라고 말씀드립니다. 자료실에 없으면 <b>학교 공유 드라이브</b>(부서 자료·교육계획서·교과 자료·학교규칙 등)도 찾아 읽고 「파일 이름(폴더) N쪽」 링크를 붙입니다 — 「공유 드라이브에서 ○○ 찾아 줘」처럼 바로 물어도 됩니다. <b>📎로 PDF·사진·한글·엑셀 파일을 붙이거나 웹 주소를 붙여 넣으면</b> 그 내용도 읽고 답합니다. 질문과 붙인 자료는 외부 AI로 전송되고 하루 60개까지입니다. <b>학생 이름이나 실제 생기부 문장은 넣지 않습니다.</b> 대화는 본인만 보고 [대화 기록 지우기]로 언제든 지웁니다."
   });
 
   practice({
@@ -1104,45 +1217,28 @@
       { t: '<span class="q">「디지털 기기 수리요청」</span> 카드: 이름은 저절로, 빠진 칸은 AI가 다시 묻습니다', s: 1, r: [20, 180, 372, 40] },
       { t: '장소·기기·요청 사항을 카드에서 고칩니다', s: 1, r: [31, 254, 350, 35] },
       { t: '<b>오늘은 <span class="k">시트에 등록</span>을 누르지 않습니다</b>', g: '<span class="k">시트에 등록</span>을 누르면 실제 수리 시트에 한 줄이 적힙니다', s: 1, r: [31, 485, 93, 40], warn: "실제 수리 시트에 한 줄이 적힙니다", z: 1.9 },
-      { t: '같은 방식으로: 통신문 번호 · 도서관 이용 · 희망도서 · 교과협의록 · 회의 서명부', s: 1 }
+      { t: '같은 방식으로: 통신문 번호 · 도서관 이용 · 희망도서 · 교과협의록 · 회의 서명부 · <b>넵 보내기</b> <span class="nw">NEW</span>', s: 1 }
     ],
-    note: { html: "<span>시트가 아직 연결되지 않은 요청은 <b>[복사하고 시트 열기]</b>로 빈 줄에 붙여 넣습니다. 희망도서는 신청 기간에만 됩니다.</span>" },
+    note: { html: "<span>시트가 아직 연결되지 않은 요청은 <b>[복사하고 시트 열기]</b>로 빈 줄에 붙여 넣습니다. 희망도서는 신청 기간에만 됩니다. 넵은 「넵 초안」 카드에서 <b>[넵 보내기]</b>를 눌러야 갑니다(긴급·예약·첨부는 넵 화면에서).</span>" },
     screens: [shot("ai"), shot("ai-repair")],
-    notes: "구글 시트를 열어 빈 줄을 찾을 필요 없이 <b>말로 요청하면 카드가 뜨고, [등록]하면 시트에 한 줄</b>이 적힙니다. 이름은 저절로 들어갑니다. 「회의 메모 정리해 줘」라고 하면 교과협의록 초안도 만들어 줍니다."
+    notes: "구글 시트를 열어 빈 줄을 찾을 필요 없이 <b>말로 요청하면 카드가 뜨고, [등록]하면 시트에 한 줄</b>이 적힙니다. 이름은 저절로 들어갑니다. 「회의 메모 정리해 줘」라고 하면 교과협의록 초안도 만들어 줍니다. 「2학년 담임 선생님들께 금요일까지 평가계획서 내 달라고 넵 보내 줘」처럼 말하면 <b>넵 초안 카드</b>가 뜨고, [넵 보내기]를 눌러야 실제로 갑니다."
   });
 
-  D.add({
-    id: "swap", part: 5, label: "수업교체 신청 (보기만)", kind: "light", min: 1, isNew: true,
-    notes: "결강이면 AI에게 말로 알리면 됩니다. 사유와 비는 시간을 확인한 뒤 교체안을 추천하고, 고른 안으로 상대 선생님께 요청합니다. 이번 주부터 <b>신청할 때 내 서명이 함께 들어가고, 상대 선생님은 「수락」이 곧 서명</b>입니다. 모두 수락하면 교체 수업 신고서가 교무부 제출함으로 갑니다. <b>누르면 실제 선생님께 알림이 가니 오늘은 보기만</b> 합니다.",
-    html: '<div class="chiprow"><span class="chip watch">보기만 · 수업교체 신청</span><span class="chip new">NEW 서명</span></div><h2 class="title">결강이면 말로, <em>교체는 상대 수락까지</em> 한 번에</h2>' +
-      [["말하기", "결강 알리기", "「다음 주 화요일 1·3교시 출장이에요」", 120],
-        ["조건 확인", "되묻기", "사유와 비는 시간을 AI가 확인합니다", 456],
-        ["교체안 카드", "1안 · 추천", "부담 낮음·전부 해결 같은 표시로 고릅니다", 792],
-        ["요청 + 서명", "내 서명으로 이 안 요청", "신청할 때 신고 교사 서명이 함께", 1128, true, "홍길동"],
-        ["수락 = 서명", "상대 선생님 수락", "모두 수락하면 신고서가 교무부 제출함으로", 1464, true, "김하늘"]].map(function (n, k) {
-        return '<div class="card node fl' + (n[4] ? " sw" : "") + '" style="left:' + n[3] + 'px"><span class="tag"' + (n[4] ? ' style="background:var(--new);color:var(--new-ink)"' : "") + ">" + n[0] + "</span><h3>" + n[1] + "</h3><p>" + n[2] + "</p>" + (n[5] ? '<span class="pen">' + n[5] + "</span>" : "") + "</div>" + (k < 4 ? '<i class="arrow" style="left:' + (n[3] + 300) + 'px;top:510px;width:28px"></i>' : "");
-      }).join("") +
-      '<div class="pills swp" style="left:120px;top:770px"><span class="p">신청은 결강하는 선생님 본인만</span><span class="p">진행 상황은 수업교체 → 「요청」</span><span class="p">계정 없는 분은 그 칸이 「(서명 또는 인)」으로 남음</span></div>',
-    build: function (el, A) {
-      return [
-        function (A) {
-          A.wipe(".chiprow > *", { each: 120 }); A.kinetic(".title", { delay: 100, each: 24 });
-          A.rise(".fl", { delay: 500, each: 150 });
-          A.draw(".arrow", { delay: 800, each: 150 });
-          A.hide(".swp");
-        },
-        function (A) {
-          el.querySelectorAll(".fl.sw").forEach(function (n) { n.classList.add("newb"); });
-          write(A, ".fl.sw .pen", { delay: 300, d: 900, each: 700 });
-          A.later(function () { A.sfx("stamp"); }, 900);
-        },
-        function (A) {
-          A.go(".swp", [{ opacity: 1 }, { opacity: 1 }], { d: 1 });
-          A.pop(".swp .p", { each: 110 });
-          A.lt({ tone: "warn", tag: "오늘은 보기만", title: "요청을 누르면 실제 선생님께 알림이 갑니다", sub: "결강할 때 직접 써 보세요", delay: 300 });
-        }
-      ];
-    }
+  practice({
+    id: "swap", part: 5, num: null, label: "수업교체 계산하기 (보기만)", min: 1.5, isNew: true,
+    chips: [{ t: "NEW", c: "new" }, { t: "보기만 · 수업교체", c: "watch" }], title: "수업교체 <em>계산하기</em>",
+    steps: [
+      { t: '<span class="k">더보기</span> → <span class="q">「도구」</span>의 <span class="k">수업교체</span> → <span class="q">「계산하기」</span>', s: 0, r: [17, 281, 378, 56] },
+      { t: '<span class="q">「교체 조건」</span>: 선생님·날짜·사유, 비우는 교시', s: 1, r: "[data-t=cond]" },
+      { t: '그날 시간표를 바꾸는 <span class="q">「이날 학사일정」</span>도 계산에 넣습니다', s: 1, r: "[data-t=cal]", newf: true },
+      { t: '<span class="k">경우의 수 찾기</span> → <span class="q">「1안 · 추천」</span>부터. 이미 잡힌 교체도 반영', s: 2, r: "[data-t=plan]", newf: true },
+      { t: '갚는 수업은 <b>날짜를 고릅니다</b>. 막힌 날은 이유가 붙습니다', g: '갚는 수업은 <b>날짜를 고릅니다</b>(그 주·한 주 뒤·두 주 뒤). 일정이나 다른 교체와 겹쳐 막힌 날은 이유가 붙고 고를 수 없습니다', s: 2, r: "[data-t=date]", newf: true, z: 1.9 },
+      { t: '<b>오늘은 <span class="k">내 서명으로 이 안 요청</span>을 누르지 않습니다</b>', g: '<span class="k">내 서명으로 이 안 요청</span>을 누르면 상대 선생님께 요청 알림이 갑니다. 상대는 <b>수락 = 서명</b>, 모두 수락하면 신고서가 교무부 제출함으로 갑니다', s: 2, r: "[data-t=req]", warn: "상대 선생님께 실제 요청 알림이 갑니다" }
+    ],
+    gnote: { html: "<span>카드 아래 <b>[요약 복사]</b>·<b>[신고서]</b>(서명 칸이 빈 초안)도 받습니다. 계산은 누구의 교체든 할 수 있고, <b>신청은 수업을 바꾸는 선생님 본인만</b> 합니다. AI에게 「다음 주 화요일 1·3교시 출장이에요」처럼 말해도 같은 교체안 카드가 뜹니다. 신청한 뒤 진행은 <b>「요청」</b> 탭에서 봅니다. 「앞으로 4주, 시간표가 바뀌는 날」을 펼치면 달력을 어떻게 읽었는지 확인할 수 있습니다. 화면은 모형이고 이름은 예시입니다.</span>" },
+    screens: [shot("more-top"), M.swapCalc, M.swapPlan],
+    lt: { tag: "보기만", title: "수업교체 계산하기", sub: "요청을 누르면 상대 선생님께 실제 알림이 가요", tone: "warn" },
+    notes: "수업교체가 AI 교무실 안으로 들어왔습니다. 「계산하기」에서 선생님·날짜·사유·교시를 고르면, <b>그 주 학사일정</b>(동아리활동으로 5~6교시가 빠지는 날, 요일을 바꾸는 날, 시험 날 등)을 얹은 시간표로 교체안을 찾습니다. 이미 잡힌 다른 교체도 반영해 겹치지 않게 합니다. 갚는 수업은 그 주·한 주 뒤·두 주 뒤 가운데 <b>날짜를 고르고</b>, 일정이나 다른 교체와 겹치는 날은 이유가 붙어 고를 수 없습니다. [요약 복사]·[신고서](서명 칸 빈 초안)도 받습니다. 신청할 때 내 서명이 들어가고 <b>상대 선생님은 「수락」이 곧 서명</b>, 모두 수락하면 신고서가 교무부 제출함으로 갑니다. 「앞으로 4주, 시간표가 바뀌는 날」에서 달력을 잘 읽었는지 확인할 수 있습니다. <b>누르면 실제 선생님께 알림이 가니 오늘은 보기만</b> 합니다."
   });
 
   // ════════════════════════════════════════════════════════════
@@ -1239,7 +1335,7 @@
   opener({
     part: 7, art: "board", min: 5, lines: ["교실에는 한 번에,", "<em>자료는 한 곳에</em>"],
     was: "반마다 다니며 안내, 자료는 여기저기", now: "모든 교실 칠판에 한 번에, 자료는 자료실에",
-    notes: "마지막 7부는 <b>전자칠판 알림</b>과 <b>자료실</b>입니다. 전자칠판에는 사진·예약·긴급 단추·시험 화면이 새로 생겼습니다. 실제 교실에 바로 뜨기 때문에 오늘은 둘러보기만 합니다."
+    notes: "마지막 7부는 <b>전자칠판 알림</b>과 <b>자료실</b>입니다. 전자칠판에는 사진·예약·긴급 단추·시험 화면에 이어 <b>쪽지</b>와 <b>▶ 영상 틀기</b>가 새로 생겼습니다. 실제 교실에 바로 뜨기 때문에 오늘은 둘러보기만 합니다."
   });
 
   practice({
@@ -1248,35 +1344,54 @@
     steps: [
       { t: '<span class="k">더보기</span> → <span class="q">「도구」</span> 묶음의 <span class="k">전자칠판 알림</span>', s: 0, r: [17, 337, 378, 56] },
       { t: '대상: 전체·학년 또는 <span class="q">「교실 고르기」</span>(특별실은 <b>층별로</b>)', s: 1, r: [28, 164, 356, 342], newf: true },
-      { t: '글, 링크(칠판에 큰 QR), <b>사진 3장까지</b>', s: 2, r: [28, 290, 356, 330], newf: true },
+      { t: '글(줄바꿈 그대로), 링크(칠판에 큰 QR — <b>유튜브면 「▶ 영상 틀기」</b>), <b>사진 3장까지</b>', s: 2, r: [28, 290, 356, 330], newf: true },
       { t: '<span class="q">「시각 정하기」</span>로 <b>오늘 안 예약</b>, 유지 시간 3~30분', s: 3, r: [28, 260, 356, 194], newf: true },
       { t: '<b>오늘은 <span class="k">띄우기</span>·<span class="k">예약하기</span>를 누르지 않습니다</b>', g: '<span class="k">…곳에 띄우기</span>를 누르면 고른 교실 칠판에 바로 뜨고, <span class="k">예약하기</span>는 그 시각에 뜹니다', s: 3, r: [31, 497, 350, 50], warn: "실제 교실 칠판에 뜹니다(예약도 그 시각에)" },
-      { t: '<span class="q">「오늘 나간 알림」</span>: 점 색으로 도착·확인, <span class="k">예약 취소</span>', s: 3, r: [16, 575, 380, 192] },
+      { t: '<span class="q">「오늘 칠판에 나간 알림」</span>: 점 색으로 도착·확인, <span class="k">예약 취소</span>', s: 3, r: [16, 575, 380, 192] },
       { t: '<span class="q">「긴급」</span> 탭: 단추를 누르면 문장이 채워집니다(경보음과 함께 뜸)', s: 4, r: [28, 280, 356, 126], newf: true }
     ],
     gnote: { html: "<span>쉬는 시간(수업 시작 10분 전~1분 전)에 띄운 안내는 <b>수업 시작 1분 전까지</b> 칠판에서 닫히지 않아요. 긴급 경보음은 보낸 사람이 「소리 끄기」로 끕니다. <b>시험 날</b>에는 그 학년 칠판이 시험 화면(시간표·종료까지 N분·응시 현황)이 되고, 담임은 이 화면 맨 위 카드에서 결시 번호·사유를 넣습니다(학생 이름 없이).</span>" },
     finale: function (A) { A.lt({ tag: "알아 두기", title: "쉬는 시간에 띄운 안내는 수업 시작 1분 전까지 닫히지 않아요", sub: "수업 시작 10분 전~1분 전에 띄운 안내 · 긴급 경보음은 보낸 사람이 「소리 끄기」로", delay: 300 }); },
     screens: [shot("more-top"), shot("board-pick"), shot("board-v2"), shot("board-sent"), shot("board-urgent")],
-    notes: "전자칠판 알림은 교실 칠판에 안내·긴급을 띄웁니다. 메뉴가 <b>「도구」 묶음</b>으로 옮겨졌습니다. 교실 고르기에서 특별실은 층별로 나뉘었고, <b>사진을 세 장까지</b> 붙일 수 있으며, <b>「시각 정하기」로 오늘 안의 시각에 뜨도록 예약</b>할 수 있습니다. 쉬는 시간에 띄운 안내는 학생이 터치로 닫지 못하게 수업 시작 1분 전까지 유지되고, 긴급 경보음은 보낸 선생님이 끕니다. 오늘은 [띄우기]·[예약하기]를 누르지 않습니다."
+    notes: "전자칠판 알림은 교실 칠판에 안내·긴급을 띄웁니다. 메뉴가 <b>「도구」 묶음</b>으로 옮겨졌습니다. 교실 고르기에서 특별실은 층별로 나뉘었고, <b>사진을 세 장까지</b> 붙일 수 있으며, <b>「시각 정하기」로 오늘 안의 시각에 뜨도록 예약</b>할 수 있습니다. 쉬는 시간에 띄운 안내는 학생이 터치로 닫지 못하게 수업 시작 1분 전까지 유지되고, 긴급 경보음은 보낸 선생님이 끕니다. 새로 생긴 <b>「쪽지」</b>는 「수업 끝나고 교무실로 전화 부탁드립니다」 같은 60자 이하 짧은 글을 칠판 오른쪽 위에 노란 쪽지로 띄웁니다 — 수업 화면을 가리지 않고 「띵」 한 번만 울립니다. 안내 링크에 <b>유튜브 주소</b>를 넣으면 칠판에 [▶ 영상 틀기]가 함께 떠서 교실에서 바로 틉니다. 오늘은 [띄우기]·[예약하기]·[쪽지 보내기]를 누르지 않습니다."
+  });
+
+  practice({
+    id: "boardMemo", part: 7, num: null, label: "전자칠판 쪽지 (보기만)", min: 0.8, isNew: true,
+    chips: [{ t: "NEW", c: "new" }, { t: "보기만 · 전자칠판 쪽지", c: "watch" }], title: "짧은 말은 <em>쪽지</em>로",
+    steps: [
+      { t: '위쪽 <span class="q">안내 · 쪽지 · 긴급</span>에서 <span class="k">쪽지</span>', s: 0, r: "[data-t=memo]", newf: true },
+      { t: '<b>60자</b>까지 짧게. 칠판 <b>오른쪽 위 노란 쪽지</b>로 뜨고 「띵」 한 번만 울립니다', s: 0, r: "[data-t=text]", newf: true },
+      { t: '수업 화면을 가리지 않습니다. 학생들도 보니 <b>이름 같은 민감한 내용은 쓰지 않습니다</b>', s: 0 },
+      { t: '<b>오늘은 <span class="k">…곳에 쪽지 보내기</span>를 누르지 않습니다</b>', g: '<span class="k">…곳에 쪽지 보내기</span>를 누르면 고른 교실 칠판에 쪽지가 뜹니다(유지 5~30분)', s: 0, r: "[data-t=send]", warn: "실제 교실 칠판에 쪽지가 뜹니다" }
+    ],
+    note: { html: "<span>안내가 떠 있으면 쪽지는 그 옆 노란 칸으로, 긴급이 뜨면 끝날 때까지 숨습니다. 화면은 모형입니다.</span>" },
+    screens: [M.boardMemo],
+    lt: { tag: "보기만", title: "전자칠판 쪽지", sub: "보내면 실제 교실 칠판에 떠요", tone: "warn" },
+    notes: "새로 생긴 <b>쪽지</b>입니다. 「수업 끝나고 교무실로 전화 부탁드립니다」처럼 수업 중인 선생님께 짧게 전할 말을 60자까지 써서 보냅니다. 칠판 오른쪽 위에 노란 쪽지로 뜨고 「띵」 한 번만 울려서 수업을 가리지 않습니다. 학생들도 보는 화면이니 이름 같은 민감한 내용은 쓰지 않습니다. 화면은 모형이고, 오늘은 보내지 않습니다."
   });
 
   D.add({
-    id: "boardNew", part: 7, label: "전자칠판에 새로 생긴 것", kind: "light", min: 1.2, isNew: true,
-    notes: "교실 칠판에는 이렇게 뜹니다. <b>사진</b>은 위에 크게, 글은 바로 아래에 뜹니다. 학생 얼굴이 나온 사진은 피해 주세요. <b>예약</b>한 안내는 그 시각에 뜨고, 「오늘 칠판에 나간 알림」에서 예약 취소도 됩니다. <b>긴급</b>은 이제 짧은 이름의 단추 다섯 개 — 지진·화재·전시 대피·외부인 침입·교실 대기 — 를 누르면 문장이 채워집니다. 칠판은 상황과 상관없이 빨간 「긴급」 하나로 뜹니다. 마지막으로 <b>시험 날</b>에는 그 학년 교실 칠판이 시험 화면으로 바뀝니다. 시험 시간표와 「종료까지 N분」, 반의 재적·응시·결시가 뜨고, <b>담임 선생님은 「전자칠판 알림」 맨 위 카드에서 결시 번호와 사유를 넣습니다</b>(학생 이름은 쓰지 않습니다). 화면의 반·번호는 예시입니다.",
+    id: "boardNew", part: 7, label: "전자칠판에 새로 생긴 것", kind: "light", min: 1.5, isNew: true,
+    notes: "교실 칠판에는 이렇게 뜹니다. <b>사진</b>은 위에 크게, 글은 바로 아래에 뜹니다. 학생 얼굴이 나온 사진은 피해 주세요. 안내의 「안내」 딱지와 보낸 사람 줄은 노랗게 바뀌었고, 글의 줄바꿈도 그대로 보입니다. <b>예약</b>한 안내는 그 시각에 뜨고, 「오늘 칠판에 나간 알림」에서 예약 취소도 됩니다. 새로 생긴 <b>쪽지</b>는 수업 화면을 가리지 않고 오른쪽 위에 노란 쪽지로, 「띵」 한 번만 울립니다(학생들도 보니 이름 같은 민감한 내용은 쓰지 않습니다). 안내 링크가 <b>유튜브</b>면 QR 아래 [▶ 영상 틀기]가 떠서 교실에서 눌러 칠판 안에서 바로 틉니다. <b>긴급</b>은 짧은 이름의 단추 다섯 개 — 지진·화재·전시 대피·외부인 침입·교실 대기 — 를 누르면 문장이 채워지고, 칠판은 상황과 상관없이 빨간 「긴급」 하나로 뜹니다. 마지막으로 <b>시험 날</b>에는 그 학년 교실 칠판이 시험 화면으로 바뀝니다. 시험 시간표와 「종료까지 N분」, 반의 재적·응시·결시가 뜨고, <b>담임 선생님은 「전자칠판 알림」 맨 위 카드에서 번호를 눌러 결시·별도 고사실·제적(유예·전학)을 고르고 사유를 넣습니다</b>(학생 이름은 쓰지 않습니다). 화면의 반·번호는 예시입니다.",
     html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip ghost">교실 칠판</span></div><h2 class="title" style="width:860px">교실 칠판에는 <em>이렇게</em> 뜹니다</h2>' +
       '<div class="abs bnl">' +
         '<div class="card c" data-k="0"><span class="tg">사진</span><b>사진 3장까지</b><p>위에 크게, 글은 바로 아래. 학생 얼굴이 나온 사진은 피해 주세요.</p></div>' +
         '<div class="card c" data-k="1"><span class="tg">예약</span><b>오늘 안 시각에 띄우기</b><p>「띄울 때 → 시각 정하기」. 나간 알림에서 <b>예약 취소</b>.</p></div>' +
-        '<div class="card c" data-k="2"><span class="tg w">긴급</span><b>단추 다섯 개</b><p class="pre"><i>지진 대피</i><i>화재 대피</i><i>전시 대피</i><i>외부인 침입</i><i>교실 대기</i></p></div>' +
-        '<div class="card c" data-k="3"><span class="tg n">시험</span><b>시험 날은 시험 화면</b><p>시간표·종료까지 N분·응시 현황. <b>담임은 결시 번호·사유 입력</b>(이름 없이).</p></div>' +
+        '<div class="card c" data-k="2"><span class="tg n">쪽지 · NEW</span><b>오른쪽 위 노란 쪽지</b><p><b>60자</b>까지, 「띵」 한 번. 수업 화면을 가리지 않습니다.</p></div>' +
+        '<div class="card c" data-k="3"><span class="tg n">영상 · NEW</span><b>▶ 영상 틀기</b><p>안내 링크에 <b>유튜브 주소</b>를 넣으면 칠판에서 눌러 바로 틉니다.</p></div>' +
+        '<div class="card c" data-k="4"><span class="tg w">긴급</span><b>단추 다섯 개</b><p class="pre"><i>지진 대피</i><i>화재 대피</i><i>전시 대피</i><i>외부인 침입</i><i>교실 대기</i></p></div>' +
+        '<div class="card c" data-k="5"><span class="tg n">시험</span><b>시험 날은 시험 화면</b><p>시간표·종료까지 N분·응시 현황. <b>담임은 결시·별도·제적 번호</b>를 넣습니다(이름 없이).</p></div>' +
       '</div>' +
       '<div class="abs bdx"><div class="scr2">' +
-        '<div class="st idle"><span class="rm">2학년 3반</span><b class="mono">10:12</b><small>10월 7일 수요일</small></div>' +
+        '<div class="st idle"><span class="rm">2학년 3반</span><b class="mono">10:12</b><small>10월 14일 수요일</small></div>' +
         '<div class="st note"><span class="hd">안내</span><div class="ph"><i></i><i></i><i></i></div><p>체육대회 반 사진입니다. 마음에 드는 사진 번호를 반장에게 알려 주세요.</p><small>홍길동 선생님 · 10:12 · 눌러서 확인</small></div>' +
         '<div class="st sch"><span class="rm">2학년 3반</span><b class="mono">14:19</b><span class="chipy">14:20에 뜸 · 예약</span></div>' +
+        '<div class="st memo"><div class="ls"><b>3. 일차함수의 그래프</b><i style="width:92%"></i><i style="width:78%"></i><i style="width:85%"></i><i style="width:60%"></i></div><div class="yn"><small>쪽지 · 홍길동 · 10:12</small><p>수업 끝나고 교무실로 전화 부탁드립니다</p></div></div>' +
+        '<div class="st vid"><span class="hd">안내</span><div class="qrw"><img src="img/qr.svg" alt=""><span class="play">▶ 영상 틀기</span></div><div><p>학급회의 전에 이 영상을 함께 봅니다.</p><small>홍길동 선생님 · 10:12</small></div></div>' +
         '<div class="st urg"><span class="hd">긴급</span><p>지진이 발생했습니다. 책상 아래로 대피하고 선생님 지시를 기다리세요.</p><small>홍길동 선생님 · 10:12</small></div>' +
-        '<div class="st exam"><div class="top"><span><em>2학년 3반</em> · 2학기 중간고사</span><small class="mono">10/7 10:33</small></div>' +
-          '<div class="box"><b>재적 30 · 응시 29 · <span class="pk">결시 1</span></b><span>결시: 3번(질병) &nbsp; 별도 고사실: 없음</span></div>' +
+        '<div class="st exam"><div class="top"><span><em>2학년 3반</em> · 2학기 중간고사</span><small class="mono">10/14 10:33</small></div>' +
+          '<div class="box"><b>재적 30 · 응시 29 · <span class="pk">결시 1</span></b><span><i class="t-ab">결시:</i> 3번(질병) &nbsp; <i class="t-sep">별도 고사실:</i> 없음</span></div>' +
           '<div class="tt"><div class="r done"><span>1교시</span><span class="mono">09:00–09:45</span><b>국어</b><span>끝</span></div><div class="r on"><span>2교시</span><span class="mono">10:00–10:45</span><b>수학</b><span>종료까지 12분</span></div><div class="r"><span>3교시</span><span class="mono">11:00–11:45</span><b>영어</b><span></span></div></div>' +
         '</div>' +
       '</div><div class="bdx-leg"></div></div>',
@@ -1292,8 +1407,10 @@
         },
         function (A) { card(0); show("note"); A.stagger(el.querySelectorAll(".st.note .ph i"), [{ opacity: 0, transform: "scale(.85)" }, { opacity: 1, transform: "none" }], { d: 450, delay: 450, each: 140, e: E.back }); A.later(function () { A.sfx("notify"); }, 300); },
         function (A) { card(1); show("sch"); A.pop(".st.sch .chipy", { delay: 600 }); },
-        function (A) { card(2); show("urg"); A.pop(".bnl .c[data-k='2'] .pre i", { delay: 300, each: 90 }); A.go(".st.urg", [{ filter: "brightness(1)" }, { filter: "brightness(1.35)" }], { d: 500, delay: 700, iter: 6, dir: "alternate", ambient: true }); A.later(function () { A.sfx("alert"); }, 300); },
-        function (A) { card(3); show("exam"); A.rise(".st.exam .tt .r", { delay: 600, each: 140, y: 14 }); A.lt({ tag: "시험 날", title: "담임은 「전자칠판 알림」 맨 위 카드에서 결시 입력", sub: "학생 이름은 쓰지 않아요 · 저장하면 그 반 칠판에 곧 뜹니다", delay: 900, style: "left:auto;right:120px;bottom:40px" }); }
+        function (A) { card(2); show("memo"); A.go(".st.memo .yn", [{ opacity: 0, transform: "translate(30px,-20px) rotate(8deg)" }, { opacity: 1, transform: "rotate(1.5deg)" }], { d: 600, delay: 600, e: E.back }); A.later(function () { A.sfx("pop"); }, 700); },
+        function (A) { card(3); show("vid"); A.go(".st.vid .play", [{ transform: "scale(1)" }, { transform: "scale(1.08)" }], { d: 700, delay: 900, iter: 6, dir: "alternate", ambient: true }); },
+        function (A) { card(4); show("urg"); A.pop(".bnl .c[data-k='4'] .pre i", { delay: 300, each: 90 }); A.go(".st.urg", [{ filter: "brightness(1)" }, { filter: "brightness(1.35)" }], { d: 500, delay: 700, iter: 6, dir: "alternate", ambient: true }); A.later(function () { A.sfx("alert"); }, 300); },
+        function (A) { card(5); show("exam"); A.rise(".st.exam .tt .r", { delay: 600, each: 140, y: 14 }); A.lt({ tag: "시험 날", title: "담임은 「전자칠판 알림」 맨 위 카드에서 결시 입력", sub: "번호를 눌러 결시·별도 고사실·제적 · 학생 이름은 쓰지 않아요", delay: 900, style: "left:auto;right:120px;bottom:40px" }); }
       ];
     }
   });
