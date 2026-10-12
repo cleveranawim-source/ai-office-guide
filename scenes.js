@@ -445,22 +445,12 @@
   M.notiAsk = notiPage(false, '<div class="dim"></div><div class="dialog" style="top:300px"><h4>AI 교무실에서 알림을 보내도록 허용할까요?</h4><p class="muted">알림은 설정에서 언제든 바꿀 수 있습니다.</p>' +
     '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:20px"><span style="padding:10px 14px;font-weight:700;color:#1a73e8">허용 안 함</span><span data-t="allow" style="padding:10px 18px;font-weight:700;color:#fff;background:#1a73e8;border-radius:20px">허용</span></div></div>');
   M.notiOn = notiPage(true);
-  function nepTop(tab) {
-    return '<div class="top"><b>넵</b><span>' + (tab === 0 ? "처리할 것 1건" : "보낸 요청 현황") + "</span></div>" +
-      '<div style="margin:6px 16px 10px;background:#e9eef4;border-radius:14px;padding:4px;display:grid;grid-template-columns:1fr 1fr;text-align:center;font-weight:700"><span style="padding:9px;border-radius:11px;' + (tab === 0 ? "background:#fff" : "color:#6b7a90") + '">받은</span><span style="padding:9px;border-radius:11px;' + (tab === 1 ? "background:#fff" : "color:#6b7a90") + '">보낸</span></div>';
-  }
-  M.nepRecv = mk(nepTop(0) + '<div class="card" data-t="item"><span class="pill">업무요청</span><h4 style="margin-top:8px">연수 실습: 진도 적기</h4><p class="muted">나 · 마감 10월 9일 (금) 16:30</p></div>');
-  M.nepDetail = mk('<div class="top"><b style="font-size:20px">‹&nbsp; 넵</b></div><div class="card"><span class="pill">업무요청</span><h4 style="font-size:22px;margin-top:10px">연수 실습: 진도 적기</h4><p class="muted">보낸 사람 나 · 마감 10월 9일 (금) 16:30</p><p style="margin-top:12px">오늘 수업 진도를 진도표에 한 줄 적어 주세요.</p>' +
-    '<div class="btn" data-t="done" style="position:relative;overflow:hidden">완료<span class="dn" style="position:absolute;inset:0;display:grid;place-items:center;background:#1f8a5a;opacity:0">넵 처리했습니다 · 16:42</span></div></div>');
-  M.nepSent = mk(nepTop(1) + '<div class="card"><span class="pill">확인요청</span><h4 style="margin-top:8px">2학기 평가계획서 확인</h4><div class="row"><span class="muted">처리</span><b>5 / 7</b></div><div class="bar2"><i style="width:71%"></i></div>' +
-    '<div class="person"><span>○○○</span><span class="muted">도착 · 아직</span></div><div class="person"><span>○○○</span><span class="muted">도착 · 아직</span></div><div class="person"><span class="muted">처리 5명</span><span class="muted">펼치기 ›</span></div>' +
-    '<div class="btn ghost" data-t="remind">다시 알림</div></div>');
   M.signTap = mk('<div class="top"><b style="font-size:21px">‹&nbsp; 종교과 교과협의회</b><span>10월 7일 (수) 7교시 · 아가페교실</span></div>' +
     '<div class="card"><div class="row"><span class="muted">만든 사람 홍길동</span><span class="pill">서명 받는 중</span></div></div>' +
     '<div style="margin:14px 20px 4px;font:600 13px var(--body);color:#6b7a90">명단</div>' +
     '<div class="card" style="padding:4px 18px"><div class="person" style="border:0"><span>1&nbsp; 김하늘 · 교과</span><b style="color:#1f8a5a">✓ 15:42</b></div><div class="person"><span>2&nbsp; 나 · 교목실</span><span class="muted st">아직</span></div><div class="person"><span>3&nbsp; 박서준 · 교과</span><span class="muted">아직</span></div></div>' +
     '<div style="position:absolute;left:16px;right:16px;top:430px"><div class="btn" data-t="sign" style="position:relative;overflow:hidden">내 서명으로 서명하기<span class="dn" style="position:absolute;inset:0;display:grid;place-items:center;background:#1f8a5a;opacity:0">✓ 서명했습니다</span></div><p style="text-align:center;margin-top:10px;color:#295c9e;font-weight:700">이번만 손으로</p></div>');
-  // 10월 둘째 주에 새로 생긴 화면(캡처 전이라 모형): 빼꼼·넵 마감·넵 속 일정·수업교체 계산하기
+  // 10월 둘째 주에 새로 생긴 화면(캡처 전이라 모형): 빼꼼·수업교체 계산하기
   function hd(title, link, attr) { return '<div class="row" ' + (attr || "") + '><h4 style="margin:0">' + title + "</h4>" + (link ? '<span class="lk">' + link + "</span>" : "") + "</div>"; }
   function li(tm, txt, pill) { return '<div class="li"><b class="tm">' + tm + "</b><span>" + txt + "</span>" + (pill || "") + "</div>"; }
   M.today = mk('<div class="top"><b>빼꼼</b><span>오늘 학교를 빼꼼 — 공지와 평소 시간표에서 달라진 것</span></div>' +
@@ -470,22 +460,6 @@
     '<div class="card" data-t="nep">' + hd('내 넵 <span class="cnt">1</span>', "넵") + li("16:30", "2학기 평가계획서 제출", '<span class="pill">제출요청 마감</span>') + "</div>" +
     '<div class="card" data-t="ev">' + hd('특별 일정 <span class="cnt">2</span>', "주간소식") + li("5~6교시", "동아리활동") + li("15:30", "10월 교직원 협의회", '<span class="pill wk">주간소식</span>') + "</div>" +
     '<div class="card" data-t="chg">' + hd('바뀐 수업 <span class="cnt">3</span>') + li("3교시", "2-3반 · 국어 → 수학", '<span class="pill ok">지금</span>') + li("5교시", "3-10반 · 과학 → 수학", '<span class="pill gr">수락 대기</span>') + li("6교시", "1-4반 · 과학", '<span class="pill warn">보강 필요</span>') + "</div>");
-  M.nepDue = mk('<div class="top"><b style="font-size:20px">‹&nbsp; 넵 보내기</b></div>' +
-    '<div class="card"><p class="lbl">유형</p><div class="chips"><span>알림</span><span class="on">확인요청</span><span>업무요청</span><span>제출요청</span></div>' +
-    '<p class="lbl">제목</p><div class="inp">2학기 평가계획서 확인</div>' +
-    '<p class="lbl">본문</p><div class="inp" style="height:76px">10월 16일까지 확인하고 [넵] 눌러 주세요. 10월 20일 7교시 교과협의회에서 함께 봅니다.</div>' +
-    '<p class="muted" style="margin:12px 0 4px">첨부 · 링크 · 받는 사람 ⋯</p>' +
-    '<p class="lbl" data-t="duelabel">마감 (선택)</p>' +
-    '<div class="hint" data-t="due">글에서 찾은 날짜를 마감으로 넣었어요. 다르면 다른 날짜를 누르거나 칸을 고쳐 주세요. 마감은 받는 분 일정에도 뜹니다.<div class="chips" style="margin-top:8px"><span class="on">10월 16일(금) 오후 4시 30분</span><span>10월 20일(화) 오후 4시 30분</span></div></div>' +
-    '<div class="inp">2026. 10. 16. 오후 04:30</div><p class="lk" style="margin-top:8px">마감 빼기</p>' +
-    '<div class="btn">보내기</div></div>');
-  M.nepEvents = mk('<div class="top"><b style="font-size:20px">‹&nbsp; 넵</b></div>' +
-    '<div class="card"><span class="pill">확인요청</span><h4 style="font-size:20px;margin-top:8px">2학기 평가계획서 확인</h4><p class="muted">보낸 사람 나 · 마감 10월 16일(금) 16:30</p><p style="margin-top:10px">10월 16일까지 확인하고 [넵] 눌러 주세요. 10월 20일 7교시 교과협의회에서 함께 봅니다.</p></div>' +
-    '<div class="card" data-t="ev">' + hd("넵 속 일정") +
-    '<div class="row" style="gap:8px;justify-content:flex-start;margin-top:8px" data-t="evbtn"><span class="tb">AI로 다시 찾기</span><span class="tb">+ 더하기</span></div>' +
-    li("10/20(화)", "7교시 교과협의회", '<span class="lk">고치기 · 빼기</span>') +
-    '<p class="muted" style="margin-top:8px">받는 분들의 일정·시간표·빼꼼·아침 알림에 이 일정이 보여요. 받는 분과 나에게만 보입니다.</p></div>' +
-    '<div class="card"><div class="row"><span class="muted">처리</span><b>3 / 7</b></div><div class="bar2"><i style="width:43%"></i></div></div>');
   M.swapCalc = mk('<div class="top"><b>수업교체</b><span>교체안과 수업교체 신고서 · 학사일정 반영</span></div>' +
     '<div class="seg3" style="grid-template-columns:1fr 1fr"><span class="on">계산하기</span><span>요청</span></div>' +
     '<div class="card" data-t="cond"><h4>교체 조건</h4>' +
@@ -627,7 +601,7 @@
     ["1부", "빼꼼 · 오늘 알림", "현황판이 <b>빼꼼</b>으로. 공지·내 넵·특별 일정·바뀐 수업을 한곳에, 홈에는 <b>「오늘 알림」</b>."],
     ["1부", "아침 알림 「내 줄」", "내 당번·<b>바뀐 내 수업</b>·내 수업과 겹치는 일정·오늘 마감 넵이 알림 <b>맨 위</b>에."],
     ["2부", "시간표에 저절로", "<b>학사일정·주간소식</b>은 칸에 띠로, 그 주 <b>수업교체</b>는 「바뀜·교체·보강」으로. 내 출장은 내 일정에."],
-    ["3부", "넵 마감이 내 일정에", "글 속 날짜가 <b>마감 칸에 저절로</b>. 마감과 넵 속 일정이 받는 분 <b>일정·빼꼼</b>에."],
+    ["3부", "넵 새 화면 · 마감", "받은 넵은 <b>할 일</b>처럼, 확인요청은 목록에서 [넵]. 글 속 날짜가 <b>마감 칸에 저절로</b>."],
     ["4부", "디지털 서명", "<b>내 서명</b> 한 번 등록으로 회의 서명부·파일 서명·수업교체 신고서에 <b>한 번 누르기</b>."],
     ["5부", "AI가 더 많이 읽어요", "<b>📎 파일·웹 주소</b>, <b>학교 공유 드라이브</b>, 주간소식까지. 넵도 <b>카드로 보내기</b>."],
     ["5부", "수업교체 계산하기", "<b>학사일정을 반영</b>해 교체안을 계산하고, 갚는 수업의 <b>날짜를 고릅니다</b>."],
@@ -927,61 +901,67 @@
     chips: [{ t: "실습 6 · 넵" }, { t: "2분", c: "ghost" }], title: "나에게 업무요청 보내기",
     steps: [
       { t: '<span class="k">더보기</span> 맨 위의 <span class="k">넵</span>', s: 0, r: [17, 133, 378, 56] },
-      { t: '<span class="k">나에게</span>: 나에게 보내는 할 일 메모', s: 1, r: [322, 665, 73, 45], z: 1.9 },
-      { t: '유형은 <span class="q">「업무요청」</span> (받으면 <span class="k">완료</span>를 누름)', s: 2, r: [178, 117, 80, 44], z: 1.9 },
-      { t: '제목 <span class="q">「연수 실습: 진도 적기」</span>. 글에 날짜가 있으면 <b>마감 칸에 저절로</b> 들어갑니다', s: 2, r: [31, 224, 350, 48] },
-      { t: '맨 아래 <span class="q">「마감」</span>을 확인하고 <span class="k">보내기</span>. 마감은 <b>내 일정·빼꼼</b>에도 뜹니다', s: 2 }
+      { t: '오른쪽 아래 <span class="k">+ 넵 보내기</span>', s: 1, r: [283, 720, 113, 48], z: 1.9 },
+      { t: '<span class="q">「+ 받는 사람 고르기」</span> → <span class="k">나에게</span> → <span class="k">완료</span>', g: '맨 위 <span class="q">「+ 받는 사람 고르기」</span>를 누르면 아래에서 창이 올라옵니다. <span class="q">「바로 고르기」</span>의 <span class="k">나에게</span>를 누르고 <span class="k">완료</span>', s: 2, r: [16, 574, 67, 44], z: 1.9, newf: true },
+      { t: '<span class="q">「업무요청」</span>, 제목 <span class="q">「연수 실습: 진도 적기」</span>', g: '무엇을 <span class="q">「업무요청」</span>(받으면 <span class="k">완료</span>를 누름). 제목 <span class="q">「연수 실습: 진도 적기」</span>, 본문에는 <span class="q">「내일까지 진도표에 적기」</span>처럼 날짜를 함께 씁니다', s: 3, r: [31, 212, 350, 373] },
+      { t: '글 속 날짜가 <b>마감 칸에 저절로</b> 들어갑니다', g: '글 속 날짜가 <b>마감 칸에 저절로</b> 들어갑니다. 다르면 날짜 단추를 누르거나 칸을 고칩니다. 마감은 <b>내 일정·빼꼼</b>에도 뜹니다', s: 4, r: [31, 346, 350, 164], newf: true },
+      { t: '<span class="k">나에게 업무요청 보내기</span>', g: '맨 아래 <span class="k">나에게 업무요청 보내기</span>. 단추에 누구에게 무엇을 보내는지 쓰여 있습니다', s: 4, r: [31, 661, 350, 50] }
     ],
     note: { tone: "warn", html: "<span><b>근무시간이 끝난 뒤</b>에 보내면 다음 근무일 아침에 도착합니다. 도착하면 [완료]를 눌러 보세요.</span>" },
-    screens: [shot("more-top"), shot("nep"), shot("nep-new")],
-    notes: "「나에게」는 <b>나에게 보내는 할 일 메모</b>입니다. 밤에 써 두면 다음 근무일 아침에 도착하고, [완료]를 누를 때까지 남습니다. 마감은 <b>일정 달력·빼꼼 「내 넵」·홈 「오늘 알림」</b>에도 떠서 잊지 않게 해 줍니다. 지금 직접 한 건 보내 보세요."
+    screens: [shot("more-top"), shot("nep-inbox"), shot("nep-pick-me"), shot("nep-new"), shot("nep-new-bottom")],
+    notes: "「나에게」는 <b>나에게 보내는 할 일 메모</b>입니다. 10월 12일부터 넵 보내기는 <b>받는 사람이 맨 위</b>이고, 보내기 단추에 「나에게 업무요청 보내기」처럼 누구에게 무엇을 보내는지 쓰여 있습니다. 밤에 써 두면 다음 근무일 아침에 도착하고, [완료]를 누를 때까지 남습니다. 마감은 <b>일정 달력·빼꼼 「내 넵」·홈 「오늘 알림」</b>에도 떠서 잊지 않게 해 줍니다. 지금 직접 한 건 보내 보세요. 화면 속 이름·글은 예시입니다."
   });
 
   practice({
-    id: "audience", part: 3, num: null, label: "받는 사람 고르기", min: 0.7, isNew: true,
+    id: "audience", part: 3, num: null, label: "받는 사람 고르기", min: 0.8, isNew: true,
     chips: [{ t: "NEW", c: "new" }, { t: "넵·서명 공통", c: "ghost" }], title: "받는 사람을 <em>부서·교과·직책</em>으로",
     steps: [
-      { t: '<span class="q">전체 · 부서 · 교과 · 직책 · 학년 담임 · 개인</span> 여섯 가지로 고릅니다', s: 0, r: [31, 293, 350, 94], newf: true },
-      { t: '<span class="k">직책</span> → <span class="q">부장단 12</span> · <span class="q">교과 주임단 14</span>', s: 0, r: [31, 397, 196, 44], newf: true, z: 1.9 },
-      { t: '고르면 <b>이름이 펼쳐져</b> 누구에게 가는지 바로 보입니다', s: 0, r: [31, 473, 350, 98], newf: true },
-      { t: '나는 빼고 <b>11명에게</b>', s: 0, r: [31, 575, 120, 28], z: 1.9 },
-      { t: '같은 고르기를 <b>회의 서명부·파일 서명</b>에서도 씁니다', s: 0 }
+      { t: '맨 위 <span class="q">「바로 고르기」</span>: <span class="k">나에게</span> + 자주 보낸 묶음', s: 0, r: [16, 574, 380, 44], newf: true },
+      { t: '<span class="q">전체 · 부서 · 교과 · 직책 · 학년 담임 · 개인</span>', g: '그 아래 <span class="q">전체 · 부서 · 교과 · 직책 · 학년 담임 · 개인</span> 여섯 가지로 고릅니다', s: 1, r: [16, 527, 380, 46] },
+      { t: '<span class="k">직책</span> → <span class="q">부장단 12</span> · <span class="q">교과 주임단 14</span>', s: 1, r: [16, 583, 198, 44], z: 1.9 },
+      { t: '고르면 <b>이름이 펼쳐져</b> 누구에게 가는지 보입니다', s: 1, r: [16, 659, 380, 98] },
+      { t: '<span class="q">「12명 골랐어요」</span> 확인하고 <span class="k">완료</span>', s: 1, r: [0, 795, 412, 69] },
+      { t: '<span class="k">개인</span>: 이름·초성으로 찾기, <span class="q">「최근 보낸 분」</span>', g: '<span class="k">개인</span>은 이름·초성(ㅂㅈㅁ)·부서·교과로 찾습니다. 맨 위에 <span class="k">나</span>와 <span class="q">「최근 보낸 분」</span>, 전체 명단은 <span class="q">「전체 명단 보기」</span>로 펼칩니다', s: 2, r: [16, 386, 380, 320], newf: true }
     ],
-    note: { html: "<span><b>부서</b> = 업무부서 9곳 + 1·2·3학년부 + 행정실 · <b>학년부</b> = 학년부장과 담임 · <b>교과</b> = 국어과처럼 교과별</span>" },
-    screens: [shot("nep-roles")],
-    lt: { tag: "NEW", title: "받는 사람 고르기", sub: "2학기 업무분장·명렬표로 만든 교직원 조직표" },
-    notes: "이번 주에 <b>교직원 조직표</b>(2학기 업무분장·명렬표)를 넣어서, 받는 사람을 부서·교과·직책으로 고를 수 있습니다. 고르면 <b>이름이 펼쳐져</b> 잘못 보낼 걱정이 줄어듭니다. 연락처는 담지 않았습니다."
+    note: { html: "<span>고른 묶음은 맨 위에 <b>이름표</b>로 남고 ×로 뺍니다. 같은 고르기를 <b>회의 서명부·파일 서명</b>에서도 씁니다</span>" },
+    gnote: { html: "<span>고른 묶음은 받는 사람 칸에 <b>이름표</b>로 남고 ×로 뺍니다. <b>부서</b> = 업무부서 9곳 + 1·2·3학년부 + 행정실, <b>학년부</b> = 학년부장과 담임. 같은 고르기를 <b>회의 서명부·파일 서명</b>에서도 씁니다. 화면 속 이름은 지어낸 예시입니다.</span>" },
+    screens: [shot("nep-pick-me"), shot("nep-audience"), shot("nep-person")],
+    lt: { tag: "NEW", title: "받는 사람 고르기", sub: "바로 고르기 · 이름 펼침 · 개인 찾기" },
+    notes: "10월 12일부터 넵 보내기 맨 위가 <b>받는 사람</b>입니다. 「+ 받는 사람 고르기」를 누르면 아래에서 창이 올라오고, 맨 위 <b>바로 고르기</b>에 「나에게」와 내가 자주 보낸 묶음이 있습니다. 그 아래는 전체·부서·교과·직책·학년 담임·개인. 묶음을 고르면 <b>구성원 이름이 펼쳐져</b> 잘못 보낼 걱정이 줄고, 「개인」은 이름·초성으로 찾습니다. 조직표는 2학기 업무분장·명렬표로 만들었고 연락처는 담지 않았습니다. 화면 속 이름은 지어낸 예시입니다."
   });
 
   practice({
     id: "nepDue", part: 3, num: null, label: "넵 마감·넵 속 일정", min: 1, isNew: true,
     chips: [{ t: "NEW", c: "new" }, { t: "둘러보기 · 넵", c: "ghost" }], title: "넵 마감이 <em>받는 분 일정에</em>",
     steps: [
-      { t: '글 속 날짜가 <b>마감 칸에 저절로</b>. 다르면 날짜 단추나 칸을 고칩니다', g: '넵을 쓰면 제목·본문에서 찾은 날짜가 <b>마감 칸에 저절로</b> 들어갑니다. 다르면 다른 날짜 단추를 누르거나 칸을 고칩니다', s: 0, r: "[data-t=due]", newf: true },
-      { t: '확인요청도 <span class="q">「마감 (선택)」</span>. 필요 없으면 <span class="k">마감 빼기</span>', s: 0, r: "[data-t=duelabel]", z: 1.9 },
-      { t: '보내면 AI가 글 속 일정을 <span class="q">「넵 속 일정」</span>에 적습니다', g: '보내면 AI가 글 속 일정(날짜·교시·시각)을 찾아 <span class="q">「넵 속 일정」</span>에 적습니다', s: 1, r: "[data-t=ev]", newf: true },
-      { t: '보낸 사람은 <span class="k">고치기</span>·<span class="k">빼기</span>·<span class="k">+ 더하기</span>·<span class="k">AI로 다시 찾기</span>', s: 1, r: "[data-t=evbtn]", z: 1.9 },
-      { t: '받는 분의 <b>일정·시간표·빼꼼·아침 알림</b>에 뜹니다(두 분에게만)', g: '마감과 넵 속 일정은 받는 분의 <b>일정·시간표·빼꼼 「내 넵」·아침 알림</b>에 뜹니다. 보낸 분과 받는 분에게만 보입니다', s: 1 }
+      { t: '글 속 날짜가 <b>마감 칸에 저절로</b>. 다르면 날짜 단추나 칸을 고칩니다', g: '넵을 쓰면 제목·본문에서 찾은 날짜가 <b>마감 칸에 저절로</b> 들어갑니다(시각이 없으면 오후 4시 30분). 다르면 다른 날짜 단추를 누르거나 칸을 고칩니다', s: 0, r: [31, 346, 350, 164], newf: true },
+      { t: '확인요청은 <span class="q">「마감 (선택)」</span> — 필요 없으면 <span class="k">마감 빼기</span>', s: 0 },
+      { t: '보내면 AI가 글 속 일정을 <span class="q">「넵 속 일정」</span>에 적습니다', g: '보내면 AI가 글 속 일정(날짜·교시·시각)을 찾아 <span class="q">「넵 속 일정」</span>에 적습니다', s: 1, r: [31, 396, 350, 140], newf: true },
+      { t: '보낸 사람은 <span class="k">고치기</span>·<span class="k">빼기</span>·<span class="k">+ 더하기</span>·<span class="k">AI로 다시 찾기</span>', s: 1, r: [250, 404, 135, 96], z: 1.9 },
+      { t: '받는 분 화면에는 <span class="q">「내 일정에 있어요」</span>', g: '받는 분이 열면 마감 띠에 <span class="q">「내 일정에 있어요」</span>가 붙습니다. 마감과 넵 속 일정은 받는 분의 <b>일정·시간표·빼꼼 「내 넵」·아침 알림</b>에 뜹니다', s: 2, r: [31, 190, 350, 36] },
+      { t: '넵 속 일정은 <b>보낸 분과 받는 분에게만</b> 보입니다', s: 2, r: [31, 347, 350, 120] }
     ],
-    note: { html: "<span>달력의 테두리 「넵」은 마감, 점선은 넵 속 일정. 화면은 모형입니다.</span>" },
-    gnote: { html: "<span>일정 달력에서 테두리만 있는 「넵」은 마감, 점선은 넵 속 일정입니다. 마감은 처리하면 사라지고, 학교 학사일정에는 들어가지 않습니다. 화면은 모형입니다.</span>" },
-    screens: [M.nepDue, M.nepEvents],
+    note: { html: "<span>달력의 테두리 「넵」은 마감, 점선은 넵 속 일정. 처리하면 마감은 사라집니다</span>" },
+    gnote: { html: "<span>일정 달력에서 테두리만 있는 「넵」은 마감, 점선은 넵 속 일정입니다. 마감은 처리하면 사라지고, 학교 학사일정·구글 캘린더에는 들어가지 않습니다. 화면 속 이름·글은 예시입니다.</span>" },
+    screens: [shot("nep-new-bottom"), shot("nep-detail-sent"), shot("nep-detail-recv")],
     lt: { tag: "NEW", title: "넵 마감·넵 속 일정", sub: "받는 분의 일정·빼꼼·아침 알림에 저절로" },
-    notes: "넵 쓰기 화면이 <b>제목·본문의 날짜를 찾아 마감 칸에 미리 채웁니다</b>(시각이 없으면 오후 4시 30분). 보내기 전에 보이니 다르면 고치거나 뺍니다. 확인요청도 이제 마감을 넣을 수 있습니다. 보내고 나면 AI가 글 속의 일정 — 예를 들어 「10월 20일 7교시 교과협의회」 — 을 찾아 <b>넵 속 일정</b>으로 적고, 받는 분의 일정 달력(점선)·시간표 칸·빼꼼·아침 알림에 띄웁니다. 보낸 분과 받는 분에게만 보이고, 잘못 찾았으면 보낸 분이 고치거나 뺍니다. 화면은 모형입니다."
+    notes: "넵 쓰기 화면이 <b>제목·본문의 날짜를 찾아 마감 칸에 미리 채웁니다</b>(시각이 없으면 오후 4시 30분). 보내기 전에 보이니 다르면 고치거나 뺍니다. 확인요청도 마감을 넣을 수 있습니다. 보내고 나면 AI가 글 속의 일정 — 예를 들어 「10월 21일 7교시 교과협의회」 — 을 찾아 <b>넵 속 일정</b>으로 적고, 받는 분의 일정 달력(점선)·시간표 칸·빼꼼·아침 알림에 띄웁니다. 받는 분 화면에는 「내 일정에 있어요」가 붙습니다. 보낸 분과 받는 분에게만 보이고, 잘못 찾았으면 보낸 분이 고치거나 뺍니다. 화면 속 이름·글은 예시입니다."
   });
 
   practice({
     id: "p7", part: 3, num: 7, label: "실습 7 · 받은 넵 처리", min: 2, practiceMin: 2,
     chips: [{ t: "실습 7 · 넵" }, { t: "짝 실습", c: "ghost" }], title: "받은 넵 처리하기",
     steps: [
-      { t: '알림을 누르거나 <span class="k">넵</span> → <span class="q">「받은」</span>에서 엽니다', s: 0, r: "[data-t=item]" },
-      { t: '버튼은 하나: 확인요청 <span class="k">넵</span> · 업무요청 <span class="k">완료</span> · 제출요청 <span class="k">제출</span>', s: 1, r: "[data-t=done]" },
-      { t: '<span class="q">「넵 처리했습니다」</span> — 보낸 사람 화면에 바로 반영', s: 1, fn: function (A, P) { var b = P.el(1).querySelector("[data-t=done] .dn"); A.go(b, [{ opacity: 0 }, { opacity: 1 }], { d: 360, delay: 300 }); A.sfx("check", { delay: 300 }); } },
-      { t: '(보낸 사람) <span class="q">「보낸」</span>에서 누가 아직인지 보고 <span class="k">다시 알림</span>', s: 2, r: "[data-t=remind]" }
+      { t: '<span class="q">「받은」</span> 맨 위 <span class="q">「처리할 것」</span> — 마감 가까운 순', g: '알림을 누르거나 <span class="k">넵</span>을 열면 <span class="q">「받은」</span>이 오늘 할 일처럼 묶여 있습니다. 맨 위 <span class="q">「처리할 것」</span>은 마감 가까운 순, 그 아래 <span class="q">「새 알림」</span>', s: 0, r: [17, 139, 378, 403], newf: true },
+      { t: '확인요청은 <b>목록에서 바로</b> <span class="k">넵</span> → <span class="q">「처리함」</span>으로', g: '확인요청은 열지 않고 <b>목록에서 바로</b> <span class="k">넵</span>. 처리한 넵은 아래 <span class="q">「처리함」</span>(접힘)으로 내려갑니다', s: 0, r: [329, 382, 53, 44], z: 1.9, newf: true },
+      { t: '업무·제출은 열어서 <span class="k">완료</span> · <span class="k">제출</span>', g: '업무요청·제출요청은 열어서 내용을 보고 <span class="k">완료</span> · <span class="k">제출</span>. 단추는 글이 길어도 화면 아래에 붙어 있습니다', s: 1, r: [31, 490, 350, 50] },
+      { t: '(보낸 사람) <span class="q">「보낸」</span>: 진행 막대 · 미처리 N명', g: '(보낸 사람) <span class="q">「보낸」</span>은 보낼 예정 · 진행 중 · 끝난 것으로 묶이고, 진행 중에는 <b>막대</b>와 <span class="q">「미처리 N명」</span>이 보입니다', s: 2, r: [17, 277, 378, 94], newf: true },
+      { t: '열면 <span class="q">「아직 5명」</span> → <span class="k">5명에게 다시 알림</span>', g: '보낸 넵을 열면 <span class="q">「아직 N명」</span>에 이름이 보이고, <span class="k">N명에게 다시 알림</span>은 아직 안 한 분께만, <b>하루 한 번</b> 보냅니다', s: 3, r: [31, 296, 350, 111] },
+      { t: '제출요청은 <span class="k">모두 받기</span>로 한 번에', g: '제출요청은 <span class="k">모두 받기</span>를 누르면 낸 파일·글을 zip 파일 하나로 받습니다', s: 3, r: [223, 419, 158, 44], z: 1.9, newf: true }
     ],
-    note: { html: "<span><b>짝 실습</b> 옆 선생님께 「확인요청」을 보내고 서로 [넵]을 눌러 봅니다. 받는 사람: 「개인」 → 이름 찾기</span>" },
-    screens: [M.nepRecv, M.nepDetail, M.nepSent],
-    notes: "짝 실습입니다. 옆 선생님께 확인요청을 보내고 서로 [넵]을 눌러 보면, 보낸 쪽 「보낸」 탭 숫자가 바로 올라가는 걸 볼 수 있습니다. 다시 알림은 아직 안 한 분께만 갑니다."
+    note: { html: "<span><b>짝 실습</b> 옆 선생님께 「확인요청」을 보내고 서로 목록에서 [넵]을 눌러 봅니다. 받는 사람: 「개인」 → 이름 찾기</span>" },
+    screens: [shot("nep-inbox"), shot("nep-detail-recv"), shot("nep-sent"), shot("nep-board")],
+    notes: "받은 넵은 이제 <b>오늘 할 일</b>처럼 묶입니다. 확인요청은 열지 않고 <b>목록에서 바로 [넵]</b>, 업무·제출은 열어서 처리합니다. 짝 실습 — 옆 선생님께 확인요청을 보내고 서로 [넵]을 눌러 보면, 보낸 쪽 「보낸」의 숫자와 막대가 바로 올라갑니다. 다시 알림은 아직 안 한 분께만, 하루 한 번. 제출요청은 「모두 받기」로 한 번에 받습니다. 지우기는 보낸 넵 오른쪽 위 「···」에 있습니다. 화면 속 이름·글은 예시입니다."
   });
 
   // ════════════════════════════════════════════════════════════
