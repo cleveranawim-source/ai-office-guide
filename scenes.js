@@ -460,7 +460,7 @@
     '<div style="margin:14px 20px 4px;font:600 13px var(--body);color:#6b7a90">명단</div>' +
     '<div class="card" style="padding:4px 18px"><div class="person" style="border:0"><span>1&nbsp; 김하늘 · 교과</span><b style="color:#1f8a5a">✓ 15:42</b></div><div class="person"><span>2&nbsp; 나 · 교목실</span><span class="muted st">아직</span></div><div class="person"><span>3&nbsp; 박서준 · 교과</span><span class="muted">아직</span></div></div>' +
     '<div style="position:absolute;left:16px;right:16px;top:430px"><div class="btn" data-t="sign" style="position:relative;overflow:hidden">내 서명으로 서명하기<span class="dn" style="position:absolute;inset:0;display:grid;place-items:center;background:#1f8a5a;opacity:0">✓ 서명했습니다</span></div><p style="text-align:center;margin-top:10px;color:#295c9e;font-weight:700">이번만 손으로</p></div>');
-  // 10월 둘째 주에 새로 생긴 화면(캡처 전이라 모형): 빼꼼·넵 마감·넵 속 일정·수업교체 계산하기·전자칠판 쪽지
+  // 10월 둘째 주에 새로 생긴 화면(캡처 전이라 모형): 빼꼼·넵 마감·넵 속 일정·수업교체 계산하기
   function hd(title, link, attr) { return '<div class="row" ' + (attr || "") + '><h4 style="margin:0">' + title + "</h4>" + (link ? '<span class="lk">' + link + "</span>" : "") + "</div>"; }
   function li(tm, txt, pill) { return '<div class="li"><b class="tm">' + tm + "</b><span>" + txt + "</span>" + (pill || "") + "</div>"; }
   M.today = mk('<div class="top"><b>빼꼼</b><span>오늘 학교를 빼꼼 — 공지와 평소 시간표에서 달라진 것</span></div>' +
@@ -469,7 +469,7 @@
     '<p class="dayln">10월 14일 수요일 · 지금 3교시</p>' +
     '<div class="card" data-t="nep">' + hd('내 넵 <span class="cnt">1</span>', "넵") + li("16:30", "2학기 평가계획서 제출", '<span class="pill">제출요청 마감</span>') + "</div>" +
     '<div class="card" data-t="ev">' + hd('특별 일정 <span class="cnt">2</span>', "주간소식") + li("5~6교시", "동아리활동") + li("15:30", "10월 교직원 협의회", '<span class="pill wk">주간소식</span>') + "</div>" +
-    '<div class="card" data-t="chg">' + hd('바뀐 수업 <span class="cnt">2</span>') + li("3교시", "2-3 국어 → 수학 김하늘", '<span class="pill ok">지금</span>') + li("5교시", "1-4 과학", '<span class="pill warn">보강 필요</span>') + "</div>");
+    '<div class="card" data-t="chg">' + hd('바뀐 수업 <span class="cnt">3</span>') + li("3교시", "2-3반 · 국어 → 수학", '<span class="pill ok">지금</span>') + li("5교시", "3-10반 · 과학 → 수학", '<span class="pill gr">수락 대기</span>') + li("6교시", "1-4반 · 과학", '<span class="pill warn">보강 필요</span>') + "</div>");
   M.nepDue = mk('<div class="top"><b style="font-size:20px">‹&nbsp; 넵 보내기</b></div>' +
     '<div class="card"><p class="lbl">유형</p><div class="chips"><span>알림</span><span class="on">확인요청</span><span>업무요청</span><span>제출요청</span></div>' +
     '<p class="lbl">제목</p><div class="inp">2학기 평가계획서 확인</div>' +
@@ -508,13 +508,6 @@
     '<div class="btn" data-t="req">내 서명으로 이 안 요청</div><p class="lk" style="text-align:center;margin-top:8px">이번만 손으로</p>' +
     '<div class="row" style="justify-content:flex-start;gap:8px;margin-top:10px" data-t="tools"><span class="tb">요약 복사</span><span class="tb">신고서</span></div></div>' +
     '<div class="card"><div class="row"><b>2안</b><span class="lk">자세히 보기</span></div></div>');
-  M.boardMemo = mk('<div class="top"><b>전자칠판 알림</b><span>교실 칠판에 안내·긴급을 띄웁니다</span></div>' +
-    '<div class="card"><div class="seg3" style="margin:0 0 12px" data-t="memo"><span>안내</span><span class="on">쪽지</span><span>긴급</span></div>' +
-    '<p class="lbl">대상</p><div class="chips"><span>전체</span><span class="on">1학년</span><span>2학년</span><span>3학년</span><span>교실 고르기</span></div>' +
-    '<p class="lbl">글</p><div class="inp" style="height:62px" data-t="text">점심시간에 반장은 교무실로 와 주세요</div><p class="muted" style="margin-top:4px">19/60</p>' +
-    '<p class="muted" style="margin-top:6px">수업 화면을 가리지 않고 칠판 오른쪽 위에 노란 쪽지로 뜹니다(「띵」 한 번). 학생들도 보니 이름 같은 민감한 내용은 쓰지 마세요.</p>' +
-    '<p class="lbl">유지 시간</p><div class="chips"><span>5분</span><span class="on">10분</span><span>20분</span><span>30분</span></div>' +
-    '<div class="btn" data-t="send">10곳에 쪽지 보내기</div></div>');
 
   // ════════════════════════════════════════════════════════════
   // 0부 · 시작
@@ -608,7 +601,7 @@
     [4, "디지털 서명", "내 서명 등록, 회의 서명부(AI로도), 파일로 서명 받기", 8, true],
     [5, "AI에게 부탁하기", "자료실·드라이브·파일 묻기, 요청 카드, 수업교체 계산", 9],
     [6, "세특 도우미", "과세특 초안 한 명 만들어 보기", 5],
-    [7, "전자칠판·자료실", "칠판 알림(사진·예약·쪽지·시험 화면), 자료 찾고 올리기", 5]
+    [7, "전자칠판·자료실", "새 칠판 보내기 화면, 쪽지·긴급, 자료 찾고 올리기", 5]
   ];
   D.add({
     id: "agenda", part: 0, label: "오늘 순서", kind: "light", min: 0.5, trans: "whip",
@@ -638,7 +631,7 @@
     ["4부", "디지털 서명", "<b>내 서명</b> 한 번 등록으로 회의 서명부·파일 서명·수업교체 신고서에 <b>한 번 누르기</b>."],
     ["5부", "AI가 더 많이 읽어요", "<b>📎 파일·웹 주소</b>, <b>학교 공유 드라이브</b>, 주간소식까지. 넵도 <b>카드로 보내기</b>."],
     ["5부", "수업교체 계산하기", "<b>학사일정을 반영</b>해 교체안을 계산하고, 갚는 수업의 <b>날짜를 고릅니다</b>."],
-    ["7부", "전자칠판 알림", "사진·예약·긴급 단추에 이어 <b>쪽지</b>와 <b>▶ 영상 틀기</b>. 시험 날은 <b>시험 화면</b>."]
+    ["7부", "전자칠판 알림", "보내기 화면이 <b>무엇을 → 어디에</b>로 새로. <b>쪽지</b>·<b>▶ 영상 틀기</b>, 아침 8:45 바뀐 수업 쪽지."]
   ];
   D.add({
     id: "whatsnew", part: 0, label: "10월 새 기능", kind: "light", min: 1.2, isNew: true,
@@ -791,13 +784,13 @@
       { t: '요일을 눌러 이번 주 다른 날도 봅니다', s: 1, r: "[data-t=days]" },
       { t: '<span class="q">「내 넵」</span>: 그날 마감인 넵과 넵 속 일정. <b>나에게만</b> 보입니다', s: 1, r: "[data-t=nep]", newf: true },
       { t: '<span class="q">「특별 일정」</span>: 학사일정과 <b>주간소식</b> 일정을 한 목록으로', s: 1, r: "[data-t=ev]" },
-      { t: '<span class="q">「바뀐 수업」</span>: 평소와 달라진 수업만(사유는 안 보임)', g: '<span class="q">「바뀐 수업」</span>: 평소 시간표와 달라진 수업만. 교체 사유는 보이지 않습니다', s: 1, r: "[data-t=chg]" }
+      { t: '<span class="q">「바뀐 수업」</span>: 이름 없이 <b>과목만</b>, 「수락 대기」도', g: '<span class="q">「바뀐 수업」</span>: 평소 시간표와 달라진 수업을 <b>선생님 이름 없이 과목만</b> 보여 줍니다. 상대 선생님 수락을 기다리는 교체는 「수락 대기」로 보이고, 교체 사유는 보이지 않습니다', s: 1, r: "[data-t=chg]" }
     ],
     note: { html: "<span>공지는 이제 빼꼼 맨 위 <b>알림판</b>에. 화면은 모형입니다.</span>" },
     gnote: { html: "<span>공지는 이제 빼꼼 맨 위 <b>알림판</b>에 걸립니다. 열어 두면 1분마다 새로 읽습니다. 화면은 모형이고 일정·이름은 예시입니다.</span>" },
     screens: [shot("more-top"), M.today],
     lt: { tag: "NEW", title: "빼꼼", sub: "현황판 이름이 바뀌고, 공지가 맨 위로 들어왔어요" },
-    notes: "더보기 맨 위의 <b>현황판이 「빼꼼」으로</b> 이름이 바뀌었습니다. 「오늘 학교를 빼꼼」 들여다본다는 뜻입니다. 공지 메뉴는 따로 없고 <b>빼꼼 맨 위 「알림판」</b>에 고정 공지와 하루 안 된 공지가 걸립니다. 그 아래는 그날 나의 넵 마감·넵 속 일정(「내 넵」, 나에게만), 학사일정과 주간소식의 특별 일정, 평소 시간표와 달라진 수업 순서입니다. 누가 왜 자리를 비우는지는 싣지 않습니다. 화면은 모형이고 일정·이름은 예시입니다."
+    notes: "더보기 맨 위의 <b>현황판이 「빼꼼」으로</b> 이름이 바뀌었습니다. 「오늘 학교를 빼꼼」 들여다본다는 뜻입니다. 공지 메뉴는 따로 없고 <b>빼꼼 맨 위 「알림판」</b>에 고정 공지와 하루 안 된 공지가 걸립니다. 그 아래는 그날 나의 넵 마감·넵 속 일정(「내 넵」, 나에게만), 학사일정과 주간소식의 특별 일정, 평소 시간표와 달라진 수업 순서입니다. 바뀐 수업은 <b>선생님 이름 없이 과목만</b> 보이고, 상대 수락을 기다리는 교체는 「수락 대기」로 보입니다. 누가 왜 자리를 비우는지는 싣지 않습니다. 화면은 모형이고 일정·이름은 예시입니다."
   });
 
   D.add({
@@ -1335,50 +1328,52 @@
   opener({
     part: 7, art: "board", min: 5, lines: ["교실에는 한 번에,", "<em>자료는 한 곳에</em>"],
     was: "반마다 다니며 안내, 자료는 여기저기", now: "모든 교실 칠판에 한 번에, 자료는 자료실에",
-    notes: "마지막 7부는 <b>전자칠판 알림</b>과 <b>자료실</b>입니다. 전자칠판에는 사진·예약·긴급 단추·시험 화면에 이어 <b>쪽지</b>와 <b>▶ 영상 틀기</b>가 새로 생겼습니다. 실제 교실에 바로 뜨기 때문에 오늘은 둘러보기만 합니다."
+    notes: "마지막 7부는 <b>전자칠판 알림</b>과 <b>자료실</b>입니다. 전자칠판은 10월 12일에 <b>보내기 화면이 새로</b> 바뀌었고(무엇을 → 어디에 → 보내기), <b>쪽지</b>·<b>▶ 영상 틀기</b>·아침 8:45 「오늘 바뀐 수업」 쪽지가 새로 생겼습니다. 실제 교실에 바로 뜨기 때문에 오늘은 둘러보기만 합니다."
   });
 
   practice({
     id: "p13", part: 7, num: 13, label: "실습 13 · 전자칠판 알림 둘러보기", min: 1.8, practiceMin: 1, trans: "zoom",
-    chips: [{ t: "실습 13 · 전자칠판 알림" }, { t: "둘러보기 1분", c: "ghost" }], title: "전자칠판 알림 화면 둘러보기",
+    chips: [{ t: "실습 13 · 전자칠판 알림" }, { t: "둘러보기 1분", c: "ghost" }], title: "무엇을 쓰고, <em>어디에</em> 보낼지",
     steps: [
       { t: '<span class="k">더보기</span> → <span class="q">「도구」</span> 묶음의 <span class="k">전자칠판 알림</span>', s: 0, r: [17, 337, 378, 56] },
-      { t: '대상: 전체·학년 또는 <span class="q">「교실 고르기」</span>(특별실은 <b>층별로</b>)', s: 1, r: [28, 164, 356, 342], newf: true },
-      { t: '글(줄바꿈 그대로), 링크(칠판에 큰 QR — <b>유튜브면 「▶ 영상 틀기」</b>), <b>사진 3장까지</b>', s: 2, r: [28, 290, 356, 330], newf: true },
-      { t: '<span class="q">「시각 정하기」</span>로 <b>오늘 안 예약</b>, 유지 시간 3~30분', s: 3, r: [28, 260, 356, 194], newf: true },
-      { t: '<b>오늘은 <span class="k">띄우기</span>·<span class="k">예약하기</span>를 누르지 않습니다</b>', g: '<span class="k">…곳에 띄우기</span>를 누르면 고른 교실 칠판에 바로 뜨고, <span class="k">예약하기</span>는 그 시각에 뜹니다', s: 3, r: [31, 497, 350, 50], warn: "실제 교실 칠판에 뜹니다(예약도 그 시각에)" },
-      { t: '<span class="q">「오늘 칠판에 나간 알림」</span>: 점 색으로 도착·확인, <span class="k">예약 취소</span>', s: 3, r: [16, 575, 380, 192] },
-      { t: '<span class="q">「긴급」</span> 탭: 단추를 누르면 문장이 채워집니다(경보음과 함께 뜸)', s: 4, r: [28, 280, 356, 126], newf: true }
+      { t: '<span class="q">안내 · 쪽지 · 긴급</span>을 고르고 <span class="q">「무엇을」</span>에 띄울 말', g: '위쪽에서 <span class="q">안내 · 쪽지 · 긴급</span>을 고르고, <span class="q">「무엇을」</span> 칸에 칠판에 띄울 말을 씁니다(엔터로 줄바꿈)', s: 1, r: [31, 136, 350, 208], newf: true },
+      { t: '작은 단추: <span class="k">링크</span>·<span class="k">사진</span>·<span class="k">예약</span>·유지 시간', g: '작은 단추로 더합니다: <span class="k">링크</span>(칠판에 QR, 유튜브면 「▶ 영상 틀기」) · <span class="k">사진</span>(3장까지) · <span class="k">예약</span>(오늘 안 시각) · 유지 시간. 넣은 것은 단추에 ✓로 보입니다', s: 2, r: [31, 359, 350, 172], newf: true },
+      { t: '<span class="q">「어디에」</span>: 담임은 <b>「내 반」이 기본</b>, 학년 전체·전교실', g: '<span class="q">「어디에」</span>: 담임은 <b>「내 반」이 기본</b>입니다. 1·2·3학년 전체·전교실은 한 번 더 누르면 풀립니다', s: 1, r: [31, 415, 350, 114], newf: true },
+      { t: '<span class="k">직접 고르기</span>: 학년·특별실 탭에서 골라 섞기', g: '<span class="k">직접 고르기</span>: 아래에서 올라오는 창의 학년·특별실 탭에서 교실을 골라 섞습니다. 초록 점은 지금 켜진 칠판입니다', s: 3, r: [16, 269, 380, 470], newf: true },
+      { t: '<b>오늘은 <span class="k">…에 띄우기</span>를 누르지 않습니다</b>', g: '보내기 단추에 어디로 가는지 적혀 있습니다(「2학년 3반에 띄우기」). 누르면 그 교실 칠판에 바로 뜨고, 예약은 그 시각에 뜹니다', s: 1, r: [31, 559, 350, 50], warn: "실제 교실 칠판에 뜹니다(예약도 그 시각에)" },
+      { t: '<span class="q">「오늘 칠판에 나간 알림」</span>: 점 색으로 도착·확인', g: '<span class="q">「오늘 칠판에 나간 알림」</span>: 점 색으로 도착·확인을 보고, 예약은 <span class="k">예약 취소</span>. 아침 8:45 <b>「수업교체 알림」</b> 쪽지도 여기 보입니다', s: 4, r: [17, 251, 378, 502] }
     ],
-    gnote: { html: "<span>쉬는 시간(수업 시작 10분 전~1분 전)에 띄운 안내는 <b>수업 시작 1분 전까지</b> 칠판에서 닫히지 않아요. 긴급 경보음은 보낸 사람이 「소리 끄기」로 끕니다. <b>시험 날</b>에는 그 학년 칠판이 시험 화면(시간표·종료까지 N분·응시 현황)이 되고, 담임은 이 화면 맨 위 카드에서 결시 번호·사유를 넣습니다(학생 이름 없이).</span>" },
+    gnote: { html: "<span>쉬는 시간(수업 시작 10분 전~1분 전)에 띄운 안내는 <b>수업 시작 1분 전까지</b> 칠판에서 닫히지 않아요. 긴급 경보음은 보낸 사람이 「소리 끄기」로 끕니다. <b>시험 날</b>에는 그 학년 칠판이 시험 화면(시간표·종료까지 N분·응시 현황)이 되고, 담임은 이 화면 맨 위 카드에서 결시 번호·사유를 넣습니다(학생 이름 없이). 화면 속 교실·글은 예시입니다.</span>" },
     finale: function (A) { A.lt({ tag: "알아 두기", title: "쉬는 시간에 띄운 안내는 수업 시작 1분 전까지 닫히지 않아요", sub: "수업 시작 10분 전~1분 전에 띄운 안내 · 긴급 경보음은 보낸 사람이 「소리 끄기」로", delay: 300 }); },
-    screens: [shot("more-top"), shot("board-pick"), shot("board-v2"), shot("board-sent"), shot("board-urgent")],
-    notes: "전자칠판 알림은 교실 칠판에 안내·긴급을 띄웁니다. 메뉴가 <b>「도구」 묶음</b>으로 옮겨졌습니다. 교실 고르기에서 특별실은 층별로 나뉘었고, <b>사진을 세 장까지</b> 붙일 수 있으며, <b>「시각 정하기」로 오늘 안의 시각에 뜨도록 예약</b>할 수 있습니다. 쉬는 시간에 띄운 안내는 학생이 터치로 닫지 못하게 수업 시작 1분 전까지 유지되고, 긴급 경보음은 보낸 선생님이 끕니다. 새로 생긴 <b>「쪽지」</b>는 「수업 끝나고 교무실로 전화 부탁드립니다」 같은 60자 이하 짧은 글을 칠판 오른쪽 위에 노란 쪽지로 띄웁니다 — 수업 화면을 가리지 않고 「띵」 한 번만 울립니다. 안내 링크에 <b>유튜브 주소</b>를 넣으면 칠판에 [▶ 영상 틀기]가 함께 떠서 교실에서 바로 틉니다. 오늘은 [띄우기]·[예약하기]·[쪽지 보내기]를 누르지 않습니다."
+    screens: [shot("more-top"), shot("board-v2"), shot("board-options"), shot("board-pick"), shot("board-sent")],
+    lt: { sub: "10월 12일 보내기 화면이 새로 바뀌었어요 · 무엇을 → 어디에 → 보내기" },
+    notes: "전자칠판 보내기 화면이 <b>무엇을 → 어디에 → 보내기</b> 순서로 새로 바뀌었습니다. 먼저 안내·쪽지·긴급을 고르고 띄울 말을 씁니다(엔터로 줄바꿈). 링크·사진·예약·유지 시간은 <b>작은 단추</b>로 접혀 있다가 누르면 펼쳐지고, 넣은 것은 단추에 ✓로 보입니다 — 링크가 <b>유튜브</b>면 칠판에 [▶ 영상 틀기]가 함께 뜹니다. 「어디에」는 <b>담임이면 「내 반」이 기본</b>이고, 학년 전체·전교실, 또는 <b>직접 고르기</b> 창에서 학년·특별실 탭을 오가며 섞어 고릅니다. 보내기 단추에 「2학년 3반에 띄우기」처럼 어디로 가는지 적혀 있어 잘못 보낼 일이 줄었습니다. 아래 「오늘 칠판에 나간 알림」에는 아침 8:45에 저절로 나간 「수업교체 알림」 쪽지도 보입니다. 오늘은 보내지 않습니다."
   });
 
   practice({
-    id: "boardMemo", part: 7, num: null, label: "전자칠판 쪽지 (보기만)", min: 0.8, isNew: true,
-    chips: [{ t: "NEW", c: "new" }, { t: "보기만 · 전자칠판 쪽지", c: "watch" }], title: "짧은 말은 <em>쪽지</em>로",
+    id: "boardMemo", part: 7, num: null, label: "전자칠판 쪽지·긴급 (보기만)", min: 0.9, isNew: true,
+    chips: [{ t: "NEW", c: "new" }, { t: "보기만 · 쪽지와 긴급", c: "watch" }], title: "짧은 말은 <em>쪽지</em>, 위급할 땐 <em>긴급</em>",
     steps: [
-      { t: '위쪽 <span class="q">안내 · 쪽지 · 긴급</span>에서 <span class="k">쪽지</span>', s: 0, r: "[data-t=memo]", newf: true },
-      { t: '<b>60자</b>까지 짧게. 칠판 <b>오른쪽 위 노란 쪽지</b>로 뜨고 「띵」 한 번만 울립니다', s: 0, r: "[data-t=text]", newf: true },
-      { t: '수업 화면을 가리지 않습니다. 학생들도 보니 <b>이름 같은 민감한 내용은 쓰지 않습니다</b>', s: 0 },
-      { t: '<b>오늘은 <span class="k">…곳에 쪽지 보내기</span>를 누르지 않습니다</b>', g: '<span class="k">…곳에 쪽지 보내기</span>를 누르면 고른 교실 칠판에 쪽지가 뜹니다(유지 5~30분)', s: 0, r: "[data-t=send]", warn: "실제 교실 칠판에 쪽지가 뜹니다" }
+      { t: '<span class="k">쪽지</span>: <b>60자</b>까지. 칠판 오른쪽 위 <b>노란 쪽지</b>(「띵」 한 번)', g: '<span class="k">쪽지</span>: <b>60자</b>까지 짧게 씁니다. 칠판 오른쪽 위에 <b>노란 쪽지</b>로 뜨고 「띵」 한 번만 울려 수업 화면을 가리지 않습니다', s: 0, r: [31, 136, 350, 231], newf: true },
+      { t: '학생들도 보니 <b>이름 같은 민감한 내용은 쓰지 않습니다</b>', s: 0, r: [31, 335, 350, 32], z: 1.9 },
+      { t: '<span class="k">긴급</span>: 단추를 누르면 문장이 채워지고, 경보음과 함께 빨갛게', g: '<span class="k">긴급</span>: 지진·화재·전시 대피·외부인 침입·교실 대기 단추를 누르면 문장이 채워집니다. 칠판에는 경보음과 함께 빨간 「긴급」으로 뜹니다', s: 1, r: [31, 234, 350, 236], newf: true },
+      { t: '<b>오늘은 <span class="k">쪽지 보내기</span>·<span class="k">긴급 보내기</span>를 누르지 않습니다</b>', g: '<span class="k">쪽지 보내기</span>·<span class="k">긴급 보내기</span>를 누르면 고른 교실 칠판에 바로 뜹니다(긴급은 한 번 더 확인)', s: 1, r: [31, 707, 350, 50], warn: "실제 교실 칠판에 뜹니다" }
     ],
-    note: { html: "<span>안내가 떠 있으면 쪽지는 그 옆 노란 칸으로, 긴급이 뜨면 끝날 때까지 숨습니다. 화면은 모형입니다.</span>" },
-    screens: [M.boardMemo],
-    lt: { tag: "보기만", title: "전자칠판 쪽지", sub: "보내면 실제 교실 칠판에 떠요", tone: "warn" },
-    notes: "새로 생긴 <b>쪽지</b>입니다. 「수업 끝나고 교무실로 전화 부탁드립니다」처럼 수업 중인 선생님께 짧게 전할 말을 60자까지 써서 보냅니다. 칠판 오른쪽 위에 노란 쪽지로 뜨고 「띵」 한 번만 울려서 수업을 가리지 않습니다. 학생들도 보는 화면이니 이름 같은 민감한 내용은 쓰지 않습니다. 화면은 모형이고, 오늘은 보내지 않습니다."
+    note: { html: "<span>아침 8:45에는 수업이 바뀐 반 칠판에 <b>「오늘 바뀐 수업」 쪽지</b>가 저절로 뜹니다.</span>" },
+    gnote: { html: "<span>아침 8:45에는 그날 수업이 바뀐 반 칠판에 <b>「오늘 바뀐 수업 · 3교시 국어→수학」</b> 같은 쪽지가 저절로 뜹니다(보낸 사람 「수업교체 알림」, 사유는 싣지 않음). 안내가 떠 있으면 쪽지는 그 옆 노란 칸으로, 긴급이 뜨면 끝날 때까지 숨습니다. 화면 속 교실·글은 예시입니다.</span>" },
+    screens: [shot("board-memo"), shot("board-urgent")],
+    lt: { tag: "보기만", title: "쪽지와 긴급", sub: "보내면 실제 교실 칠판에 떠요", tone: "warn" },
+    notes: "<b>쪽지</b>는 「수업 끝나고 교무실로 전화 부탁드립니다」처럼 수업 중인 선생님께 짧게 전할 말을 60자까지 보냅니다. 칠판 오른쪽 위에 노란 쪽지로 뜨고 「띵」 한 번만 울려 수업을 가리지 않습니다. 학생들도 보니 이름 같은 민감한 내용은 쓰지 않습니다. 또 <b>아침 8:45</b>에는 그날 수업이 바뀐 반 칠판에 「오늘 바뀐 수업」 쪽지가 저절로 뜹니다(보낸 사람 「수업교체 알림」). <b>긴급</b>은 상황 단추를 누르면 문장이 채워지고, 칠판에는 경보음과 함께 빨갛게 뜹니다. 오늘은 보내지 않습니다."
   });
 
   D.add({
     id: "boardNew", part: 7, label: "전자칠판에 새로 생긴 것", kind: "light", min: 1.5, isNew: true,
-    notes: "교실 칠판에는 이렇게 뜹니다. <b>사진</b>은 위에 크게, 글은 바로 아래에 뜹니다. 학생 얼굴이 나온 사진은 피해 주세요. 안내의 「안내」 딱지와 보낸 사람 줄은 노랗게 바뀌었고, 글의 줄바꿈도 그대로 보입니다. <b>예약</b>한 안내는 그 시각에 뜨고, 「오늘 칠판에 나간 알림」에서 예약 취소도 됩니다. 새로 생긴 <b>쪽지</b>는 수업 화면을 가리지 않고 오른쪽 위에 노란 쪽지로, 「띵」 한 번만 울립니다(학생들도 보니 이름 같은 민감한 내용은 쓰지 않습니다). 안내 링크가 <b>유튜브</b>면 QR 아래 [▶ 영상 틀기]가 떠서 교실에서 눌러 칠판 안에서 바로 틉니다. <b>긴급</b>은 짧은 이름의 단추 다섯 개 — 지진·화재·전시 대피·외부인 침입·교실 대기 — 를 누르면 문장이 채워지고, 칠판은 상황과 상관없이 빨간 「긴급」 하나로 뜹니다. 마지막으로 <b>시험 날</b>에는 그 학년 교실 칠판이 시험 화면으로 바뀝니다. 시험 시간표와 「종료까지 N분」, 반의 재적·응시·결시가 뜨고, <b>담임 선생님은 「전자칠판 알림」 맨 위 카드에서 번호를 눌러 결시·별도 고사실·제적(유예·전학)을 고르고 사유를 넣습니다</b>(학생 이름은 쓰지 않습니다). 화면의 반·번호는 예시입니다.",
+    notes: "교실 칠판에는 이렇게 뜹니다. <b>사진</b>은 위에 크게, 글은 바로 아래에 뜹니다. 학생 얼굴이 나온 사진은 피해 주세요. 안내의 「안내」 딱지와 보낸 사람 줄은 노랗게 바뀌었고, 글의 줄바꿈도 그대로 보입니다. <b>예약</b>한 안내는 그 시각에 뜨고, 「오늘 칠판에 나간 알림」에서 예약 취소도 됩니다. 새로 생긴 <b>쪽지</b>는 수업 화면을 가리지 않고 오른쪽 위에 노란 쪽지로, 「띵」 한 번만 울립니다(학생들도 보니 이름 같은 민감한 내용은 쓰지 않습니다). 화면의 쪽지는 <b>아침 8:45에 저절로 뜨는 「오늘 바뀐 수업」 쪽지</b>입니다 — 그날 수업이 바뀐 반 칠판에만, 사유 없이 뜹니다. 안내 링크가 <b>유튜브</b>면 QR 아래 [▶ 영상 틀기]가 떠서 교실에서 눌러 칠판 안에서 바로 틉니다. <b>긴급</b>은 짧은 이름의 단추 다섯 개 — 지진·화재·전시 대피·외부인 침입·교실 대기 — 를 누르면 문장이 채워지고, 칠판은 상황과 상관없이 빨간 「긴급」 하나로 뜹니다. 마지막으로 <b>시험 날</b>에는 그 학년 교실 칠판이 시험 화면으로 바뀝니다. 시험 시간표와 「종료까지 N분」, 반의 재적·응시·결시가 뜨고, <b>담임 선생님은 「전자칠판 알림」 맨 위 카드에서 번호를 눌러 결시·별도 고사실·제적(유예·전학)을 고르고 사유를 넣습니다</b>(학생 이름은 쓰지 않습니다). 화면의 반·번호는 예시입니다.",
     html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip ghost">교실 칠판</span></div><h2 class="title" style="width:860px">교실 칠판에는 <em>이렇게</em> 뜹니다</h2>' +
       '<div class="abs bnl">' +
         '<div class="card c" data-k="0"><span class="tg">사진</span><b>사진 3장까지</b><p>위에 크게, 글은 바로 아래. 학생 얼굴이 나온 사진은 피해 주세요.</p></div>' +
         '<div class="card c" data-k="1"><span class="tg">예약</span><b>오늘 안 시각에 띄우기</b><p>「띄울 때 → 시각 정하기」. 나간 알림에서 <b>예약 취소</b>.</p></div>' +
-        '<div class="card c" data-k="2"><span class="tg n">쪽지 · NEW</span><b>오른쪽 위 노란 쪽지</b><p><b>60자</b>까지, 「띵」 한 번. 수업 화면을 가리지 않습니다.</p></div>' +
+        '<div class="card c" data-k="2"><span class="tg n">쪽지 · NEW</span><b>오른쪽 위 노란 쪽지</b><p><b>60자</b>까지, 「띵」 한 번. 아침 8:45엔 <b>바뀐 수업</b> 쪽지가 저절로.</p></div>' +
         '<div class="card c" data-k="3"><span class="tg n">영상 · NEW</span><b>▶ 영상 틀기</b><p>안내 링크에 <b>유튜브 주소</b>를 넣으면 칠판에서 눌러 바로 틉니다.</p></div>' +
         '<div class="card c" data-k="4"><span class="tg w">긴급</span><b>단추 다섯 개</b><p class="pre"><i>지진 대피</i><i>화재 대피</i><i>전시 대피</i><i>외부인 침입</i><i>교실 대기</i></p></div>' +
         '<div class="card c" data-k="5"><span class="tg n">시험</span><b>시험 날은 시험 화면</b><p>시간표·종료까지 N분·응시 현황. <b>담임은 결시·별도·제적 번호</b>를 넣습니다(이름 없이).</p></div>' +
@@ -1387,7 +1382,7 @@
         '<div class="st idle"><span class="rm">2학년 3반</span><b class="mono">10:12</b><small>10월 14일 수요일</small></div>' +
         '<div class="st note"><span class="hd">안내</span><div class="ph"><i></i><i></i><i></i></div><p>체육대회 반 사진입니다. 마음에 드는 사진 번호를 반장에게 알려 주세요.</p><small>홍길동 선생님 · 10:12 · 눌러서 확인</small></div>' +
         '<div class="st sch"><span class="rm">2학년 3반</span><b class="mono">14:19</b><span class="chipy">14:20에 뜸 · 예약</span></div>' +
-        '<div class="st memo"><div class="ls"><b>3. 일차함수의 그래프</b><i style="width:92%"></i><i style="width:78%"></i><i style="width:85%"></i><i style="width:60%"></i></div><div class="yn"><small>쪽지 · 홍길동 · 10:12</small><p>수업 끝나고 교무실로 전화 부탁드립니다</p></div></div>' +
+        '<div class="st memo"><div class="ls"><b>3. 일차함수의 그래프</b><i style="width:92%"></i><i style="width:78%"></i><i style="width:85%"></i><i style="width:60%"></i></div><div class="yn"><small>쪽지 · 수업교체 알림 · 08:45</small><p>오늘 바뀐 수업 · 3교시 국어→수학</p></div></div>' +
         '<div class="st vid"><span class="hd">안내</span><div class="qrw"><img src="img/qr.svg" alt=""><span class="play">▶ 영상 틀기</span></div><div><p>학급회의 전에 이 영상을 함께 봅니다.</p><small>홍길동 선생님 · 10:12</small></div></div>' +
         '<div class="st urg"><span class="hd">긴급</span><p>지진이 발생했습니다. 책상 아래로 대피하고 선생님 지시를 기다리세요.</p><small>홍길동 선생님 · 10:12</small></div>' +
         '<div class="st exam"><div class="top"><span><em>2학년 3반</em> · 2학기 중간고사</span><small class="mono">10/14 10:33</small></div>' +
