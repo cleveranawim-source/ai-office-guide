@@ -544,14 +544,14 @@
   ];
   D.add({
     id: "hook", part: 0, label: "여는 이야기", kind: "dark", min: 1, trans: "fade",
-    notes: "1단계: 선생님들 하루에 흩어진 일들을 보여 줍니다. “이 질문들, 하루에 몇 번 하시나요?”<br>2단계: 넘기면 낱말들이 휴대폰 하나로 모입니다. <b>“흩어진 일을 휴대폰 하나로 모은 것이 AI 교무실입니다.”</b><br>3단계: 10월 2일 기준으로 <b>아침 알림을 켠 계정은 71명 중 10명</b>입니다. 탓하는 말이 아니라 “오늘 끝날 때는 모두 켜 두자”는 목표로 말씀해 주세요.",
+    notes: "1단계: 선생님들 하루에 흩어진 일들을 보여 줍니다. “이 질문들, 하루에 몇 번 하시나요?”<br>2단계: 넘기면 낱말들이 휴대폰 하나로 모입니다. <b>“흩어진 일을 휴대폰 하나로 모은 것이 AI 교무실입니다.”</b><br>3단계: 10월 12일 기준으로 <b>아침 알림을 켠 선생님은 74명 중 34명</b>입니다. 10월 2일에는 71명 중 10명이었으니 많이 늘었지만, 아직 절반이 안 됩니다. 탓하는 말이 아니라 “오늘 끝날 때는 모두 켜 두자”는 목표로 말씀해 주세요.",
     html: '<div class="hk-bg"></div><div class="grain"></div>' +
       HOOK_WORDS.map(function (w) { return '<span class="hk-word" style="left:' + w[1] + "px;top:" + w[2] + "px;font-size:" + w[3] + "px;transform:rotate(" + w[4] + 'deg)"><span class="in" style="display:inline-block">' + w[0] + "</span></span>"; }).join("") +
       '<h2 class="abs hk-say"><span class="ln">선생님의 하루는</span><span class="ln"><em>여기저기</em> 흩어져 있습니다</span></h2>' +
       '<div class="abs hk-ring"></div><div class="abs hk-icon"><img src="img/symbol-128.png" alt="AI 교무실"></div>' +
       '<h2 class="abs hk-one"><span class="ln">휴대폰 하나로, <em>한 곳에서.</em></span></h2>' +
-      '<div class="abs hk-stat"><p class="cap">지금 아침 알림을 받는 선생님</p><div class="num"><em class="n10">0</em><small>/ 71명</small></div><p class="src">10월 2일 기준 · 알림을 켠 계정</p></div>' +
-      '<h2 class="abs hk-goal"><span class="ln">오늘 연수가 끝나면, <em>71명 모두.</em></span></h2>',
+      '<div class="abs hk-stat"><p class="cap">지금 아침 알림을 받는 선생님</p><div class="num"><em class="n10">0</em><small>/ 74명</small></div><p class="src">10월 12일 기준 · 알림을 켠 선생님</p></div>' +
+      '<h2 class="abs hk-goal"><span class="ln">오늘 연수가 끝나면, <em>74명 모두.</em></span></h2>',
     build: function (el, A) {
       var words = A.$$(".hk-word");
       return [
@@ -584,7 +584,7 @@
           A.go(".hk-ring", [{ opacity: 0 }, { opacity: 0 }], { d: 10, fill: "forwards" });
           A.go(".hk-one", [{ opacity: 1 }, { opacity: 0 }], { d: 400, e: E.in });
           A.go(".hk-stat", [{ opacity: 0, transform: "translateY(40px)" }, { opacity: 1, transform: "none" }], { d: 800, delay: 450, e: E.out });
-          A.later(function () { A.count(".n10", 0, 10, 1400); }, 700);
+          A.later(function () { A.count(".n10", 0, 34, 1400); }, 700);
           A.go(".hk-stat .num em", [{ transform: "scale(1)" }, { transform: "scale(1.12)" }, { transform: "scale(1)" }], { d: 500, delay: 2150, e: E.out });
           A.go(".hk-goal", [{ opacity: 0 }, { opacity: 1 }], { d: 10, delay: 2400 });
           A.kinetic(".hk-goal", { delay: 2450, each: 40, punch: 2.2 });
@@ -715,7 +715,7 @@
     ],
     note: { html: "<span>평일 <b>7시 50분</b> 아침, <b>11시 30분</b> 점심 알림. 맨 위에는 선생님마다 <b>「내 줄」</b>(내 당번·바뀐 내 수업·내 수업과 겹치는 일정·오늘 마감 넵)이 옵니다. 새 공지·넵·서명 요청·<b>보건실 입실</b>도 알림으로 옵니다.</span>" },
     screens: [shot("home"), shot("more-bottom"), M.notiOff, M.notiAsk, M.notiOn],
-    notes: "오늘 연수에서 <b>가장 중요한 실습</b>입니다. 지금 알림을 켠 계정이 열 분 남짓이에요. 아침·점심 알림 맨 위에는 이제 선생님마다 다른 <b>「내 줄」</b>이 옵니다 — 내 당번(등교지도·경건회 인도·급식지도), 바뀐 내 수업, 내 수업 시간과 겹치는 일정, 오늘 마감인 넵, 그리고 AI가 학사일정을 읽어 고른 <b>나와 관련된 일정</b>입니다. 「허용」을 실수로 거절하셨으면 휴대폰 설정 → 알림 → AI 교무실에서 허용합니다. <b>시험 발송까지 해서 알림이 오는 것을 꼭 확인</b>해 주세요."
+    notes: "오늘 연수에서 <b>가장 중요한 실습</b>입니다. 지금 알림을 켠 선생님이 74명 중 34명이에요. 아침·점심 알림 맨 위에는 이제 선생님마다 다른 <b>「내 줄」</b>이 옵니다 — 내 당번(등교지도·경건회 인도·급식지도), 바뀐 내 수업, 내 수업 시간과 겹치는 일정, 오늘 마감인 넵, 그리고 AI가 학사일정을 읽어 고른 <b>나와 관련된 일정</b>입니다. 「허용」을 실수로 거절하셨으면 휴대폰 설정 → 알림 → AI 교무실에서 허용합니다. <b>시험 발송까지 해서 알림이 오는 것을 꼭 확인</b>해 주세요."
   });
 
   D.add({
