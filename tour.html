@@ -81,8 +81,8 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
 .t-box span, .t-box li { color: var(--muted); font-size: 15px; }
 .t-box ul { padding-left: 18px; display: grid; gap: 4px; }
 .t-box li b { font-size: inherit; font-weight: 700; color: var(--ink); }
-.t-num { font: 600 34px/1 var(--mono); color: var(--brand-deep); }
-.t-num small { font: 700 16px var(--body); margin-left: 4px; color: var(--brand); }
+.t-box .t-num { font: 600 34px/1 var(--mono); color: var(--brand-deep); }
+.t-box .t-num small { font: 700 16px var(--body); margin-left: 4px; color: var(--brand); }
 .t-time { list-style: none; padding: 0; display: grid; gap: 0; border-left: 3px solid var(--brand-tint); margin-left: 8px; }
 .t-time li { position: relative; padding: 4px 0 14px 18px; }
 .t-time li::before { content: ""; position: absolute; left: -9px; top: 9px; width: 15px; height: 15px; border-radius: 50%; background: var(--surface); border: 4px solid var(--brand); }
@@ -90,7 +90,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
 .t-time b { display: block; font-size: 17px; }
 .t-time span { color: var(--muted); font-size: 15px; }
 .t-time .ch { display: inline-block; margin-left: 6px; padding: 0 8px; border-radius: 999px; background: var(--brand-tint); color: var(--brand-deep); font: 700 12px var(--body); vertical-align: 2px; }
-.t-q { font-weight: 800; font-size: 17px; }
+.t-box .t-q { font-weight: 800; font-size: 17px; color: var(--ink); }
 .t-q::before { content: "“"; color: var(--brand); } .t-q::after { content: "”"; color: var(--brand); }
 .foot { color: var(--muted); font-size: 13px; text-align: center; padding: 10px 0 0; }
 .qrbox { display: grid; grid-template-columns: 96px 1fr; gap: 14px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 14px; }

@@ -45,11 +45,11 @@
   .hk-one em{color:var(--glow)}
 
   .wh{left:120px;top:330px;width:1680px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-  .wh .c{padding:38px 36px 40px;display:flex;flex-direction:column;gap:16px;min-height:470px}
+  .wh .c{padding:40px 40px 44px;display:flex;flex-direction:column;gap:18px;min-height:440px}
   .wh .ic{width:84px;height:84px;border-radius:24px;display:grid;place-items:center;background:var(--brand-tint)}
   .wh .ic svg{width:46px;height:46px;stroke:var(--brand);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
-  .wh h3{font:800 40px/1.25 var(--display);letter-spacing:-.025em}
-  .wh p{font:500 26px/1.55 var(--body);color:var(--muted)}
+  .wh h3{font:800 46px/1.25 var(--display);letter-spacing:-.025em}
+  .wh p{font:500 30px/1.55 var(--body);color:var(--muted)}
   .wh p b{color:var(--ink)}
   .wh-foot{left:120px;top:870px;font:600 28px var(--body);color:var(--brand-deep)}
 
@@ -77,7 +77,7 @@
   .dy .st{position:absolute;width:205px;display:flex;flex-direction:column;gap:8px}
   .dy .st.up{top:0;height:240px;justify-content:flex-end}
   .dy .st.dn{top:300px}
-  .dy .st .tm{font:600 34px var(--mono);color:var(--brand-deep)}
+  .dy .st .tm{font:800 32px var(--display);font-variant-numeric:tabular-nums;color:var(--brand-deep);white-space:nowrap}
   .dy .st b{font:800 26px/1.25 var(--display);letter-spacing:-.02em}
   .dy .st span{font:500 19px/1.45 var(--body);color:var(--muted)}
   .dy .dot{position:absolute;top:248px;width:30px;height:30px;margin-left:-15px;border-radius:50%;background:#fff;border:6px solid var(--brand);box-shadow:0 6px 16px rgba(41,92,158,.3)}
@@ -88,7 +88,7 @@
   .pr .tg{align-self:flex-start;padding:6px 16px;border-radius:999px;font:700 20px var(--body);background:var(--brand-tint);color:var(--brand-deep)}
   .pr h3{font:800 34px/1.25 var(--display);letter-spacing:-.02em}
   .pr ul{display:grid;gap:12px}
-  .pr li{position:relative;padding-left:26px;font:500 21px/1.5 var(--body);color:var(--muted)}
+  .pr li{position:relative;padding-left:26px;font:500 23px/1.5 var(--body);color:var(--muted)}
   .pr li::before{content:"";position:absolute;left:4px;top:.62em;width:10px;height:10px;border-radius:50%;background:var(--brand)}
   .pr li b{color:var(--ink)}
 
@@ -103,19 +103,19 @@
   .sk .wire{position:absolute;height:4px;background:repeating-linear-gradient(90deg,var(--brand) 0 16px,transparent 16px 26px);transform-origin:left}
 
   .ls{left:120px;top:300px;width:1680px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .ls .c{padding:28px 30px;display:flex;flex-direction:column;gap:12px}
-  .ls q{font:800 28px/1.4 var(--display);letter-spacing:-.02em;quotes:"“" "”"}
+  .ls .c{padding:32px 34px;display:flex;flex-direction:column;gap:14px;min-height:250px}
+  .ls q{font:800 32px/1.4 var(--display);letter-spacing:-.02em;quotes:"“" "”"}
   .ls q::before{content:open-quote;color:var(--brand)}
   .ls q::after{content:close-quote;color:var(--brand)}
-  .ls .ar{font:700 20px var(--body);color:var(--brand)}
+  .ls .ar{font:700 25px/1.45 var(--body);color:var(--brand)}
   .ls p{font:500 21px/1.5 var(--body);color:var(--muted)}
-  .ls small{font:600 17px var(--mono);color:var(--faint)}
+  .ls small{font:600 20px var(--mono);color:var(--faint)}
 
   .stt{left:120px;top:300px;width:1680px;display:grid;grid-template-columns:1fr 1fr;gap:18px 40px}
-  .stt .r{display:grid;grid-template-columns:76px 1fr;gap:22px;align-items:start;padding:24px 28px}
+  .stt .r{display:grid;grid-template-columns:76px 1fr;gap:24px;align-items:start;padding:30px 34px;min-height:170px}
   .stt .n{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:#fff;font:600 30px var(--mono)}
-  .stt h3{font:800 31px/1.3 var(--display);letter-spacing:-.02em}
-  .stt p{margin-top:6px;font:500 21px/1.5 var(--body);color:var(--muted)}
+  .stt h3{font:800 36px/1.3 var(--display);letter-spacing:-.02em}
+  .stt p{margin-top:8px;font:500 25px/1.5 var(--body);color:var(--muted)}
 
   .cl-title{left:132px;top:220px;font:900 120px/1.08 var(--display);letter-spacing:-.04em}
   .cl-title em{color:var(--glow)}
@@ -136,6 +136,16 @@
   .tv-ph{position:absolute;left:330px;top:300px;width:330px;height:669px}
   .tv-ph .phone{transform:scale(.75);transform-origin:0 0}
   .tv-pkt{left:700px;top:520px;width:220px;height:6px;background:repeating-linear-gradient(90deg,var(--brand) 0 16px,transparent 16px 26px);transform-origin:left}
+  .bw{border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 30px 70px rgba(14,28,48,.25);border:1px solid var(--line)}
+  .bw .bar{height:34px;background:#eef2f7;display:flex;gap:8px;align-items:center;padding:0 14px}
+  .bw .bar i{width:12px;height:12px;border-radius:50%;background:#d6dde6}
+  .bw img{display:block;width:100%}
+  .ar5{left:120px;top:300px;width:1680px;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+  .ar5 .c{padding:32px 28px 34px;display:flex;flex-direction:column;gap:16px;min-height:500px}
+  .ar5 .n{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:#fff;font:600 26px var(--mono)}
+  .ar5 h3{font:800 34px/1.25 var(--display);letter-spacing:-.02em}
+  .ar5 p{font:500 25px/1.55 var(--body);color:var(--muted)}
+  .tv-note{left:960px;top:850px;width:860px;text-align:center;font:500 20px var(--body);color:var(--muted)}
   `;
   document.head.appendChild(css);
 
@@ -228,5 +238,593 @@
     });
   }
 
-  // __SCENES__
+  // ════════════════════════════════════════════════════════════
+  // 0 · 시작
+  // ════════════════════════════════════════════════════════════
+  D.add({
+    id: "cover", part: 0, label: "표지", kind: "dark", min: 0.5, trans: "fade", bgm: "lobby",
+    notes: "시작 전부터 띄워 둡니다. “명지중학교 교직원이 매일 쓰는 학교 앱, AI 교무실을 소개합니다.” 오늘 보여 드리는 화면은 모두 <b>실제 앱을 예시 데이터로 띄운 것</b>이라 이름·내용은 지어낸 것이라고 먼저 말씀드립니다.",
+    html: darkBg("cover") +
+      '<div class="abs cv-brand"><img src="img/symbol-128.png" alt=""><div><small>MYONGJI MIDDLE SCHOOL</small><b>AI 교무실</b></div></div>' +
+      '<p class="abs cv-kicker">학교 앱 소개 · 2026년 10월</p>' +
+      '<h1 class="abs cv-title"><span class="ln">학교의 하루를,</span><span class="ln"><em>한 화면에</em></span></h1>' +
+      '<p class="abs cv-lead">교직원 74명이 매일 여는 학교 앱<br><b>AI 교무실</b>을 소개합니다</p>' +
+      '<div class="abs cv-ph"><div class="phone"><div class="screen">' + shot("home") + "</div></div></div>",
+    build: function (el, A) {
+      return [function (A) {
+        A.go(".art-wrap img", [{ transform: "scale(1.35)", filter: "brightness(.3)" }, { transform: "scale(1.12)", filter: "brightness(1)" }], { d: 2200, e: E.out });
+        A.kenburns(".art-wrap img", { from: "scale(1.12)", to: "scale(1.03) translate(-1.5%, 0.8%)", d: 60000, delay: 2200 });
+        A.pop(".cv-brand img", { delay: 200, s: 0.4 });
+        A.wipe(".cv-brand div", { delay: 380 });
+        A.wipe(".cv-kicker", { delay: 520 });
+        var t = A.kinetic(".cv-title", { delay: 640, each: 46, punch: 2.1 });
+        A.rise(".cv-lead", { delay: t + 100 });
+        A.go(".cv-ph", [{ transform: "perspective(1200px) translate(160px,120px) rotateY(-30deg) rotate(4deg)", opacity: 0 }, { transform: "perspective(1200px) rotate(4deg)", opacity: 1 }], { d: 1400, delay: 800, e: E.out });
+        A.later(function () { A.go(".cv-ph", [{ translate: "0 0" }, { translate: "0 -14px" }], { d: 2800, iter: Infinity, dir: "alternate", e: "ease-in-out", ambient: true }); }, 2300);
+      }];
+    }
+  });
+
+  var HOOK_WORDS = [
+    ["오늘 경건회 인도는?", 150, 150, 40, -4], ["등교지도 누구 차례?", 1240, 120, 44, 3], ["빈 교실 어디?", 680, 210, 52, -2],
+    ["급식 메뉴", 1560, 300, 38, 5], ["평가계획서 제출했나요?", 120, 380, 46, 2], ["가정통신문 번호", 1290, 470, 42, -3],
+    ["복합기 수리 요청", 200, 620, 40, 4], ["진도 어디까지 나갔지?", 1180, 690, 48, -2], ["회의 서명 받으러 한 바퀴", 140, 850, 42, -3],
+    ["6교시 누가 들어가요?", 1380, 880, 44, 3], ["넵? 읽으셨어요?", 760, 900, 40, 2], ["그 자료 어느 폴더에?", 720, 60, 38, -5]
+  ];
+  D.add({
+    id: "hook", part: 0, label: "여는 이야기", kind: "dark", min: 1, trans: "fade",
+    notes: "1단계: 선생님 하루에 흩어진 질문들입니다. “이 질문들, 하루에 몇 번 하시나요?” 메신저·단체방·게시판·종이·엑셀에 흩어져 있습니다.<br>2단계: 넘기면 낱말이 휴대폰 하나로 모입니다. <b>“흩어진 일을 휴대폰 하나로 모은 것이 AI 교무실입니다.”</b>",
+    html: '<div class="hk-bg"></div><div class="grain"></div>' +
+      HOOK_WORDS.map(function (w) { return '<span class="hk-word" style="left:' + w[1] + "px;top:" + w[2] + "px;font-size:" + w[3] + "px;transform:rotate(" + w[4] + 'deg)"><span class="in" style="display:inline-block">' + w[0] + "</span></span>"; }).join("") +
+      '<h2 class="abs hk-say"><span class="ln">선생님의 하루는</span><span class="ln"><em>여기저기</em> 흩어져 있습니다</span></h2>' +
+      '<div class="abs hk-ring"></div><div class="abs hk-icon"><img src="img/symbol-128.png" alt="AI 교무실"></div>' +
+      '<h2 class="abs hk-one"><span class="ln">휴대폰 하나로, <em>한 곳에서.</em></span></h2>',
+    build: function (el, A) {
+      var words = A.$$(".hk-word");
+      function $in(w) { return w.querySelector(".in"); }
+      return [
+        function (A) {
+          A.hide(".hk-icon, .hk-ring, .hk-one");
+          words.forEach(function (w, i) {
+            var ang = (i * 137) % 360, dx = Math.cos(ang * Math.PI / 180) * 700, dy = Math.sin(ang * Math.PI / 180) * 500, rot = "rotate(" + HOOK_WORDS[i][4] + "deg)";
+            A.sfx("pluck", { i: i % 8, v: 0.07, delay: 120 + i * 110 + 650 });
+            A.go(w, [{ transform: "translate(" + dx + "px," + dy + "px) scale(1.6) " + rot, filter: "blur(18px)", opacity: 0 }, { transform: rot, filter: "blur(0px)", opacity: 1, offset: 0.7 }, { transform: rot, filter: "blur(0px)", opacity: 0.32 }], { d: 2400, delay: 120 + i * 110, e: E.out });
+            A.later(function () { A.go($in(w), [{ translate: "0 0" }, { translate: (i % 2 ? 10 : -10) + "px " + (i % 3 ? -12 : 12) + "px" }], { d: 2400 + i * 170, iter: Infinity, dir: "alternate", e: "ease-in-out", ambient: true }); }, 1400 + i * 110);
+          });
+          A.kinetic(".hk-say", { delay: 1500, each: 36 });
+        },
+        function (A) {
+          A.go(".hk-say", [{ opacity: 1, transform: "none" }, { opacity: 0, transform: "scale(.92)" }], { d: 420, e: E.in });
+          A.sfx("suck");
+          words.forEach(function (w, i) {
+            var cx = 960 - (w.offsetLeft + w.offsetWidth / 2), cy = 445 - (w.offsetTop + w.offsetHeight / 2);
+            A.go(w, [{ transform: "rotate(" + HOOK_WORDS[i][4] + "deg)", opacity: 0.6 }, { transform: "translate(" + cx + "px," + cy + "px) scale(.15) rotate(0deg)", opacity: 0 }], { d: 760, delay: 150 + i * 45, e: E.in });
+          });
+          A.go(".hk-icon", [{ transform: "scale(3.2)", opacity: 0, filter: "blur(20px)" }, { transform: "scale(1)", opacity: 1, filter: "blur(0px)" }], { d: 900, delay: 900, e: E.spring });
+          A.sfx("boom", { delay: 980 });
+          A.go(".hk-ring", [{ transform: "scale(.9)", opacity: 0 }, { transform: "scale(1)", opacity: 0.8, offset: 0.08 }, { transform: "scale(2.6)", opacity: 0 }], { d: 1900, delay: 1200, iter: Infinity, e: "cubic-bezier(.2,.6,.3,1)", ambient: true });
+          A.go(".hk-one", [{ opacity: 0 }, { opacity: 1 }], { d: 10, delay: 1200 });
+          A.kinetic(".hk-one", { delay: 1250, each: 40 });
+        }
+      ];
+    }
+  });
+
+  var ICON = {
+    phone: '<svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>',
+    stack: '<svg viewBox="0 0 24 24"><path d="M12 3 3 7.5l9 4.5 9-4.5z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg>',
+    spark: '<svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>'
+  };
+  D.add({
+    id: "what", part: 0, label: "AI 교무실은", kind: "light", min: 1.2, trans: "whip", tour: { title: "교직원만 쓰는 학교 앱, 세 가지로", html: '<div class="t-grid"><div class="t-box"><b>휴대폰에서 바로</b><span>주소로 열고 홈 화면에 설치하면 앱처럼. 아침·점심 알림이 오고, 아래 탭 가운데에 AI.</span></div><div class="t-box"><b>학교 자료가 한곳에</b><span>학사일정·시간표·주간소식·급식·자료실·공유 드라이브를 읽어 와, 오늘 나에게 필요한 것만.</span></div><div class="t-box"><b>AI가 읽고, 초안을</b><span>학교 자료를 찾아 답하고 가정통신문 번호·수리 요청·넵·수업 자료 초안까지. 보내기는 늘 선생님이.</span></div></div>' },
+    notes: "세 가지로 말씀드립니다. ① <b>교직원만 쓰는 웹앱</b>입니다. 앱 장터가 아니라 주소로 열고 홈 화면에 설치하면 앱처럼, 알림도 옵니다. ② 학사일정·시간표·주간소식·자료실·공유 드라이브처럼 <b>학교에 이미 있는 자료를 읽어 와 한곳에</b> 보입니다. ③ <b>AI가 읽고 초안을 씁니다</b>. 다만 보내기·등록·확정은 늘 선생님이 누릅니다.",
+    html: chips([{ t: "AI 교무실은" }]) + '<h2 class="title">교직원만 쓰는 학교 앱, <em>세 가지</em>로 말하면</h2>' +
+      '<div class="abs wh">' +
+      '<div class="card c"><span class="ic">' + ICON.phone + '</span><h3>휴대폰에서 바로</h3><p>주소로 열고 <b>홈 화면에 설치</b>하면 앱처럼. 아침·점심 <b>알림</b>이 오고, 아래 탭 가운데에 <b>AI</b>.</p></div>' +
+      '<div class="card c"><span class="ic">' + ICON.stack + '</span><h3>학교 자료가 한곳에</h3><p><b>학사일정·시간표·주간소식·급식·자료실·공유 드라이브</b>를 읽어 와, 오늘 나에게 필요한 것만 추려 보여 줍니다.</p></div>' +
+      '<div class="card c"><span class="ic">' + ICON.spark + '</span><h3>AI가 읽고, 초안을</h3><p>학교 자료를 찾아 답하고 <b>가정통신문 번호·수리 요청·넵·수업 자료</b> 초안까지. <b>보내기는 늘 선생님이</b> 누릅니다.</p></div>' +
+      '</div><p class="abs wh-foot">명지중학교 교직원 74명 모두 계정이 있습니다 · 휴직 중인 선생님은 자료실만</p>',
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *");
+        A.kinetic(".title", { delay: 100, each: 24 });
+        A.pop(".wh .c", { delay: 500, each: 160, s: 0.85 });
+        A.pop(".wh .ic", { delay: 700, each: 160, s: 0.4, snd: false });
+        A.rise(".wh-foot", { delay: 1300 });
+      }];
+    }
+  });
+
+  D.add({
+    id: "numbers", part: 0, label: "숫자로 보면", kind: "dark", min: 1, trans: "fade", tour: { title: "6주 동안, 매일 고친 학교 앱", html: '<div class="t-grid"><div class="t-box"><span class="t-num">6<small>주</small></span><span>9월 4일 첫 줄부터, 지금도 쓰면서 고치는 중</span></div><div class="t-box"><span class="t-num">190<small>번</small></span><span>고쳐서 내보낸 횟수 — 선생님 의견은 대개 그날 반영</span></div><div class="t-box"><span class="t-num">74<small>명</small></span><span>교직원 모두 계정(교사·행정실·교육공무직)</span></div><div class="t-box"><span class="t-num">12<small>가지</small></span><span>저절로 도는 일 — 아침·점심 알림, 칠판 쪽지, 넵 배달, 드라이브 요약…</span></div></div>' },
+    notes: "2026년 9월 4일에 첫 줄을 썼고, 6주 동안 <b>190번 고쳐서 내보냈습니다</b>. 선생님 한 분의 말이 대개 그날 반영됩니다. 교직원 74명 모두 계정이 있고, 아침 알림·교실 칠판 쪽지·드라이브 요약 같은 <b>저절로 도는 일이 12가지</b>입니다. 숫자보다 중요한 것은 “쓰는 사람의 말로 매일 고친다”는 점입니다.",
+    html: darkBg("class") +
+      '<h2 class="abs nb-title"><span class="ln">6주 동안, <em>매일 고친</em> 학교 앱</span></h2>' +
+      '<div class="abs nb">' +
+      '<div class="t"><div class="v"><span data-n="6">0</span><small>주</small></div><p class="k">9월 4일 첫 줄부터</p><p class="s">설계 9월 2일 · 지금도 쓰면서 고치는 중</p></div>' +
+      '<div class="t"><div class="v"><span data-n="190">0</span><small>번</small></div><p class="k">고쳐서 내보낸 횟수</p><p class="s">선생님 의견은 대개 그날 반영</p></div>' +
+      '<div class="t"><div class="v"><span data-n="74">0</span><small>명</small></div><p class="k">교직원 모두 계정</p><p class="s">교사·행정실·교육공무직</p></div>' +
+      '<div class="t"><div class="v"><span data-n="12">0</span><small>가지</small></div><p class="k">저절로 도는 일</p><p class="s">아침·점심 알림, 칠판 쪽지, 넵 배달, 드라이브 요약…</p></div>' +
+      '</div><p class="abs nb-foot">학교 안에서 쓰는 사람이 말하면, 만드는 사람이 바로 고칩니다.<br><b>“좋은 앱”보다 “우리 학교에 맞는 앱”</b>을 목표로 합니다.</p>',
+    build: function (el, A) {
+      return [function (A) {
+        A.go(".art-wrap img", [{ transform: "scale(1.3)", filter: "brightness(.35)" }, { transform: "scale(1.1)", filter: "brightness(.85)" }], { d: 2000, e: E.out });
+        A.kinetic(".nb-title", { delay: 200, each: 34 });
+        A.rise(".nb .t", { delay: 700, each: 140, y: 40 });
+        A.$$(".nb [data-n]").forEach(function (s, i) { A.later(function () { A.count(s, 0, +s.dataset.n, 1300); }, 900 + i * 140); });
+        A.rise(".nb-foot", { delay: 1900 });
+      }];
+    }
+  });
+
+  var MAP = [
+    ["매일 여는 화면", "#6fb6ea", "오늘 나에게 필요한 것", [["홈", "오늘 수업·알림·급식·일정"], ["빼꼼", "공지와 오늘 달라진 것"], ["알림", "아침 7:50 · 점심 11:30 「내 줄」"], ["일정·주간소식·급식", "학사일정·교무부 소식을 그대로"]]],
+    ["함께 일하기", "#9fb3f0", "부탁하고, 받고, 서명하고", [["넵", "확인·업무·제출 요청과 현황"], ["전자서명", "회의 서명부·파일 서명"], ["자료실", "부서 자료·양식 한곳에"], ["신청", "가정통신문 번호·기기 수리"]]],
+    ["수업", "#7fc8a9", "시간표에서 칠판까지", [["시간표", "빈 교실·공강인 선생님"], ["수업교체", "학사일정 반영 계산·신고서"], ["진도표", "오늘 적기·한 달 도장판"], ["전자칠판", "교실에 안내·쪽지·긴급·음성"]]],
+    ["AI와 일하기", "#b49cf2", "읽고, 찾고, 초안까지", [["AI 도우미", "학교 자료를 찾아 답"], ["확인 카드", "번호·수리·넵·서명부·수업 자료"], ["먼저 챙기기", "다음 주 미리 보기·드라이브 요약"], ["세특 도우미", "생기부 문장 초안"]]],
+    ["학교 생활", "#f5a524", "학교라서 있는 것", [["구기대회", "대진표·경기 알림·우승 축하"], ["분실물 함", "사진이 둥둥 떠다니는 함"], ["보건실", "입실 알림·하루 정리"], ["축하", "받는 분 홈에만 꽃가루"]]]
+  ];
+  D.add({
+    id: "map", part: 0, label: "기능 한눈에", kind: "light", min: 1.5, tour: { title: "학교 하루에 생기는 일을 하나씩 옮겼습니다", html: '<div class="t-grid">' + MAP.map(function (g) { return '<div class="t-box" style="--c:' + g[1] + '"><b>' + g[0] + "</b><ul>" + g[3].map(function (f) { return "<li><b>" + f[0] + "</b> — " + f[1] + "</li>"; }).join("") + "</ul></div>"; }).join("") + "</div>" },
+    notes: "오늘 보여 드릴 것을 다섯 묶음으로 정리했습니다. 왼쪽부터 <b>매일 여는 화면 → 함께 일하기 → 수업 → AI → 학교 생활</b> 순서로 갑니다. 하나하나가 큰 기능이라기보다, <b>학교 하루에 실제로 생기는 일</b>을 하나씩 앱으로 옮긴 것입니다.",
+    html: chips([{ t: "기능 한눈에" }, { t: "20가지", c: "ghost" }]) + '<h2 class="title">학교 하루에 생기는 일을 <em>하나씩</em> 옮겼습니다</h2>' +
+      '<div class="abs mp">' + MAP.map(function (g) {
+        return '<div class="card g" style="--c:' + g[1] + '"><h3><i></i>' + g[0] + "</h3><p>" + g[2] + "</p>" + g[3].map(function (f) { return '<span class="f">' + f[0] + "<small>" + f[1] + "</small></span>"; }).join("") + "</div>";
+      }).join("") + "</div>",
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *", { each: 110 });
+        A.kinetic(".title", { delay: 100, each: 22 });
+        A.rise(".mp .g", { delay: 450, each: 120, y: 40 });
+        A.pop(".mp .f", { delay: 700, each: 45, s: 0.85, snd: "pluck", v: 0.04 });
+      }];
+    }
+  });
+
+  var DAY = [
+    ["07:50", "아침 알림", "「내 줄」이 맨 위 — 내 당번·바뀐 내 수업·겹치는 일정·오늘 마감 넵", "자동"],
+    ["08:45", "교실 칠판 쪽지", "수업이 바뀐 반 칠판 귀퉁이에 「오늘 바뀐 수업」", "자동"],
+    ["수업 중", "시간표 「지금」", "빈 교실·공강인 선생님을 그 자리에서", ""],
+    ["쉬는 시간", "넵 한 번", "확인요청은 목록에서 바로 [넵]", ""],
+    ["11:30", "점심 알림", "급식지도 당번·오후 수업·남은 넵", "자동"],
+    ["오후", "AI에게 부탁", "가정통신문 번호·학부모 답장 초안·학습지", ""],
+    ["15:30", "새 문서 요약", "공유 드라이브에 새로 만든 문서를 한두 문장으로", "자동"],
+    ["금 15:00", "다음 주 미리 보기", "마감 넵·수업 교체·나와 관련된 일정", "자동"]
+  ];
+  D.add({
+    id: "day", part: 0, label: "선생님의 하루", kind: "light", min: 1.5, tour: { title: "아침 7시 50분부터, 금요일 오후까지", html: '<ol class="t-time">' + DAY.map(function (d) { return '<li><span class="tm">' + d[0] + "</span>" + (d[3] ? '<span class="ch">' + d[3] + "</span>" : "") + "<b>" + d[1] + "</b><span>" + d[2] + "</span></li>"; }).join("") + "</ol>" },
+    notes: "선생님 하루를 따라가 보면 이렇습니다. <b>아침 7시 50분</b> 알림 맨 위에 “나에게만 해당하는 줄”이 옵니다. <b>8시 45분</b>에는 수업이 바뀐 반 교실 칠판에 쪽지가 저절로 붙습니다. 수업 중에는 시간표에서 빈 교실을, 쉬는 시간엔 넵을 한 번에. 점심 알림, 오후엔 AI에게 부탁, <b>3시 30분</b>엔 공유 드라이브 새 문서 요약, <b>금요일 3시</b>엔 다음 주 미리 보기. <b>‘자동’ 표시</b>는 선생님이 아무것도 안 해도 오는 것입니다.",
+    html: chips([{ t: "선생님의 하루" }]) + '<h2 class="title">아침 7시 50분부터, <em>금요일 오후</em>까지</h2>' +
+      '<div class="abs dy-line"></div><div class="abs dy">' + DAY.map(function (d, i) {
+        var x = 30 + i * 212;
+        return '<div class="st ' + (i % 2 ? "dn" : "up") + '" style="left:' + x + 'px"><span class="tm">' + d[0] + "</span><b>" + d[1] + "</b><span>" + d[2] + "</span>" + (d[3] ? '<span class="ch">' + d[3] + "</span>" : "") + '</div><i class="dot" style="left:' + (x + 30) + 'px"></i>';
+      }).join("") + "</div>",
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *");
+        A.kinetic(".title", { delay: 100, each: 22 });
+        A.go(".dy-line", [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { d: 2600, delay: 400, e: E.cam });
+        A.pop(".dy .dot", { delay: 500, each: 300, s: 0.2, snd: "pluck", v: 0.06 });
+        A.rise(".dy .st", { delay: 600, each: 300, y: 24 });
+      }];
+    }
+  });
+
+
+  // ════════════════════════════════════════════════════════════
+  // 1 · 매일 여는 화면
+  // ════════════════════════════════════════════════════════════
+  opener({
+    part: 1, art: "basics", lines: ["열면, 오늘이", "<em>한눈에</em>"],
+    was: "오늘 일정·당번·바뀐 수업을 여기저기서", now: "홈 한 화면과 아침 알림 한 번으로",
+    notes: "첫 묶음은 매일 여는 화면입니다. 홈, 빼꼼, 알림. 선생님들이 하루에 가장 많이 보는 곳이라, 여기서 매일 쓸 이유를 만들었습니다."
+  });
+
+  show({
+    id: "s-home", part: 1, label: "홈", min: 1.5,
+    title: "홈: 오늘 <em>나에게</em> 필요한 것만",
+    steps: [
+      { t: '큰 글씨는 <b>선생님마다 다른 한마디</b> — 교체로 수업을 맡아 준 날엔 “고마워요”', s: 0, r: R("home", "hero") },
+      { t: '<span class="q">수업 · 일정 · 빼꼼</span> 세 칸과 오른쪽 위 <b>알림 종</b>', s: 0, r: R("home", "tiles"), z: 1.9 },
+      { t: '<b>처리할 넵</b>이 맨 위에 가장 크게', s: 0, r: R("home", "nep"), z: 1.8 },
+      { t: '오늘 시간표: 지금 교시 <span class="q">「지금」</span>, 교체로 들어온 수업 <span class="q">「바뀜」</span>', s: 0, r: R("home", "now"), z: 1.9 },
+      { t: '<span class="q">「오늘 알림」</span>: 공지·오늘 바뀐 수업·넵 일정·특별 일정', s: 1, r: R("home-3", "alerts") },
+      { t: '급식과 <span class="q">「다가오는 일정」</span>(오늘부터 7일)', s: 1, r: R("home-3", "upcoming") }
+    ],
+    screens: ["home", "home-3"],
+    notes: "앱을 열면 보이는 홈입니다. 위쪽 큰 글씨는 <b>선생님마다 다른 한마디</b>입니다. 오늘 동료 수업을 교체로 맡아 준 선생님에게는 “고마워요”, 급식지도 당번에게는 “점심 챙기세요”처럼, 그 선생님의 오늘에 맞춰 AI와 규칙이 함께 고릅니다(퇴근했다고 단정하거나 다그치는 말은 쓰지 않습니다). 그 아래 날씨, 오늘 일정, 경건회 인도·등교지도 당번, 그리고 처리할 넵, 오늘 시간표, 오늘 알림, 급식, 다가오는 일정 순서입니다."
+  });
+
+  show({
+    id: "s-today", part: 1, label: "빼꼼", min: 1,
+    title: "빼꼼: 오늘 <em>달라진 것만</em>",
+    steps: [
+      { t: '맨 위 <span class="q">「알림판」</span>에 공지', s: 0, r: R("today", "board") },
+      { t: '요일을 눌러 이번 주 다른 날도', s: 0, r: R("today", "days") },
+      { t: '<span class="q">「특별 일정」</span>: 학사일정과 교무부 <b>주간소식</b>을 한 목록으로', s: 1, r: R("today-2", "events") },
+      { t: '<span class="q">「바뀐 수업」</span>: <b>선생님 이름 없이 과목만</b> — 사유도 싣지 않음', s: 1, r: R("today-2", "changes") }
+    ],
+    screens: ["today", "today-2"],
+    notes: "「빼꼼」은 오늘 학교를 빼꼼 들여다본다는 뜻입니다. 평소 시간표와 <b>달라진 것만</b> 모읍니다. 바뀐 수업은 전교에 보이지만 <b>선생님 이름 없이 과목만</b> 나오고, 누가 왜 자리를 비우는지(출장·병가 등)는 싣지 않습니다. 이 원칙은 뒤의 ‘지키는 것’에서 다시 말씀드립니다."
+  });
+
+  show({
+    id: "s-alerts", part: 1, label: "알림", min: 1,
+    title: "알림: 맨 위엔 <em>「내 줄」</em>",
+    steps: [
+      { t: '평일 <b>7:50 아침 · 11:30 점심</b> 알림 — 맨 위에 나에게만 해당하는 줄', s: 0, r: R("notifications-on", "test") },
+      { t: '보건실 입실 알림: <b>이름 없이 반·성별만</b>, 1분 안에', s: 0, r: R("notifications-on", "nurse"), z: 1.9 },
+      { t: '놓친 알림은 홈 종 → <b>알림함</b>, 확인하면 지워짐', s: 1, r: [16, 150, 380, 130] },
+      { t: '평일 3:30 <b>공유 드라이브 새 문서</b> 요약, 금요일 3시 <b>다음 주 미리 보기</b>', s: 1, r: [16, 380, 380, 330] }
+    ],
+    screens: ["notifications-on", "alerts"],
+    notes: "알림은 모두에게 같은 글을 보내지 않습니다. 아침·점심 알림 맨 위에는 <b>그 선생님에게만 해당하는 줄</b> — 내 당번, 바뀐 내 수업, 내 수업과 겹치는 행사, 오늘 마감인 요청 — 이 오고, 학교 일정은 AI가 누구 일인지 읽어 관련 있는 분께만 보냅니다. 오후에는 공유 드라이브에 새로 만든 문서를 한두 문장으로 요약해 보내고, 금요일에는 다음 주 미리 보기를 보냅니다."
+  });
+
+  D.add({
+    id: "s-desk", part: 1, label: "PC에서도", kind: "light", min: 0.6, tour: { title: "PC에서도 같은 화면", html: '<p>컴퓨터에서는 왼쪽 메뉴와 넓은 달력으로 보입니다. 휴대폰과 같은 주소, 같은 계정입니다.</p><img src="img/desk/home.jpg" alt="PC 홈 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy"><img src="img/desk/calendar.jpg" alt="PC 일정 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy">' },
+    notes: "같은 주소를 컴퓨터에서 열면 왼쪽 메뉴가 있는 넓은 화면입니다. 일정 달력은 넓은 화면에서 일정 이름까지 보입니다. 휴대폰을 먼저 설계했고, 컴퓨터는 같은 화면을 넓게 씁니다.",
+    html: chips([{ t: "매일 여는 화면" }, { t: "PC", c: "ghost" }]) + '<h2 class="title">컴퓨터에서도 <em>같은 화면</em>, 넓게</h2>' +
+      '<div class="abs bw" style="left:120px;top:300px;width:1040px"><div class="bar"><i></i><i></i><i></i></div><img src="img/desk/home.jpg" alt=""></div>' +
+      '<div class="abs bw" style="left:820px;top:400px;width:980px"><div class="bar"><i></i><i></i><i></i></div><img src="img/desk/calendar.jpg" alt=""></div>',
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *");
+        A.kinetic(".title", { delay: 100, each: 24 });
+        A.go(A.$$(".bw")[0], [{ opacity: 0, transform: "translateY(60px) rotate(-1deg)" }, { opacity: 1, transform: "rotate(-1deg)" }], { d: 1000, delay: 300, e: E.out });
+        A.go(A.$$(".bw")[1], [{ opacity: 0, transform: "translateY(80px) rotate(1.2deg)" }, { opacity: 1, transform: "rotate(1.2deg)" }], { d: 1000, delay: 700, e: E.out });
+        A.sfx("rise", { delay: 300 });
+      }];
+    }
+  });
+
+  // ════════════════════════════════════════════════════════════
+  // 2 · 함께 일하기
+  // ════════════════════════════════════════════════════════════
+  opener({
+    part: 2, art: "nep", lines: ["읽었는지, 했는지", "<em>한눈에</em>"],
+    was: "단체방에 올리고 “읽으셨어요?” 다시 묻기", now: "버튼 하나로 답하고, 처리 현황이 보이는 「넵」",
+    notes: "두 번째는 함께 일하기입니다. 학교 업무 연락은 단체 메신저로 하면 누가 읽었는지, 했는지 알기 어렵습니다. 그래서 만든 것이 「넵」입니다. 그리고 회의 서명부, 자료실."
+  });
+
+  show({
+    id: "s-nep", part: 2, label: "넵", min: 2,
+    title: "넵: 요청은 넵으로, <em>답은 버튼 하나</em>",
+    steps: [
+      { t: '받은 넵은 <b>오늘 할 일</b>처럼 — 마감 가까운 순, 「지남·오늘·내일」', s: 0, r: R("nep-inbox", "todo") },
+      { t: '확인요청은 목록에서 바로 <span class="k">넵</span>', s: 0, r: R("nep-inbox", "ackButton"), z: 1.9 },
+      { t: '받는 사람은 메신저 같은 <b>조직도 나무</b>, 초성으로 찾기', s: 1, r: R("nep-picker", "search") },
+      { t: '글 속 「10월 23일까지」가 <b>마감 칸에 저절로</b> → 받는 분 일정에', s: 2, r: R("nep-new-due", "hint") },
+      { t: '보낸 분: 진행 막대·「아직 5명」·<span class="k">다시 알림</span>·제출 파일 <b>모두 받기</b>', s: 3, r: R("nep-detail-sent-board", "progress") }
+    ],
+    screens: ["nep-inbox", "nep-picker", "nep-new-due", "nep-detail-sent-board"],
+    notes: "넵은 알림·확인요청·업무요청·제출요청 네 가지입니다. 받는 분은 [넵]·[완료]·[제출] 버튼 하나로 답하고, 보낸 분은 누가 했는지 막대로 봅니다. 받는 분이 수업 중이면 교시가 끝난 뒤, 근무 시간 밖이면 다음 근무일 아침에 도착하게 해서 <b>수업과 쉬는 시간을 지킵니다</b>. 글에 “23일까지”라고 쓰면 마감이 저절로 채워지고, 그 마감은 받는 분의 일정에 나타납니다(학교 달력에는 넣지 않고 당사자에게만)."
+  });
+
+  show({
+    id: "s-sign", part: 2, label: "전자서명", min: 1.2,
+    title: "서명부 들고 <em>돌지 않아도</em>",
+    steps: [
+      { t: '내 서명은 <b>한 번 등록</b> — 손 서명이나 도장 사진', s: 0, r: R("signature", "hand") },
+      { t: '회의 서명부: 받은 분은 <span class="k">내 서명으로 서명하기</span> 한 번', s: 1, r: R("sign-meeting", "sign") },
+      { t: '명단에 서명 시각이 차고, 만든 분은 <b>PDF 한 장</b>으로', s: 1, r: R("sign-meeting", "roster") },
+      { t: '계획서·동의서 파일의 <b>(서명)·(인) 자리</b>에도', s: 2, r: R("sign-file", "sign") }
+    ],
+    screens: ["signature", "sign-meeting", "sign-file"],
+    notes: "회의가 끝나면 서명부를 들고 교무실을 한 바퀴 도는 일이 있었습니다. 이제 서명은 <b>한 번 등록</b>해 두고, 회의 서명부·파일 서명·수업교체 신고서에 <b>한 번 눌러</b> 넣습니다. 서명 그림은 본인만 보고 바꿀 수 있고(관리자도 못 봄), 화면에는 보이지 않고 내려받는 PDF에만 들어갑니다. 학교 내부 문서용이고 공문 전자결재는 그대로입니다."
+  });
+
+  show({
+    id: "s-library", part: 2, label: "자료실·신청", min: 0.8,
+    title: "자료는 <em>한곳에</em>, 신청은 <em>한 화면에</em>",
+    steps: [
+      { t: '부서별 자료·양식, 위쪽 <b>검색</b>', s: 0, r: R("library", "search") },
+      { t: '파일은 <span class="k">내려받기</span>, 링크는 앱 안에서 열기', s: 1, r: R("library-post", "download") },
+      { t: '<b>신청</b>: 교외체험학습 서식 채우기·기기 수리·통신문 번호 등', s: 2, r: R("forms", "trip") }
+    ],
+    screens: ["library", "library-post", "forms"],
+    notes: "자료실은 부서별 자료와 양식을 한곳에 모았고, 파일 본문은 뒤에서 볼 AI 도우미가 읽어 답합니다. 신청 메뉴는 구글 시트로 받던 신청(기기 수리·가정통신문 번호·물품 구입 등)을 한 화면에 모았습니다."
+  });
+
+  // ════════════════════════════════════════════════════════════
+  // 3 · 수업
+  // ════════════════════════════════════════════════════════════
+  opener({
+    part: 3, art: "class", lines: ["시간표에서", "<em>교실 칠판까지</em>"],
+    was: "빈 교실을 찾으러 교무실 시간표 앞으로", now: "빈 교실·공강·교체 계산을 휴대폰에서",
+    notes: "세 번째는 수업입니다. 시간표, 수업교체, 진도, 그리고 교실 전자칠판."
+  });
+
+  show({
+    id: "s-timetable", part: 3, label: "시간표", min: 1.5,
+    title: "시간표에 <em>그 주의 일</em>이 저절로",
+    steps: [
+      { t: '그 주 <b>수업교체</b>가 칸에: 초록 「바뀜」, 흐린 「교체」, 「수락 대기」', s: 0, r: R("tt-my", "changed"), z: 1.9 },
+      { t: '수업과 겹치는 <b>학사일정·넵 일정</b>은 띠로, 누르면 전체 글', s: 1, r: R("tt-pop", "pop") },
+      { t: '학급·교실 시간표에서도 바뀐 과목 — <b>선생님 이름은 빼고</b>', s: 2, r: R("tt-class", "tabs") },
+      { t: '지금 <b>빈 교실</b>과 <b>공강인 선생님</b> — 이름을 누르면 그분께 넵', s: 3, r: R("tt-free", "teachers") }
+    ],
+    screens: ["tt-my", "tt-pop", "tt-class", "tt-free"],
+    notes: "시간표는 학교 시간표 엑셀을 올려 만들고, 그 위에 <b>그 주의 일</b>이 저절로 얹힙니다: 확정된 수업교체, 수업 시간과 겹치는 학사일정, 넵 속 일정. 학급·교실 시간표에도 바뀐 과목은 보이지만 선생님 이름은 없고, <b>다른 선생님 개인 시간표에는 교체가 보이지 않습니다</b>. 지금 빈 교실과 공강인 선생님도 그날 실제 시간표로 셉니다."
+  });
+
+  show({
+    id: "s-swap", part: 3, label: "수업교체", min: 1.8,
+    title: "수업교체는 <em>계산</em>하고, <em>서명</em>으로",
+    steps: [
+      { t: '선생님·날짜·교시를 고르면 <b>그날 학사일정</b>이 바로', s: 0, r: R("sub-calc", "calendar") },
+      { t: '교체안: 반영한 학사일정·이미 잡힌 교체, 상대 부담', s: 1, r: R("sub-result", "calendar") },
+      { t: '갚는 수업 날짜 고르기 — 막힌 날은 <b>까닭</b>이 붙음', s: 2, r: R("sub-dates", "dates") },
+      { t: '<span class="k">내 서명으로 이 안 요청</span> → 상대가 서명하고 수락', s: 2, r: R("sub-dates", "request") },
+      { t: '교무부 <b>제출함</b>: 교실 정하기·고치기·신고서(한글)', s: 3, r: R("sub-inbox", "rooms") }
+    ],
+    screens: ["sub-calc", "sub-result", "sub-dates", "sub-inbox"],
+    notes: "출장이 잡히면 수업교체 계산부터 합니다. 그날 학사일정(동아리·행사로 수업이 없는 교시 등)과 이미 잡힌 다른 교체를 얹어 경우의 수를 찾고, 상대 선생님 부담이 적은 안을 추천합니다. 갚는 수업 날짜는 그 주·한 주 뒤·두 주 뒤에서 고르는데, 막힌 날은 까닭이 붙습니다. 요청과 수락은 <b>등록해 둔 서명으로 한 번에</b>, 신고서 한글 파일도 서명이 채워져 나옵니다. 화면과 알림에는 ‘결강’ 대신 ‘수업 교체’라는 말을 씁니다."
+  });
+
+  show({
+    id: "s-progress", part: 3, label: "진도표", min: 0.8,
+    title: "진도는 <em>한 줄</em>, 한 달은 <em>도장판</em>",
+    steps: [
+      { t: '오늘 <b>실제로 하는 수업</b>마다 한 줄, <span class="k">모두 저장</span> 한 번', s: 0, r: R("pg-today", "save"), z: 1.9 },
+      { t: '<span class="q">「한 달」</span>: 반마다 이달 수업이 도장으로, 빈 칸은 점선', s: 1, r: R("pg-month", "row") }
+    ],
+    screens: ["pg-today", "pg-month"],
+    notes: "진도표는 한 줄이면 됩니다. 칸은 원래 시간표가 아니라 그날 실제로 하는 수업(교체 반영)이고, 하루치를 한 번에 저장합니다. 한 달 보기는 반마다 진도 기록을 도장처럼 보여 줘서 빠진 칸이 바로 보입니다. 진도는 본인만 봅니다."
+  });
+
+  show({
+    id: "s-board", part: 3, label: "전자칠판 보내기", min: 1.5,
+    title: "교실 칠판에, <em>휴대폰으로</em>",
+    steps: [
+      { t: '<b>무엇을 → 어디에 → 보내기</b>, 담임은 「내 반」이 기본', s: 0, r: R("board-send", "where") },
+      { t: '여러 학년을 함께, 초록불은 지금 켜진 칠판', s: 1, r: R("board-pick", "grid") },
+      { t: '긴급은 보내기 전 <b>몇 곳·꺼진 칠판</b>을 한 번 더', s: 2, r: R("board-alert-confirm", "where") },
+      { t: '<b>음성 안내</b> 30초 — 목소리 파일은 하루 뒤 지움', s: 3, r: R("board-voice-rec", "status") }
+    ],
+    screens: ["board-send", "board-pick", "board-alert-confirm", "board-voice-rec"],
+    notes: "교실마다 있는 전자칠판에 휴대폰으로 안내를 띄웁니다. 안내(사진·링크·영상), 칠판 귀퉁이에 붙는 쪽지, 전체 화면 긴급(대피 문구), 그리고 30초 음성 안내까지. 담임 선생님은 「내 반」이 기본이고, 보내기 단추에 어디로 가는지가 그대로 적힙니다."
+  });
+
+  D.add({
+    id: "s-tv", part: 3, label: "교실 칠판 모습", kind: "light", min: 1.5,
+    tour: { title: "교실 칠판에는 이렇게", html: '<div class="t-grid">' + [["idle", "평소 — 반 이름과 큰 시계"], ["notice-photo", "안내 — 사진은 크게, 글은 아래"], ["memo", "8:45 — 수업이 바뀐 반에 「오늘 바뀐 수업」 쪽지"], ["alert", "긴급 — 빨간 전체 화면과 경보음"], ["voice", "음성 — 「띵」 뒤 두 번, [다시 듣기]"], ["inclass-composite", "수업 중 — 30초 뒤 숨고 안내는 구석 포스트잇(합성 그림)"]].map(function (x) { return '<div class="t-box"><img src="img/board/' + x[0] + '.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px"><span>' + x[1] + "</span></div>"; }).join("") + "</div>" },
+    notes: "교실 칠판에는 이렇게 뜹니다. 평소엔 반 이름과 큰 시계. 안내는 사진이 위에 크게. 아침 8시 45분에는 <b>수업이 바뀐 반 칠판 귀퉁이에 「오늘 바뀐 수업」 쪽지가 저절로</b> 붙습니다(사유 없이 교시·과목·교실만). 긴급은 빨간 전체 화면, 음성 안내에는 [다시 듣기]. 칠판 창 프로그램이 깔린 교실은 수업이 시작하면 30초 뒤 칠판이 저절로 숨고, 수업 중에 온 안내는 구석 포스트잇으로만 뜹니다(마지막 그림은 합성). 교실 PC 화면보호기도 학교 보안 점검 기준을 지키며 칠판을 띄웁니다.",
+    html: chips([{ t: "수업" }, { t: "교실 칠판", c: "ghost" }]) + '<h2 class="title" style="width:860px">교실 칠판에는 <em>이렇게</em> 뜹니다</h2>' +
+      '<ol class="steps bt">' + [["평소", "반 이름과 큰 시계"], ["안내", "사진은 위에 크게, 글은 아래"], ["8:45 쪽지", "수업이 바뀐 반에 「오늘 바뀐 수업」"], ["긴급", "빨간 전체 화면과 경보음"], ["음성", "「띵」 뒤 두 번, [다시 듣기]"], ["수업 중", "30초 뒤 숨고, 안내는 구석 포스트잇"]].map(function (x) { return "<li><span><b>" + x[0] + "</b> · " + x[1] + "</span></li>"; }).join("") + "</ol>" +
+      '<div class="abs tv"><div class="in">' + ["idle", "notice-photo", "memo", "alert", "voice", "inclass-composite"].map(function (n) { return '<img src="img/board/' + n + '.jpg" alt="">'; }).join("") + "</div></div>" +
+      '<p class="abs tv-note">마지막 그림은 이해를 돕는 합성 그림 · 반·이름은 예시</p>',
+    build: function (el, A) {
+      var imgs = A.$$(".tv img"), lis = A.$$(".steps.bt li"), cur = -1;
+      function showI(i) {
+        lis.forEach(function (li, k) { li.classList.toggle("on", k === i); li.classList.toggle("done", k < i); });
+        if (cur >= 0) A.go(imgs[cur], [{ opacity: 1 }, { opacity: 0 }], { d: 500, e: E.in });
+        A.go(imgs[i], [{ opacity: 0, transform: "scale(1.04)" }, { opacity: 1, transform: "none" }], { d: 700, e: E.out });
+        A.sfx(i === 3 ? "alert" : "pop");
+        cur = i;
+      }
+      var beats = [function (A) {
+        A.wipe(".chiprow > *"); A.kinetic(".title", { delay: 100, each: 26 });
+        A.rise(".steps.bt li", { delay: 400, each: 70, y: 20 });
+        A.go(".tv", [{ opacity: 0, transform: "translateY(60px) scale(.95)" }, { opacity: 1, transform: "none" }], { d: 1000, delay: 300, e: E.out });
+        A.rise(".tv-note", { delay: 900 });
+        A.later(function () { showI(0); }, 700);
+      }];
+      for (var i = 1; i < imgs.length; i++) (function (i) { beats.push(function () { showI(i); }); })(i);
+      return beats;
+    }
+  });
+
+  // ════════════════════════════════════════════════════════════
+  // 4 · AI와 일하기
+  // ════════════════════════════════════════════════════════════
+  opener({
+    part: 4, art: "ai", lines: ["묻고, 부탁하면", "<em>초안까지</em>"],
+    was: "자료 찾아 폴더를 열고, 양식을 찾아 처음부터", now: "학교 자료를 찾아 답하고, 확인 카드로 초안까지",
+    notes: "네 번째는 AI입니다. 아래 탭 가운데에 있는 AI 도우미는 학교 자료를 찾아 답하고, 부탁하면 확인 카드로 초안을 만듭니다. 중요한 것은 <b>AI는 초안까지, 누르는 건 선생님</b>이라는 원칙입니다."
+  });
+
+  show({
+    id: "s-ai", part: 4, label: "AI 도우미", min: 1.6,
+    title: "학교 자료를 <em>찾아 읽고</em> 답합니다",
+    steps: [
+      { t: '추천 질문은 <b>그날 나에게</b> 맞춰(처리 안 한 넵·마감·시간대)', s: 0, r: R("ai-home", "chips") },
+      { t: '자료실·<b>공유 드라이브</b> 파일 본문까지 — 답 끝에 <b>출처와 쪽수</b>', s: 1, r: R("ai-library", "answer") },
+      { t: '📎 PDF·사진·한글·엑셀을 붙이고 <span class="k">깊게 생각하기</span>(하루 5번)', s: 2, r: R("ai-deep-ready", "deep"), z: 1.9 },
+      { t: '긴 지침과 우리 학교 계획을 견줘 <b>손볼 곳</b>을 쪽수와 함께', s: 3, r: R("ai-deep", "answer") }
+    ],
+    screens: ["ai-home", "ai-library", "ai-deep-ready", "ai-deep"],
+    notes: "AI 도우미는 시간표·급식·학사일정·주간소식 같은 학교 데이터와, 자료실 파일·<b>학교 공유 드라이브</b> 문서 본문까지 찾아 읽고 출처를 붙여 답합니다. 선생님이 붙인 PDF·한글·엑셀도 읽습니다(저장하지 않음). 어려운 일은 「깊게 생각하기」를 켜면 더 큰 모델이 오래 생각하는데, 비용 때문에 <b>선생님마다 하루 5번</b>입니다. 질문은 하루 60개까지."
+  });
+
+  show({
+    id: "s-cards", part: 4, label: "확인 카드", min: 1.8,
+    title: "부탁하면 <em>확인 카드</em>로", ltTitle: "부탁하면 확인 카드, 누르는 건 선생님",
+    steps: [
+      { t: '「공개수업 가정통신문 초안 써 줘」 → <b>학교 양식</b> 초안', s: 0, r: R("ai-letter", "head") },
+      { t: '「프로젝터가 꺼져요, 수리 요청해 줘」 → 수리요청 카드', s: 1, r: R("ai-repair", "head") },
+      { t: '넵 초안 — <b>AI는 보내지 않음</b>, <span class="k">넵 보내기</span>는 선생님이', s: 2, r: R("ai-nep", "button"), z: 1.9 },
+      { t: '학습지·퀴즈 → <span class="k">한글 파일 받기</span>', s: 3, r: R("ai-lesson-2", "button"), z: 1.9 },
+      { t: '「목요일 4~7교시 출장, 교체해 줘」 → <b>교체안 카드</b>', s: 4, r: R("ai-swap", "card") }
+    ],
+    screens: ["ai-letter", "ai-repair", "ai-nep", "ai-lesson-2", "ai-swap"],
+    notes: "부탁하면 AI가 <b>확인 카드</b>를 만듭니다: 가정통신문 초안과 번호, 기기 수리 요청, 넵, 회의 서명부, 학습지·퀴즈(한글 파일), 수업교체안. 묻기 전에 알아서 채우고(날짜를 말하지 않으면 그럴듯한 날을 넣고 밝힘), 선생님은 카드에서 고친 뒤 <b>직접 눌러야</b> 실제로 등록되거나 보내집니다. AI가 넵을 대신 보내는 길은 일부러 만들지 않았습니다."
+  });
+
+  var AIRULES = [
+    ["대신 보내지 않습니다", "넵·신청·서명부는 확인 카드까지. 보내기·등록은 선생님이 누를 때만."],
+    ["링크를 열지 않습니다", "선생님 글의 주소만 서버가 읽고(학교 내부 주소 차단), 답에는 바깥 링크·그림을 그리지 않아 숨은 지시로 정보가 새지 않게."],
+    ["원문을 남기지 않습니다", "붙인 파일과 드라이브 글은 그 대화 동안만. 드라이브는 읽기 전용 계정, 사진·영상은 읽지 않음."],
+    ["대화는 본인만", "👍👎 평가에는 대화 내용을 담지 않고, 선생님이 「보내기」를 누른 한 번만."],
+    ["한도를 정합니다", "하루 60개, 깊게 생각하기 5번. 매일 도는 요약은 가벼운 모델로 비용을 아낍니다."]
+  ];
+  D.add({
+    id: "airules", part: 4, label: "AI가 하지 않는 것", kind: "light", min: 1.2,
+    tour: { title: "AI가 하지 않는 것", html: '<div class="t-grid">' + AIRULES.map(function (r) { return '<div class="t-box"><b>' + r[0] + "</b><span>" + r[1] + "</span></div>"; }).join("") + "</div>" },
+    notes: "AI를 학교에 들이며 가장 먼저 정한 것은 <b>AI가 하지 않는 것</b>입니다. 대신 보내지 않고, 링크를 열지 않고, 원문을 남기지 않고, 대화는 본인만 보고, 한도를 둡니다. 특히 학생 정보를 다루는 도구와 바깥 자료가 한 AI에 같이 있으면 자료 속 숨은 지시로 정보가 샐 수 있어서, 이 다섯 가지를 느슨하게 하지 않습니다.",
+    html: chips([{ t: "AI와 일하기" }, { t: "원칙", c: "ghost" }]) + '<h2 class="title">AI가 <em>하지 않는</em> 다섯 가지</h2>' +
+      '<div class="abs ar5">' + AIRULES.map(function (r, i) { return '<div class="card c"><span class="n">' + (i + 1) + "</span><h3>" + r[0] + "</h3><p>" + r[1] + "</p></div>"; }).join("") + "</div>",
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *");
+        A.kinetic(".title", { delay: 100, each: 24 });
+        A.rise(".ar5 .c", { delay: 450, each: 140, y: 40, snd: "pluck", v: 0.06 });
+      }];
+    }
+  });
+
+  show({
+    id: "s-record", part: 4, label: "세특 도우미", min: 1.2,
+    title: "생기부 초안은 AI가, <em>이름은 기기 안에</em>",
+    steps: [
+      { t: '학생 이름·번호는 <b>기기 밖으로 나가지 않음</b> — 활동 내용만 전송', s: 0, r: R("record", "privacy") },
+      { t: '과세특·동아리·행발·가정통신문, 글자수와 AI를 고르고 생성', s: 1, r: R("record-options", "generate") },
+      { t: '초안 아래 <b>근거</b>: 기재요령 쪽수·교무부 Q&amp;A', s: 2, r: R("record-result", "basis") }
+    ],
+    screens: ["record", "record-options", "record-result"],
+    notes: "세특 도우미는 학생부 문장 초안을 씁니다. 학생 이름과 번호는 기기 밖으로 나가지 않고 활동·관찰 내용만 AI로 보내며, 돌아온 초안에 기기 안에서 이름을 붙입니다. 기본 AI는 학교가 비용을 내는 모델이고, 선생님 개인 API 키를 넣으면 다른 회사 모델도 씁니다(키는 브라우저에만). 초안마다 <b>어떤 기재요령 쪽과 교무부 Q&amp;A를 기준으로 썼는지</b>가 붙습니다."
+  });
+
+  // ════════════════════════════════════════════════════════════
+  // 5 · 학교 생활
+  // ════════════════════════════════════════════════════════════
+  opener({
+    part: 5, art: "closing", lines: ["학교라서", "<em>있는 것</em>"],
+    was: "교무실 한쪽 분실물 상자, 종이 대진표", now: "사진이 떠다니는 분실물 함, 알림이 오는 대진표",
+    notes: "다섯 번째는 학교라서 있는 작은 기능들입니다. 꼭 필요한 기능만큼이나, 쓰는 즐거움이 있어야 매일 엽니다."
+  });
+
+  show({
+    id: "s-life", part: 5, label: "분실물 함·구기대회·보건실", min: 1.5,
+    title: "분실물 함, 구기대회, <em>보건실</em>",
+    steps: [
+      { t: '<b>분실물 함</b>: 사진이 물 위에 뜬 듯 둥둥, 휴대폰을 기울이면 흘러가요', s: 0, r: R("lost-found", "box") },
+      { t: '사진 한 장과 종류·장소만 — <b>학생 얼굴·이름표는 찍지 않게</b>', s: 1, r: R("lost-found-add", "photo") },
+      { t: '<b>구기대회</b>: 월드컵식 대진표, 점수를 적으면 이긴 반이 저절로', s: 2, r: [16, 100, 380, 300] },
+      { t: '홈 경기 카드 + 그 교시 수업 선생님·두 반 담임께 <b>경기 알림</b>', s: 3, r: R("home-sports", "card") },
+      { t: '<b>보건실 입실 알림</b>: 이름 없이 반·성별만, 오후 4시 하루 정리', s: 4, r: R("nurse", "open") }
+    ],
+    screens: ["lost-found", "lost-found-add", "sports", "home-sports", "nurse"],
+    notes: "분실물 함은 선생님들이 함께 보는 함입니다. 사진만 둥둥 떠다니고, 누르면 어디서 찾았는지, 주인에게 돌려주면 「돌려줬어요」. 구기대회 기간에는 대진표와 경기 알림이 오고, 우승 반 담임 선생님 홈에는 축하 꽃가루가 뜹니다. 보건실 입실 알림은 학생이 보건실에 들어오면 1분 안에 담임과 그 교시 교과 선생님께 반·성별만 알립니다."
+  });
+
+  // ════════════════════════════════════════════════════════════
+  // 6 · 지키는 것
+  // ════════════════════════════════════════════════════════════
+  opener({
+    part: 6, art: "basics", lines: ["편리함보다", "<em>먼저 정한</em> 것들"],
+    was: "단체방에 사유·연락처·학생 정보가 그대로", now: "누가 무엇을 보는지 정하고, 화면과 데이터가 함께 지킨다",
+    notes: "학교 앱은 편리함보다 먼저 정해야 할 것이 있습니다. <b>누가 무엇을 보는지</b>입니다. 이 원칙을 화면에서만이 아니라 데이터베이스 권한에서도 함께 지킵니다."
+  });
+
+  var PRINC = [
+    ["사생활", "자리를 비우는 까닭은 본인만", ["출장·연수 같은 <b>사유는 그 선생님 일정·홈에만</b>", "빼꼼·학급 시간표의 교체는 <b>이름 없이 과목만</b>", "넵 마감·넵 속 일정은 <b>보낸 분·받는 분에게만</b>", "조직표는 <b>연락처를 읽지 않음</b>"]],
+    ["보안", "교직원만, 필요한 만큼만", ["학교가 만든 계정, 첫 로그인에 <b>비밀번호 바꾸기</b>", "데이터베이스가 <b>활동 중인 교직원만</b> 읽게(휴직은 자료실만)", "로그인 <b>틀린 횟수 제한</b>", "교실 칠판마다 다른 <b>32자리 열쇠</b>"]],
+    ["AI 원칙", "AI는 초안까지", ["보내기·등록·확정은 <b>늘 선생님이 누름</b>", "붙인 파일·드라이브 원문은 <b>저장하지 않음</b>", "답에 <b>바깥 링크·그림을 그리지 않음</b>(숨은 지시 막기)", "학생 이름·생기부 문장은 넣지 않도록 안내"]],
+    ["읽기 쉬움", "누구나 같은 정보를", ["글자 단계 <b>12·13·15·17</b>, 휴대폰 먼저", "흐린 글씨도 <b>대비 4.8 : 1 이상</b>", "화면 낭독기 <b>이름표·오류 알림</b>", "움직임 줄이기 설정을 따름"]]
+  ];
+  D.add({
+    id: "principles", part: 6, label: "네 가지 원칙", kind: "light", min: 2, tour: { title: "화면도, 데이터도 같은 원칙으로", html: '<div class="t-grid">' + PRINC.map(function (p) { return '<div class="t-box"><b>' + p[0] + " · " + p[1] + "</b><ul>" + p[2].map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul></div>"; }).join("") + "</div>" },
+    notes: "네 가지 원칙입니다. <b>사생활</b>: 수업 교체 사유처럼 민감한 것은 본인에게만, 다른 선생님 화면에는 과목만 보입니다. <b>보안</b>: 교직원 계정만, 데이터베이스가 행 단위로 막습니다. <b>AI</b>: 초안까지만, 누르는 건 사람. <b>읽기 쉬움</b>: 글자 크기와 대비를 기준을 정해 지킵니다.",
+    html: chips([{ t: "지키는 것" }]) + '<h2 class="title">화면도, 데이터도 <em>같은 원칙</em>으로</h2>' +
+      '<div class="abs pr">' + PRINC.map(function (p) { return '<div class="card c"><span class="tg">' + p[0] + "</span><h3>" + p[1] + "</h3><ul>" + p[2].map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul></div>"; }).join("") + "</div>",
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *");
+        A.kinetic(".title", { delay: 100, each: 22 });
+        A.rise(".pr .c", { delay: 450, each: 150, y: 40 });
+        A.rise(".pr li", { delay: 800, each: 50, y: 12 });
+      }];
+    }
+  });
+
+  D.add({
+    id: "stack", part: 6, label: "어떻게 돌아가나", kind: "light", min: 1.5, tour: { title: "웹앱 하나가 학교 자료를 잇습니다", html: '<div class="t-grid"><div class="t-box"><b>선생님 휴대폰·PC</b><span>주소로 여는 웹앱(홈 화면에 설치), 푸시 알림</span></div><div class="t-box"><b>교실 전자칠판</b><span>칠판 창 프로그램·화면보호기, 수업 중 자동 숨김</span></div><div class="t-box"><b>AI 교무실</b><span>Next.js 웹앱 · Vercel(서울) · 12가지 자동 작업 · 한글(HWPX) 서식 채우기</span></div><div class="t-box"><b>Supabase</b><span>데이터베이스·파일·로그인, 행 단위 권한</span></div><div class="t-box"><b>학교·공공 자료</b><span>구글 캘린더·공유 드라이브(읽기 전용)·주간소식 PDF, NEIS 급식·기상청 날씨</span></div><div class="t-box"><b>Claude AI</b><span>도우미·요약 — 매일 일은 가벼운 모델, 깊게 생각하기는 하루 5번</span></div></div>' },
+    notes: "구조는 단순합니다. 선생님 휴대폰·PC와 교실 칠판이 <b>웹앱 하나</b>를 엽니다. 데이터와 파일은 <b>Supabase</b>(데이터베이스·로그인)에, 학교 자료는 <b>구글 캘린더·공유 드라이브·교무부 주간소식</b>에서, 공공 자료는 <b>NEIS 급식·기상청</b>에서 읽어 옵니다. AI는 <b>Claude</b>를 쓰는데, 매일 도는 일은 가벼운 모델로, 비싼 모델은 하루 횟수를 정해 비용을 관리합니다.",
+    html: chips([{ t: "어떻게 돌아가나" }]) + '<h2 class="title">웹앱 하나가 <em>학교 자료</em>를 잇습니다</h2>' +
+      '<div class="abs sk">' +
+      '<div class="card bx" style="left:0;top:20px;width:470px"><h3>선생님 휴대폰·PC</h3><p>주소로 여는 웹앱, 홈 화면에 설치하면 앱처럼</p><div class="ch"><span>푸시 알림</span><span>진동</span><span>오프라인 첫 화면</span></div></div>' +
+      '<div class="card bx" style="left:0;top:330px;width:470px"><h3>교실 전자칠판</h3><p>칠판 창 프로그램·화면보호기가 교실 화면을 띄움</p><div class="ch"><span>2초 깨우기</span><span>수업 중 자동 숨김</span></div></div>' +
+      '<div class="card bx core"><h3>AI 교무실</h3><p>Next.js 웹앱 · Vercel(서울)</p><div class="ch"><span>12가지 자동 작업</span><span>1분마다 넵 배달</span><span>아침·점심 알림</span><span>한글(HWPX) 서식 채우기</span></div></div>' +
+      '<div class="card bx" style="left:1210px;top:0;width:470px"><h3>Supabase</h3><p>데이터베이스·파일·로그인 — 행 단위 권한</p></div>' +
+      '<div class="card bx" style="left:1210px;top:150px;width:470px"><h3>학교 자료</h3><p>구글 캘린더(학사일정)·공유 드라이브(읽기 전용)·주간소식 PDF</p></div>' +
+      '<div class="card bx" style="left:1210px;top:320px;width:470px"><h3>공공 데이터</h3><p>NEIS 급식·기상청 날씨·에어코리아 미세먼지</p></div>' +
+      '<div class="card bx" style="left:1210px;top:470px;width:470px"><h3>Claude AI</h3><p>도우미·요약 — 매일 일은 가벼운 모델, 깊게 생각하기는 하루 5번</p></div>' +
+      '<i class="wire" style="left:470px;top:110px;width:130px;transform:rotate(18deg)"></i><i class="wire" style="left:470px;top:420px;width:130px;transform:rotate(-18deg)"></i>' +
+      '<i class="wire" style="left:1080px;top:250px;width:130px;transform:rotate(-22deg)"></i><i class="wire" style="left:1080px;top:300px;width:130px;transform:rotate(-4deg)"></i><i class="wire" style="left:1080px;top:350px;width:130px;transform:rotate(14deg)"></i><i class="wire" style="left:1080px;top:400px;width:130px;transform:rotate(36deg)"></i>' +
+      "</div>",
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *");
+        A.kinetic(".title", { delay: 100, each: 22 });
+        A.pop(".sk .core", { delay: 400, s: 0.8 });
+        A.rise(".sk .bx:not(.core)", { delay: 700, each: 120, y: 24 });
+        A.draw(".sk .wire", { delay: 1100, each: 90 });
+      }];
+    }
+  });
+
+  var LESSONS = [
+    ["토요일인데 「오늘 하루도 고생 많으셨어요」?", "주말·공휴일엔 그날에 맞는 인사로", "10월 17일"],
+    ["다시 보려고 눌렀더니 알림이 사라졌어요", "요약 알림은 「확인」을 눌러야만 지워지게", "10월 16일"],
+    ["6교시 수업교체가 공강에 반영이 안 돼요", "빈 교실·공강을 그날 실제 시간표로 계산", "10월 16일"],
+    ["둥근 카드형이 효율적인가요? 60명이 다 깔려요", "찾기 먼저, 그다음 조직도 나무", "10월 12·14일"],
+    ["내일 출장인데 홈에 「수업 3시간」이래요", "내 출장·연수를 홈·일정 맨 앞에(나에게만)", "10월 12일"],
+    ["AI한테 조건을 일일이 주고 있어요", "묻기 전에 알아서 채우고, 초안부터", "10월 14일"]
+  ];
+  D.add({
+    id: "lessons", part: 6, label: "쓰면서 나온 말 한마디", kind: "light", min: 1.5, tour: { title: "쓰면서 나온 말 한마디가 그날 바뀝니다", html: '<div class="t-grid">' + LESSONS.map(function (l) { return '<div class="t-box"><span class="t-q">' + l[0] + "</span><b>→ " + l[1] + "</b><span>" + l[2] + "</span></div>"; }).join("") + "</div>" },
+    notes: "쓰면서 실제로 나온 말과, 그래서 바뀐 것입니다. 날짜를 보시면 대개 <b>그날이나 다음 날</b> 바뀌었습니다. 기능을 많이 만드는 것보다 <b>쓰는 사람의 불편을 바로 고치는 것</b>이 쓰는 사람을 늘렸습니다.",
+    html: chips([{ t: "만들며 배운 것" }]) + '<h2 class="title">쓰면서 나온 말 한마디가 <em>그날</em> 바뀝니다</h2>' +
+      '<div class="abs ls">' + LESSONS.map(function (l) { return '<div class="card c"><q>' + l[0] + '</q><span class="ar">→ ' + l[1] + "</span><small>" + l[2] + "</small></div>"; }).join("") + "</div>",
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *");
+        A.kinetic(".title", { delay: 100, each: 22 });
+        A.pop(".ls .c", { delay: 450, each: 130, s: 0.86 });
+      }];
+    }
+  });
+
+  var START = [
+    ["매일 여는 것부터", "아침 알림·시간표·급식처럼 하루에 몇 번 여는 것을 먼저. 매일 열어야 다른 기능도 씁니다."],
+    ["있는 자료를 읽어 오기", "학사일정(구글 캘린더)·공유 드라이브·주간소식을 새로 적게 하지 말고 읽어 옵니다."],
+    ["원칙을 먼저 정하기", "사유·연락처·학생 정보를 누가 보는지 정하고, 화면과 데이터베이스가 함께 지키게."],
+    ["AI는 초안까지", "보내기·등록·확정은 늘 사람이. 그래야 안심하고 맡깁니다."],
+    ["의견 창구를 짧게", "말 한마디가 그날 반영되면 쓰는 사람이 늘어납니다."],
+    ["연수는 휴대폰으로 함께", "따라하기 안내와 발표 다시 보기를 남겨, 나중에 혼자서도."]
+  ];
+  D.add({
+    id: "start", part: 7, label: "우리 학교에서 시작한다면", kind: "light", min: 1.5, trans: "whip", tour: { title: "우리 학교에서 시작한다면, 여섯 가지", html: '<div class="t-grid">' + START.map(function (s, i) { return '<div class="t-box"><b>' + (i + 1) + ". " + s[0] + "</b><span>" + s[1] + "</span></div>"; }).join("") + "</div>" },
+    notes: "다른 학교에서 시작하신다면 이 여섯 가지를 권합니다. 특히 <b>매일 여는 것부터</b>와 <b>원칙을 먼저</b>가 중요했습니다. 알림을 켠 선생님이 늘면서 넵·서명 같은 기능도 자연스럽게 쓰이기 시작했습니다.",
+    html: chips([{ t: "시작한다면" }]) + '<h2 class="title">우리 학교에서 시작한다면, <em>여섯 가지</em></h2>' +
+      '<div class="abs stt">' + START.map(function (s, i) { return '<div class="card r"><span class="n">' + (i + 1) + "</span><div><h3>" + s[0] + "</h3><p>" + s[1] + "</p></div></div>"; }).join("") + "</div>",
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *");
+        A.kinetic(".title", { delay: 100, each: 22 });
+        A.rise(".stt .r", { delay: 450, each: 110, y: 30, snd: "pluck", v: 0.06 });
+        A.pop(".stt .n", { delay: 600, each: 110, s: 0.3, snd: false });
+      }];
+    }
+  });
+
+  D.add({
+    id: "closing", part: 7, label: "고맙습니다 · 질문", kind: "dark", min: 3, trans: "whip", bgm: "end",
+    notes: "QR로 오늘 본 내용을 휴대폰에서 다시 보실 수 있습니다(기능별 화면과 설명). 질문을 받겠습니다.",
+    html: darkBg("closing") +
+      '<h2 class="abs cl-title"><span class="ln">고맙습니다.</span><span class="ln"><em>질문</em> 받겠습니다</span></h2>' +
+      '<p class="abs cl-lead">오늘 본 화면과 설명은 휴대폰에서 <b>다시 볼 수 있습니다.</b><br>화면 속 학교·이름·내용은 모두 예시입니다.</p>' +
+      '<div class="abs cl-qr"><img src="img/qr-tour.svg" alt="소개 다시 보기 QR 코드"><p>휴대폰으로 다시 보기</p><small>AI 교무실 기능 둘러보기</small></div>',
+    build: function (el, A) {
+      return [function (A) {
+        A.go(".art-wrap img", [{ transform: "scale(1.3) translate(2%,2%)", filter: "brightness(.35)" }, { transform: "scale(1.1)", filter: "brightness(1)" }], { d: 2000, e: E.out });
+        A.kenburns(".art-wrap img", { from: "scale(1.1)", to: "scale(1.03) translate(-1.2%, -0.8%)", d: 45000, delay: 2000 });
+        var t = A.kinetic(".cl-title", { delay: 400, each: 40, punch: 2.2 });
+        A.rise(".cl-lead", { delay: t });
+        A.go(".cl-qr", [{ transform: "perspective(1200px) translateX(220px) rotateY(-38deg)", opacity: 0 }, { transform: "perspective(1200px) translateX(0px) rotateY(0deg)", opacity: 1 }], { d: 1300, delay: 700, e: E.out });
+      }];
+    }
+  });
+
 })();

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AI 교무실 사용 안내</title>
-<meta name="description" content="명지중학교 교직원 AI 교무실 연수 자료 — 따라하기 안내와 연수 발표 다시 보기">
+<meta name="description" content="명지중학교 AI 교무실 — 교직원 연수 자료(따라하기·발표 다시 보기)와 다른 학교 선생님께 드리는 소개">
 <meta name="theme-color" content="#06121f">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
@@ -62,6 +62,14 @@ main { max-width: 1040px; margin: -26px auto 0; padding: 0 16px 60px; position: 
 .new ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; color: var(--ink); }
 .nw { font: 800 11px var(--mono); letter-spacing: .06em; background: var(--new); color: var(--new-ink); border-radius: 4px; padding: 2px 6px; }
 .add { color: var(--muted); font-size: 14px; text-align: center; }
+.older { margin-top: 6px; }
+.older summary { cursor: pointer; font-weight: 700; color: var(--muted); }
+.older ul { margin-top: 8px; }
+.out { display: grid; gap: 14px; }
+.out-h { display: grid; gap: 6px; }
+.out-h .tag { font: 600 12px var(--mono); letter-spacing: .12em; color: var(--brand); }
+.out-h h2 { font: 800 24px/1.3 var(--body); letter-spacing: -.02em; }
+.out-h p { color: var(--muted); font-size: 15px; max-width: 40em; }
 :focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { .hero .art { animation: none; } }
 </style>
@@ -72,7 +80,7 @@ main { max-width: 1040px; margin: -26px auto 0; padding: 0 16px 60px; position: 
   <div class="in">
     <div class="brand"><img src="img/symbol-128.png" alt=""><div><small>MYONGJI MIDDLE SCHOOL</small><b>AI 교무실</b></div></div>
     <h1>AI 교무실,<br><em>다시 보기</em></h1>
-    <p>교직원 연수에서 함께 해 본 것을 언제든 다시 볼 수 있어요. 휴대폰에서는 따라하기 안내가, 컴퓨터에서는 발표 다시 보기가 편합니다.</p>
+    <p>교직원 연수에서 함께 해 본 것을 언제든 다시 볼 수 있어요. 휴대폰에서는 따라하기 안내가, 컴퓨터에서는 발표 다시 보기가 편합니다. 다른 학교 선생님께 드리는 소개도 아래에 있습니다.</p>
   </div>
 </header>
 <main>
@@ -96,6 +104,23 @@ main { max-width: 1040px; margin: -26px auto 0; padding: 0 16px 60px; position: 
       <span class="go">열기 ↗</span>
     </a>
   </div>
+  <section class="out">
+    <div class="out-h"><span class="tag">다른 학교 선생님께</span><h2>AI 교무실을 소개합니다</h2><p>명지중학교가 만들어 쓰는 학교 앱을 실제 화면으로 소개합니다. 화면은 예시 데이터로 띄운 것이라 학교·이름·내용은 지어낸 것입니다.</p></div>
+    <div class="ways">
+      <a class="way" href="intro.html">
+        <span class="tag">가로 화면 · 약 30분</span>
+        <h2>소개 발표</h2>
+        <p>왜 만들었는지, 선생님의 하루, 기능 20가지, 지키는 원칙, 우리 학교에서 시작한다면.</p>
+        <span class="go">열기 →</span>
+      </a>
+      <a class="way" href="tour.html">
+        <span class="tag">휴대폰 세로로</span>
+        <h2>기능 둘러보기</h2>
+        <p>소개 발표를 휴대폰으로 읽기 좋게. 기능마다 실제 화면과 요점.</p>
+        <span class="go">열기 →</span>
+      </a>
+    </div>
+  </section>
   <section class="first">
     <h2>처음이라면, 이 세 가지부터</h2>
     <ol>
@@ -105,31 +130,34 @@ main { max-width: 1040px; margin: -26px auto 0; padding: 0 16px 60px; position: 
     </ol>
   </section>
   <section class="new">
-    <h2><span class="nw">NEW</span> 10월 둘째 주에 바뀐 것</h2>
+    <h2><span class="nw">NEW</span> 10월 셋째 주에 바뀐 것</h2>
     <ul>
-      <li><a href="guide.html#p13">전자칠판 보내기 화면 새로: 무엇을 → 어디에(담임은 「내 반」 기본) → 보내기</a></li>
-      <li><a href="guide.html#boardMemo">아침 8:45 수업이 바뀐 반 칠판에 「오늘 바뀐 수업」 쪽지</a></li>
-      <li><a href="guide.html#today">현황판이 「빼꼼」으로 — 공지도 빼꼼 맨 위 알림판에, 바뀐 수업은 이름 없이 과목만</a>, <a href="guide.html#home">홈은 「오늘 알림」 카드</a></li>
+      <li><a href="guide.html#home">글꼴이 프리텐다드로, 글자는 한 단계 크게 · 홈 정리: 처리할 넵 줄, 시간표 「지금·다음」, 「다가오는 일정」</a></li>
+      <li><a href="guide.html#p3">아래 탭 둘째 칸이 「넵」으로</a>(시간표는 홈 「오늘 시간표」 카드·더보기 「도구」), 가운데 <a href="guide.html#p9">AI</a></li>
+      <li><a href="guide.html#p4">공강인 선생님 이름을 누르면 바로 넵</a>, 빈 교실·공강은 그날 실제 시간표로</li>
+      <li><a href="guide.html#p5">진도는 하루치를 「모두 저장」 한 번에</a></li>
+      <li><a href="guide.html#audience">넵 받는 사람은 조직도 나무로</a>, 20명 넘게 보낼 땐 한 번 더 확인</li>
+      <li><a href="guide.html#aiCards">AI가 학습지·퀴즈를 한글 파일로</a>, <a href="guide.html#aiDeep">깊게 생각하기(하루 5번)·학부모 답장 초안</a></li>
+      <li><a href="guide.html#alerts">금요일 3시 「다음 주 미리 보기」, 평일 3시 반 공유 드라이브 새 문서 요약</a></li>
+      <li><a href="guide.html#boardKinds">전자칠판 음성 안내(30초)·여러 학년 함께</a>, <a href="deck.html#45">수업 시작 30초 뒤 칠판이 저절로 숨기</a></li>
+      <li><a href="guide.html#swap">수업교체 제출함: 교실 정하기·고치기·관리자 대신 수락</a></li>
+      <li><a href="guide.html#school">분실물 함(모두에게 공개)과 구기대회 대진표·경기 알림</a></li>
+    </ul>
+    <details class="older"><summary>10월 첫째·둘째 주에 바뀐 것</summary>
+    <ul>
+      <li><a href="guide.html#today">현황판이 「빼꼼」으로 — 공지도 빼꼼 맨 위 알림판에, 바뀐 수업은 이름 없이 과목만</a></li>
       <li><a href="guide.html#p3">아침·점심 알림 맨 위에 나의 「내 줄」</a></li>
-      <li><a href="guide.html#p4">시간표에 그 주 학사일정·주간소식 띠와 수업교체(바뀜·교체·보강)가 저절로</a></li>
-      <li><a href="guide.html#home">내 출장·연수는 내 일정·홈에 「출장 · 5~7교시」로(나에게만)</a></li>
-      <li><a href="guide.html#p7">넵 화면 새로: 받은 넵은 할 일처럼, 확인요청은 목록에서 바로 [넵], 보낸 넵은 진행 막대·제출 모두 받기</a></li>
-      <li><a href="guide.html#audience">넵 받는 사람이 맨 위로: 나에게·자주 보낸 묶음, 이름·초성으로 찾기</a></li>
+      <li><a href="guide.html#p4">시간표에 그 주 학사일정 띠와 수업교체(바뀜·교체·보강)가 저절로</a>, 내 출장·연수는 내 일정·홈에만</li>
+      <li><a href="guide.html#p7">받은 넵은 할 일처럼, 확인요청은 목록에서 바로 [넵], 보낸 넵은 진행 막대·제출 모두 받기</a></li>
       <li><a href="guide.html#nepDue">넵 마감·넵 속 일정이 받는 분 일정·빼꼼에</a></li>
       <li><a href="guide.html#swap">수업교체 계산하기: 학사일정 반영, 갚는 수업 날짜 고르기</a></li>
-      <li><a href="guide.html#p9">AI가 학교 공유 드라이브도 찾아 읽기</a>, <a href="guide.html#p11">넵도 카드로 보내기</a></li>
-      <li><a href="guide.html#boardMemo">전자칠판 쪽지(오른쪽 위 노란 쪽지)</a>와 <a href="guide.html#p13">▶ 영상 틀기</a></li>
+      <li><a href="guide.html#p13">전자칠판 보내기 화면: 무엇을 → 어디에 → 보내기</a>, 아침 8:45 「오늘 바뀐 수업」 쪽지</li>
+      <li><a href="guide.html#p8">내 서명 등록</a>, <a href="guide.html#sheet">회의 서명부</a>, <a href="guide.html#signfile">파일로 서명 받기</a></li>
+      <li><a href="guide.html#p9">AI가 학교 공유 드라이브·📎 파일·웹 주소도 읽기</a></li>
     </ul>
-    <h2 style="margin-top:8px"><span class="nw">NEW</span> 10월 첫 주에 생긴 것</h2>
-    <ul>
-      <li><a href="guide.html#p8">내 서명 등록</a>, <a href="guide.html#sheet">회의 서명부</a>, <a href="guide.html#signfile">파일로 서명 받기</a>, <a href="guide.html#aiSheet">AI에게 말로 회의 서명부</a></li>
-      <li><a href="guide.html#p13">전자칠판 알림: 사진·예약 전송·긴급 단추·층별 특별실</a></li>
-      <li><a href="guide.html#p9">AI 도우미가 📎 붙인 파일·웹 주소도 읽기</a></li>
-      <li><a href="guide.html#audience">넵 받는 사람을 부서·교과·직책으로 고르기</a></li>
-      <li><a href="guide.html#p5">진도 「한 달」 도장판</a></li>
-      <li><a href="guide.html#home">새 홈 화면: 날씨·알림 종·퇴근 인사·할 일 숫자</a></li>
-    </ul>
+    </details>
   </section>
+
   <p class="add">이 페이지를 홈 화면에 추가하면 앱처럼 열 수 있어요.</p>
 </main>
 </body>

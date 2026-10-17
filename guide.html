@@ -104,7 +104,7 @@ footer { color: var(--muted); font-size: 13px; text-align: center; padding: 10px
 <main>
   <header class="g-head">
     <h1>AI 교무실, 하나씩 따라 해 보기</h1>
-    <p>교직원 연수에서 함께 해 본 실습을 화면과 단계로 정리했습니다. 화면 위 <b>번호 원</b>이 아래 단계 번호와 같습니다.</p>
+    <p>교직원 연수에서 함께 해 본 실습을 화면과 단계로 정리했습니다. 화면 위 <b>번호 원</b>이 아래 단계 번호와 같습니다. 화면은 실제 앱을 <b>예시 데이터</b>로 띄워 찍은 것이라 이름·내용은 지어낸 것입니다(10월 17일 화면 기준).</p>
     <div class="acts">
       <a class="btn" href="https://mjms-office.vercel.app" target="_blank" rel="noopener">AI 교무실 열기</a>
       <a class="btn ghost" href="deck.html">연수 발표 다시 보기</a>
@@ -125,14 +125,18 @@ footer { color: var(--muted); font-size: 13px; text-align: center; padding: 10px
     <details><summary>「결석 접수」·「체험학습 신청」 메뉴가 안 보여요</summary><p>운영 방식을 협의하는 동안 관리자만 봅니다. 정해지면 다시 열립니다.</p></details>
     <details><summary>내 출장·수업교체가 다른 선생님께 보이나요?</summary><p>사유(출장·연수 등)는 <b>내 일정과 내 홈에만</b> 보입니다. 빼꼼·아침 알림·다른 선생님 개인 시간표에는 나오지 않고, 학급·교실 시간표에는 바뀐 과목만 선생님 이름 없이 보입니다.</p></details>
     <details><summary>넵 마감이 내 일정에 떴어요</summary><p>나에게 온 넵(처리 전)과 내가 보낸 넵의 마감, 넵 속 일정은 <b>나에게만</b> 일정·빼꼼에 보입니다. 처리하면 마감은 사라지고, 학교 학사일정에는 들어가지 않습니다.</p></details>
+    <details><summary>아래 탭에 「시간표」가 없어졌어요</summary><p>둘째 칸이 <b>「넵」</b>으로 바뀌었습니다(처리할 넵 수가 탭에 바로 붙어요). 시간표는 홈 「오늘 시간표」 카드의 <b>전체 보기</b>나 <b>더보기 → 도구 → 시간표</b>에서 엽니다.</p></details>
+    <details><summary>글자와 글꼴이 바뀌었어요</summary><p>10월 17일 화면 정리로 글꼴이 <b>프리텐다드</b>로 바뀌고 글자가 한 단계 커졌습니다. 흐린 글씨도 더 진하게 보이도록 맞췄습니다.</p></details>
+    <details><summary>「깊게 생각하기」는 몇 번 쓸 수 있나요?</summary><p>선생님마다 <b>하루 5번</b>입니다. 켜고 보낸 그 질문 하나에만 쓰이고, 다 쓰면 막지 않고 보통으로 답합니다. 질문은 모두 합쳐 하루 60개까지입니다.</p></details>
     <details><summary>AI 도우미에 무엇을 넣으면 안 되나요?</summary><p>학생 이름과 실제 생기부 기록 문장은 넣지 않습니다. 질문은 외부 AI로 전송되며 하루 60개까지 물을 수 있습니다.</p></details>
   </section>
-  <footer>AI 교무실 · 명지중학교 교직원 연수 자료 · 화면 속 이름 일부는 가렸고, 「홍길동」·「김하늘」 등은 예시입니다.</footer>
+  <footer>AI 교무실 · 명지중학교 교직원 연수 자료 · 화면은 실제 앱을 예시 데이터로 띄워 찍은 것이라 학교·이름·내용은 지어낸 것입니다.</footer>
 </main>
 <script>
   // 발표 화면과 같은 장면 데이터(scenes.js)를 읽는다
   window.DECK = { E: {}, PARTS: [], list: [], parts: function (l) { var P = this.PARTS; l.forEach(function (p) { P[p.n] = p; }); }, add: function (d) { this.list.push(d); }, h: function () {} };
 </script>
+<script src="img/rects.js"></script>
 <script src="scenes.js"></script>
 <script>
 (function () {
