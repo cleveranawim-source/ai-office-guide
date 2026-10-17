@@ -20,13 +20,14 @@
   --bg: #f2f5f9; --surface: #ffffff; --ink: #0e1c30; --muted: #55677f; --line: #dbe3ec;
   --brand: #295c9e; --brand-deep: #163d73; --brand-tint: #e3edf8;
   --new: #f5a524; --new-ink: #3b2600; --warn: #c2461f; --warn-tint: #fdeae3; --ok: #1f8a5a; --on-brand: #ffffff;
+  --ai: #6d4fd8; --ai-tint: #efeafd; --on-ai: #ffffff;
   --body: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
   --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
   --pen: 'Apple SD Gothic Neo', cursive;
   --ps: .56;
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-deep: #a9d1f7; --brand-tint: #17304f; --warn: #ff8a62; --warn-tint: #3a1d14; --on-brand: #06121f; color-scheme: dark; } }
-:root[data-theme="dark"] { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-deep: #a9d1f7; --brand-tint: #17304f; --warn: #ff8a62; --warn-tint: #3a1d14; --on-brand: #06121f; color-scheme: dark; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-deep: #a9d1f7; --brand-tint: #17304f; --warn: #ff8a62; --warn-tint: #3a1d14; --on-brand: #06121f; --ai: #b9a5ff; --ai-tint: #251c45; --on-ai: #1a1033; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-deep: #a9d1f7; --brand-tint: #17304f; --warn: #ff8a62; --warn-tint: #3a1d14; --on-brand: #06121f; --ai: #b9a5ff; --ai-tint: #251c45; --on-ai: #1a1033; color-scheme: dark; }
 @media (min-width: 760px) { :root { --ps: .62; } }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 72px; }
@@ -67,6 +68,21 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
 .g-card h3 em { font-style: normal; color: var(--brand); }
 .g-note { padding: 12px 14px; border-radius: 12px; background: var(--brand-tint); color: var(--ink); font-size: 15px; }
 .g-note.warn { background: var(--warn-tint); }
+.g-note.ai { background: var(--ai-tint); }
+.g-note .vs { display: block; }
+.g-note .vs b { color: var(--ai); margin-right: 6px; }
+.g-card .eyebrow .ai { background: var(--ai); color: var(--on-ai); border-radius: 999px; padding: 1px 9px; }
+.asks { background: var(--surface); border: 2px solid var(--ai); border-radius: 22px; padding: 20px 18px; display: grid; gap: 12px; scroll-margin-top: 72px; }
+.asks .pn { font: 600 13px var(--mono); color: var(--ai); letter-spacing: .1em; }
+.asks h2 { font: 900 24px/1.25 var(--body); letter-spacing: -.02em; }
+.asks > p { color: var(--muted); }
+.asks ol { list-style: none; padding: 0; display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); counter-reset: a; }
+.asks li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 2px 10px; padding: 10px 12px; border-radius: 12px; background: var(--bg); }
+.asks li::before { counter-increment: a; content: counter(a); grid-row: span 2; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--ai); color: var(--on-ai); font: 700 13px var(--mono); margin-top: 2px; }
+.asks li b { font-weight: 700; }
+.asks li span { font-size: 13px; font-weight: 700; color: var(--ai); }
+.asks .more { font-size: 14px; color: var(--muted); }
+@media (min-width: 760px) { .asks { padding: 24px 28px; } }
 .g-note b { font-weight: 700; }
 .g-group { display: grid; gap: 14px; justify-items: center; }
 @media (min-width: 760px) {
@@ -104,13 +120,20 @@ footer { color: var(--muted); font-size: 13px; text-align: center; padding: 10px
 <main>
   <header class="g-head">
     <h1>AI 교무실, 하나씩 따라 해 보기</h1>
-    <p>교직원 연수에서 함께 해 본 실습을 화면과 단계로 정리했습니다. 화면 위 <b>번호 원</b>이 아래 단계 번호와 같습니다. 화면은 실제 앱을 <b>예시 데이터</b>로 띄워 찍은 것이라 이름·내용은 지어낸 것입니다(10월 17일 화면 기준).</p>
+    <p>교직원 연수에서 함께 해 본 실습을 화면과 단계로 정리했습니다. 핵심은 <b>AI에게 말로 부탁하기</b> — 2부에서 첫 부탁을 해 보고, 부마다 끝에 <b>「AI로 하면」</b>으로 같은 일을 AI 한 문장으로 봅니다. 화면 위 <b>번호 원</b>이 아래 단계 번호와 같습니다. 화면은 실제 앱을 <b>예시 데이터</b>로 띄워 찍은 것이라 이름·내용은 지어낸 것입니다(10월 17일 화면 기준).</p>
     <div class="acts">
       <a class="btn" href="https://mjms-office.vercel.app" target="_blank" rel="noopener">AI 교무실 열기</a>
       <a class="btn ghost" href="deck.html">연수 발표 다시 보기</a>
       <a class="btn ghost" href="#faq">안 될 때</a>
     </div>
   </header>
+  <section class="asks" id="asks" aria-labelledby="asks-h">
+    <span class="pn">AI에게 부탁하기</span>
+    <h2 id="asks-h">내일 해 볼 부탁 열 문장</h2>
+    <p>아래 탭 가운데 <b>AI</b>에게 이렇게 말해 보세요. 메뉴를 몰라도 됩니다. 카드는 <b>누르기 전까지 나만 보는 초안</b>이고, 등록·보내기·요청은 선생님이 누릅니다.</p>
+    <ol id="asks-list"></ol>
+    <p class="more" id="asks-more"></p>
+  </section>
   <div class="toc" id="toc"></div>
   <div id="body" style="display:grid;gap:28px"></div>
   <section id="faq" class="faq">
@@ -139,6 +162,7 @@ footer { color: var(--muted); font-size: 13px; text-align: center; padding: 10px
   window.DECK = { E: {}, PARTS: [], list: [], parts: function (l) { var P = this.PARTS; l.forEach(function (p) { P[p.n] = p; }); }, add: function (d) { this.list.push(d); }, h: function () {} };
 </script>
 <script src="img/rects.js"></script>
+<script src="asks.js"></script>
 <script src="scenes.js"></script>
 <script>
 (function () {
@@ -168,7 +192,9 @@ footer { color: var(--muted); font-size: 13px; text-align: center; padding: 10px
     body += '<section id="part' + p + '" style="display:grid;gap:18px"><div class="part-h"><span class="pn">PART ' + String(p).padStart(2, "0") + "</span><h2>" + p + "부 · " + P.name + (P.isNew ? ' <b class="nw">NEW</b>' : "") + "</h2>" + (g.intro ? "<p>" + g.intro.now + "</p>" : "") + "</div>" +
       g.items.map(card).join("") + "</section>";
   });
-  document.getElementById("parts").innerHTML = nav + '<a href="#faq">안 될 때</a>';
+  document.getElementById("parts").innerHTML = '<a href="#asks">부탁 10문장</a>' + nav + '<a href="#faq">안 될 때</a>';
+  document.getElementById("asks-list").innerHTML = (window.ASKS || []).map(function (a) { return "<li><b>「" + esc(a.say) + "」</b><span>→ " + esc(a.got) + "</span></li>"; }).join("");
+  document.getElementById("asks-more").textContent = (window.ASKS_MORE || "") + ".";
   document.getElementById("toc").innerHTML = toc;
   document.getElementById("body").innerHTML = body;
 
@@ -176,6 +202,7 @@ footer { color: var(--muted); font-size: 13px; text-align: center; padding: 10px
     var o = d.guide;
     var chips = (o.chips || []).map(function (c) { return c.t; }).filter(function (t) { return !/^\d+분$/.test(t) && t !== "NEW" && !/^NEW /.test(t); });
     var eyebrow = chips.map(function (t) {
+      if (t === "AI로 하면") return '<span class="ai">AI로 하면</span>';
       if (/보기만/.test(t)) return '<span class="care">' + esc(t.replace(/^보기만 · /, "")) + " · 누르면 실제로 반영돼요</span>";
       return "<span>" + esc(t) + "</span>";
     }).join("") + (d.isNew ? '<b class="nw">NEW</b>' : "") + (o.practiceMin ? '<span class="min">' + o.practiceMin + "분</span>" : "");

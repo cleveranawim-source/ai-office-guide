@@ -717,7 +717,7 @@
   window.DECK = {
     E: E, PARTS: PARTS,
     parts: function (list) { list.forEach(function (p) { PARTS[p.n] = p; }); },
-    add: function (def) { scenes.push(def); },
+    add: function (def) { if (def.deck === false) return; scenes.push(def); }, // deck: false = 따라하기 안내에만
     scenes: scenes, start: start, go: go, next: next, prev: prev, h: h, state: state
   };
 })();

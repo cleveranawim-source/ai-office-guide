@@ -10,10 +10,10 @@
 
   D.parts([
     { n: 0, name: "시작", color: "#8fd0ff" },
-    { n: 1, name: "매일 여는 화면", color: "#6fb6ea" },
-    { n: 2, name: "함께 일하기", color: "#9fb3f0" },
-    { n: 3, name: "수업", color: "#7fc8a9" },
-    { n: 4, name: "AI와 일하기", color: "#b49cf2" },
+    { n: 1, name: "AI와 일하기", color: "#b49cf2" },
+    { n: 2, name: "매일 여는 화면", color: "#6fb6ea" },
+    { n: 3, name: "함께 일하기", color: "#9fb3f0" },
+    { n: 4, name: "수업", color: "#7fc8a9" },
     { n: 5, name: "학교 생활", color: "#f5a524" },
     { n: 6, name: "지키는 것", color: "#e59a7a" },
     { n: 7, name: "마무리", color: "#8fd0ff" }
@@ -146,6 +146,38 @@
   .ar5 h3{font:800 34px/1.25 var(--display);letter-spacing:-.02em}
   .ar5 p{font:500 25px/1.55 var(--body);color:var(--muted)}
   .tv-note{left:960px;top:850px;width:860px;text-align:center;font:500 20px var(--body);color:var(--muted)}
+
+  .hk-icon.hk-ai{border-radius:50%;background:radial-gradient(circle at 35% 30%,#3a8ad8,#0b4a8f 72%);color:#fff;align-content:center;gap:2px}
+  .hk-ai svg{width:96px;height:96px;display:block}
+  .hk-ai b{font:800 46px var(--body);letter-spacing:.02em;line-height:1}
+  .steps li .aib{display:inline-block;padding:0 10px;border-radius:8px;background:var(--ai);color:#fff;font-weight:800;font-size:.82em;line-height:1.5;margin-right:6px}
+  .steps li:not(.on) .aib{background:var(--ai-tint);color:var(--ai-ink)}
+
+  .hb{left:120px;top:290px;width:1680px;height:640px}
+  .hb svg.ln{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .hb svg.ln path{fill:none;stroke:var(--ai);stroke-width:3;stroke-dasharray:6 8;opacity:.55}
+  .hb .core{position:absolute;left:660px;top:140px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7b62e6,#4a2fb8 75%);color:#fff;display:grid;place-items:center;align-content:center;gap:8px;text-align:center;box-shadow:0 30px 80px rgba(74,47,184,.35)}
+  .hb .core svg{width:70px;height:70px}
+  .hb .core b{font:900 44px var(--display);letter-spacing:-.02em}
+  .hb .core span{font:600 22px var(--body);color:#e6defd}
+  .hb .sat{position:absolute;width:520px;height:132px;padding:16px 22px;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto 1fr;gap:4px 14px;align-content:center}
+  .hb .sat h3{font:800 28px var(--display);letter-spacing:-.02em}
+  .hb .sat q{grid-column:1;font:600 21px/1.4 var(--body);color:var(--muted);quotes:"「" "」"}
+  .hb .sat q::before{content:open-quote}.hb .sat q::after{content:close-quote}
+  .hb .sat em{grid-row:1/3;grid-column:2;align-self:center;font-style:normal;padding:6px 14px;border-radius:999px;background:var(--ai-tint);color:var(--ai-ink);font:700 19px var(--body);white-space:nowrap}
+  .hb-rest{left:120px;top:950px;width:1680px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font:600 21px var(--body);color:var(--muted)}
+  .hb-rest span{padding:6px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+
+  .ten{left:120px;top:300px;width:1680px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,auto);grid-auto-flow:column;gap:14px 28px}
+  .ten .r{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:18px;align-items:center;padding:16px 22px;border-radius:18px;background:var(--surface);border:1px solid var(--line);min-height:104px}
+  .ten .n{font:600 26px var(--mono);color:var(--ai)}
+  .ten .s{font:700 26px/1.38 var(--body);color:var(--ink)}
+  .ten .c{padding:6px 14px;border-radius:999px;background:var(--ai-tint);color:var(--ai-ink);font:700 19px var(--body);white-space:nowrap}
+  .ten-foot{left:120px;top:924px;width:1680px;display:flex;gap:14px;flex-wrap:wrap;font:500 23px var(--body);color:var(--muted)}
+  .ten-foot b{color:var(--ink)}
+  .wh .c.ai{border-color:var(--ai);box-shadow:0 0 0 3px rgba(109,79,216,.16),0 18px 46px rgba(109,79,216,.12)}
+  .wh .c.ai .ic{background:var(--ai-tint)}
+  .wh .c.ai .ic svg{stroke:var(--ai)}
   `;
   document.head.appendChild(css);
 
@@ -243,13 +275,13 @@
   // ════════════════════════════════════════════════════════════
   D.add({
     id: "cover", part: 0, label: "표지", kind: "dark", min: 0.5, trans: "fade", bgm: "lobby",
-    notes: "시작 전부터 띄워 둡니다. “명지중학교 교직원이 매일 쓰는 학교 앱, AI 교무실을 소개합니다.” 오늘 보여 드리는 화면은 모두 <b>실제 앱을 예시 데이터로 띄운 것</b>이라 이름·내용은 지어낸 것이라고 먼저 말씀드립니다.",
+    notes: "시작 전부터 띄워 둡니다. “명지중학교 교직원이 매일 쓰는 학교 앱, AI 교무실을 소개합니다. 오늘 하나만 기억하신다면 — <b>메뉴를 몰라도 AI에게 말로 부탁하면 된다</b>는 것입니다.” 오늘 보여 드리는 화면은 모두 <b>실제 앱을 예시 데이터로 띄운 것</b>이라 이름·내용은 지어낸 것이라고 먼저 말씀드립니다.",
     html: darkBg("cover") +
       '<div class="abs cv-brand"><img src="img/symbol-128.png" alt=""><div><small>MYONGJI MIDDLE SCHOOL</small><b>AI 교무실</b></div></div>' +
       '<p class="abs cv-kicker">학교 앱 소개 · 2026년 10월</p>' +
-      '<h1 class="abs cv-title"><span class="ln">학교의 하루를,</span><span class="ln"><em>한 화면에</em></span></h1>' +
-      '<p class="abs cv-lead">교직원 74명이 매일 여는 학교 앱<br><b>AI 교무실</b>을 소개합니다</p>' +
-      '<div class="abs cv-ph"><div class="phone"><div class="screen">' + shot("home") + "</div></div></div>",
+      '<h1 class="abs cv-title"><span class="ln">학교 일을,</span><span class="ln"><em>말로 부탁</em>하는 앱</span></h1>' +
+      '<p class="abs cv-lead">메뉴를 몰라도, AI에게 말하면 카드로 초안까지<br>교직원 74명이 매일 여는 <b>AI 교무실</b>을 소개합니다</p>' +
+      '<div class="abs cv-ph"><div class="phone"><div class="screen">' + shot("ai-swap") + "</div></div></div>",
     build: function (el, A) {
       return [function (A) {
         A.go(".art-wrap img", [{ transform: "scale(1.35)", filter: "brightness(.3)" }, { transform: "scale(1.12)", filter: "brightness(1)" }], { d: 2200, e: E.out });
@@ -273,12 +305,12 @@
   ];
   D.add({
     id: "hook", part: 0, label: "여는 이야기", kind: "dark", min: 1, trans: "fade",
-    notes: "1단계: 선생님 하루에 흩어진 질문들입니다. “이 질문들, 하루에 몇 번 하시나요?” 메신저·단체방·게시판·종이·엑셀에 흩어져 있습니다.<br>2단계: 넘기면 낱말이 휴대폰 하나로 모입니다. <b>“흩어진 일을 휴대폰 하나로 모은 것이 AI 교무실입니다.”</b>",
+    notes: "1단계: 선생님 하루에 흩어진 질문들입니다. “이 질문들, 하루에 몇 번 하시나요?” 메신저·단체방·게시판·종이·엑셀에 흩어져 있습니다.<br>2단계: 넘기면 낱말이 아래 탭 가운데 <b>AI 단추</b>로 모입니다. <b>“이 일들을 이제 AI에게 말로 부탁합니다.”</b> 메뉴를 찾아 들어가지 않아도, 말하면 AI가 학교 자료를 찾아 답하고 카드로 초안까지 만듭니다. 다음 장면에서 실제 화면으로 보여 드립니다.",
     html: '<div class="hk-bg"></div><div class="grain"></div>' +
       HOOK_WORDS.map(function (w) { return '<span class="hk-word" style="left:' + w[1] + "px;top:" + w[2] + "px;font-size:" + w[3] + "px;transform:rotate(" + w[4] + 'deg)"><span class="in" style="display:inline-block">' + w[0] + "</span></span>"; }).join("") +
       '<h2 class="abs hk-say"><span class="ln">선생님의 하루는</span><span class="ln"><em>여기저기</em> 흩어져 있습니다</span></h2>' +
-      '<div class="abs hk-ring"></div><div class="abs hk-icon"><img src="img/symbol-128.png" alt="AI 교무실"></div>' +
-      '<h2 class="abs hk-one"><span class="ln">휴대폰 하나로, <em>한 곳에서.</em></span></h2>',
+      '<div class="abs hk-ring"></div><div class="abs hk-icon hk-ai"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 2.5c.5 4.6 3.1 7.2 7.7 7.7-4.6.5-7.2 3.1-7.7 7.7-.5-4.6-3.1-7.2-7.7-7.7 4.6-.5 7.2-3.1 7.7-7.7z"/><path d="M18.5 13.5c.25 2.3 1.55 3.6 3.85 3.85-2.3.25-3.6 1.55-3.85 3.85-.25-2.3-1.55-3.6-3.85-3.85 2.3-.25 3.6-1.55 3.85-3.85z"/></svg><b>AI</b></div>' +
+      '<h2 class="abs hk-one"><span class="ln">이 일들, 이제 <em>AI에게 말로.</em></span></h2>',
     build: function (el, A) {
       var words = A.$$(".hk-word");
       function $in(w) { return w.querySelector(".in"); }
@@ -310,19 +342,34 @@
     }
   });
 
+  show({
+    id: "s-demo", part: 0, label: "말하기 → 카드 → 누르기", min: 1.8, trans: "zoom",
+    chips: [{ t: "한 문장이면", c: "ai" }, { t: "실제 화면", c: "ghost" }],
+    title: "말하면, <em>카드로</em>. 누르는 건 선생님", ltTitle: "말하기 → 카드 → 누르기",
+    steps: [
+      { t: '<span class="aib">① 말하기</span> 「다음 주 목요일 4~7교시 출장, 교체해 줘」', s: 0, r: R("ai-swap", "question") },
+      { t: '<span class="aib">② 카드</span> 그날 학사일정·시간표·이미 잡힌 교체를 보고 <b>교체안</b>까지', s: 0, r: [16, 326, 380, 130] },
+      { t: '<span class="aib">③ 누르기</span> 「내 서명으로 이 안 요청」은 <b>선생님이</b>', s: 0, r: [31, 734, 236, 40], warn: true },
+      { t: '같은 세 박자로 <b>넵 초안</b> — AI는 보내지 않습니다', s: 1, r: R("ai-nep", "people") },
+      { t: '<b>회의 서명부</b>·가정통신문·수리 요청·학습지까지', s: 2, r: R("ai-sign", "card") }
+    ],
+    screens: ["ai-swap", "ai-nep", "ai-sign"],
+    notes: "무엇이 다른지 2분 안에 보여 드립니다. 아래 탭 가운데 AI에게 <b>「다음 주 목요일 4~7교시 출장, 교체해 줘」</b> 한 문장. AI가 그날 학사일정(동아리활동으로 수업이 없는 교시)과 시간표, 이미 잡힌 다른 교체까지 읽어 <b>교체안 카드</b>를 만듭니다. 마지막 「내 서명으로 이 안 요청」은 <b>선생님이 누릅니다</b> — 누르기 전까지는 나만 보는 초안입니다. 넵도, 회의 서명부도, 가정통신문도 같은 세 박자입니다. <b>말하기 → 카드 → 누르기</b>, 오늘 발표는 이 세 박자를 중심으로 갑니다."
+  });
+
   var ICON = {
     phone: '<svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>',
     stack: '<svg viewBox="0 0 24 24"><path d="M12 3 3 7.5l9 4.5 9-4.5z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg>',
     spark: '<svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>'
   };
   D.add({
-    id: "what", part: 0, label: "AI 교무실은", kind: "light", min: 1.2, trans: "whip", tour: { title: "교직원만 쓰는 학교 앱, 세 가지로", html: '<div class="t-grid"><div class="t-box"><b>휴대폰에서 바로</b><span>주소로 열고 홈 화면에 설치하면 앱처럼. 아침·점심 알림이 오고, 아래 탭 가운데에 AI.</span></div><div class="t-box"><b>학교 자료가 한곳에</b><span>학사일정·시간표·주간소식·급식·자료실·공유 드라이브를 읽어 와, 오늘 나에게 필요한 것만.</span></div><div class="t-box"><b>AI가 읽고, 초안을</b><span>학교 자료를 찾아 답하고 가정통신문 번호·수리 요청·넵·수업 자료 초안까지. 보내기는 늘 선생님이.</span></div></div>' },
-    notes: "세 가지로 말씀드립니다. ① <b>교직원만 쓰는 웹앱</b>입니다. 앱 장터가 아니라 주소로 열고 홈 화면에 설치하면 앱처럼, 알림도 옵니다. ② 학사일정·시간표·주간소식·자료실·공유 드라이브처럼 <b>학교에 이미 있는 자료를 읽어 와 한곳에</b> 보입니다. ③ <b>AI가 읽고 초안을 씁니다</b>. 다만 보내기·등록·확정은 늘 선생님이 누릅니다.",
-    html: chips([{ t: "AI 교무실은" }]) + '<h2 class="title">교직원만 쓰는 학교 앱, <em>세 가지</em>로 말하면</h2>' +
+    id: "what", part: 0, label: "AI 교무실은", kind: "light", min: 1.2, trans: "whip", tour: { title: "교직원만 쓰는 학교 앱, 핵심은 AI에게 말로", html: '<div class="t-grid"><div class="t-box"><b>AI에게 말로 부탁</b><span>학교 자료를 찾아 답하고 가정통신문·수리 요청·넵·수업교체·학습지 초안까지 카드로. 누르는 건 늘 선생님.</span></div><div class="t-box"><b>학교 자료가 한곳에</b><span>학사일정·시간표·주간소식·급식·자료실·공유 드라이브를 읽어 오니, AI가 우리 학교 일로 답합니다.</span></div><div class="t-box"><b>휴대폰에서 바로</b><span>주소로 열고 홈 화면에 설치하면 앱처럼. 아침·점심 알림이 오고, 아래 탭 가운데에 AI.</span></div></div>' },
+    notes: "세 가지로 말씀드립니다. ① 핵심은 <b>AI에게 말로 부탁하기</b>입니다. 학교 자료를 찾아 답하고 가정통신문·수리 요청·넵·수업교체·학습지 초안까지 카드로 만듭니다. 다만 보내기·등록·확정은 늘 선생님이 누릅니다. ② AI가 그렇게 할 수 있는 것은 학사일정·시간표·주간소식·자료실·공유 드라이브처럼 <b>학교에 이미 있는 자료를 읽어 와 한곳에</b> 모았기 때문입니다. ③ <b>교직원만 쓰는 웹앱</b>입니다. 앱 장터가 아니라 주소로 열고 홈 화면에 설치하면 앱처럼, 알림도 옵니다.",
+    html: chips([{ t: "AI 교무실은" }]) + '<h2 class="title">교직원만 쓰는 학교 앱, 핵심은 <em>AI에게 말로</em></h2>' +
       '<div class="abs wh">' +
+      '<div class="card c ai"><span class="ic">' + ICON.spark + '</span><h3>AI에게 말로 부탁</h3><p>학교 자료를 찾아 답하고 <b>가정통신문·수리 요청·넵·수업교체·학습지</b> 초안까지 카드로. <b>누르는 건 늘 선생님</b>.</p></div>' +
+      '<div class="card c"><span class="ic">' + ICON.stack + '</span><h3>학교 자료가 한곳에</h3><p><b>학사일정·시간표·주간소식·급식·자료실·공유 드라이브</b>를 읽어 오니, AI가 우리 학교 일로 답합니다.</p></div>' +
       '<div class="card c"><span class="ic">' + ICON.phone + '</span><h3>휴대폰에서 바로</h3><p>주소로 열고 <b>홈 화면에 설치</b>하면 앱처럼. 아침·점심 <b>알림</b>이 오고, 아래 탭 가운데에 <b>AI</b>.</p></div>' +
-      '<div class="card c"><span class="ic">' + ICON.stack + '</span><h3>학교 자료가 한곳에</h3><p><b>학사일정·시간표·주간소식·급식·자료실·공유 드라이브</b>를 읽어 와, 오늘 나에게 필요한 것만 추려 보여 줍니다.</p></div>' +
-      '<div class="card c"><span class="ic">' + ICON.spark + '</span><h3>AI가 읽고, 초안을</h3><p>학교 자료를 찾아 답하고 <b>가정통신문 번호·수리 요청·넵·수업 자료</b> 초안까지. <b>보내기는 늘 선생님이</b> 누릅니다.</p></div>' +
       '</div><p class="abs wh-foot">명지중학교 교직원 74명 모두 계정이 있습니다 · 휴직 중인 선생님은 자료실만</p>',
     build: function (el, A) {
       return [function (A) {
@@ -357,28 +404,117 @@
     }
   });
 
-  var MAP = [
-    ["매일 여는 화면", "#6fb6ea", "오늘 나에게 필요한 것", [["홈", "오늘 수업·알림·급식·일정"], ["빼꼼", "공지와 오늘 달라진 것"], ["알림", "아침 7:50 · 점심 11:30 「내 줄」"], ["일정·주간소식·급식", "학사일정·교무부 소식을 그대로"]]],
-    ["함께 일하기", "#9fb3f0", "부탁하고, 받고, 서명하고", [["넵", "확인·업무·제출 요청과 현황"], ["전자서명", "회의 서명부·파일 서명"], ["자료실", "부서 자료·양식 한곳에"], ["신청", "가정통신문 번호·기기 수리"]]],
-    ["수업", "#7fc8a9", "시간표에서 칠판까지", [["시간표", "빈 교실·공강인 선생님"], ["수업교체", "학사일정 반영 계산·신고서"], ["진도표", "오늘 적기·한 달 도장판"], ["전자칠판", "교실에 안내·쪽지·긴급·음성"]]],
-    ["AI와 일하기", "#b49cf2", "읽고, 찾고, 초안까지", [["AI 도우미", "학교 자료를 찾아 답"], ["확인 카드", "번호·수리·넵·서명부·수업 자료"], ["먼저 챙기기", "다음 주 미리 보기·드라이브 요약"], ["세특 도우미", "생기부 문장 초안"]]],
-    ["학교 생활", "#f5a524", "학교라서 있는 것", [["구기대회", "대진표·경기 알림·우승 축하"], ["분실물 함", "떠다니는 사진 함, 학생은 칠판·QR로"], ["보건실", "입실 알림·하루 정리"], ["축하", "받는 분 홈에만 꽃가루"]]]
+
+  // ════════════════════════════════════════════════════════════
+  // 1 · AI와 일하기 (오늘의 핵심: 말하기 → 카드 → 누르기)
+  // ════════════════════════════════════════════════════════════
+  opener({
+    part: 1, art: "ai", lines: ["메뉴를 몰라도", "<em>말하면</em> 됩니다"],
+    was: "메뉴를 찾고, 양식을 찾아 처음부터 직접", now: "말로 부탁하면 카드로 초안까지, 누르는 건 선생님",
+    notes: "첫 묶음이 이 앱의 핵심, <b>AI와 일하기</b>입니다. 아래 탭 가운데 AI 도우미는 학교 자료를 찾아 답하고, 부탁하면 확인 카드로 초안을 만듭니다. 먼저 AI로 무엇을 할 수 있는지 한 장으로 보고, 실제 화면과 <b>AI가 하지 않는 다섯 가지</b>를 봅니다. 원칙은 하나 — <b>AI는 초안까지, 누르는 건 선생님</b>."
+  });
+
+  var HUB = [
+    ["학사일정·시간표·급식", "이번 주 학사일정 알려 줘", "요일별 답"],
+    ["자료실·공유 드라이브", "상담 기록지 양식 어디 있어?", "출처와 함께 답"],
+    ["수업교체", "목요일 4~7교시 출장, 교체해 줘", "교체안 카드"],
+    ["넵", "2학년 담임께 상담 기록 넵 보내 줘", "넵 초안"],
+    ["전자서명", "금요일 15:30 협의회 서명부 만들어 줘", "회의 서명부"],
+    ["가정통신문", "공개수업 가정통신문 초안 써 줘", "초안·번호"],
+    ["신청", "2-3 교실 프로젝터 수리 요청해 줘", "수리·도서관"],
+    ["수업 자료", "논설문 근거 찾기 학습지 만들어 줘", "한글 파일"]
   ];
+  var HUB_REST = ["홈·빼꼼·알림", "시간표·진도", "전자칠판", "분실물 함·구기대회·보건실", "세특 도우미(따로)"];
   D.add({
-    id: "map", part: 0, label: "기능 한눈에", kind: "light", min: 1.5, tour: { title: "학교 하루에 생기는 일을 하나씩 옮겼습니다", html: '<div class="t-grid">' + MAP.map(function (g) { return '<div class="t-box" style="--c:' + g[1] + '"><b>' + g[0] + "</b><ul>" + g[3].map(function (f) { return "<li><b>" + f[0] + "</b> — " + f[1] + "</li>"; }).join("") + "</ul></div>"; }).join("") + "</div>" },
-    notes: "오늘 보여 드릴 것을 다섯 묶음으로 정리했습니다. 왼쪽부터 <b>매일 여는 화면 → 함께 일하기 → 수업 → AI → 학교 생활</b> 순서로 갑니다. 하나하나가 큰 기능이라기보다, <b>학교 하루에 실제로 생기는 일</b>을 하나씩 앱으로 옮긴 것입니다.",
-    html: chips([{ t: "기능 한눈에" }, { t: "20가지", c: "ghost" }]) + '<h2 class="title">학교 하루에 생기는 일을 <em>하나씩</em> 옮겼습니다</h2>' +
-      '<div class="abs mp">' + MAP.map(function (g) {
-        return '<div class="card g" style="--c:' + g[1] + '"><h3><i></i>' + g[0] + "</h3><p>" + g[2] + "</p>" + g[3].map(function (f) { return '<span class="f">' + f[0] + "<small>" + f[1] + "</small></span>"; }).join("") + "</div>";
-      }).join("") + "</div>",
+    id: "map", part: 1, label: "AI로 할 수 있는 것", kind: "light", min: 1.5,
+    tour: { title: "가운데 AI, 둘레에 학교 일", html: '<p>아래 탭 가운데 AI에게 말하면, 학교 일마다 답이나 확인 카드가 됩니다.</p><div class="t-grid">' + HUB.map(function (x) { return '<div class="t-box"><b>' + x[0] + "</b><span>「" + x[1] + "」 → " + x[2] + "</span></div>"; }).join("") + '</div><p>그 밖에 매일 여는 화면: ' + HUB_REST.join(" · ") + "</p>" },
+    notes: "AI 교무실의 기능을 <b>AI를 가운데 두고</b> 그렸습니다. 학사일정·자료실을 묻는 것부터 수업교체·넵·서명부·가정통신문·수리 신청·학습지까지, 둘레의 학교 일은 모두 <b>AI에게 한 문장</b>으로 시작할 수 있습니다. 오른쪽 알약은 그 결과 — 답이거나 확인 카드입니다. 아래 줄은 AI 없이 매일 여는 화면들로, 뒤에서 차례로 봅니다.",
+    html: chips([{ t: "AI와 일하기", c: "ai" }, { t: "기능 한눈에", c: "ghost" }]) + '<h2 class="title">가운데 <em>AI</em>, 둘레에 학교 일</h2>' +
+      '<div class="abs hb"><svg class="ln" viewBox="0 0 1680 640">' + HUB.map(function (x, i) { var L = i < 4, y = 66 + (i % 4) * 152; return '<path d="M' + (L ? 520 : 1160) + " " + y + " C " + (L ? 600 : 1080) + " " + y + ", " + (L ? 620 : 1060) + " 320, " + (L ? 680 : 1000) + ' 320"/>'; }).join("") + "</svg>" +
+      HUB.map(function (x, i) { var L = i < 4; return '<div class="card sat" style="left:' + (L ? 0 : 1160) + "px;top:" + (i % 4) * 152 + 'px"><h3>' + x[0] + "</h3><q>" + x[1] + "</q><em>" + x[2] + "</em></div>"; }).join("") +
+      '<div class="core"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 2.5c.5 4.6 3.1 7.2 7.7 7.7-4.6.5-7.2 3.1-7.7 7.7-.5-4.6-3.1-7.2-7.7-7.7 4.6-.5 7.2-3.1 7.7-7.7z"/><path d="M18.5 13.5c.25 2.3 1.55 3.6 3.85 3.85-2.3.25-3.6 1.55-3.85 3.85-.25-2.3-1.55-3.6-3.85-3.85 2.3-.25 3.6-1.55 3.85-3.85z"/></svg><b>AI에게 말하기</b><span>말하기 → 카드 → 누르기</span></div></div>' +
+      '<p class="abs hb-rest">그리고 매일 여는 화면 ' + HUB_REST.map(function (t) { return "<span>" + t + "</span>"; }).join("") + "</p>",
     build: function (el, A) {
       return [function (A) {
         A.wipe(".chiprow > *", { each: 110 });
-        A.kinetic(".title", { delay: 100, each: 22 });
-        A.rise(".mp .g", { delay: 450, each: 120, y: 40 });
-        A.pop(".mp .f", { delay: 700, each: 45, s: 0.85, snd: "pluck", v: 0.04 });
+        A.kinetic(".title", { delay: 100, each: 24 });
+        A.pop(".hb .core", { delay: 350, s: 0.6 });
+        A.stagger(".hb svg.ln path", [{ opacity: 0 }, { opacity: 0.55 }], { delay: 700, each: 70, d: 500 });
+        A.rise(".hb .sat", { delay: 700, each: 90, y: 24, snd: "pluck", v: 0.05 });
+        A.pop(".hb .sat em", { delay: 1100, each: 90, s: 0.7, snd: false });
+        A.wipe(".hb-rest", { delay: 1700 });
       }];
     }
+  });
+
+  show({
+    id: "s-ai", part: 1, label: "AI 도우미", min: 1.6,
+    title: "학교 자료를 <em>찾아 읽고</em> 답합니다",
+    steps: [
+      { t: '추천 질문은 <b>그날 나에게</b> 맞춰(처리 안 한 넵·마감·시간대)', s: 0, r: R("ai-home", "chips") },
+      { t: '자료실·<b>공유 드라이브</b> 파일 본문까지 — 답 끝에 <b>출처와 쪽수</b>', s: 1, r: R("ai-library", "answer") },
+      { t: '📎 PDF·사진·한글·엑셀을 붙이고 <span class="k">깊게 생각하기</span>(하루 5번)', s: 2, r: R("ai-deep-ready", "deep"), z: 1.9 },
+      { t: '긴 지침과 우리 학교 계획을 견줘 <b>손볼 곳</b>을 쪽수와 함께', s: 3, r: R("ai-deep", "answer") }
+    ],
+    screens: ["ai-home", "ai-library", "ai-deep-ready", "ai-deep"],
+    notes: "AI 도우미는 시간표·급식·학사일정·주간소식 같은 학교 데이터와, 자료실 파일·<b>학교 공유 드라이브</b> 문서 본문까지 찾아 읽고 출처를 붙여 답합니다. 선생님이 붙인 PDF·한글·엑셀도 읽습니다(저장하지 않음). 어려운 일은 「깊게 생각하기」를 켜면 더 큰 모델이 오래 생각하는데, 비용 때문에 <b>선생님마다 하루 5번</b>입니다. 질문은 하루 60개까지."
+  });
+
+  show({
+    id: "s-cards", part: 1, label: "확인 카드", min: 1.8,
+    title: "부탁하면 <em>확인 카드</em>로", ltTitle: "부탁하면 확인 카드, 누르는 건 선생님",
+    steps: [
+      { t: '「공개수업 가정통신문 초안 써 줘」 → <b>학교 양식</b> 초안', s: 0, r: R("ai-letter", "head") },
+      { t: '「프로젝터가 꺼져요, 수리 요청해 줘」 → 수리요청 카드', s: 1, r: R("ai-repair", "head") },
+      { t: '「번호 받아 줘」 → 가정통신문 번호 카드, <span class="k">번호 받기</span>는 선생님이', s: 2, r: R("ai-number", "card") },
+      { t: '「학습지 만들어 줘」 → 고친 뒤 <span class="k">한글 파일 받기</span>', s: 3, r: R("ai-lesson-2", "button"), z: 1.9 },
+      { t: '넵·수업교체·회의 서명부·도서관 이용·교과협의록도 <b>같은 카드</b>로', s: 3 }
+    ],
+    screens: ["ai-letter", "ai-repair", "ai-number", "ai-lesson-2"],
+    notes: "부탁하면 AI가 <b>확인 카드</b>를 만듭니다: 가정통신문 초안과 번호, 기기 수리 요청, 넵, 회의 서명부, 학습지·퀴즈(한글 파일), 수업교체안. 묻기 전에 알아서 채우고(날짜를 말하지 않으면 그럴듯한 날을 넣고 밝힘), 선생님은 카드에서 고친 뒤 <b>직접 눌러야</b> 실제로 등록되거나 보내집니다. AI가 넵을 대신 보내는 길은 일부러 만들지 않았습니다."
+  });
+
+  var AIRULES = [
+    ["대신 보내지 않습니다", "넵·신청·서명부는 확인 카드까지. 보내기·등록은 선생님이 누를 때만."],
+    ["링크를 열지 않습니다", "선생님 글의 주소만 서버가 읽고(학교 내부 주소 차단), 답에는 바깥 링크·그림을 그리지 않아 숨은 지시로 정보가 새지 않게."],
+    ["원문을 남기지 않습니다", "붙인 파일과 드라이브 글은 그 대화 동안만. 드라이브는 읽기 전용 계정, 사진·영상은 읽지 않음."],
+    ["대화는 본인만", "👍👎 평가에는 대화 내용을 담지 않고, 선생님이 「보내기」를 누른 한 번만."],
+    ["한도를 정합니다", "하루 60개, 깊게 생각하기 5번. 매일 도는 요약은 가벼운 모델로 비용을 아낍니다."]
+  ];
+  D.add({
+    id: "airules", part: 1, label: "AI가 하지 않는 것", kind: "light", min: 1.2,
+    tour: { title: "AI가 하지 않는 것", html: '<div class="t-grid">' + AIRULES.map(function (r) { return '<div class="t-box"><b>' + r[0] + "</b><span>" + r[1] + "</span></div>"; }).join("") + "</div>" },
+    notes: "AI를 학교에 들이며 가장 먼저 정한 것은 <b>AI가 하지 않는 것</b>입니다. 대신 보내지 않고, 링크를 열지 않고, 원문을 남기지 않고, 대화는 본인만 보고, 한도를 둡니다. 특히 학생 정보를 다루는 도구와 바깥 자료가 한 AI에 같이 있으면 자료 속 숨은 지시로 정보가 샐 수 있어서, 이 다섯 가지를 느슨하게 하지 않습니다.",
+    html: chips([{ t: "AI와 일하기" }, { t: "원칙", c: "ghost" }]) + '<h2 class="title">AI가 <em>하지 않는</em> 다섯 가지</h2>' +
+      '<div class="abs ar5">' + AIRULES.map(function (r, i) { return '<div class="card c"><span class="n">' + (i + 1) + "</span><h3>" + r[0] + "</h3><p>" + r[1] + "</p></div>"; }).join("") + "</div>",
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *");
+        A.kinetic(".title", { delay: 100, each: 24 });
+        A.rise(".ar5 .c", { delay: 450, each: 140, y: 40, snd: "pluck", v: 0.06 });
+      }];
+    }
+  });
+
+  show({
+    id: "s-record", part: 1, label: "세특 도우미", min: 1.2,
+    title: "생기부 초안은 AI가, <em>이름은 기기 안에</em>",
+    steps: [
+      { t: '학생 이름·번호는 <b>기기 밖으로 나가지 않음</b> — 활동 내용만 전송', s: 0, r: R("record", "privacy") },
+      { t: '과세특·동아리·행발·가정통신문, 글자수와 AI를 고르고 생성', s: 1, r: R("record-options", "generate") },
+      { t: '초안 아래 <b>근거</b>: 기재요령 쪽수·교무부 Q&amp;A', s: 2, r: R("record-result", "basis") }
+    ],
+    screens: ["record", "record-options", "record-result"],
+    notes: "세특 도우미는 학생부 문장 초안을 씁니다. 학생 이름과 번호는 기기 밖으로 나가지 않고 활동·관찰 내용만 AI로 보내며, 돌아온 초안에 기기 안에서 이름을 붙입니다. 기본 AI는 학교가 비용을 내는 모델이고, 선생님 개인 API 키를 넣으면 다른 회사 모델도 씁니다(키는 브라우저에만). 초안마다 <b>어떤 기재요령 쪽과 교무부 Q&amp;A를 기준으로 썼는지</b>가 붙습니다."
+  });
+
+  // ════════════════════════════════════════════════════════════
+  // 2 · 매일 여는 화면
+  // ════════════════════════════════════════════════════════════
+  opener({
+    part: 2, art: "basics", lines: ["열면, 오늘이", "<em>한눈에</em>"],
+    was: "오늘 일정·당번·바뀐 수업을 여기저기서", now: "홈 한 화면과 아침 알림 한 번으로",
+    notes: "AI 다음은 매일 여는 화면입니다. 선생님 하루를 따라가 본 뒤 홈, 빼꼼, 알림을 봅니다. 하루에 가장 많이 보는 곳이라, 여기서 매일 쓸 이유를 만들었습니다."
   });
 
   var DAY = [
@@ -392,9 +528,9 @@
     ["금 15:00", "다음 주 미리 보기", "마감 넵·수업 교체·나와 관련된 일정", "자동"]
   ];
   D.add({
-    id: "day", part: 0, label: "선생님의 하루", kind: "light", min: 1.5, tour: { title: "아침 7시 50분부터, 금요일 오후까지", html: '<ol class="t-time">' + DAY.map(function (d) { return '<li><span class="tm">' + d[0] + "</span>" + (d[3] ? '<span class="ch">' + d[3] + "</span>" : "") + "<b>" + d[1] + "</b><span>" + d[2] + "</span></li>"; }).join("") + "</ol>" },
+    id: "day", part: 2, label: "선생님의 하루", kind: "light", min: 1.5, tour: { title: "아침 7시 50분부터, 금요일 오후까지", html: '<ol class="t-time">' + DAY.map(function (d) { return '<li><span class="tm">' + d[0] + "</span>" + (d[3] ? '<span class="ch">' + d[3] + "</span>" : "") + "<b>" + d[1] + "</b><span>" + d[2] + "</span></li>"; }).join("") + "</ol>" },
     notes: "선생님 하루를 따라가 보면 이렇습니다. <b>아침 7시 50분</b> 알림 맨 위에 “나에게만 해당하는 줄”이 옵니다. <b>8시 45분</b>에는 수업이 바뀐 반 교실 칠판에 쪽지가 저절로 붙습니다. 수업 중에는 시간표에서 빈 교실을, 쉬는 시간엔 넵을 한 번에. 점심 알림, 오후엔 AI에게 부탁, <b>3시 30분</b>엔 공유 드라이브 새 문서 요약, <b>금요일 3시</b>엔 다음 주 미리 보기. <b>‘자동’ 표시</b>는 선생님이 아무것도 안 해도 오는 것입니다.",
-    html: chips([{ t: "선생님의 하루" }]) + '<h2 class="title">아침 7시 50분부터, <em>금요일 오후</em>까지</h2>' +
+    html: chips([{ t: "매일 여는 화면" }, { t: "선생님의 하루", c: "ghost" }]) + '<h2 class="title">아침 7시 50분부터, <em>금요일 오후</em>까지</h2>' +
       '<div class="abs dy-line"></div><div class="abs dy">' + DAY.map(function (d, i) {
         var x = 30 + i * 212;
         return '<div class="st ' + (i % 2 ? "dn" : "up") + '" style="left:' + x + 'px"><span class="tm">' + d[0] + "</span><b>" + d[1] + "</b><span>" + d[2] + "</span>" + (d[3] ? '<span class="ch">' + d[3] + "</span>" : "") + '</div><i class="dot" style="left:' + (x + 30) + 'px"></i>';
@@ -410,18 +546,8 @@
     }
   });
 
-
-  // ════════════════════════════════════════════════════════════
-  // 1 · 매일 여는 화면
-  // ════════════════════════════════════════════════════════════
-  opener({
-    part: 1, art: "basics", lines: ["열면, 오늘이", "<em>한눈에</em>"],
-    was: "오늘 일정·당번·바뀐 수업을 여기저기서", now: "홈 한 화면과 아침 알림 한 번으로",
-    notes: "첫 묶음은 매일 여는 화면입니다. 홈, 빼꼼, 알림. 선생님들이 하루에 가장 많이 보는 곳이라, 여기서 매일 쓸 이유를 만들었습니다."
-  });
-
   show({
-    id: "s-home", part: 1, label: "홈", min: 1.5,
+    id: "s-home", part: 2, label: "홈", min: 1.5,
     title: "홈: 오늘 <em>나에게</em> 필요한 것만",
     steps: [
       { t: '큰 글씨는 <b>선생님마다 다른 한마디</b> — 교체로 수업을 맡아 준 날엔 “고마워요”', s: 0, r: R("home", "hero") },
@@ -436,7 +562,7 @@
   });
 
   show({
-    id: "s-today", part: 1, label: "빼꼼", min: 1,
+    id: "s-today", part: 2, label: "빼꼼", min: 1,
     title: "빼꼼: 오늘 <em>달라진 것만</em>",
     steps: [
       { t: '맨 위 <span class="q">「알림판」</span>에 공지', s: 0, r: R("today", "board") },
@@ -449,7 +575,7 @@
   });
 
   show({
-    id: "s-alerts", part: 1, label: "알림", min: 1,
+    id: "s-alerts", part: 2, label: "알림", min: 1,
     title: "알림: 맨 위엔 <em>「내 줄」</em>",
     steps: [
       { t: '평일 <b>7:50 아침 · 11:30 점심</b> 알림 — 맨 위에 나에게만 해당하는 줄', s: 0, r: R("notifications-on", "test") },
@@ -462,7 +588,7 @@
   });
 
   D.add({
-    id: "s-desk", part: 1, label: "PC에서도", kind: "light", min: 0.6, tour: { title: "PC에서도 같은 화면", html: '<p>컴퓨터에서는 왼쪽 메뉴와 넓은 달력으로 보입니다. 휴대폰과 같은 주소, 같은 계정입니다.</p><img src="img/desk/home.jpg" alt="PC 홈 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy"><img src="img/desk/calendar.jpg" alt="PC 일정 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy">' },
+    id: "s-desk", part: 2, label: "PC에서도", kind: "light", min: 0.6, tour: { title: "PC에서도 같은 화면", html: '<p>컴퓨터에서는 왼쪽 메뉴와 넓은 달력으로 보입니다. 휴대폰과 같은 주소, 같은 계정입니다.</p><img src="img/desk/home.jpg" alt="PC 홈 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy"><img src="img/desk/calendar.jpg" alt="PC 일정 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy">' },
     notes: "같은 주소를 컴퓨터에서 열면 왼쪽 메뉴가 있는 넓은 화면입니다. 일정 달력은 넓은 화면에서 일정 이름까지 보입니다. 휴대폰을 먼저 설계했고, 컴퓨터는 같은 화면을 넓게 씁니다.",
     html: chips([{ t: "매일 여는 화면" }, { t: "PC", c: "ghost" }]) + '<h2 class="title">컴퓨터에서도 <em>같은 화면</em>, 넓게</h2>' +
       '<div class="abs bw" style="left:120px;top:300px;width:1040px"><div class="bar"><i></i><i></i><i></i></div><img src="img/desk/home.jpg" alt=""></div>' +
@@ -479,64 +605,67 @@
   });
 
   // ════════════════════════════════════════════════════════════
-  // 2 · 함께 일하기
+  // 3 · 함께 일하기
   // ════════════════════════════════════════════════════════════
   opener({
-    part: 2, art: "nep", lines: ["읽었는지, 했는지", "<em>한눈에</em>"],
+    part: 3, art: "nep", lines: ["읽었는지, 했는지", "<em>한눈에</em>"],
     was: "단체방에 올리고 “읽으셨어요?” 다시 묻기", now: "버튼 하나로 답하고, 처리 현황이 보이는 「넵」",
-    notes: "두 번째는 함께 일하기입니다. 학교 업무 연락은 단체 메신저로 하면 누가 읽었는지, 했는지 알기 어렵습니다. 그래서 만든 것이 「넵」입니다. 그리고 회의 서명부, 자료실."
+    notes: "다음은 함께 일하기입니다. 학교 업무 연락은 단체 메신저로 하면 누가 읽었는지, 했는지 알기 어렵습니다. 그래서 만든 것이 「넵」입니다. 그리고 회의 서명부, 자료실. 장면마다 끝에 <b>「AI로도」</b> 한 줄 — 같은 일을 AI에게 말로 하는 길을 붙여 두었습니다."
   });
 
   show({
-    id: "s-nep", part: 2, label: "넵", min: 2,
+    id: "s-nep", part: 3, label: "넵", min: 2,
     title: "넵: 요청은 넵으로, <em>답은 버튼 하나</em>",
     steps: [
       { t: '받은 넵은 <b>오늘 할 일</b>처럼 — 마감 가까운 순, 「지남·오늘·내일」', s: 0, r: R("nep-inbox", "todo") },
       { t: '확인요청은 목록에서 바로 <span class="k">넵</span>', s: 0, r: R("nep-inbox", "ackButton"), z: 1.9 },
       { t: '받는 사람은 메신저 같은 <b>조직도 나무</b>, 초성으로 찾기', s: 1, r: R("nep-picker", "search") },
       { t: '글 속 「10월 23일까지」가 <b>마감 칸에 저절로</b> → 받는 분 일정에', s: 2, r: R("nep-new-due", "hint") },
-      { t: '보낸 분: 진행 막대·「아직 5명」·<span class="k">다시 알림</span>·제출 파일 <b>모두 받기</b>', s: 3, r: R("nep-detail-sent-board", "progress") }
+      { t: '보낸 분: 진행 막대·「아직 5명」·<span class="k">다시 알림</span>·제출 파일 <b>모두 받기</b>', s: 3, r: R("nep-detail-sent-board", "progress") },
+      { t: '<span class="aib">AI로도</span> 「2학년 담임께 상담 기록 넵 보내 줘」 → 넵 초안, <b>보내기는 선생님이</b>', s: 4, r: R("ai-nep", "people") }
     ],
-    screens: ["nep-inbox", "nep-picker", "nep-new-due", "nep-detail-sent-board"],
-    notes: "넵은 알림·확인요청·업무요청·제출요청 네 가지입니다. 받는 분은 [넵]·[완료]·[제출] 버튼 하나로 답하고, 보낸 분은 누가 했는지 막대로 봅니다. 받는 분이 수업 중이면 교시가 끝난 뒤, 근무 시간 밖이면 다음 근무일 아침에 도착하게 해서 <b>수업과 쉬는 시간을 지킵니다</b>. 글에 “23일까지”라고 쓰면 마감이 저절로 채워지고, 그 마감은 받는 분의 일정에 나타납니다(학교 달력에는 넣지 않고 당사자에게만)."
+    screens: ["nep-inbox", "nep-picker", "nep-new-due", "nep-detail-sent-board", "ai-nep"],
+    notes: "넵은 알림·확인요청·업무요청·제출요청 네 가지입니다. 받는 분은 [넵]·[완료]·[제출] 버튼 하나로 답하고, 보낸 분은 누가 했는지 막대로 봅니다. 받는 분이 수업 중이면 교시가 끝난 뒤, 근무 시간 밖이면 다음 근무일 아침에 도착하게 해서 <b>수업과 쉬는 시간을 지킵니다</b>. 글에 “23일까지”라고 쓰면 마감이 저절로 채워지고, 그 마감은 받는 분의 일정에 나타납니다(학교 달력에는 넣지 않고 당사자에게만). <b>AI에게 말로</b> 「2학년 담임께 상담 기록 금요일까지 넵 보내 줘」라고 해도 받는 사람·마감까지 채운 초안이 뜨지만, <b>AI는 보내지 않습니다</b> — 「넵 보내기」는 선생님이 누릅니다."
   });
 
   show({
-    id: "s-sign", part: 2, label: "전자서명", min: 1.2,
+    id: "s-sign", part: 3, label: "전자서명", min: 1.2,
     title: "서명부 들고 <em>돌지 않아도</em>",
     steps: [
       { t: '내 서명은 <b>한 번 등록</b> — 손 서명이나 도장 사진', s: 0, r: R("signature", "hand") },
       { t: '회의 서명부: 받은 분은 <span class="k">내 서명으로 서명하기</span> 한 번', s: 1, r: R("sign-meeting", "sign") },
       { t: '명단에 서명 시각이 차고, 만든 분은 <b>PDF 한 장</b>으로', s: 1, r: R("sign-meeting", "roster") },
-      { t: '계획서·동의서 파일의 <b>(서명)·(인) 자리</b>에도', s: 2, r: R("sign-file", "sign") }
+      { t: '계획서·동의서 파일의 <b>(서명)·(인) 자리</b>에도', s: 2, r: R("sign-file", "sign") },
+      { t: '<span class="aib">AI로도</span> 「금요일 15:30 협의회 서명부 만들어 줘」 → 서명부 초안', s: 3, r: R("ai-sign", "card") }
     ],
-    screens: ["signature", "sign-meeting", "sign-file"],
-    notes: "회의가 끝나면 서명부를 들고 교무실을 한 바퀴 도는 일이 있었습니다. 이제 서명은 <b>한 번 등록</b>해 두고, 회의 서명부·파일 서명·수업교체 신고서에 <b>한 번 눌러</b> 넣습니다. 서명 그림은 본인만 보고 바꿀 수 있고(관리자도 못 봄), 화면에는 보이지 않고 내려받는 PDF에만 들어갑니다. 학교 내부 문서용이고 공문 전자결재는 그대로입니다."
+    screens: ["signature", "sign-meeting", "sign-file", "ai-sign"],
+    notes: "회의가 끝나면 서명부를 들고 교무실을 한 바퀴 도는 일이 있었습니다. 이제 서명은 <b>한 번 등록</b>해 두고, 회의 서명부·파일 서명·수업교체 신고서에 <b>한 번 눌러</b> 넣습니다. 서명 그림은 본인만 보고 바꿀 수 있고(관리자도 못 봄), 화면에는 보이지 않고 내려받는 PDF에만 들어갑니다. 학교 내부 문서용이고 공문 전자결재는 그대로입니다. 서명부도 AI에게 말로 만들 수 있고, 명단은 말한 대로(부서·교과·학년 담임) 맞춰집니다."
   });
 
   show({
-    id: "s-library", part: 2, label: "자료실·신청", min: 0.8,
+    id: "s-library", part: 3, label: "자료실·신청", min: 0.8,
     title: "자료는 <em>한곳에</em>, 신청은 <em>한 화면에</em>",
     steps: [
       { t: '부서별 자료·양식, 위쪽 <b>검색</b>', s: 0, r: R("library", "search") },
       { t: '파일은 <span class="k">내려받기</span>, 링크는 앱 안에서 열기', s: 1, r: R("library-post", "download") },
-      { t: '<b>신청</b>: 교외체험학습 서식 채우기·기기 수리·통신문 번호 등', s: 2, r: R("forms", "trip") }
+      { t: '<b>신청</b>: 교외체험학습 서식 채우기·기기 수리·통신문 번호 등', s: 2, r: R("forms", "trip") },
+      { t: '<span class="aib">AI로도</span> 「상담 기록지 양식 어디 있어?」 → 자료실·드라이브를 찾아 <b>열기 ›</b>', s: 3, r: R("ai-form", "links"), z: 1.95 }
     ],
-    screens: ["library", "library-post", "forms"],
-    notes: "자료실은 부서별 자료와 양식을 한곳에 모았고, 파일 본문은 뒤에서 볼 AI 도우미가 읽어 답합니다. 신청 메뉴는 구글 시트로 받던 신청(기기 수리·가정통신문 번호·물품 구입 등)을 한 화면에 모았습니다."
+    screens: ["library", "library-post", "forms", "ai-form"],
+    notes: "자료실은 부서별 자료와 양식을 한곳에 모았고, 파일 본문은 뒤에서 볼 AI 도우미가 읽어 답합니다. 신청 메뉴는 구글 시트로 받던 신청(기기 수리·가정통신문 번호·물품 구입 등)을 한 화면에 모았습니다. 양식이 어디 있는지 몰라도 AI에게 물으면 자료실 글과 공유 드라이브 문서를 찾아 열기 링크로 붙여 줍니다."
   });
 
   // ════════════════════════════════════════════════════════════
-  // 3 · 수업
+  // 4 · 수업
   // ════════════════════════════════════════════════════════════
   opener({
-    part: 3, art: "class", lines: ["시간표에서", "<em>교실 칠판까지</em>"],
+    part: 4, art: "class", lines: ["시간표에서", "<em>교실 칠판까지</em>"],
     was: "빈 교실을 찾으러 교무실 시간표 앞으로", now: "빈 교실·공강·교체 계산을 휴대폰에서",
-    notes: "세 번째는 수업입니다. 시간표, 수업교체, 진도, 그리고 교실 전자칠판."
+    notes: "다음은 수업입니다. 시간표, 수업교체(AI로도), 진도, 그리고 교실 전자칠판."
   });
 
   show({
-    id: "s-timetable", part: 3, label: "시간표", min: 1.5,
+    id: "s-timetable", part: 4, label: "시간표", min: 1.5,
     title: "시간표에 <em>그 주의 일</em>이 저절로",
     steps: [
       { t: '그 주 <b>수업교체</b>가 칸에: 초록 「바뀜」, 흐린 「교체」, 「수락 대기」', s: 0, r: R("tt-my", "changed"), z: 1.9 },
@@ -549,21 +678,22 @@
   });
 
   show({
-    id: "s-swap", part: 3, label: "수업교체", min: 1.8,
+    id: "s-swap", part: 4, label: "수업교체", min: 1.8,
     title: "수업교체는 <em>계산</em>하고, <em>서명</em>으로",
     steps: [
       { t: '선생님·날짜·교시를 고르면 <b>그날 학사일정</b>이 바로', s: 0, r: R("sub-calc", "calendar") },
       { t: '교체안: 반영한 학사일정·이미 잡힌 교체, 상대 부담', s: 1, r: R("sub-result", "calendar") },
       { t: '갚는 수업 날짜 고르기 — 막힌 날은 <b>까닭</b>이 붙음', s: 2, r: R("sub-dates", "dates") },
       { t: '<span class="k">내 서명으로 이 안 요청</span> → 상대가 서명하고 수락', s: 2, r: R("sub-dates", "request") },
-      { t: '교무부 <b>제출함</b>: 교실 정하기·고치기·신고서(한글)', s: 3, r: R("sub-inbox", "rooms") }
+      { t: '교무부 <b>제출함</b>: 교실 정하기·고치기·신고서(한글)', s: 3, r: R("sub-inbox", "rooms") },
+      { t: '<span class="aib">AI로도</span> 「목요일 4~7교시 출장, 교체해 줘」 → <b>같은 계산기</b>로 교체안', s: 4, r: R("ai-swap", "question") }
     ],
-    screens: ["sub-calc", "sub-result", "sub-dates", "sub-inbox"],
-    notes: "출장이 잡히면 수업교체 계산부터 합니다. 그날 학사일정(동아리·행사로 수업이 없는 교시 등)과 이미 잡힌 다른 교체를 얹어 경우의 수를 찾고, 상대 선생님 부담이 적은 안을 추천합니다. 갚는 수업 날짜는 그 주·한 주 뒤·두 주 뒤에서 고르는데, 막힌 날은 까닭이 붙습니다. 요청과 수락은 <b>등록해 둔 서명으로 한 번에</b>, 신고서 한글 파일도 서명이 채워져 나옵니다. 화면과 알림에는 ‘결강’ 대신 ‘수업 교체’라는 말을 씁니다."
+    screens: ["sub-calc", "sub-result", "sub-dates", "sub-inbox", "ai-swap"],
+    notes: "출장이 잡히면 수업교체 계산부터 합니다. 그날 학사일정(동아리·행사로 수업이 없는 교시 등)과 이미 잡힌 다른 교체를 얹어 경우의 수를 찾고, 상대 선생님 부담이 적은 안을 추천합니다. 갚는 수업 날짜는 그 주·한 주 뒤·두 주 뒤에서 고르는데, 막힌 날은 까닭이 붙습니다. 요청과 수락은 <b>등록해 둔 서명으로 한 번에</b>, 신고서 한글 파일도 서명이 채워져 나옵니다. 화면과 알림에는 ‘결강’ 대신 ‘수업 교체’라는 말을 씁니다. 메뉴를 거치지 않고 AI에게 한 문장으로 말해도 같은 계산기가 돌아 교체안 카드가 뜹니다."
   });
 
   show({
-    id: "s-progress", part: 3, label: "진도표", min: 0.8,
+    id: "s-progress", part: 4, label: "진도표", min: 0.8,
     title: "진도는 <em>한 줄</em>, 한 달은 <em>도장판</em>",
     steps: [
       { t: '오늘 <b>실제로 하는 수업</b>마다 한 줄, <span class="k">모두 저장</span> 한 번', s: 0, r: R("pg-today", "save"), z: 1.9 },
@@ -574,7 +704,7 @@
   });
 
   show({
-    id: "s-board", part: 3, label: "전자칠판 보내기", min: 1.5,
+    id: "s-board", part: 4, label: "전자칠판 보내기", min: 1.5,
     title: "교실 칠판에, <em>휴대폰으로</em>",
     steps: [
       { t: '<b>무엇을 → 어디에 → 보내기</b>, 담임은 「내 반」이 기본', s: 0, r: R("board-send", "where") },
@@ -587,7 +717,7 @@
   });
 
   D.add({
-    id: "s-tv", part: 3, label: "교실 칠판 모습", kind: "light", min: 1.5,
+    id: "s-tv", part: 4, label: "교실 칠판 모습", kind: "light", min: 1.5,
     tour: { title: "교실 칠판에는 이렇게", html: '<div class="t-grid">' + [["idle", "평소 — 반 이름·큰 시계, 아래 분실물 띠(사진·찾으러 갈 곳·학생용 QR)"], ["notice-photo", "안내 — 사진은 크게, 글은 아래"], ["memo", "8:45 — 수업이 바뀐 반에 「오늘 바뀐 수업」 쪽지"], ["alert", "긴급 — 빨간 전체 화면과 경보음"], ["voice", "음성 — 「띵」 뒤 두 번, [다시 듣기]"], ["inclass-composite", "수업 중 — 30초 뒤 숨고 안내는 구석 포스트잇(합성 그림)"]].map(function (x) { return '<div class="t-box"><img src="img/board/' + x[0] + '.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px"><span>' + x[1] + "</span></div>"; }).join("") + "</div>" },
     notes: "교실 칠판에는 이렇게 뜹니다. 평소엔 반 이름과 큰 시계, 그 아래 <b>분실물 띠</b>(보관 중인 물건 사진·찾으러 갈 곳·학생용 QR). 안내는 사진이 위에 크게. 아침 8시 45분에는 <b>수업이 바뀐 반 칠판 귀퉁이에 「오늘 바뀐 수업」 쪽지가 저절로</b> 붙습니다(사유 없이 교시·과목·교실만). 긴급은 빨간 전체 화면, 음성 안내에는 [다시 듣기]. 칠판 창 프로그램이 깔린 교실은 수업이 시작하면 30초 뒤 칠판이 저절로 숨고, 수업 중에 온 안내는 구석 포스트잇으로만 뜹니다(마지막 그림은 합성). 교실 PC 화면보호기도 학교 보안 점검 기준을 지키며 칠판을 띄웁니다.",
     html: chips([{ t: "수업" }, { t: "교실 칠판", c: "ghost" }]) + '<h2 class="title" style="width:860px">교실 칠판에는 <em>이렇게</em> 뜹니다</h2>' +
@@ -613,76 +743,6 @@
       for (var i = 1; i < imgs.length; i++) (function (i) { beats.push(function () { showI(i); }); })(i);
       return beats;
     }
-  });
-
-  // ════════════════════════════════════════════════════════════
-  // 4 · AI와 일하기
-  // ════════════════════════════════════════════════════════════
-  opener({
-    part: 4, art: "ai", lines: ["묻고, 부탁하면", "<em>초안까지</em>"],
-    was: "자료 찾아 폴더를 열고, 양식을 찾아 처음부터", now: "학교 자료를 찾아 답하고, 확인 카드로 초안까지",
-    notes: "네 번째는 AI입니다. 아래 탭 가운데에 있는 AI 도우미는 학교 자료를 찾아 답하고, 부탁하면 확인 카드로 초안을 만듭니다. 중요한 것은 <b>AI는 초안까지, 누르는 건 선생님</b>이라는 원칙입니다."
-  });
-
-  show({
-    id: "s-ai", part: 4, label: "AI 도우미", min: 1.6,
-    title: "학교 자료를 <em>찾아 읽고</em> 답합니다",
-    steps: [
-      { t: '추천 질문은 <b>그날 나에게</b> 맞춰(처리 안 한 넵·마감·시간대)', s: 0, r: R("ai-home", "chips") },
-      { t: '자료실·<b>공유 드라이브</b> 파일 본문까지 — 답 끝에 <b>출처와 쪽수</b>', s: 1, r: R("ai-library", "answer") },
-      { t: '📎 PDF·사진·한글·엑셀을 붙이고 <span class="k">깊게 생각하기</span>(하루 5번)', s: 2, r: R("ai-deep-ready", "deep"), z: 1.9 },
-      { t: '긴 지침과 우리 학교 계획을 견줘 <b>손볼 곳</b>을 쪽수와 함께', s: 3, r: R("ai-deep", "answer") }
-    ],
-    screens: ["ai-home", "ai-library", "ai-deep-ready", "ai-deep"],
-    notes: "AI 도우미는 시간표·급식·학사일정·주간소식 같은 학교 데이터와, 자료실 파일·<b>학교 공유 드라이브</b> 문서 본문까지 찾아 읽고 출처를 붙여 답합니다. 선생님이 붙인 PDF·한글·엑셀도 읽습니다(저장하지 않음). 어려운 일은 「깊게 생각하기」를 켜면 더 큰 모델이 오래 생각하는데, 비용 때문에 <b>선생님마다 하루 5번</b>입니다. 질문은 하루 60개까지."
-  });
-
-  show({
-    id: "s-cards", part: 4, label: "확인 카드", min: 1.8,
-    title: "부탁하면 <em>확인 카드</em>로", ltTitle: "부탁하면 확인 카드, 누르는 건 선생님",
-    steps: [
-      { t: '「공개수업 가정통신문 초안 써 줘」 → <b>학교 양식</b> 초안', s: 0, r: R("ai-letter", "head") },
-      { t: '「프로젝터가 꺼져요, 수리 요청해 줘」 → 수리요청 카드', s: 1, r: R("ai-repair", "head") },
-      { t: '넵 초안 — <b>AI는 보내지 않음</b>, <span class="k">넵 보내기</span>는 선생님이', s: 2, r: R("ai-nep", "button"), z: 1.9 },
-      { t: '학습지·퀴즈 → <span class="k">한글 파일 받기</span>', s: 3, r: R("ai-lesson-2", "button"), z: 1.9 },
-      { t: '「목요일 4~7교시 출장, 교체해 줘」 → <b>교체안 카드</b>', s: 4, r: R("ai-swap", "card") }
-    ],
-    screens: ["ai-letter", "ai-repair", "ai-nep", "ai-lesson-2", "ai-swap"],
-    notes: "부탁하면 AI가 <b>확인 카드</b>를 만듭니다: 가정통신문 초안과 번호, 기기 수리 요청, 넵, 회의 서명부, 학습지·퀴즈(한글 파일), 수업교체안. 묻기 전에 알아서 채우고(날짜를 말하지 않으면 그럴듯한 날을 넣고 밝힘), 선생님은 카드에서 고친 뒤 <b>직접 눌러야</b> 실제로 등록되거나 보내집니다. AI가 넵을 대신 보내는 길은 일부러 만들지 않았습니다."
-  });
-
-  var AIRULES = [
-    ["대신 보내지 않습니다", "넵·신청·서명부는 확인 카드까지. 보내기·등록은 선생님이 누를 때만."],
-    ["링크를 열지 않습니다", "선생님 글의 주소만 서버가 읽고(학교 내부 주소 차단), 답에는 바깥 링크·그림을 그리지 않아 숨은 지시로 정보가 새지 않게."],
-    ["원문을 남기지 않습니다", "붙인 파일과 드라이브 글은 그 대화 동안만. 드라이브는 읽기 전용 계정, 사진·영상은 읽지 않음."],
-    ["대화는 본인만", "👍👎 평가에는 대화 내용을 담지 않고, 선생님이 「보내기」를 누른 한 번만."],
-    ["한도를 정합니다", "하루 60개, 깊게 생각하기 5번. 매일 도는 요약은 가벼운 모델로 비용을 아낍니다."]
-  ];
-  D.add({
-    id: "airules", part: 4, label: "AI가 하지 않는 것", kind: "light", min: 1.2,
-    tour: { title: "AI가 하지 않는 것", html: '<div class="t-grid">' + AIRULES.map(function (r) { return '<div class="t-box"><b>' + r[0] + "</b><span>" + r[1] + "</span></div>"; }).join("") + "</div>" },
-    notes: "AI를 학교에 들이며 가장 먼저 정한 것은 <b>AI가 하지 않는 것</b>입니다. 대신 보내지 않고, 링크를 열지 않고, 원문을 남기지 않고, 대화는 본인만 보고, 한도를 둡니다. 특히 학생 정보를 다루는 도구와 바깥 자료가 한 AI에 같이 있으면 자료 속 숨은 지시로 정보가 샐 수 있어서, 이 다섯 가지를 느슨하게 하지 않습니다.",
-    html: chips([{ t: "AI와 일하기" }, { t: "원칙", c: "ghost" }]) + '<h2 class="title">AI가 <em>하지 않는</em> 다섯 가지</h2>' +
-      '<div class="abs ar5">' + AIRULES.map(function (r, i) { return '<div class="card c"><span class="n">' + (i + 1) + "</span><h3>" + r[0] + "</h3><p>" + r[1] + "</p></div>"; }).join("") + "</div>",
-    build: function (el, A) {
-      return [function (A) {
-        A.wipe(".chiprow > *");
-        A.kinetic(".title", { delay: 100, each: 24 });
-        A.rise(".ar5 .c", { delay: 450, each: 140, y: 40, snd: "pluck", v: 0.06 });
-      }];
-    }
-  });
-
-  show({
-    id: "s-record", part: 4, label: "세특 도우미", min: 1.2,
-    title: "생기부 초안은 AI가, <em>이름은 기기 안에</em>",
-    steps: [
-      { t: '학생 이름·번호는 <b>기기 밖으로 나가지 않음</b> — 활동 내용만 전송', s: 0, r: R("record", "privacy") },
-      { t: '과세특·동아리·행발·가정통신문, 글자수와 AI를 고르고 생성', s: 1, r: R("record-options", "generate") },
-      { t: '초안 아래 <b>근거</b>: 기재요령 쪽수·교무부 Q&amp;A', s: 2, r: R("record-result", "basis") }
-    ],
-    screens: ["record", "record-options", "record-result"],
-    notes: "세특 도우미는 학생부 문장 초안을 씁니다. 학생 이름과 번호는 기기 밖으로 나가지 않고 활동·관찰 내용만 AI로 보내며, 돌아온 초안에 기기 안에서 이름을 붙입니다. 기본 AI는 학교가 비용을 내는 모델이고, 선생님 개인 API 키를 넣으면 다른 회사 모델도 씁니다(키는 브라우저에만). 초안마다 <b>어떤 기재요령 쪽과 교무부 Q&amp;A를 기준으로 썼는지</b>가 붙습니다."
   });
 
   // ════════════════════════════════════════════════════════════
@@ -799,11 +859,28 @@
     }
   });
 
+  D.add({
+    id: "s-asks", part: 7, label: "이렇게 부탁합니다", kind: "light", min: 1.3, trans: "whip",
+    notes: "기억하실 한 장입니다. 선생님들이 실제로 AI에게 하는 부탁을 열 문장으로 모았습니다. 위 두 줄은 묻기, 나머지는 확인 카드가 되는 부탁입니다. 메뉴 이름을 몰라도 이 문장들로 시작할 수 있다는 것이 이 앱을 쓰는 사람을 늘린 가장 큰 이유였습니다.",
+    html: chips([{ t: "마무리", c: "ai" }, { t: "기억하실 한 장", c: "ghost" }]) + '<h2 class="title">이렇게 <em>말로 부탁</em>합니다 — 열 문장</h2>' +
+      '<div class="abs ten">' + (window.ASKS || []).map(function (a, i) { return '<div class="r"><span class="n">' + String(i + 1).padStart(2, "0") + '</span><span class="s">「' + a.say + '」</span><span class="c">' + a.got + "</span></div>"; }).join("") + "</div>" +
+      '<p class="abs ten-foot"><span>' + (window.ASKS_MORE || "") + '</span><span>·</span><span><b>누르기 전까지는 초안</b> — 등록·보내기·요청은 선생님이</span></p>',
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *", { each: 120 });
+        A.kinetic(".title", { delay: 100, each: 24 });
+        A.rise(".ten .r", { delay: 500, each: 90, y: 24, snd: "pluck", v: 0.06 });
+        A.pop(".ten .c", { delay: 800, each: 90, s: 0.7, snd: false });
+        A.wipe(".ten-foot", { delay: 1600 });
+      }];
+    }
+  });
+
   var START = [
     ["매일 여는 것부터", "아침 알림·시간표·급식처럼 하루에 몇 번 여는 것을 먼저. 매일 열어야 다른 기능도 씁니다."],
     ["있는 자료를 읽어 오기", "학사일정(구글 캘린더)·공유 드라이브·주간소식을 새로 적게 하지 말고 읽어 옵니다."],
     ["원칙을 먼저 정하기", "사유·연락처·학생 정보를 누가 보는지 정하고, 화면과 데이터베이스가 함께 지키게."],
-    ["AI는 초안까지", "보내기·등록·확정은 늘 사람이. 그래야 안심하고 맡깁니다."],
+    ["AI에게 말로, 초안까지", "메뉴를 늘리기보다 말로 부탁하는 길을. 보내기·등록·확정은 늘 사람이 — 그래야 안심하고 맡깁니다."],
     ["의견 창구를 짧게", "말 한마디가 그날 반영되면 쓰는 사람이 늘어납니다."],
     ["연수는 휴대폰으로 함께", "따라하기 안내와 발표 다시 보기를 남겨, 나중에 혼자서도."]
   ];
@@ -824,10 +901,10 @@
 
   D.add({
     id: "closing", part: 7, label: "고맙습니다 · 질문", kind: "dark", min: 3, trans: "whip", bgm: "end",
-    notes: "QR로 오늘 본 내용을 휴대폰에서 다시 보실 수 있습니다(기능별 화면과 설명). 질문을 받겠습니다.",
+    notes: "한 문장으로 마무리합니다 — <b>메뉴를 몰라도, AI에게 말하면 카드로. 누르는 건 선생님.</b> QR로 오늘 본 내용과 열 문장을 휴대폰에서 다시 보실 수 있습니다(기능별 화면과 설명). 질문을 받겠습니다.",
     html: darkBg("closing") +
       '<h2 class="abs cl-title"><span class="ln">고맙습니다.</span><span class="ln"><em>질문</em> 받겠습니다</span></h2>' +
-      '<p class="abs cl-lead">오늘 본 화면과 설명은 휴대폰에서 <b>다시 볼 수 있습니다.</b><br>화면 속 학교·이름·내용은 모두 예시입니다.</p>' +
+      '<p class="abs cl-lead">메뉴를 몰라도, <b>말하면 카드로 — 누르는 건 선생님.</b><br>오늘 본 화면과 열 문장은 휴대폰에서 다시 볼 수 있습니다.<br>화면 속 학교·이름·내용은 모두 예시입니다.</p>' +
       '<div class="abs cl-qr"><img src="img/qr-tour.svg" alt="소개 다시 보기 QR 코드"><p>휴대폰으로 다시 보기</p><small>AI 교무실 기능 둘러보기</small></div>',
     build: function (el, A) {
       return [function (A) {

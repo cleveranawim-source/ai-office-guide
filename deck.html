@@ -24,6 +24,7 @@
   --paper: #f2f5f9; --surface: #ffffff; --ink: #0e1c30; --muted: #55677f; --faint: #98a6b8; --line: #d8e1eb;
   --brand: #295c9e; --brand-deep: #163d73; --brand-tint: #e3edf8;     /* AI 교무실 앱의 파랑 */
   --new: #f5a524; --new-ink: #3b2600;                                  /* 새 기능 */
+  --ai: #6d4fd8; --ai-tint: #efeafd; --ai-ink: #3d2a8a;                /* AI에게 부탁하기 */
   --warn: #dd4f2a; --warn-tint: #fde9e2; --ok: #1f8a5a; --ok-tint: #e2f3ea;
   --display: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
   --body: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
@@ -117,6 +118,7 @@ button:focus-visible { outline: 3px solid var(--glow); outline-offset: 2px; }
 .lt.dark .lt-main { background: rgba(9, 24, 44, .82); color: #fff; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .lt.dark .lt-main small { color: #a9bfd9; }
 .lt.ok .lt-bar, .lt.ok .lt-tag { background: var(--ok); }
+.lt.ai .lt-bar, .lt.ai .lt-tag { background: var(--ai); }
 .lt.up { bottom: 168px; height: 80px; }
 .lt.up .lt-main b { font-size: 28px; }
 
@@ -126,6 +128,7 @@ button:focus-visible { outline: 3px solid var(--glow); outline-offset: 2px; }
 .chip.ghost { background: transparent; border: 2px solid var(--line); color: var(--muted); }
 .chip.watch { background: var(--warn-tint); color: var(--warn); }
 .chip.new { background: var(--new); color: var(--new-ink); font-family: var(--mono); letter-spacing: .1em; }
+.chip.ai { background: var(--ai); color: #fff; }
 .title { position: absolute; left: 116px; top: 150px; width: 1680px; font: 900 72px/1.16 var(--display); letter-spacing: -.03em; text-wrap: balance; }
 .title em { color: var(--brand); }
 .practice .title { width: 860px; font-size: 64px; }
@@ -149,6 +152,9 @@ button:focus-visible { outline: 3px solid var(--glow); outline-offset: 2px; }
 .steps li b { font-weight: 700; }
 .side-note { position: absolute; left: 120px; width: 820px; display: flex; gap: 18px; align-items: center; padding: 18px 24px; border-radius: 16px; font: 500 24px/1.5 var(--body); background: var(--brand-tint); color: var(--brand-deep); }
 .side-note.warn { background: var(--warn-tint); color: #8f2e14; }
+.side-note.ai { background: var(--ai-tint); color: var(--ai-ink); flex-direction: column; align-items: flex-start; gap: 6px; }
+.side-note .vs b { display: inline-block; min-width: 86px; padding: 0 10px; margin-right: 12px; border-radius: 8px; background: rgba(109, 79, 216, .14); text-align: center; }
+.side-note .vs:last-child b { background: var(--ai); color: #fff; }
 .side-note b { font-weight: 700; }
 
 /* ── 개념 장면 공용 부품 ── */
@@ -286,6 +292,7 @@ body.share #hud { bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
 <script src="sound.js"></script>
 <script src="deck.js"></script>
 <script src="img/rects.js"></script>
+<script src="asks.js"></script>
 <script src="scenes.js"></script>
 <script>DECK.start();</script>
 </body>

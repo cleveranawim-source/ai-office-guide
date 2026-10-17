@@ -20,13 +20,14 @@
   --bg: #f2f5f9; --surface: #ffffff; --ink: #0e1c30; --muted: #55677f; --line: #dbe3ec;
   --brand: #295c9e; --brand-deep: #163d73; --brand-tint: #e3edf8; --night: #06121f; --glow: #8fd0ff;
   --new: #f5a524; --new-ink: #3b2600; --warn: #c2461f; --warn-tint: #fdeae3; --ok: #1f8a5a; --on-brand: #ffffff;
+  --ai: #6d4fd8; --ai-tint: #efeafd; --on-ai: #ffffff;
   --body: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
   --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
   --pen: 'Apple SD Gothic Neo', cursive;
   --ps: .56;
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-deep: #a9d1f7; --brand-tint: #17304f; --warn: #ff8a62; --warn-tint: #3a1d14; --on-brand: #06121f; color-scheme: dark; } }
-:root[data-theme="dark"] { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-deep: #a9d1f7; --brand-tint: #17304f; --warn: #ff8a62; --warn-tint: #3a1d14; --on-brand: #06121f; color-scheme: dark; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-deep: #a9d1f7; --brand-tint: #17304f; --warn: #ff8a62; --warn-tint: #3a1d14; --on-brand: #06121f; --ai: #b9a5ff; --ai-tint: #251c45; --on-ai: #1a1033; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-deep: #a9d1f7; --brand-tint: #17304f; --warn: #ff8a62; --warn-tint: #3a1d14; --on-brand: #06121f; --ai: #b9a5ff; --ai-tint: #251c45; --on-ai: #1a1033; color-scheme: dark; }
 @media (min-width: 760px) { :root { --ps: .62; } }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 72px; }
@@ -47,6 +48,7 @@ p, h1, h2, h3, ol, ul { margin: 0; }
 .hero h1 { font: 900 clamp(30px, 7.5vw, 52px)/1.12 var(--body); letter-spacing: -.035em; text-wrap: balance; }
 .hero h1 em { font-style: normal; color: var(--glow); }
 .hero p { color: #cfe0f3; max-width: 36em; }
+.hero p b { color: #fff; }
 .hero .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 16px; border-radius: 12px; font: 700 15px var(--body); text-decoration: none; background: var(--brand); color: var(--on-brand); }
 .hero .btn { background: #fff; color: #163d73; }
@@ -74,6 +76,22 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
 .g-steps li > i { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--brand); color: var(--on-brand); font: 700 14px var(--mono); font-style: normal; margin-top: 1px; }
 .g-steps .k { display: inline-block; padding: 0 8px; border-radius: 6px; background: var(--brand); color: var(--on-brand); font-weight: 700; font-size: .92em; line-height: 1.5; }
 .g-steps .q { font-weight: 700; color: var(--brand-deep); }
+.g-steps .aib { display: inline-block; padding: 0 8px; border-radius: 6px; background: var(--ai); color: var(--on-ai); font-weight: 800; font-size: .85em; line-height: 1.5; margin-right: 4px; }
+.asks { background: var(--surface); border: 2px solid var(--ai); border-radius: 22px; padding: 20px 18px; display: grid; gap: 12px; scroll-margin-top: 72px; }
+.asks .pn { font: 600 13px var(--mono); color: var(--ai); letter-spacing: .1em; }
+.asks h2 { font: 900 24px/1.25 var(--body); letter-spacing: -.02em; }
+.asks > p { color: var(--muted); }
+.asks .three { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
+.asks .three div { background: var(--ai-tint); border-radius: 14px; padding: 12px 14px; display: grid; gap: 2px; }
+.asks .three b { font-size: 17px; }
+.asks .three span { font-size: 14px; color: var(--muted); }
+.t-asks { list-style: none; padding: 0; display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); counter-reset: a; }
+.t-asks li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 2px 10px; padding: 10px 12px; border-radius: 12px; background: var(--bg); }
+.t-asks li::before { counter-increment: a; content: counter(a); grid-row: span 2; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--ai); color: var(--on-ai); font: 700 13px var(--mono); margin-top: 2px; }
+.t-asks li b { font-weight: 700; }
+.t-asks li span { font-size: 13px; font-weight: 700; color: var(--ai); }
+.t-asks + p { color: var(--muted); font-size: 14px; }
+@media (min-width: 760px) { .asks { padding: 24px 28px; } }
 /* 글로 된 장면(기능 지도·하루·원칙·구조·배운 것·시작) */
 .t-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); }
 .t-box { background: var(--bg); border-radius: 14px; padding: 14px 16px; display: grid; gap: 6px; align-content: start; border-left: 5px solid var(--c, var(--brand)); }
@@ -108,15 +126,24 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
   <div class="art"></div><div class="shade"></div>
   <div class="in">
     <small>MYONGJI MIDDLE SCHOOL · AI 교무실</small>
-    <h1>학교의 하루를, <em>한 화면에</em></h1>
-    <p>명지중학교 교직원이 매일 쓰는 학교 앱 AI 교무실을 기능별 실제 화면으로 소개합니다. 화면은 실제 앱을 <b>예시 데이터</b>로 띄워 찍은 것이라, 학교·이름·내용은 모두 지어낸 것입니다.</p>
+    <h1>학교 일을, <em>말로 부탁</em>하는 앱</h1>
+    <p>메뉴를 몰라도 됩니다. 아래 탭 가운데 <b>AI</b>에게 말하면 학교 자료로 답하고 카드로 초안까지 — <b>누르는 건 선생님</b>. 명지중학교 교직원이 매일 쓰는 학교 앱 AI 교무실을 기능별 실제 화면으로 소개합니다. 화면은 실제 앱을 <b>예시 데이터</b>로 띄워 찍은 것이라, 학교·이름·내용은 모두 지어낸 것입니다.</p>
     <div class="acts">
       <a class="btn" href="intro.html">소개 발표 보기(가로 화면)</a>
+      <a class="btn ghost" href="#asks">열 문장</a>
       <a class="btn ghost" href="#part6">지키는 원칙</a>
     </div>
   </div>
 </header>
 <main>
+  <section class="asks" id="asks" aria-labelledby="asks-h">
+    <span class="pn">핵심 · AI에게 부탁하기</span>
+    <h2 id="asks-h">말하기 → 카드 → 누르기</h2>
+    <div class="three"><div><b>① 말하기</b><span>메뉴를 찾지 않고, 평소 말로</span></div><div><b>② 카드</b><span>학교 자료를 읽고 답이나 초안 카드</span></div><div><b>③ 누르기</b><span>등록·보내기·요청은 선생님이</span></div></div>
+    <p>선생님들이 실제로 하는 부탁, 열 문장입니다.</p>
+    <ol class="t-asks" id="asks-list"></ol>
+    <p class="more" id="asks-more" style="color:var(--muted);font-size:14px"></p>
+  </section>
   <div id="body" style="display:grid;gap:28px"></div>
   <p class="foot">AI 교무실 · 명지중학교 · 2026년 10월 기준 · 화면 속 학교·이름·내용은 예시입니다.</p>
 </main>
@@ -124,6 +151,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
   window.DECK = { E: {}, PARTS: [], list: [], parts: function (l) { var P = this.PARTS; l.forEach(function (p) { P[p.n] = p; }); }, add: function (d) { this.list.push(d); }, h: function () {} };
 </script>
 <script src="img/rects.js"></script>
+<script src="asks.js"></script>
 <script src="intro-scenes.js"></script>
 <script>
 (function () {
@@ -145,7 +173,9 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
     body += '<section id="part' + p + '" style="display:grid;gap:18px"><div class="part-h"><span class="pn">' + (+p ? "PART " + String(p).padStart(2, "0") : "INTRO") + "</span><h2>" + (+p ? P.name : "AI 교무실은") + "</h2>" + (g.intro ? "<p>" + g.intro.now + "</p>" : "") + "</div>" +
       g.items.map(function (d) { return d.guide ? card(d) : textCard(d); }).join("") + "</section>";
   });
-  document.getElementById("parts").innerHTML = nav;
+  document.getElementById("parts").innerHTML = '<a href="#asks">AI 열 문장</a>' + nav;
+  document.getElementById("asks-list").innerHTML = (window.ASKS || []).map(function (a) { return "<li><b>「" + a.say + "」</b><span>→ " + a.got + "</span></li>"; }).join("");
+  document.getElementById("asks-more").textContent = (window.ASKS_MORE || "") + ".";
   document.getElementById("body").innerHTML = body;
 
   function textCard(d) {
