@@ -527,15 +527,15 @@
     if (!pw) { showToast("발표자 창을 열 수 없는 환경이에요. N으로 노트를 켜 주세요."); return; }
     var d = pw.document;
     d.open();
-    d.write('<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>발표자 화면 · AI 교무실 연수</title><style>' +
-      "body{margin:0;background:#0b1626;color:#e8eef6;font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;display:grid;grid-template-columns:1fr 340px;height:100vh}" +
+    d.write('<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>발표자 화면 · ' + document.title + '</title><style>' +
+      "body{margin:0;background:#0b1626;color:#e8eef6;font-family:'Pretendard Variable',Pretendard,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;display:grid;grid-template-columns:1fr 340px;height:100vh}" +
       "main{padding:28px 32px;overflow:auto}aside{background:#0f1f35;padding:28px;display:flex;flex-direction:column;gap:18px;border-left:1px solid #22406a}" +
       ".lab{font-size:15px;color:#8fb0d6;letter-spacing:.04em}.cur{font-size:30px;font-weight:700;margin:6px 0 4px}.beat{color:#8fb0d6}" +
       ".notes{font-size:24px;line-height:1.7;margin-top:22px;max-width:46em}.notes b{color:#ffd27a}.nx{margin-top:26px;padding-top:16px;border-top:1px solid #22406a;color:#9fb6d2;font-size:18px}" +
       ".clock{font:600 46px 'IBM Plex Mono',Menlo,monospace}.small{font-size:14px;color:#8fb0d6}.tmr{font:600 40px 'IBM Plex Mono',Menlo,monospace;color:#ffd27a}" +
       "button{font:inherit;font-size:17px;padding:12px;border-radius:12px;border:1px solid #2c5384;background:#163055;color:#fff;cursor:pointer}button.big{font-size:22px;padding:18px}" +
       "</style></head><body><main><div class=lab id=part></div><div class=cur id=cur></div><div class=beat id=beat></div><div class=notes id=notes></div><div class=nx id=nx></div></main>" +
-      "<aside><div><div class=small>경과</div><div class=clock id=el>00:00</div><div class=small>목표 약 50분 · 지금 <span id=now></span></div></div>" +
+      "<aside><div><div class=small>경과</div><div class=clock id=el>00:00</div><div class=small>목표 약 " + (window.DECK_TARGET || 50) + "분 · 지금 <span id=now></span></div></div>" +
       "<div><div class=small>실습 타이머</div><div class=tmr id=tm>—</div></div>" +
       "<button class=big id=nb>다음 ▶</button><button id=pb>◀ 이전</button><button id=tb>타이머 시작/멈춤 (T)</button><div class=small>키: → 다음 · ← 이전 · T 타이머 · B 화면 가리기</div></aside></body></html>");
     d.close();
@@ -700,7 +700,7 @@
       if (k === "prev") prev(); else if (k === "next") next(); else overview.hidden = !overview.hidden;
     });
     var tip = h('<div id="rotate" hidden><div><b>휴대폰을 가로로 돌려 보세요</b><p>발표 화면은 가로로 볼 때 글씨가 커집니다. 세로로 보기 편한 정리본도 있어요.</p>' +
-      '<a href="guide.html">따라하기 안내로 보기</a><button type="button">그대로 보기</button></div></div>');
+      '<a href="' + (window.DECK_TOUR || "guide.html") + '">' + (window.DECK_TOUR ? "세로로 읽는 둘러보기로" : "따라하기 안내로 보기") + '</a><button type="button">그대로 보기</button></div></div>');
     document.body.appendChild(tip);
     var dismissed = false;
     tip.querySelector("button").addEventListener("click", function (e) { e.stopPropagation(); dismissed = true; tip.hidden = true; });
