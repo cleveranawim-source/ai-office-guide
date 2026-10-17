@@ -128,6 +128,8 @@ footer { color: var(--muted); font-size: 13px; text-align: center; padding: 10px
     <details><summary>아래 탭에 「시간표」가 없어졌어요</summary><p>둘째 칸이 <b>「넵」</b>으로 바뀌었습니다(처리할 넵 수가 탭에 바로 붙어요). 시간표는 홈 「오늘 시간표」 카드의 <b>전체 보기</b>나 <b>더보기 → 도구 → 시간표</b>에서 엽니다.</p></details>
     <details><summary>글자와 글꼴이 바뀌었어요</summary><p>10월 17일 화면 정리로 글꼴이 <b>프리텐다드</b>로 바뀌고 글자가 한 단계 커졌습니다. 흐린 글씨도 더 진하게 보이도록 맞췄습니다.</p></details>
     <details><summary>「깊게 생각하기」는 몇 번 쓸 수 있나요?</summary><p>선생님마다 <b>하루 5번</b>입니다. 켜고 보낸 그 질문 하나에만 쓰이고, 다 쓰면 막지 않고 보통으로 답합니다. 질문은 모두 합쳐 하루 60개까지입니다.</p></details>
+    <details><summary>손 서명을 그려도 선이 안 보여요</summary><p>10월 15~16일에 생긴 문제로, <b>10월 17일에 고쳤습니다</b>. 앱을 한 번 닫았다 다시 열거나 새로 고침한 뒤 「서명 그리기」를 다시 눌러 주세요. 그래도 안 되면 교목실로 알려 주세요.</p></details>
+    <details><summary>학생이 분실물을 찾으러 왔어요</summary><p>학생용 보기와 교실 칠판에는 <b>특징 칸이 나오지 않습니다</b>. 학생에게 물건의 특징을 물어 상세의 특징과 맞으면 돌려주고 <b>「주인에게 돌려줬어요」</b>를 누릅니다. 잘못 눌렀으면 바로 뜨는 「되돌리기」나, 「돌려준 물건」 목록의 「다시 넣기」로 되돌립니다.</p></details>
     <details><summary>AI 도우미에 무엇을 넣으면 안 되나요?</summary><p>학생 이름과 실제 생기부 기록 문장은 넣지 않습니다. 질문은 외부 AI로 전송되며 하루 60개까지 물을 수 있습니다.</p></details>
   </section>
   <footer>AI 교무실 · 명지중학교 교직원 연수 자료 · 화면은 실제 앱을 예시 데이터로 띄워 찍은 것이라 학교·이름·내용은 지어낸 것입니다.</footer>
@@ -148,7 +150,7 @@ footer { color: var(--muted); font-size: 13px; text-align: center; padding: 10px
   // 부분별로 묶기: 파트 시작(opener)의 「이제는」 한 줄을 부분 소개로
   var parts = {};
   list.forEach(function (d) {
-    var p = d.part; if (!(p >= 1 && p <= 7)) return;
+    var p = d.part; if (!(p >= 1 && p <= 8)) return;
     parts[p] = parts[p] || { intro: null, items: [] };
     if (d.opener) parts[p].intro = d.opener;
     if (d.guide) parts[p].items.push(d);
