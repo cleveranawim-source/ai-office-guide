@@ -13,7 +13,7 @@
     { n: 0, name: "시작", color: "#8fd0ff" },
     { n: 1, name: "기본 설정", color: "#6fb6ea" },
     { n: 2, name: "AI에게 부탁하기", color: "#b49cf2", isNew: true },
-    { n: 3, name: "홈·시간표·교체", color: "#7fc8a9" },
+    { n: 3, name: "홈·시간표·진도·교체", color: "#7fc8a9" },
     { n: 4, name: "넵", color: "#9fb3f0" },
     { n: 5, name: "디지털 서명", color: "#f5a524" },
     { n: 6, name: "AI 더 깊게·세특", color: "#e59a7a" },
@@ -301,6 +301,25 @@
   .ten .c{padding:6px 14px;border-radius:999px;background:var(--ai-tint);color:var(--ai-ink);font:700 19px var(--body);white-space:nowrap}
   .ten-foot{left:120px;top:924px;width:1680px;display:flex;gap:14px;flex-wrap:wrap;font:500 23px var(--body);color:var(--muted)}
   .ten-foot b{color:var(--ink)}
+  .n3{left:120px;top:250px;width:1680px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .n3 .c{display:flex;flex-direction:column;align-items:center;gap:22px}
+  .n3 .ph{width:302px;height:630px;border-radius:40px;padding:9px;background:#0e1c30;box-shadow:0 40px 80px rgba(14,28,48,.32)}
+  .n3 .ph img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:32px;display:block}
+  .n3 .cap{display:flex;gap:16px;align-items:flex-start;width:470px}
+  .n3 .no{flex:none;width:46px;height:46px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font:700 24px var(--mono);margin-top:2px}
+  .n3 h3{font:800 34px var(--display);letter-spacing:-.02em}
+  .n3 h3 small{font:600 20px var(--body);color:var(--muted);margin-left:8px;letter-spacing:0}
+  .n3 p{font:500 22px/1.45 var(--body);color:var(--muted);margin-top:6px}
+  .n3 p b{color:var(--ink)}
+  .steps li .aib{display:inline-block;padding:0 10px;border-radius:8px;background:var(--ai);color:#fff;font-weight:800;font-size:.82em;line-height:1.5;margin-right:6px}
+  .steps li:not(.on) .aib{background:var(--ai-tint);color:var(--ai-ink)}
+  .bw{border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 30px 70px rgba(14,28,48,.28);border:1px solid var(--line)}
+  .bw .bar{height:42px;background:#eef2f7;display:flex;gap:8px;align-items:center;padding:0 16px}
+  .bw .bar i{width:12px;height:12px;border-radius:50%;background:#d6dde6}
+  .bw .bar span{margin-left:14px;font:700 19px var(--body);color:var(--muted)}
+  .bw img{display:block;width:100%}
+  .pgd1{left:120px;top:290px;width:1010px}
+  .pgd2{left:790px;top:372px;width:1010px}
   `;
   document.head.appendChild(css);
 
@@ -610,8 +629,8 @@
   var AGENDA = [
     [1, "기본 설정", "로그인·앱 설치·알림 켜기, 보건실 입실 알림", 8],
     [2, "AI에게 부탁하기", "<em class=\"ai\">첫 부탁</em>: 묻기, 가정통신문·기기 수리를 말로, 카드에서 확인", 6, true],
-    [3, "홈·시간표·교체", "새 홈·빼꼼·알림함, 공강 선생님께 넵, 진도 저장, <em class=\"ai\">AI로 수업교체</em>", 8],
-    [4, "넵", "나에게 업무요청, 조직도로 받는 사람, 받은 넵 처리, <em class=\"ai\">AI로 넵 초안</em>", 8],
+    [3, "홈·시간표·진도·교체", "새 홈·빼꼼·알림함, 진도 <b>한 달 도장판·주별</b>, <em class=\"ai\">AI로 진도·수업교체</em>", 9],
+    [4, "넵", "<b>메신저처럼</b>: 조직도·선생님별 방, 메모·답장, 보강 모집, <em class=\"ai\">AI로 넵 초안</em>", 9],
     [5, "디지털 서명", "내 서명 등록, 회의 서명부·파일 서명, <em class=\"ai\">AI로 서명부</em>", 6],
     [6, "AI 더 깊게·세특", "<em class=\"ai\">학습지 한글 파일, 깊게 생각하기, 학부모 답장</em>, 과세특 초안", 7],
     [7, "전자칠판·자료실", "칠판 보내기, 교실 칠판 모습, 자료 찾기, <em class=\"ai\">AI로 양식 찾기</em>", 6]
@@ -631,25 +650,25 @@
         A.rise(".ag .r", { delay: 500, each: 90, y: 30, snd: "pluck", v: 0.07 });
         A.stagger(".ag .tm i", [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { delay: 800, each: 90, d: 900, e: E.out });
         A.wipe(".ag-total", { delay: 600 });
-        A.later(function () { A.count("[data-total]", 0, 58, 1500); }, 800);
+        A.later(function () { A.count("[data-total]", 0, 60, 1500); }, 800);
       }];
     }
   });
 
   var NEWF = [
-    ["모든 화면", "글자·아래 탭", "글꼴이 <b>프리텐다드</b>로, 글자는 한 단계 크게. 아래 탭 둘째 칸이 <b>넵</b>, 가운데 <b>AI</b>."],
-    ["6부", "AI 학습지·깊게 생각", "<b>학습지·퀴즈를 한글 파일</b>로, <b>깊게 생각하기</b>(하루 5번), 학부모 답장 초안."],
+    ["4부", "넵이 메신저처럼", "첫 화면 <b>조직도·받은·보낸</b>. 받은 넵은 <b>선생님별 방</b>, 아래 칸이 곧 <b>답장</b>."],
+    ["4부", "넵 이름이 바뀜", "메시지 · <b>넵 받기</b> · <b>완료 받기</b> · <b>파일 받기</b>. 처리하면 「완료함 ✓」."],
+    ["AI", "AI가 더 맡아요", "<b>진도표 적기</b>, 사진으로 <b>분실물 넣기</b>, 교무부 <b>보강 모집</b>까지 말로."],
+    ["3부", "진도 「모두 저장」·도장판", "하루치를 <b>한 번에 저장</b>. <b>한 달 도장판</b>·<b>주별</b>로 빠진 칸이 바로 보여요."],
+    ["3부", "홈 정리", "<b>처리할 넵</b> 줄이 맨 위, 날짜·날씨 <b>한 줄</b>, 시간표 「지금」, 맨 아래 <b>다가오는 일정</b>."],
     ["3부", "AI가 먼저 챙겨요", "금요일 3시 <b>다음 주 미리 보기</b>, 평일 3시 반 <b>공유 드라이브 새 문서</b> 요약."],
-    ["3부", "홈 정리", "<b>처리할 넵</b> 줄이 맨 위, 시간표 <b>「지금」·「다음」</b>, 맨 아래 <b>다가오는 일정</b>."],
-    ["3부", "공강 → 넵 · 모두 저장", "공강인 선생님 이름을 누르면 <b>바로 넵</b>. 진도는 하루치를 <b>「모두 저장」</b> 한 번에."],
-    ["4부", "조직도로 받는 사람", "메신저처럼 <b>부서·학년부·교과 나무</b>. 20명 넘게 보낼 땐 <b>한 번 더 확인</b>."],
-    ["7부", "칠판 음성·자동 숨김", "<b>30초 음성 안내</b>, 여러 학년 함께, 수업 시작 30초 뒤 <b>칠판이 저절로 숨기</b>."],
-    ["따라하기 안내", "분실물 함·구기대회", "<b>둥둥 떠다니는</b> 분실물 함, 학생은 <b>칠판·QR</b>로. 대진표와 <b>경기 알림</b>."]
+    ["7부", "칠판 음성·자동 숨김", "<b>30초 음성 안내</b>, 수업 시작 30초 뒤 <b>칠판이 저절로 숨기</b>, 분실물 띠는 <b>점심시간</b>에."],
+    ["모든 화면", "프로필 사진·아래 탭", "더보기 맨 위에서 <b>내 사진</b>(넵에 보여요). 아래 탭 둘째 칸 <b>넵</b>, 가운데 <b>AI</b>."]
   ];
   D.add({
     id: "whatsnew", part: 0, label: "10월 셋째 주 새 기능", kind: "light", min: 1.2, isNew: true,
-    notes: "10월 셋째 주(10/13~10/17)에 화면이 크게 바뀌었습니다. 먼저 <b>글꼴과 글자 크기</b>: 프리텐다드로 바뀌고 글자가 한 단계 커졌습니다. <b>아래 탭</b> 둘째 칸이 시간표에서 <b>넵</b>으로 바뀌었고(시간표는 더보기 「도구」와 홈 카드에), 가운데에 <b>AI</b> 단추가 솟아 있습니다 — 오늘 가장 많이 누르실 단추입니다. 나머지는 각 부에서 직접 봅니다(분실물 함·구기대회는 따라하기 안내에). 왼쪽 위 표시를 가리키며 “뒤에서 직접 봅니다” 정도로 짧게 넘깁니다.",
-    html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip ghost">10월 13일 ~ 17일</span></div><h2 class="title">이번 주에 <em>새로 바뀐</em> 여덟 가지</h2>' +
+    notes: "10월 셋째 주(10/13~10/18)에 화면이 크게 바뀌었습니다. 가장 큰 것은 <b>넵</b>입니다 — 10월 18일에 메신저처럼 바뀌어 첫 화면이 조직도·받은·보낸 세 탭이고, 받은 넵은 보낸 선생님별 방에 모입니다. 종류 이름도 메시지·넵 받기·완료 받기·파일 받기로 바뀌었습니다. <b>AI</b>는 진도표 적기, 사진으로 분실물 넣기, 교무부 보강 모집까지 말로 합니다. 글꼴은 프리텐다드로, 글자는 한 단계 크게, 아래 탭 둘째 칸이 <b>넵</b>, 가운데가 <b>AI</b>입니다. 더보기 맨 위에서 프로필 사진을 바꾸면 넵에 보입니다. 나머지는 각 부에서 직접 봅니다. 왼쪽 위 표시를 가리키며 “뒤에서 직접 봅니다” 정도로 짧게 넘깁니다.",
+    html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip ghost">10월 13일 ~ 18일</span></div><h2 class="title">이번 주에 <em>새로 바뀐</em> 여덟 가지</h2>' +
       '<div class="abs nf">' + NEWF.map(function (f) { return '<div class="card c"><span class="where">' + f[0] + "</span><h3>" + f[1] + "</h3><p>" + f[2] + "</p></div>"; }).join("") + "</div>",
     build: function (el, A) {
       return [function (A) {
@@ -730,6 +749,19 @@
     gnote: { html: "<span>평일 <b>7시 50분</b> 아침, <b>11시 30분</b> 점심 알림. 맨 위에는 선생님마다 <b>「내 줄」</b>(내 당번·바뀐 내 수업·내 수업과 겹치는 일정·오늘 마감 넵)이 옵니다. 넵·서명 요청·수업 교체·<b>보건실 입실</b>, 금요일 3시 <b>다음 주 미리 보기</b>도 알림으로 옵니다. 아이폰은 <b>홈 화면 아이콘으로 열어야</b> 켜기 단추가 나옵니다.</span>" },
     screens: [shot("home"), shot("more-2"), shot("notifications-off"), M.notiAsk, shot("notifications-on")],
     notes: "오늘 연수에서 <b>가장 중요한 실습</b>입니다. 10월 12일 기준 알림을 켠 선생님이 74명 중 34명이에요. 아침·점심 알림 맨 위에는 선생님마다 다른 <b>「내 줄」</b>이 옵니다 — 내 당번(등교지도·경건회 인도·급식지도), 바뀐 내 수업, 내 수업 시간과 겹치는 일정, 오늘 마감인 넵, 그리고 AI가 학사일정을 읽어 고른 <b>나와 관련된 일정</b>입니다. 「허용」을 실수로 거절하셨으면 휴대폰 설정 → 알림 → AI 교무실에서 허용합니다. <b>시험 발송까지 해서 알림이 오는 것을 꼭 확인</b>해 주세요."
+  });
+
+  practice({
+    id: "profile", deck: false, part: 1, num: null, label: "프로필 사진", min: 0.5, isNew: true,
+    chips: [{ t: "NEW", c: "new" }, { t: "둘러보기", c: "ghost" }], title: "넵에 보이는 <em>내 사진</em>",
+    steps: [
+      { t: '더보기 맨 위 내 카드: <span class="q">「넵에 보이는 내 사진 · 교직원끼리만 봐요」</span>', s: 0, r: [16, 79, 380, 142] },
+      { t: '<span class="k">사진 바꾸기</span> → 가운데를 정사각형으로 맞춘 <b>미리 보기</b> → <span class="k">저장</span>', s: 0, r: [31, 166, 348, 40] },
+      { t: '넵 받은 탭·조직도·방 머리에 내 사진(없으면 이름 두 글자 동그라미)', s: 1, r: R("nep-inbox", "row") }
+    ],
+    gnote: { html: "<span>사진은 <b>교직원끼리만</b> 봅니다 — 학생 화면·교실 칠판·로그인 화면에는 나오지 않습니다. 원본은 남기지 않고 작게 다시 그려 올립니다. 사진이 없으면 사람마다 다른 색 동그라미에 성을 뺀 이름 두 글자(교장·교감·교목은 직함)가 보입니다. PC에서는 왼쪽 메뉴 아래 <b>내 이름</b>을 누르면 더보기(사진·비밀번호)로 갑니다.</span>" },
+    screens: [shot("more-top"), shot("nep-inbox")],
+    notes: "더보기 맨 위에서 내 프로필 사진을 바꿉니다. 넵의 받은 탭·조직도·방에 보이고, 교직원끼리만 봅니다."
   });
 
   D.add({
@@ -813,7 +845,7 @@
     notes: "오늘의 세 박자입니다. <b>묻기</b> — 시간표·급식·학사일정·주간소식은 물론 자료실 한글·PDF 파일 본문까지 찾아 답하고 출처를 붙입니다. 자료실에 없으면 <b>학교 공유 드라이브</b>(부서 자료·교육계획서·교과 자료 등)도 찾아 읽습니다. <b>📎로 붙인 파일(PDF·사진·한글·엑셀)과 붙여 넣은 웹 주소</b>도 읽습니다. <b>부탁하기</b> — 가정통신문, 기기 수리 같은 신청을 말로 하면 필요한 것만 되묻습니다. 넵도 초안 카드로 만들어 [넵 보내기]를 누르면 갑니다. <b>확인 카드</b> — 카드에서 고친 뒤 [등록]을 눌러야 실제로 적힙니다. <b>오늘 실습은 카드가 뜨는 데까지만</b> 합니다. 질문은 하루 60개까지, 어려운 일은 「깊게 생각하기」(하루 5번). 이 세 박자를 3부부터 부마다 「AI로 하면」으로 다시 봅니다.",
     html: '<div class="chiprow"><span class="chip">AI에게 부탁하기</span></div><h2 class="title">말하면, <em>카드로</em>. 누르는 건 선생님</h2>' +
       '<div class="abs card askc" style="left:120px"><span class="sn">1</span><h3>묻기</h3><p>자료실·공유 드라이브 파일의 <b>본문까지</b> 찾아 답하고, 출처 링크를 붙입니다.</p><div class="chips"><span>빈 교실</span><span>급식</span><span>학사일정·주간소식</span><span>담임</span><span>자료실 내용</span><span>생기부 기재요령</span><span class="nwc">공유 드라이브</span><span class="nwc">📎 파일·웹 주소</span></div></div>' +
-      '<div class="abs card askc" style="left:700px"><span class="sn">2</span><h3>부탁하기</h3><p>말로 부탁하면 AI가 <b>필요한 것만</b> 되묻고 초안을 만듭니다.</p><div class="chips"><span>가정통신문</span><span>통신문 번호</span><span>기기 수리</span><span>도서관 이용</span><span>희망도서</span><span>교과협의록</span><span>회의 서명부</span><span class="nwc">넵 보내기</span><span class="nwc">수업교체 계산</span><span class="nwc">학습지·퀴즈</span></div></div>' +
+      '<div class="abs card askc" style="left:700px"><span class="sn">2</span><h3>부탁하기</h3><p>말로 부탁하면 AI가 <b>필요한 것만</b> 되묻고 초안을 만듭니다.</p><div class="chips"><span>가정통신문</span><span>통신문 번호</span><span>기기 수리</span><span>도서관 이용</span><span>희망도서</span><span>교과협의록</span><span>회의 서명부</span><span>넵 보내기</span><span>수업교체 계산</span><span>학습지·퀴즈</span><span class="nwc">진도표 적기</span><span class="nwc">분실물 넣기</span><span class="nwc">보강 모집</span></div></div>' +
       '<div class="abs card askc confirm" style="left:1280px"><span class="sn">3</span><h3>누르는 건 선생님</h3><p>확인 카드에서 고친 뒤 <b>[등록]</b>을 눌러야 실제로 적힙니다. 누르기 전 초안은 나만 봅니다.</p></div>' +
       '<div class="abs aibar"><div class="strip"></div><p><span class="badge-new">NEW</span>&nbsp; 아래 탭 가운데 볼록한 AI 버튼</p></div>',
     build: function (el, A) {
@@ -883,30 +915,30 @@
   // 3부 · 홈·시간표·교체
   // ════════════════════════════════════════════════════════════
   opener({
-    part: 3, art: "class", min: 8, lines: ["오늘이 한눈에,", "<em>교체는 말로</em>"],
-    was: "빈 교실·바꿀 수업을 찾으러 교무실 시간표 앞으로", now: "홈에서 오늘이 한눈에, 수업교체는 AI 한 문장으로 계산까지",
-    notes: "3부는 매일 보는 <b>홈 화면·빼꼼·알림함</b>, 그리고 <b>시간표·진도</b>입니다. 시간표는 이제 아래 탭이 아니라 <b>홈의 「오늘 시간표」 카드</b>나 더보기 「도구」에서 엽니다. 끝에는 첫 <b>「AI로 하면」</b> — 수업교체를 AI 한 문장으로 계산합니다."
+    part: 3, art: "class", min: 9, lines: ["오늘이 한눈에,", "<em>진도와 교체는 말로</em>"],
+    was: "빈 교실·바꿀 수업을 찾으러 교무실 시간표 앞으로", now: "홈에서 오늘이 한눈에, 진도는 도장판으로, 교체는 AI 한 문장으로",
+    notes: "3부는 매일 보는 <b>홈 화면·빼꼼·알림함</b>, 그리고 <b>시간표·진도</b>입니다. 진도는 「모두 저장」으로 적고, <b>한 달 도장판</b>과 <b>주별</b> 보기로 빠진 칸을 찾습니다 — 진도도 AI에게 말로 적을 수 있습니다. 시간표는 아래 탭이 아니라 <b>홈의 「오늘 시간표」 카드</b>나 더보기 「도구」에서 엽니다. 끝에는 첫 <b>「AI로 하면」</b> — 수업교체를 AI 한 문장으로 계산합니다."
   });
 
   practice({
-    id: "home", part: 3, num: null, label: "새 홈 화면 둘러보기", min: 1, isNew: true,
+    id: "home", part: 3, num: null, label: "새 홈 화면 둘러보기", min: 0.8, isNew: true,
     chips: [{ t: "NEW", c: "new" }, { t: "둘러보기", c: "ghost" }], title: "홈 화면, 이렇게 <em>정리됐어요</em>",
     steps: [
       { t: '큰 글씨는 <b>선생님마다 다른 한마디</b>. 오른쪽 위 <span class="k">종</span>은 나에게 온 알림', g: '큰 글씨는 <b>선생님마다 다른 한마디</b>(AI가 그날 내 수업·당번·교체를 보고 씁니다). 오른쪽 위 <span class="k">종</span>은 나에게 온 알림 모음', s: 0, r: R("home", "hero"), newf: true },
       { t: '세 칸 <span class="q">수업 · 일정 · 빼꼼</span>: 누르면 나오는 화면과 <b>같은 숫자</b>', g: '세 칸 <span class="q">수업 · 일정 · 빼꼼</span>: 누르면 나오는 화면과 <b>같은 숫자</b>. 일정은 「일정 3 · 넵 2」처럼 나눠 세고, 빼꼼은 「공지 N · 교체 N」', s: 0, r: R("home", "tiles"), z: 1.9 },
-      { t: '<span class="q">「처리할 넵 5건 · 새 알림 1건」</span> 줄이 맨 위에 가장 크게', s: 0, r: R("home", "nep"), newf: true, z: 1.8 },
+      { t: '<span class="q">「처리할 넵 6건 · 새 메시지 4건」</span> 줄이 맨 위에 가장 크게 — 누르면 넵 「받은」 탭', s: 0, r: R("home", "nep"), newf: true, z: 1.8 },
       { t: '오늘 시간표: 지금 교시에 <span class="q">「지금」</span>, 지난 교시는 흐리게, 교체는 「바뀜」', g: '오늘 시간표: 지금 교시에 노란 칸 <span class="q">「지금」</span>(쉬는 시간엔 점선 「다음」), 지난 교시는 흐리게. 교체로 들어온 수업은 초록 「바뀜」, 넘긴 교시는 「교체」. 칸의 점은 그 교시에 겹친 일정', s: 0, r: R("home", "now"), newf: true, z: 1.9 },
       { t: '<span class="q">「오늘 알림」</span>: 공지·오늘 바뀐 수업·넵 일정·특별 일정, 그 아래 <b>급식</b>', s: 1, r: R("home-3", "alerts") },
       { t: '맨 아래 <span class="q">「다가오는 일정」</span>: 오늘부터 7일, 누르면 그날 달력', s: 1, r: R("home-3", "upcoming"), newf: true }
     ],
-    gnote: { html: "<span>날짜 옆에는 지금 <b>날씨·미세먼지</b>. 할 일이 있으면 <b>넵 탭·더보기 탭·앱 아이콘에 숫자</b>가 붙습니다. 급식이 없는 날은 급식 카드가 숨고, 주말에는 다음 등교일 수업·일정이 보입니다. 화면 속 이름·일정은 예시입니다.</span>" },
+    gnote: { html: "<span>날짜와 지금 <b>날씨·미세먼지</b>는 한 줄(휴대폰에서는 최저·최고 기온을 숨겨 한 줄에 맞춥니다). 할 일이 있으면 <b>넵 탭·더보기 탭·앱 아이콘에 숫자</b>가 붙습니다. 급식이 없는 날은 급식 카드가 숨고, 주말에는 다음 등교일 수업·일정이 보입니다. 화면 속 이름·일정은 예시입니다.</span>" },
     screens: [shot("home"), shot("home-3")],
     lt: { tag: "NEW", title: "새 홈 화면", sub: "10월 16~17일 정리 · 글자 한 단계 크게" },
     notes: "이번 주에 홈 화면을 정리했습니다. 큰 글씨 한마디는 <b>선생님마다</b> 다릅니다 — 오늘 교체로 수업을 맡아 준 선생님께는 “고마워요”, 급식지도 당번에게는 “점심 챙기세요”처럼요(규칙과 AI가 함께 고르고, 퇴근했다고 단정하거나 다그치는 말은 쓰지 않습니다). 세 칸 숫자는 <b>누르면 나오는 화면과 같은 셈</b>으로 맞췄고, <b>처리할 넵</b> 줄을 가장 크게 올렸습니다. 오늘 시간표는 지금 교시에 「지금」, 쉬는 시간엔 다음 교시에 「다음」. 맨 아래는 주간소식 대신 내용대로 <b>「다가오는 일정」</b>입니다. 화면 속 이름·일정은 예시입니다."
   });
 
   practice({
-    id: "today", part: 3, num: null, label: "빼꼼 둘러보기", min: 0.6,
+    id: "today", part: 3, num: null, label: "빼꼼 둘러보기", min: 0.5,
     chips: [{ t: "둘러보기" }, { t: "옛 현황판", c: "ghost" }], title: "오늘 달라진 것은 <em>빼꼼</em>",
     steps: [
       { t: '홈의 <span class="q">「빼꼼」</span> 칸이나 더보기 맨 위 <span class="k">빼꼼</span>', s: 0, r: R("home", "tiles"), z: 1.9 },
@@ -930,13 +962,13 @@
       { t: '<span class="k">주간소식</span>: 교무부 주간소식을 날짜별 표 그대로', s: 2 },
       { t: '<span class="k">급식</span>: 이번 주 중식과 알레르기 번호', s: 3 }
     ],
-    gnote: { html: "<span>학사일정은 학교 구글 캘린더에서 저절로 들어옵니다. 넵 마감·넵 속 일정·내 수업교체 표시는 학교 달력에 들어가지 않고 그 선생님 화면에만 보입니다.</span>" },
+    gnote: { html: "<span>학사일정은 학교 구글 캘린더에서 저절로 들어옵니다. 주간소식은 교무부 폴더에 그 주 PDF가 올라오면 <b>평일 아침 7시 반쯤 저절로 발행</b>됩니다. 넵 마감·넵 속 일정·내 수업교체 표시는 학교 달력에 들어가지 않고 그 선생님 화면에만 보입니다.</span>" },
     screens: [shot("calendar"), shot("calendar-list"), shot("weekly"), shot("meals")],
     notes: "일정은 학교 구글 캘린더의 학사일정을 그대로 보여 주고, 그 위에 <b>나에게만</b> 넵 마감·넵 속 일정·내 출장과 교체 수업이 겹쳐 보입니다(주간 목록에서 「수업 교체 · 들어가는 수업」처럼). 주간소식은 교무부가 내는 주간소식 PDF를 날짜별 표로, 급식은 NEIS 급식을 그대로 보여 줍니다."
   });
 
   practice({
-    id: "alerts", part: 3, num: null, label: "알림함과 「AI가 먼저 챙기기」", min: 0.7, isNew: true,
+    id: "alerts", part: 3, num: null, label: "알림함과 「AI가 먼저 챙기기」", min: 0.5, isNew: true,
     chips: [{ t: "NEW", c: "new" }, { t: "둘러보기", c: "ghost" }], title: "놓친 알림은 <em>종</em>에, 요약은 <em>남겨 둡니다</em>",
     steps: [
       { t: '홈 오른쪽 위 <span class="k">종</span>: 빨간 점이 있으면 확인 안 한 알림', s: 0, r: R("home", "bell"), z: 1.9 },
@@ -959,27 +991,80 @@
       { t: '이번 주 칸에 <b>학사일정·넵 일정</b> 띠, 누르면 <b>전체 글</b>', s: 2, r: R("tt-pop", "pop") },
       { t: '그 주 <b>수업교체</b>가 저절로: 초록 「바뀜」·흐린 「교체」·「수락 대기」', s: 1, r: R("tt-my", "changed"), z: 1.9 },
       { t: '아래로 내리면 <span class="q">「빈 교실」</span>과 <span class="q">「공강인 선생님」</span>', s: 3, r: R("tt-free", "rooms") },
-      { t: '공강인 선생님 <b>이름을 누르면 그분께 넵</b> <span class="nw">NEW</span>', s: 4, r: [31, 91, 350, 83], newf: true }
+      { t: '공강인 선생님 <b>이름을 누르면 그분과의 넵 방</b> — 아래 칸에 바로 <span class="nw">NEW</span>', s: 4, r: R("nep-room", "input"), newf: true }
     ],
     note: { html: "<span>빈 교실·공강은 <b>그날 실제 시간표</b>(학사일정·확정된 교체 반영)로 셉니다. 수업교체는 다른 선생님 개인 시간표에는 보이지 않습니다.</span>" },
     gnote: { html: "<span>띠와 수업교체는 <b>이번 주(주말이면 다음 주) 그 날짜에만</b> 붙습니다. 학급·교실 시간표에는 바뀐 과목만(선생님 이름 없이) 보이고, <b>다른 선생님 개인 시간표에는 수업교체가 보이지 않습니다</b>. 요일·교시를 골라 다른 시간의 빈 교실·공강도 봅니다. 화면 속 시간표·이름은 예시입니다.</span>" },
     screens: [shot("home"), shot("tt-my"), shot("tt-pop"), shot("tt-free"), shot("tt-free-nep")],
-    notes: "시간표는 <b>내 시간표</b>부터 보여 줍니다. 수업 시간과 겹치는 학사일정·주간소식·넵 일정이 그 칸에 띠로 붙고, 띠를 누르면 전체 글이 뜹니다. 그 주 수업교체도 저절로 얹힙니다 — 새로 맡은 칸은 초록 「바뀜」, 넘겨 준 칸은 흐리게 「교체」, 못 메운 칸은 「보강」, 상대가 아직 수락하지 않았으면 「수락 대기」. 아래 「빈 교실」·「공강인 선생님」은 이번 주 그 요일의 <b>실제 시간표</b>로 셉니다(10/16부터). <b>공강인 선생님 이름을 누르면 그분께 넵 쓰기가 열립니다.</b>"
+    notes: "시간표는 <b>내 시간표</b>부터 보여 줍니다. 수업 시간과 겹치는 학사일정·주간소식·넵 일정이 그 칸에 띠로 붙고, 띠를 누르면 전체 글이 뜹니다. 그 주 수업교체도 저절로 얹힙니다 — 새로 맡은 칸은 초록 「바뀜」, 넘겨 준 칸은 흐리게 「교체」, 못 메운 칸은 「보강」, 상대가 아직 수락하지 않았으면 「수락 대기」. 아래 「빈 교실」·「공강인 선생님」은 이번 주 그 요일의 <b>실제 시간표</b>로 셉니다(10/16부터). <b>공강인 선생님 이름을 누르면 그분과의 넵 방이 열려</b> 아래 칸에 바로 씁니다."
   });
 
   practice({
-    id: "p5", part: 3, num: 8, label: "실습 8 · 오늘 진도와 「한 달」 도장판", min: 2.5, practiceMin: 3,
+    id: "p5", part: 3, num: 8, label: "실습 8 · 오늘 진도 「모두 저장」", min: 1.8, practiceMin: 3,
     chips: [{ t: "실습 8 · 진도표" }, { t: "3분", c: "ghost" }], title: "진도는 한 줄로, <em>모두 저장</em> 한 번",
     steps: [
-      { t: '홈 <span class="q">「오늘 시간표」</span>의 <span class="k">진도 기록</span>', s: 0, r: [246, 569, 62, 21], z: 1.9 },
-      { t: '오늘 <b>실제로 하는 수업</b>마다 칸이 하나(교체로 들어온 수업은 「바뀜」)', s: 1, r: R("pg-today", "card") },
+      { t: '홈 <span class="q">「오늘 시간표」</span>의 <span class="k">진도 기록</span>(또는 더보기 → 진도표)', s: 0, r: [246, 569, 62, 21], z: 1.9 },
+      { t: '오늘 <b>실제로 하는 수업</b>마다 칸이 하나 — 교체로 들어온 수업은 「바뀜」', g: '오늘 <b>실제로 하는 수업</b>마다 칸이 하나(학사일정·확정된 교체 반영). 교체로 들어온 수업은 「바뀜」, 넘긴 수업은 칸 없이 아래 한 줄로', s: 1, r: R("pg-today", "card") },
       { t: '적은 뒤 화면 아래 <span class="k">모두 저장</span> 한 번', s: 1, r: R("pg-today", "save"), newf: true, z: 1.9 },
-      { t: '<span class="q">「진도 지도」</span> → <span class="q">「한 달」</span>: 반마다 이달 수업이 도장으로', s: 2, r: R("pg-month", "summary") },
-      { t: '점선 동그라미를 누르면 <b>그 주를 바로</b> 적습니다. 한 주를 다 채우면 ⭐', s: 2, r: R("pg-month", "row") }
+      { t: '아래 <span class="q">「학급별 보기」</span>: 반마다 최근 기록, 누르면 그 반 진도', s: 2, r: R("pg-today-classes", "classes") },
+      { t: '<span class="aib">AI로도</span> 「오늘 2-2반·2-3반 5단원 했어, 진도표에 적어 줘」 → <span class="k">진도표에 적기</span>', g: '<b>AI로도</b>: 「오늘 2-2반이랑 2-3반 5단원 수식언·관계언 했어, 진도표에 적어 줘」 → 그날 시간표(교체 반영)에서 교시를 찾아 여러 반을 한 카드로 → <span class="k">진도표에 적기</span> 한 번', s: 3, r: R("ai-progress", "card") }
     ],
-    note: { html: "<span>저장 안 한 칸이 있으면 다른 날짜·메뉴로 갈 때 <b>한 번 물어봅니다</b>. 진도는 <b>본인 것만</b> 보입니다.</span>" },
-    screens: [shot("home"), shot("pg-today"), shot("pg-month")],
-    notes: "진도는 <b>한 줄이면 충분</b>합니다. 이번 주부터 칸마다 저장하지 않고 <b>하루치를 「모두 저장」 한 번</b>에 저장합니다. 칸은 원래 시간표가 아니라 <b>그날 실제로 하는 수업</b>(학사일정·확정된 교체 반영)이라, 교체로 들어온 수업도 칸이 생깁니다. 「한 달」 보기는 반마다 이달 수업을 도장처럼 보여 주고, 점선 동그라미를 누르면 그 주를 바로 적습니다."
+    note: { html: "<span>저장 안 한 칸이 있으면 다른 날짜·메뉴로 갈 때 <b>한 번 물어봅니다</b>. 진도 지도는 <b>내 기록만</b> 보입니다.</span>" },
+    gnote: { html: "<span>날짜 칸의 ‹ ›로 지난날도 적습니다. 비운 칸은 그 반 기록만 지웁니다. 손대지 않은 칸은 다른 기기에서 고쳤어도 덮지 않습니다. 같은 교시에 교체 전 다른 반 기록이 있으면 「이 교시에 다른 수업 기록이 있어요」로 알려 줍니다. AI 카드도 단추를 눌러야 적히고, AI에게는 <b>내 진도만</b> 물을 수 있습니다(「내 반들 진도 어디까지야?」).</span>" },
+    screens: [shot("home"), shot("pg-today"), shot("pg-today-classes"), shot("ai-progress")],
+    notes: "진도는 <b>한 줄이면 충분</b>합니다. 칸마다 저장하지 않고 <b>하루치를 「모두 저장」 한 번</b>에 저장합니다. 칸은 원래 시간표가 아니라 <b>그날 실제로 하는 수업</b>(학사일정·확정된 교체 반영)이라, 교체로 들어온 수업도 칸이 생기고 넘긴 수업은 칸이 없습니다. 아래 「학급별 보기」에서 반마다 최근 기록을 봅니다. 그리고 <b>AI로도</b> 됩니다 — 「오늘 2-2반이랑 2-3반 5단원 했어, 진도표에 적어 줘」라고 하면 그날 시간표에서 교시를 찾아 두 반을 한 카드로 만들고, 「진도표에 적기」 한 번이면 끝입니다."
+  });
+
+  practice({
+    id: "pgMonth", part: 3, num: null, label: "진도 지도 · 한 달 도장판", min: 1.2,
+    chips: [{ t: "둘러보기" }, { t: "월간 · 한 달", c: "ghost" }], title: "한 달 보기는 <em>도장판</em>",
+    steps: [
+      { t: '<span class="q">「진도 지도」</span> → <span class="q">「한 달」</span>', g: '진도표 위 <span class="q">「진도 지도」</span> → <span class="q">「한 달」</span>(고른 보기는 이 기기에 기억합니다)', s: 0, r: R("pg-month", "toggle") },
+      { t: '맨 위 큰 숫자: 이달 <b>지난 수업 45칸 중 40칸</b> 적음 · 89%', s: 0, r: R("pg-month", "summary") },
+      { t: '<span class="q">「🔥 2주 연속」</span>: 모든 반을 다 적은 주가 이어지면', s: 0, r: R("pg-month", "streak"), z: 1.9 },
+      { t: '반마다 도장판: <b>적음 ✓</b>(반 색) · 아직(점선) · 앞으로(점) · 쉬는 날(줄)', g: '반마다 도장판: <b>적음 ✓</b>(반마다 다른 색) · <b>아직</b>(점선 동그라미) · 오늘 수업(파란 점선) · 앞으로(작은 점) · <b>쉬는 날</b>(짧은 줄 — 공휴일은 빠진 칸으로 세지 않아요)', s: 1, r: R("pg-month-2", "row") },
+      { t: '한 주를 다 채우면 <b>⭐</b>, 오른쪽 위 「2칸 아직 · 9/11」', s: 1, r: R("pg-month-2", "star"), z: 2 },
+      { t: '<b>점선 동그라미를 누르면</b> 아래에 그 반·그 주가 열려 바로 적기', s: 2, r: R("pg-month-pick", "slot"), newf: true },
+      { t: '‹ › 나 좌우로 밀어 <b>지난달</b>, <span class="k">이번 달</span>로 돌아오기', s: 0, r: R("pg-month", "nav") }
+    ],
+    gnote: { html: "<span>큰 숫자는 그 달 <b>오늘까지 있었던 수업</b>(쉬는 날 빼고) 가운데 적은 수입니다. 이번 주 지난 수업을 모든 반 다 적으면 「🎉 이번 주 진도를 모두 적었어요」와 색종이가 한 번 터집니다. 시간표에 없는 날 적은 기록(수업 교체로 들어간 수업)도 도장으로 보입니다. 아래에서 여는 적기 칸은 칸마다 「저장」입니다.</span>" },
+    screens: [shot("pg-month"), shot("pg-month-2"), shot("pg-month-pick")],
+    lt: { title: "진도 지도 · 한 달", sub: "적은 수업은 도장, 빠진 칸은 점선 — 누르면 바로 적기" },
+    notes: "진도 지도의 <b>한 달</b> 보기입니다. 맨 위 큰 숫자는 이달 지난 수업 가운데 적은 수 — 「45칸 중 40칸, 89%」. 모든 반을 다 적은 주가 이어지면 「🔥 2주 연속」이 붙습니다. 아래는 반마다 <b>도장판</b>입니다. 적은 수업은 반 색 도장에 체크, 아직 안 적은 지난 수업은 점선 동그라미, 오늘 수업은 파란 점선, 앞으로는 작은 점, 공휴일은 짧은 줄입니다. 한 주를 다 채우면 별이 붙습니다. <b>점선 동그라미를 누르면 그 반·그 주가 아래에 열려</b> 바로 적습니다. 좌우로 밀면 지난달입니다."
+  });
+
+  practice({
+    id: "pgWeek", part: 3, num: null, label: "진도 지도 · 주별과 학급별", min: 1,
+    chips: [{ t: "둘러보기" }, { t: "주간 · 주별", c: "ghost" }], title: "주별 보기는 <em>한 주씩</em>",
+    steps: [
+      { t: '<span class="q">「주별」</span>: 반마다 <b>그 주 마지막 진도 한 줄</b>, 여러 번이면 「4회」', s: 0, r: [16, 258, 380, 340] },
+      { t: '‹ › 나 <b>좌우로 밀어</b> 지난 주·다음 주, <span class="k">이번 주</span>', s: 0, r: R("pg-week", "nav") },
+      { t: '반을 누르면 아래에 그 주 수업 칸 — <b>지난 주도</b> 고치고 더 적기', s: 1, r: R("pg-week-pick", "head") },
+      { t: '<span class="q">「학급별 보기」</span>: 그 반의 <b>모든 과목</b> 기록(날짜·교시·과목·선생님)', s: 2, r: [16, 186, 380, 600] },
+      { t: '과목 칩으로 거르고, <span class="k">내 기록 CSV</span>로 엑셀에', s: 2, r: R("pg-class", "chips") }
+    ],
+    gnote: { html: "<span><b>PC(넓은 화면)</b>에서는 「한 달」이 왼쪽 도장판(반 카드 두 줄)과 오른쪽 적기 칸으로 나란히 보이고, 「주별 표」는 <b>반 × 주 격자</b>입니다 — 칸마다 그 주 마지막 진도, 화살표 키로 칸을 옮기고, 반 이름 아래 막대가 채운 주만큼 자랍니다. 진도 지도는 <b>내 기록만</b>, 학급별 보기는 그 반을 가르치는 선생님들의 기록이 함께 보입니다. 위 「CSV 내려받기」는 내 기록 전체를 받습니다.</span>" },
+    figs: [["img/desk/pg-month.jpg", "PC 「한 달」: 왼쪽 도장판, 오른쪽 고른 주 적기 칸"], ["img/desk/pg-week.jpg", "PC 「주별 표」: 반 × 주 격자, 칸 = 그 주 마지막 진도"]],
+    screens: [shot("pg-week"), shot("pg-week-pick"), shot("pg-class")],
+    lt: { title: "진도 지도 · 주별", sub: "한 주씩 넘기며 반마다 마지막 진도 · 학급별 보기는 모든 과목" },
+    notes: "<b>주별</b> 보기는 한 주씩 넘깁니다. 반마다 그 주에 적은 마지막 진도 한 줄이 보이고, 여러 번 적었으면 「4회」가 붙습니다. 화살표나 좌우로 밀어 지난 주로 가고, 반을 누르면 아래에 그 주 수업 칸이 열려 지난 주 것도 고칩니다. 오늘 적기 화면 아래 <b>학급별 보기</b>는 그 반의 모든 과목 기록을 날짜·교시·과목·선생님과 함께 보여 줍니다 — 담임 선생님이 우리 반 진도를 한눈에 보실 때 좋습니다. 내 기록은 CSV로 받습니다."
+  });
+
+  D.add({
+    id: "pgDesk", part: 3, label: "진도 지도 · PC에서", kind: "light", min: 0.3, trans: "zoom",
+    notes: "컴퓨터에서 열면 진도 지도가 넓게 펼쳐집니다. 「한 달」은 왼쪽 도장판과 오른쪽 적기 칸이 나란히, 「주별 표」는 반과 주로 된 격자라 한 학기를 한눈에 봅니다. 칸을 누르거나 화살표 키로 옮기며 아래에서 바로 적습니다.",
+    html: '<div class="chiprow"><span class="chip">둘러보기</span><span class="chip ghost">PC · 넓은 화면</span></div><h2 class="title">PC에서는 <em>한 학기가 한눈에</em></h2>' +
+      '<div class="abs bw pgd1"><div class="bar"><i></i><i></i><i></i><span>한 달 — 도장판 + 적기 칸</span></div><img src="img/desk/pg-month.jpg" alt=""></div>' +
+      '<div class="abs bw pgd2"><div class="bar"><i></i><i></i><i></i><span>주별 표 — 반 × 주 격자</span></div><img src="img/desk/pg-week.jpg" alt=""></div>',
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *", { each: 110 });
+        A.kinetic(".title", { delay: 120, each: 24 });
+        A.go(".pgd1", [{ opacity: 0, transform: "translateY(60px) rotate(-1.2deg)" }, { opacity: 1, transform: "rotate(-1.2deg)" }], { d: 1000, delay: 350, e: E.out });
+        A.go(".pgd2", [{ opacity: 0, transform: "translateY(80px) rotate(1.2deg)" }, { opacity: 1, transform: "rotate(1.2deg)" }], { d: 1000, delay: 750, e: E.out });
+        A.sfx("swish", { v: 0.08, delay: 400 });
+      }];
+    }
   });
 
   practice({
@@ -1001,7 +1086,7 @@
   });
 
   aiWay({
-    id: "aiSwap", part: 3, label: "AI로 하면 · 수업교체", min: 1.3,
+    id: "aiSwap", part: 3, label: "AI로 하면 · 수업교체", min: 1.1,
     title: "수업교체도 <em>한 문장으로</em>",
     menu: "더보기 → 수업교체 → 계산하기 → 선생님·날짜·사유·교시 고르기",
     say: "다음 주 목요일 4~7교시 출장, 교체해 줘",
@@ -1021,20 +1106,20 @@
   // 4부 · 넵
   // ════════════════════════════════════════════════════════════
   opener({
-    part: 4, art: "nep", min: 8, lines: ["읽었는지, 했는지", "<em>한눈에</em> 보입니다"],
-    was: "부탁하고 나서 읽었는지 몰라 다시 묻기", now: "버튼 하나로 답하고, 처리 현황이 보입니다",
-    notes: "3부는 업무 연락 도구 <b>넵</b>입니다. 이제 <b>아래 탭 둘째 칸이 넵</b>이라 처리할 넵 수가 탭에 바로 붙습니다. 받는 사람은 메신저 같은 <b>조직도 나무</b>로 고르고, 마감과 글 속 일정은 받는 분 일정에 저절로 들어갑니다. 끝에는 <b>AI로 넵 초안</b>을 만들어 봅니다."
+    part: 4, art: "nep", min: 9, lines: ["넵은 이제", "<em>메신저처럼</em>"],
+    was: "부탁하고 나서 읽었는지 몰라 다시 묻기", now: "조직도에서 골라 보내고, 선생님별 방에서 버튼 하나로",
+    notes: "4부는 업무 연락 도구 <b>넵</b>입니다. 10월 18일에 넵 화면이 <b>메신저처럼</b> 바뀌었습니다. 첫 화면이 <b>조직도 · 받은 · 보낸</b> 세 탭이고, 받은 넵은 <b>보낸 선생님별 방</b>에 모입니다. 종류 이름도 <b>메시지 · 넵 받기 · 완료 받기 · 파일 받기</b>로 바뀌었습니다. 배달 규칙(수업 중이면 교시가 끝난 뒤 도착)은 그대로입니다. 끝에는 <b>AI로 넵 초안</b>을 만들어 봅니다."
   });
 
   D.add({
-    id: "nepIntro", part: 4, label: "넵 알아보기", kind: "light", min: 1, trans: "zoom",
-    notes: "넵은 네 가지입니다. <b>알림</b>은 읽으면 끝, <b>확인요청</b>은 [넵](마감은 넣어도 되고 안 넣어도 됩니다), <b>업무요청</b>은 [완료], <b>제출요청</b>은 [제출]. 마감은 이제 <b>받는 분의 일정·빼꼼에도</b> 뜹니다. 보내는 시각도 배려합니다 — 받는 분이 <b>수업 중이면 교시가 끝난 뒤</b>, <b>근무 시간 밖이면 다음 근무일 아침</b>에 도착합니다. 긴급만 바로 울리고 한 달에 정해진 횟수까지입니다(넵 쓰기 화면에 「이번 달 N회」로 남은 횟수가 보입니다).",
-    html: '<div class="chiprow"><span class="chip">넵</span></div><h2 class="title">요청은 넵으로 보내고, <em>답은 버튼 하나로</em></h2>' +
-      '<div class="pills nepts"><span class="p"><b>알림</b>읽으면 끝</span><span class="p"><b>확인요청</b>[넵] · 마감(선택)</span><span class="p"><b>업무요청</b>[완료] · 마감</span><span class="p"><b>제출요청</b>[제출] · 마감</span></div>' +
-      '<div class="card side abs" style="left:120px"><p class="who2">보내는 사람</p><h3>2학기 평가계획서 제출</h3><p>제출요청 · 2학년 담임 10명</p><div class="meter"><div class="lb"><span>처리</span><span><b class="mtr">3</b> / 10</span></div><div class="tr"><i style="width:100%"></i></div></div></div>' +
+    id: "nepIntro", part: 4, label: "넵 네 가지", kind: "light", min: 1, trans: "zoom",
+    notes: "넵은 네 가지입니다. <b>메시지</b>는 읽으면 끝(그래도 [넵]을 누를 수 있고, 보낸 분 현황에 「넵」으로 셉니다). <b>넵 받기</b>는 [넵](마감은 넣어도, 안 넣어도 됩니다), <b>완료 받기</b>는 [완료], <b>파일 받기</b>는 글이나 파일을 [제출]. 처리하면 단추가 초록 「넵함 ✓」「완료함 ✓」「제출함 ✓」로 바뀝니다. 보내는 시각도 배려합니다 — 받는 분이 <b>수업 중이면 교시가 끝난 뒤</b>, <b>근무 시간 밖이면 다음 근무일 아침</b>에 도착합니다. 긴급만 바로 울리고 한 달에 정해진 횟수까지입니다. 단, <b>나에게 보낸 메모는 바로</b> 도착합니다.",
+    html: '<div class="chiprow"><span class="chip">넵</span><span class="chip ghost">이름이 바뀌었어요</span></div><h2 class="title">요청은 넵으로, <em>답은 버튼 하나로</em></h2>' +
+      '<div class="pills nepts"><span class="p"><b>메시지</b>읽으면 끝</span><span class="p"><b>넵 받기</b>[넵] · 마감(선택)</span><span class="p"><b>완료 받기</b>[완료] · 마감</span><span class="p"><b>파일 받기</b>[제출] · 마감</span></div>' +
+      '<div class="card side abs" style="left:120px"><p class="who2">보내는 사람</p><h3>2학기 평가계획서 제출</h3><p>파일 받기 · 2학년 담임 10명</p><div class="meter"><div class="lb"><span>제출</span><span><b class="mtr">3</b> / 10</span></div><div class="tr"><i style="width:100%"></i></div></div></div>' +
       '<i class="abs lane"></i><div class="abs gate"><span class="gt">3교시<br>수업 중</span></div><div class="abs env"></div>' +
-      '<div class="card side abs" style="left:1280px"><p class="who2">받는 사람</p><h3>2학기 평가계획서 제출</h3><p>제출요청 · 마감 10월 9일(금)</p><div class="rbtn">제출<span class="dn">넵 처리했습니다</span></div></div>' +
-      '<div class="pills rules" style="left:120px;top:800px"><span class="p"><b>수업 중</b>교시가 끝나면 도착</span><span class="p"><b>근무 시간 밖</b>다음 근무일 아침</span><span class="p warn">긴급 · 바로 울림 (한 달 횟수 제한)</span></div>',
+      '<div class="card side abs" style="left:1280px"><p class="who2">받는 사람</p><h3>2학기 평가계획서 제출</h3><p>✔ 파일 받기 · 10/23(금) 16:30까지</p><div class="rbtn">제출<span class="dn">제출함 ✓</span></div></div>' +
+      '<div class="pills rules" style="left:120px;top:800px"><span class="p"><b>수업 중</b>교시가 끝나면 도착</span><span class="p"><b>근무 시간 밖</b>다음 근무일 아침</span><span class="p"><b>나에게</b>바로 도착</span><span class="p warn">긴급 · 바로 울림 (한 달 횟수 제한)</span></div>',
     build: function (el, A) {
       return [
         function (A) {
@@ -1066,89 +1151,142 @@
         function (A) {
           A.go(".rules", [{ opacity: 1 }, { opacity: 1 }], { d: 1 });
           A.pop(".rules .p", { each: 120 });
-          A.lt({ tag: "넵", title: "받는 분의 수업 시간을 피해 도착합니다", sub: "긴급만 바로 울림 · 한 달 횟수 제한(남은 횟수가 화면에)", delay: 400, style: "left:auto;right:120px;bottom:60px" });
+          A.lt({ tag: "넵", title: "받는 분의 수업 시간을 피해 도착합니다", sub: "나에게 메모는 바로 · 긴급만 바로 울림(한 달 횟수 제한)", delay: 400, style: "left:auto;right:120px;bottom:60px" });
         }
       ];
     }
   });
 
-  practice({
-    id: "p6", part: 4, num: 9, label: "실습 9 · 나에게 업무요청", min: 2, practiceMin: 2,
-    chips: [{ t: "실습 9 · 넵" }, { t: "2분", c: "ghost" }], title: "나에게 업무요청 보내 보기",
-    steps: [
-      { t: '아래 탭 <span class="k">넵</span> → 오른쪽 아래 <span class="k">+ 넵 보내기</span>', s: 0, r: R("nep-inbox", "fab"), z: 1.9 },
-      { t: '<span class="q">「+ 받는 사람 고르기」</span> → 칩 <span class="k">나</span> → 완료', s: 1, r: R("nep-picker", "chips"), z: 1.95 },
-      { t: '<span class="q">「업무요청」</span>을 고르고 제목·본문', s: 2, r: R("nep-me-new", "kind"), z: 1.9 },
-      { t: '본문에 「10월 23일까지」라고 쓰면 <b>마감 칸에 저절로</b>', s: 3, r: R("nep-me-bottom", "due"), newf: true },
-      { t: '<span class="k">나에게 업무요청 보내기</span>', s: 3, r: R("nep-me-bottom", "send") }
-    ],
-    note: { tone: "warn", html: "<span>근무 시간 밖이면 <b>다음 근무일 아침</b>에 도착합니다. 받은 넵은 다음 실습 10에서 처리해요.</span>" },
-    screens: [shot("nep-inbox"), shot("nep-picker"), shot("nep-me-new"), shot("nep-me-bottom")],
-    notes: "아래 탭 넵 → 「+ 넵 보내기」. 받는 사람 창에서 맨 앞 칩 <b>「나」</b>를 누르고 완료하면 「나에게 보내기」가 됩니다. 업무요청을 고르고 본문에 날짜를 쓰면 <b>마감 칸이 저절로 채워지고</b> 「글에서 찾은 날짜를 마감으로 넣었어요」 안내가 뜹니다. 시각을 안 쓰면 16시 30분입니다. 보내기 단추에 <b>누구에게 무엇을 보내는지</b>가 그대로 적혀 있습니다."
+  // 넵 첫 화면 세 탭(실제 화면 세 장)
+  var NEP_TABS = [
+    ["nep-org", "조직도", "처음 열면 여기", "<b>이름을 누르면</b> 그분과의 방, 오른쪽 <b>칸을 체크</b>하면 여러 분께"],
+    ["nep-inbox", "받은", "선생님별 방", "보낸 분마다 한 줄. <b>안 읽은 수</b>(주황)와 처리할 칩 「넵 받기 1」"],
+    ["nep-sent", "보낸", "처리 현황", "「4/9 완료」·「읽음 1」·「내일 08:00 도착」, 누르면 현황판"]
+  ];
+  D.add({
+    id: "nepTabs", part: 4, label: "넵 첫 화면: 조직도 · 받은 · 보낸", kind: "light", min: 0.7, isNew: true, trans: "push",
+    notes: "넵을 열면 맨 위에 탭이 셋입니다. <b>조직도</b>는 처음 열리는 탭으로, 전체 교직원·교장·교감·부서·교과 카드가 있습니다. 이름을 누르면 그 선생님과의 방이 열리고, 오른쪽 칸을 체크하면 여러 분께 한 번에 씁니다. <b>받은</b> 탭은 보낸 선생님마다 한 줄 — 메신저 대화 목록과 같습니다. 맨 위에는 늘 「나에게」가 있습니다. <b>보낸</b> 탭은 내가 보낸 넵마다 한 줄로, 누가 얼마나 처리했는지 숫자로 보입니다. 아래 탭 「넵」을 누르면 언제나 조직도로 돌아옵니다.",
+    html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip ghost">10월 18일 바뀜</span></div><h2 class="title">넵 첫 화면은 <em>세 탭</em></h2>' +
+      '<div class="abs n3">' + NEP_TABS.map(function (t, i) {
+        return '<div class="c"><div class="ph"><img src="img/' + t[0] + '.jpg" alt=""></div><div class="cap"><span class="no">' + (i + 1) + '</span><div><h3>' + t[1] + ' <small>' + t[2] + '</small></h3><p>' + t[3] + '</p></div></div></div>';
+      }).join("") + '</div>',
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *", { each: 110 });
+        A.kinetic(".title", { delay: 120, each: 26 });
+        A.$$(".n3 .ph").forEach(function (p, i) {
+          A.go(p, [{ opacity: 0, transform: "translateY(90px) rotate(" + (i - 1) * 2 + "deg)" }, { opacity: 1, transform: "rotate(" + (i - 1) * 1.2 + "deg)" }], { d: 900, delay: 450 + i * 220, e: E.out });
+        });
+        A.rise(".n3 .cap", { delay: 1100, each: 200, y: 24, snd: "pluck", v: 0.06 });
+        A.pop(".n3 .no", { delay: 1150, each: 200, s: 0.4, snd: false });
+      }];
+    }
   });
 
   practice({
-    id: "audience", part: 4, num: null, label: "받는 사람 고르기 (조직도)", min: 1.2, isNew: true,
-    chips: [{ t: "NEW", c: "new" }, { t: "둘러보기", c: "ghost" }], title: "받는 사람은 <em>조직도 나무</em>로",
+    id: "p6", part: 4, num: 9, label: "실습 9 · 나에게 메모(완료 받기)", min: 2, practiceMin: 2,
+    chips: [{ t: "실습 9 · 넵" }, { t: "2분", c: "ghost" }], title: "나에게 메모, <em>완료 받기</em>로 보내 보기",
     steps: [
-      { t: '맨 위 <b>찾기</b>: 이름 일부·초성(ㅂㅈㅁ)·부서·교과', s: 0, r: R("nep-picker", "search") },
-      { t: '칩 <span class="q">나 · 교직원 전체 · 부장단 · 교과 주임단</span>', s: 0, r: R("nep-picker", "chipAll"), z: 1.9 },
-      { t: '<span class="q">「최근 보낸 분」</span>, 그 아래 교장·교감과 부서 나무', s: 0, r: R("nep-picker", "recent") },
-      { t: '부서를 펼쳐 한 분씩, 또는 <b>부서 통째로 체크</b>', s: 1, r: R("nep-picker-tree", "dept"), z: 1.9 },
-      { t: '초성으로 찾아 바로 고르기', s: 2, r: R("nep-picker-search", "found") },
-      { t: '고른 분은 맨 위 이름표 <b>×</b>로 빼고, <span class="k">완료</span>', s: 3, r: R("nep-picker-picked", "tokens"), newf: true }
+      { t: '아래 탭 <span class="k">넵</span> → <span class="q">「받은」</span> 탭 맨 위 <span class="k">나에게</span>', s: 0, r: R("nep-inbox", "me"), z: 1.9 },
+      { t: '아래 칸에 쓰기: <b>첫 줄이 제목</b>, 둘째 줄에 「10월 23일 금요일까지」', g: '아래 칸에 쓰기: <b>첫 줄이 제목</b>이 되고(제목 칸은 없어요), 둘째 줄에 「10월 23일 금요일까지」처럼 날짜를 씁니다', s: 1, r: R("nep-me-due", "input") },
+      { t: '<span class="k">+</span> → <span class="q">「완료 받기」</span>', s: 2, r: R("nep-plus", "task"), z: 1.8 },
+      { t: '이름표 <span class="q">「✔ 완료 받기 · 10/23(금) 16:30」</span>: 글 속 날짜가 <b>마감으로</b>', g: '입력 칸 위 이름표 <span class="q">「✔ 완료 받기 · 10/23(금) 16:30」</span>: 글 속 날짜가 <b>마감으로 미리</b> 들어갑니다(시각을 안 쓰면 16:30). 이름표를 누르면 고치고, ×로 뺍니다', s: 1, r: R("nep-me-due", "chip"), newf: true, z: 1.9 },
+      { t: '<span class="k">보내기</span> → 나에게는 <b>바로</b> 카드로 도착(「보냈어요」)', s: 3, r: R("nep-me", "card") },
+      { t: '글 속 일정은 AI가 찾아 <span class="q">「넵 속 일정」</span>으로 — 내 일정·시간표·빼꼼에', s: 3, r: R("nep-me", "events"), z: 1.9 }
     ],
-    gnote: { html: "<span>부서를 통째로 체크하면 묶음으로 보내고(예약 넵은 보낼 때 명단), 한 분이라도 빼면 남은 분 이름으로 풀립니다. 여러 부서에 계신 분은 어디서나 같이 체크됩니다. 연락처는 싣지 않습니다. <b>20명 이상</b>에게 보내면 보내기 전에 받는 분·제목을 한 번 더 확인합니다. 회의 서명부·파일 서명도 같은 고르기를 씁니다. 화면 속 이름은 예시입니다.</span>" },
-    screens: [shot("nep-picker"), shot("nep-picker-tree"), shot("nep-picker-search"), shot("nep-picker-picked")],
-    lt: { tag: "NEW", title: "받는 사람 고르기", sub: "메신저처럼 부서·학년부·교과 나무 · 넵·서명부가 함께 씀" },
-    notes: "받는 사람 고르기가 메신저처럼 <b>조직도 나무</b>로 바뀌었습니다. 찾기 칸은 이름 일부·초성·부서·교과로 찾고, 칩으로 나·교직원 전체·부장단·교과 주임단을 한 번에 고릅니다. 부서를 통째로 체크하면 묶음으로, 한 분을 빼면 이름으로 풀립니다. 내 자리에는 「(나)」가 붙습니다. <b>20명 넘게 보낼 때는 보내기 전에 한 번 더 확인 창</b>이 뜹니다 — 보낸 뒤에는 알림을 거둘 수 없어서입니다."
+    note: { html: "<span>나에게 보낸 메모는 근무 시간·수업 중에도 <b>미루지 않고 바로</b> 옵니다(알림 소리 없이). 처리할 넵은 다음 실습 10에서.</span>" },
+    gnote: { html: "<span>나에게 방에는 <b>받는 분이 나 하나뿐인</b> 넵만 들어갑니다. 내 메모 카드는 시각 줄 오른쪽 <b>「지우기」</b>로 지웁니다. 「보낼 시각」을 고르면 그때 도착하고, 그 전에는 보낸 탭에 「나에게 · 10:40 도착」으로 보입니다. 마감은 <b>내 일정·빼꼼·홈 「오늘 알림」</b>에 「내 넵」으로 나에게만 겹쳐 보입니다.</span>" },
+    screens: [shot("nep-inbox"), shot("nep-me-due"), shot("nep-plus"), shot("nep-me")],
+    notes: "아래 탭 넵 → 「받은」 탭 맨 위 <b>「나에게」</b>를 누르면 나에게 방이 열립니다. 아래 칸에 쓰는데, <b>제목 칸이 따로 없고 첫 줄이 제목</b>입니다. 둘째 줄에 「10월 23일 금요일까지」라고 쓰고 + → 「완료 받기」를 고르면, 입력 칸 위 이름표에 <b>마감이 저절로</b> 들어갑니다(시각을 안 쓰면 16시 30분). 보내면 나에게는 <b>바로</b> 카드로 옵니다. 넵을 보내면 AI가 글에서 날짜·시각이 있는 일정을 찾아 「넵 속 일정」으로 적어 두고, 이것은 내 일정·시간표·빼꼼에 점선으로 보입니다."
   });
 
   practice({
-    id: "nepDue", part: 4, num: null, label: "넵 마감·넵 속 일정", min: 0.8,
-    chips: [{ t: "둘러보기" }, { t: "나에게만 보여요", c: "ghost" }], title: "마감과 넵 속 일정은 <em>내 일정에</em>",
+    id: "nepOrg", part: 4, num: null, label: "조직도에서 골라 여러 분께", min: 1.5, isNew: true,
+    chips: [{ t: "NEW", c: "new" }, { t: "둘러보기", c: "ghost" }], title: "조직도에서 골라 <em>여러 분께</em>",
     steps: [
-      { t: '글 속 날짜가 <b>마감 칸에 저절로</b>, 다른 날짜는 단추로', s: 0, r: R("nep-new-due", "hint"), newf: true },
-      { t: '보내면 AI가 글에서 <b>일정</b>을 찾아 <span class="q">「넵 속 일정」</span>으로', s: 1, r: R("nep-detail-sent", "events") },
-      { t: '받는 분 화면: 점선 일정, <b>내 일정·시간표·빼꼼·아침 알림</b>에', s: 2, r: R("nep-detail-ack", "events") }
+      { t: '<span class="q">「조직도」</span>: 전체 교직원 · 교장·교감 · 부서(처음엔 접힘)', s: 0, r: R("nep-org", "all") },
+      { t: '부서를 펼쳐 <b>이름을 누르면 그분과의 방</b>, 오른쪽 칸은 체크', s: 1, r: R("nep-org-open", "name"), z: 1.8 },
+      { t: '체크하면 아래 막대 <span class="k">3명에게 쓰기</span>', s: 2, r: R("nep-org-picked", "bar"), z: 1.8 },
+      { t: '카드 머리 칸 = <b>통째로</b>: 부서·교과·부장단·교과 주임단', g: '카드 머리 칸 = <b>통째로</b>: 부서, 그 아래 <b>교과(교과마다)·부장단·교과 주임단</b>과 「그 밖의 선생님」', s: 3, r: R("nep-org-groups", "role"), z: 1.8 },
+      { t: '돋보기 → 이름·<b>초성</b>(ㅈㅈㅇ)으로 찾기', s: 4, r: R("nep-org-search", "found"), z: 1.8 },
+      { t: '쓰기 창 <span class="q">「새 메시지」</span>: 받는 분 이름표, <b>첫 줄이 제목</b>', s: 5, r: R("nep-compose", "text") },
+      { t: '<span class="k">+</span> 「더 넣기」: 사진·파일 · 넵/완료/파일 받기 · 보낼 시각 · 긴급', s: 6, r: [16, 466, 380, 388] },
+      { t: '<b>20명 이상</b>이거나 학년 담임이 들어가면 보내기 전에 <b>한 번 더</b>', s: 7, r: [6, 730, 400, 126], warn: "보낸 뒤에는 알림을 거둘 수 없어요" }
     ],
-    gnote: { html: "<span>넵 마감과 넵 속 일정은 <b>보낸 분과 받는 분에게만</b> 보이고 학교 학사일정·구글 캘린더에는 들어가지 않습니다. 보낸 분은 「고치기·빼기·+ 더하기·AI로 다시 찾기」를 할 수 있습니다. 확인요청은 마감이 「마감 (선택)」이라, 필요 없으면 「마감 빼기」.</span>" },
-    screens: [shot("nep-new-due"), shot("nep-detail-sent"), shot("nep-detail-ack")],
-    notes: "넵을 보내면 AI가 제목·본문을 읽어 <b>날짜·교시가 있는 일정</b>을 따로 적어 둡니다(넵 속 일정). 받는 분에게는 일정·시간표·빼꼼·아침 알림에 점선으로 보이고, 보낸 분은 고치거나 뺄 수 있습니다. 학교 달력에는 들어가지 않고 <b>보낸 분과 받는 분에게만</b> 보입니다."
+    gnote: { html: "<span>부서·교과를 통째로 체크하면 <b>묶음</b>으로 보내고(예약 넵은 보낼 때 명단), 한 분이라도 빼면 남은 분 이름으로 풀립니다. 여러 부서에 계신 분은 어디서나 같이 체크됩니다. 찾는 동안에는 「전체」·「모두」 칸이 숨습니다(찾아서 안 보이는 분까지 들어가지 않게). 연락처는 싣지 않습니다. 첨부는 3개까지, 하나에 20MB. 긴급은 수업 중에도 바로 울리고 이번 달 남은 횟수가 보입니다. 화면 속 이름은 예시입니다.</span>" },
+    screens: [shot("nep-org"), shot("nep-org-open"), shot("nep-org-picked"), shot("nep-org-groups"), shot("nep-org-search"), shot("nep-compose"), shot("nep-plus"), shot("nep-big")],
+    lt: { tag: "NEW", title: "조직도에서 보내기", sub: "이름 = 그분과의 방 · 칸 체크 = 여러 분께" },
+    notes: "여러 분께 보낼 때는 조직도에서 <b>체크</b>합니다. 부서 카드를 펼치면 한 분씩 보이고, <b>이름을 누르면 그분과의 방</b>, 오른쪽 칸을 누르면 체크입니다. 체크하면 아래에 남색 막대 「3명에게 쓰기」가 뜹니다. 카드 머리 칸을 누르면 부서·교과·부장단·교과 주임단을 통째로 고릅니다. 찾기는 돋보기에서 이름이나 초성으로. 쓰기 창에는 <b>제목 칸이 없고 첫 줄이 제목</b>이 됩니다. + 를 누르면 사진·파일, 넵 받기·완료 받기·파일 받기, 보낼 시각, 긴급을 고릅니다. <b>20명 넘게</b> 보내거나 학년 담임이 들어가면 보내기 전에 한 번 더 묻습니다 — 보낸 뒤에는 알림을 거둘 수 없어서입니다."
   });
 
   practice({
-    id: "p7", part: 4, num: 10, label: "실습 10 · 받은 넵 처리", min: 2, practiceMin: 2,
-    chips: [{ t: "실습 10 · 넵" }, { t: "옆 선생님과", c: "ghost" }], title: "받은 넵은 <em>오늘 할 일</em>처럼",
+    id: "p7", part: 4, num: 10, label: "실습 10 · 선생님별 방에서 처리·답장", min: 2, practiceMin: 2,
+    chips: [{ t: "실습 10 · 넵" }, { t: "옆 선생님과", c: "ghost" }], title: "받은 넵은 <em>선생님별 방</em>에서",
     steps: [
-      { t: '<span class="q">「처리할 것」</span>이 마감 가까운 순. 「지남·오늘·내일」 띠', s: 0, r: R("nep-inbox", "todo") },
-      { t: '확인요청은 목록에서 바로 <span class="k">넵</span> → 처리함으로', s: 0, r: R("nep-inbox", "ackButton"), z: 1.9 },
-      { t: '업무·제출은 열어서 내용 확인 → 아래 <span class="k">완료</span>', s: 1, r: R("nep-detail-recv", "done") },
-      { t: '보낸 넵은 <span class="q">「보낸 넵함」</span>: 진행 막대·마감·미처리 수', s: 2, r: R("nep-sent", "firstActive") },
-      { t: '<span class="q">「아직 N명」</span> → <span class="k">N명에게 다시 알림</span>', s: 3, r: R("nep-detail-sent-board", "remind") },
-      { t: '제출요청은 <span class="k">모두 받기</span>로 파일을 한 번에', s: 3, r: R("nep-detail-sent-board", "downloadAll"), z: 1.9 }
+      { t: '<span class="q">「받은」</span>: 보낸 분마다 한 줄, <b>안 읽은 수</b>와 처리할 칩', g: '<span class="q">「받은」</span>: 보낸 선생님마다 한 줄. 마지막 글·시각, <b>안 읽은 수</b>(주황 숫자·아바타 주황 고리)와 처리할 칩 <span class="q">「넵 받기 1」</span>', s: 0, r: R("nep-inbox", "row") },
+      { t: '마감이 오늘이거나 지났으면 칩이 <b>주황</b> <span class="q">「완료 받기 1」</span>', s: 1, r: R("nep-inbox-2", "parkChip"), z: 1.9 },
+      { t: '방을 열면 왼쪽 카드: 본문·첨부·<span class="q">「✔ 완료 받기 · 오늘 16:30까지」</span>', s: 2, r: R("nep-room", "card") },
+      { t: '카드 안 <span class="k">완료</span> → 초록 <span class="q">「완료함 ✓」</span>', g: '카드 안 <span class="k">완료</span> → 초록 <span class="q">「완료함 ✓」</span>(넵 받기는 <span class="k">넵</span>, 파일 받기는 <span class="k">제출</span>)', s: 3, r: R("nep-room-done", "done"), z: 1.9 },
+      { t: '아래 칸에 쓰면 <b>그 선생님 한 분께 답장</b> — 오른쪽 남색 말풍선', s: 4, r: R("nep-room-reply", "input") },
+      { t: '<span class="q">「보낸」</span>: 「4/9 완료」·「읽음 1」·「내일 08:00 도착」', s: 5, r: R("nep-sent", "progress") },
+      { t: '눌러 현황판: <span class="q">「아직 5명」</span> → <span class="k">5명에게 다시 알림</span>', s: 6, r: R("nep-board", "remind") },
+      { t: '아래 <span class="q">「답장 2」</span>: 받은 답장을 모아 봅니다', s: 7, r: R("nep-board-replies", "replies") }
     ],
-    note: { html: "<span>옆 선생님과 확인요청을 주고받아 보세요. 받은 쪽은 <b>목록에서 [넵]</b>, 보낸 쪽은 <b>보낸 넵함</b>에서 막대가 차는 걸 봅니다.</span>" },
-    screens: [shot("nep-inbox"), shot("nep-detail-recv"), shot("nep-sent"), shot("nep-detail-sent-board")],
-    notes: "받은 넵함은 <b>오늘 할 일</b>처럼 묶입니다: 처리할 것(마감 가까운 순) · 새 알림 · 처리함(접힘). <b>확인요청은 목록에서 바로 [넵]</b>, 업무·제출은 열어서 내용을 보고 [완료]·[제출]. 보낸 넵함은 보낼 예정 · 진행 중 · 끝난 것으로 나뉘고, 진행 중인 넵은 처리 막대와 「미처리 N명」이 보입니다. 열어서 「아직 N명」 이름을 보고 다시 알림(하루 한 번)을 보내고, 제출요청은 「모두 받기」로 파일을 zip 하나로 받습니다."
+    sub: "옆 선생님 이름을 눌러 방을 열고 넵 받기를 주고받아 보세요 · 넘기면 타이머가 갑니다",
+    gnote: { html: "<span><b>실습</b>: 옆 선생님 이름을 눌러 방을 열고 넵 받기를 주고받아 보세요. 방을 열면 그 방의 메시지가 <b>모두 읽음</b>이 됩니다. 전체 공지도 <b>보낸 선생님 방</b>에 카드로 들어옵니다(단체방은 없어요). 답장은 <b>원래 보낸 분 한 분께만</b> 가고, 첨부는 되지만 답 받기·예약·긴급은 없습니다. 메시지에도 [넵]이 있어 누르면 보낸 분 현황에 「넵」으로 셉니다. 파일 받기는 현황판 「제출 N명」 옆 <b>모두 받기</b>로 zip 하나. 글 속 주소는 <b>링크 카드 「열기」</b>로 보입니다. 넵 글은 학년도 끝(2월 말)까지, 첨부 파일은 닫힌 지 90일 뒤 지워집니다.</span>" },
+    screens: [shot("nep-inbox"), shot("nep-inbox-2"), shot("nep-room"), shot("nep-room-done"), shot("nep-room-reply"), shot("nep-sent"), shot("nep-board"), shot("nep-board-replies")],
+    notes: "받은 탭은 메신저 대화 목록과 같습니다. <b>보낸 선생님마다 한 줄</b>이고, 안 읽은 것이 있으면 주황 숫자와 아바타 둘레 주황 고리가 보입니다. 처리할 것이 있으면 「넵 받기 1」「완료 받기 1」 칩이 붙고, 마감이 오늘이거나 지났으면 칩이 주황입니다. 줄을 누르면 그 선생님과의 방 — 왼쪽은 받은 카드, 오른쪽 남색 말풍선은 내가 그분께 보낸 것입니다. 카드 안 [완료]를 누르면 「완료함 ✓」. <b>아래 칸에 쓰면 그 선생님 한 분께만 답장</b>이 갑니다. 전체 공지에 답장해도 모두에게 가지 않습니다. 보낸 탭에서는 「4/9 완료」처럼 숫자로 보이고, 눌러서 「아직 5명」에게 다시 알림을 보내거나 받은 답장을 모아 봅니다."
+  });
+
+  practice({
+    id: "nepMore", deck: false, part: 4, num: null, label: "넵 더 알아 두기", min: 0.8,
+    chips: [{ t: "둘러보기" }], title: "링크 카드 · 모두 받기 · <em>예약과 긴급</em>",
+    steps: [
+      { t: '글 속 주소는 <b>링크 카드</b> — <span class="k">열기</span>로 앱 안에서', s: 0, r: R("nep-link", "link") },
+      { t: '메시지에도 <span class="k">넵</span>: 누르면 보낸 분 현황에 「넵」으로 셉니다', s: 0, r: R("nep-link", "ack"), z: 1.9 },
+      { t: '파일 받기 현황판 「제출 7명」 옆 <span class="k">모두 받기</span> — 파일을 zip 하나로', s: 1, r: R("nep-board-submit", "downloadAll"), z: 1.9 },
+      { t: '<span class="k">+</span> → <span class="q">「보낼 시각」</span>: 정한 때에 보냅니다(그 전엔 보낸 탭 「○○ 도착」)', s: 2, r: R("nep-plus", "schedule") },
+      { t: '<span class="q">「긴급」</span>: 수업 중에도 바로 울립니다 · 이번 달 남은 횟수', s: 2, r: R("nep-plus", "urgent"), warn: "긴급은 받는 분 수업 중에도 바로 울려요" },
+      { t: '답 받기 이름표를 누르면 <b>마감</b> 칸 — 날짜·시각을 고칩니다(넵 받기는 비워도 돼요)', s: 3, r: R("nep-compose-due", "due"), z: 1.9 }
+    ],
+    gnote: { html: "<span>보낸 넵 현황판에서 지우기는 맨 아래 「이 넵 삭제」(보낸 분·관리자). 「모두 받기」는 「이름_원래파일명」으로 묶고, 글로 낸 것은 「제출한 글.txt」 하나로 넣습니다.</span>" },
+    screens: [shot("nep-link"), shot("nep-board-submit"), shot("nep-plus"), shot("nep-compose-due")],
+    notes: "넵에서 더 알아 두실 것들입니다. 글에 주소를 넣으면 받는 분 화면에 링크 카드로 보이고, 「열기」로 앱 안에서 엽니다. 파일 받기 현황판의 「모두 받기」는 낸 파일을 zip 하나로 받습니다. 「보낼 시각」은 예약, 「긴급」은 수업 중에도 바로 울리며 한 달 횟수가 정해져 있습니다."
+  });
+
+  practice({
+    id: "nepRecruit", part: 4, num: null, label: "보강 모집 넵에 [신청]", min: 0.6, isNew: true,
+    chips: [{ t: "NEW", c: "new" }, { t: "둘러보기", c: "ghost" }], title: "보강 모집은 <em>[신청]</em> 한 번",
+    steps: [
+      { t: '교무부가 보강 희망자를 모으면 <b>그 교시 공강인 분께만</b> 모집 넵', s: 0, r: R("nep-inbox", "recruit") },
+      { t: '카드의 <span class="k">신청</span> 한 번 — 교시가 시작되면 마감', s: 1, r: R("nep-recruit", "apply"), z: 1.9 },
+      { t: '신청하면 <span class="q">「신청함 · 2번째」</span>, 승인되면 「확정되었습니다」', s: 1, r: R("nep-recruit", "oldState"), z: 1.9 },
+      { t: '<b>교무부</b>는 AI에게 「○○ 선생님 내일 출장, 5·7교시 보강 희망자 받아 줘」', s: 2, r: R("ai-recruit", "card") },
+      { t: '사유는 고르기만 — <b>넵에는 사유·선생님 이름이 실리지 않아요</b>', s: 2, r: R("ai-recruit", "reason"), z: 1.9 },
+      { t: '수업교체 → 제출함 <span class="q">「보강 모집」</span>에서 신청 순서대로 보고 승인', s: 3, r: [16, 192, 380, 42], z: 1.9 }
+    ],
+    gnote: { html: "<span>모집 넵은 「10/22(목) 5교시 2-7반 과학 보강 희망자」처럼 <b>날짜·교시·반·과목만</b> 싣습니다. 신청은 모집한 분께 알림이 가고, 「신청 취소」도 됩니다. 교무부가 승인하거나 공강인 분을 직접 지정하면 교무부 직접 등록과 같은 수업교체 기록이 되어 <b>시간표·빼꼼·알림에 저절로</b> 반영됩니다.</span>" },
+    screens: [shot("nep-inbox"), shot("nep-recruit"), shot("ai-recruit"), shot("sub-inbox")],
+    lt: { tag: "NEW", title: "보강 모집", sub: "공강인 분께만 · [신청] 한 번 · 사유와 이름은 싣지 않아요" },
+    notes: "새로 생긴 <b>보강 모집</b>입니다. 교무부가 보강할 분을 모을 때, 그 교시에 <b>공강인 선생님께만</b> 모집 넵이 갑니다. 카드의 [신청]을 한 번 누르면 「신청함 · 몇 번째」가 되고, 교무부가 신청 순서대로 보고 승인하면 「확정되었습니다」로 바뀝니다. 교시가 시작되면 신청이 마감됩니다. 넵에는 <b>결근 사유와 선생님 이름이 실리지 않습니다</b>. 교무부는 AI에게 말로 모집 카드를 만들고, 수업교체 제출함의 「보강 모집」에서 승인합니다."
   });
 
   aiWay({
     id: "aiNep", part: 4, label: "AI로 하면 · 넵 초안", min: 1,
     title: "넵도 <em>말로 쓰고</em>, 보내기는 직접",
-    menu: "넵 → + 넵 보내기 → 받는 사람·종류·제목·본문·마감",
+    menu: "넵 → 조직도에서 체크 → N명에게 쓰기 → + 파일 받기 · 마감",
     say: "2학년 담임 선생님들께 상담 기록 금요일까지 내 달라고 넵 보내 줘",
     lt: { tag: "AI로 하면", title: "「2학년 담임께 상담 기록, 넵 보내 줘」", sub: "AI는 보내지 않아요 · 넵 보내기는 선생님이", tone: "ai" },
     steps: [
-      { t: '메뉴로는 <span class="k">+ 넵 보내기</span>에서 받는 사람·종류·제목·마감을 하나씩', s: 0, r: R("nep-me-new", "kind") },
+      { t: '메뉴로는 조직도에서 체크 → 쓰기 창 → <span class="k">+</span> 「파일 받기」·마감', s: 0, r: R("nep-compose", "text") },
       { t: 'AI에게: <span class="q">「2학년 담임 선생님들께 상담 기록 금요일까지 내 달라고 넵 보내 줘」</span>', s: 1, r: R("ai-nep", "question") },
-      { t: '<span class="q">「넵 초안 · 제출요청」</span>: 제목·본문·마감까지', s: 1, r: [16, 298, 380, 300] },
+      { t: '<span class="q">「넵 초안 · 파일 받기」</span>: 제목·본문·마감까지', s: 1, r: [16, 298, 380, 300] },
       { t: '받는 사람은 말한 대로 <b>2학년부 9명</b>, 이름까지 확인', s: 1, r: R("ai-nep", "people") },
-      { t: 'AI는 보내지 않아요. <span class="k">넵 보내기</span>는 선생님이', s: 1, r: [31, 712, 350, 52], warn: "누르면 받는 분들께 실제로 넵이 갑니다" }
+      { t: 'AI는 보내지 않아요. <span class="k">넵 보내기</span>는 선생님이', s: 1, r: R("ai-nep", "button"), warn: "누르면 받는 분들께 실제로 넵이 갑니다" }
     ],
-    gnote: { html: "<span>마감 시각을 말하지 않으면 16:30처럼 그럴듯한 값을 넣고 그렇게 넣었다고 밝힙니다. 알림은 넵 화면처럼 받는 분의 수업·근무 시간을 피해 갑니다. 긴급·예약 보내기·첨부 파일은 넵 화면에서 합니다.</span>" },
-    screens: [shot("nep-me-new"), shot("ai-nep")],
-    notes: "넵도 <b>메뉴로 한 번, AI로 한 번</b>입니다. 메뉴로는 받는 사람을 고르고 종류·제목·본문·마감을 적습니다. AI에게 「2학년 담임 선생님들께 상담 기록 금요일까지 내 달라고 넵 보내 줘」라고 하면 종류(제출요청)·제목·본문·마감이 채워진 <b>넵 초안</b> 카드가 뜨고, 받는 사람은 말한 대로 2학년부 담임으로 맞춰집니다. <b>AI는 넵을 바로 보내지 않습니다</b> — 이름까지 확인하고 「넵 보내기」는 선생님이 누릅니다."
+    gnote: { html: "<span>마감 시각을 말하지 않으면 16:30처럼 그럴듯한 값을 넣고 그렇게 넣었다고 밝힙니다. 넵은 넵 화면처럼 받는 분의 수업·근무 시간을 피해 갑니다. 긴급·예약 보내기·첨부 파일은 넵 화면에서 합니다. 「내게 온 넵 중 아직 안 한 것」처럼 <b>넵 현황을 묻는 것</b>도 됩니다.</span>" },
+    screens: [shot("nep-compose"), shot("ai-nep")],
+    notes: "넵도 <b>메뉴로 한 번, AI로 한 번</b>입니다. 메뉴로는 조직도에서 받는 분을 체크하고, 쓰기 창에서 + 「파일 받기」와 마감을 고릅니다. AI에게 「2학년 담임 선생님들께 상담 기록 금요일까지 내 달라고 넵 보내 줘」라고 하면 종류(파일 받기)·제목·본문·마감이 채워진 <b>넵 초안</b> 카드가 뜨고, 받는 사람은 말한 대로 2학년부 담임으로 맞춰집니다. <b>AI는 넵을 바로 보내지 않습니다</b> — 이름까지 확인하고 「넵 보내기」는 선생님이 누릅니다."
   });
 
   // ════════════════════════════════════════════════════════════
@@ -1412,10 +1550,10 @@
 
   D.add({
     id: "boardTV", part: 7, label: "교실 칠판에는 이렇게", kind: "light", min: 1.2, isNew: true,
-    notes: "교실 칠판에는 이렇게 뜹니다. 평소엔 <b>반 이름과 큰 시계</b>, 그 아래 <b>분실물 띠</b>(보관 중인 물건 사진과 찾으러 갈 곳, 학생용 QR — 특징은 안 나옴). 안내는 사진이 위에 크게, 글은 아래. 아침 <b>8시 45분</b>에는 수업이 바뀐 반 칠판 귀퉁이에 「오늘 바뀐 수업」 쪽지가 저절로 붙습니다(사유 없이 교시·과목·교실만). 긴급은 빨간 전체 화면, 음성 안내에는 [다시 듣기]. 칠판 창 프로그램이 깔린 교실은 <b>수업 시작 30초 뒤 칠판이 저절로 숨고</b>, 수업 중에 온 안내는 구석 포스트잇으로만 뜹니다(마지막 그림은 이해를 돕는 합성 그림입니다).",
+    notes: "교실 칠판에는 이렇게 뜹니다. 평소엔 <b>반 이름과 큰 시계</b>. <b>점심시간</b>에는 그 아래 <b>분실물 띠</b>가 붙어 보관 중인 물건 사진이 옆으로 흘러가고, 찾으러 갈 교무실이 크게 보입니다(특징은 안 나옴, QR은 띠에서 빼고 교실에 인쇄해 붙입니다). 안내는 사진이 위에 크게, 글은 아래. 아침 <b>8시 45분</b>에는 수업이 바뀐 반 칠판 귀퉁이에 「오늘 바뀐 수업」 쪽지가 저절로 붙습니다(사유 없이 교시·과목·교실만). 긴급은 빨간 전체 화면, 음성 안내에는 [다시 듣기]. 칠판 창 프로그램이 깔린 교실은 <b>수업 시작 30초 뒤 칠판이 저절로 숨고</b>, 수업 중에 온 안내는 구석 포스트잇으로만 뜹니다(마지막 그림은 이해를 돕는 합성 그림입니다).",
     html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip ghost">교실 칠판</span></div><h2 class="title" style="width:860px">교실 칠판에는 <em>이렇게</em> 뜹니다</h2>' +
-      '<ol class="steps bt">' + [["평소", "반 이름·큰 시계, 아래 분실물 띠"], ["안내", "사진은 위에 크게, 글은 아래"], ["8:45 쪽지", "수업이 바뀐 반에 「오늘 바뀐 수업」"], ["긴급", "빨간 전체 화면과 경보음"], ["음성", "「띵」 뒤 두 번, [다시 듣기]"], ["수업 중", "30초 뒤 숨고, 안내는 구석 포스트잇"]].map(function (x) { return "<li><span><b>" + x[0] + "</b> · " + x[1] + "</span></li>"; }).join("") + "</ol>" +
-      '<div class="abs tv"><div class="in">' + ["idle", "notice-photo", "memo", "alert", "voice", "inclass-composite"].map(function (n) { return '<img src="img/board/' + n + '.jpg" alt="">'; }).join("") + "</div></div>" +
+      '<ol class="steps bt">' + [["점심시간", "큰 시계 아래 분실물 띠(사진이 흘러가요)"], ["안내", "사진은 위에 크게, 글은 아래"], ["8:45 쪽지", "수업이 바뀐 반에 「오늘 바뀐 수업」"], ["긴급", "빨간 전체 화면과 경보음"], ["음성", "「띵」 뒤 두 번, [다시 듣기]"], ["수업 중", "30초 뒤 숨고, 안내는 구석 포스트잇"]].map(function (x) { return "<li><span><b>" + x[0] + "</b> · " + x[1] + "</span></li>"; }).join("") + "</ol>" +
+      '<div class="abs tv"><div class="in">' + ["lunch", "notice-photo", "memo", "alert", "voice", "inclass-composite"].map(function (n) { return '<img src="img/board/' + n + '.jpg" alt="">'; }).join("") + "</div></div>" +
       '<p class="abs tv-note">마지막 그림은 이해를 돕는 합성 그림 · 반·이름은 예시</p>',
     build: function (el, A) {
       var imgs = A.$$(".tv img"), lis = A.$$(".steps.bt li"), cur = -1;
@@ -1478,12 +1616,13 @@
       { t: '더보기 → <span class="k">분실물 함</span>: 사진이 물 위에 뜬 듯 <b>둥둥</b>', s: 0, r: R("lost-found", "box") },
       { t: '<span class="k">분실물 넣기</span>: 사진 한 장·종류·발견 장소. 보관 장소는 <b>지난번 적은 곳</b>이 미리 들어감', s: 1, r: R("lost-found-add", "place") },
       { t: '사진을 누르면 상세 → <span class="k">주인에게 돌려줬어요</span>', s: 2, r: R("lost-found-detail", "back") },
-      { t: '학생은 <b>교실 칠판의 분실물 띠</b>(QR)와 <span class="k">학생용 보기</span>로', s: 3, r: R("lost-found-2", "note") },
-      { t: '학생 화면엔 사진·장소·<span class="q">「찾으러 갈 곳」</span>만 — <b>특징은 안 보임</b>', s: 4, r: R("found", "first") }
+      { t: '학생은 <b>점심시간 교실 칠판의 분실물 띠</b>와 <span class="k">학생용 보기</span>(교실에 붙인 QR)로', s: 3, r: R("lost-found-2", "note") },
+      { t: '학생용 보기도 <b>떠다니는 함</b>(보기만) — 누르면 사진·장소·<span class="q">「찾으러 갈 곳」</span>만, <b>특징은 안 보임</b>', s: 4, r: [16, 112, 380, 680] },
+      { t: '<span class="aib">AI로도</span> 사진을 붙이고 「2층 복도에서 주웠어요, 분실물로 올려 줘」 → <span class="k">함에 넣기</span>', g: '<b>AI로도</b>: 물건 사진을 📎로 붙이고 「2층 복도 정수기 옆에서 주웠어요, 분실물로 올려 줘」 → 종류·특징은 사진을 보고, 발견 장소는 말에서 채운 카드 → <span class="k">함에 넣기</span>. 「분실물 함에 우산 있어?」 「○○ 돌려줬어」도 됩니다', s: 5, r: R("ai-lost", "card") }
     ],
     gnote: { html: "<span>사진에는 학생 얼굴·이름표가 나오지 않게 물건만 찍어 주세요. <b>특징 칸</b>은 주인 확인용이라 학생 화면·칠판에는 나오지 않습니다 — 찾으러 온 학생에게 특징을 물어보고 돌려주세요. 휴대폰을 기울이면 사진이 그쪽으로 흘러갑니다.</span>" },
-    screens: [shot("lost-found"), shot("lost-found-add"), shot("lost-found-detail"), shot("lost-found-2"), shot("found")],
-    notes: "<b>분실물 함</b>은 10월 17일부터 모두에게 열렸습니다. 사진이 물 위에 뜬 것처럼 떠다니고, 휴대폰을 기울이면 그쪽으로 흘러갑니다. 넣을 때는 사진 한 장과 종류·발견 장소, 보관 장소는 <b>선생님이 계신 교무실</b> — 한 번 적으면 다음부터 미리 들어갑니다. 돌려주면 「주인에게 돌려줬어요」. 학생들은 <b>교실 칠판 대기 화면 아래 분실물 띠</b>와 QR(학생용 보기)로 사진과 찾으러 갈 곳을 봅니다. 로그인 없이 열리지만 <b>특징 칸과 선생님 이름은 싣지 않으니</b>, 찾으러 온 학생에게 특징을 물어 확인하고 돌려주시면 됩니다."
+    screens: [shot("lost-found"), shot("lost-found-add"), shot("lost-found-detail"), shot("lost-found-2"), shot("found"), shot("ai-lost")],
+    notes: "<b>분실물 함</b>은 10월 17일부터 모두에게 열렸습니다. 사진이 물 위에 뜬 것처럼 떠다니고, 휴대폰을 기울이면 그쪽으로 흘러갑니다. 넣을 때는 사진 한 장과 종류·발견 장소, 보관 장소는 <b>선생님이 계신 교무실</b> — 한 번 적으면 다음부터 미리 들어갑니다. 돌려주면 「주인에게 돌려줬어요」. 학생들은 <b>점심시간에 교실 칠판 아래 분실물 띠</b>와, 교실에 붙인 QR(학생용 보기 — 선생님 화면과 같은 떠다니는 함, 보기만)으로 사진과 찾으러 갈 곳을 봅니다. <b>AI에게 사진을 붙이고 「분실물로 올려 줘」</b>라고 해도 카드로 넣을 수 있습니다. 로그인 없이 열리지만 <b>특징 칸과 선생님 이름은 싣지 않으니</b>, 찾으러 온 학생에게 특징을 물어 확인하고 돌려주시면 됩니다."
   });
 
   practice({
@@ -1517,10 +1656,10 @@
     }
   });
 
-  var DONE = [["로그인·앱 설치", 0], ["알림 켜기·알림함", 0], ["AI에게 첫 부탁", 1], ["가정통신문·수리를 말로", 1], ["시간표·진도 모두 저장", 0], ["AI로 수업교체·넵 초안", 1], ["넵 보내고 처리", 0], ["내 서명·AI로 서명부", 1], ["학습지·과세특 초안", 1], ["칠판 보내기·AI로 양식 찾기", 1]];
+  var DONE = [["로그인·앱 설치", 0], ["알림 켜기·알림함", 0], ["AI에게 첫 부탁", 1], ["가정통신문·수리를 말로", 1], ["진도 모두 저장·도장판", 0], ["AI로 진도·수업교체·넵 초안", 1], ["넵 조직도·선생님별 방", 0], ["내 서명·AI로 서명부", 1], ["학습지·과세특 초안", 1], ["칠판 보내기·AI로 양식 찾기", 1]];
 
   D.add({
-    id: "closing", part: 8, label: "마무리 · 질문", kind: "dark", min: 3, trans: "whip", bgm: "end",
+    id: "closing", part: 8, label: "마무리 · 질문", kind: "dark", min: 2.6, trans: "whip", bgm: "end",
     notes: "오늘 해 본 열 가지를 짚고 질문을 받습니다. 보라색은 AI로 해 본 것입니다. <b>알림을 아직 못 켜신 분은 지금 바로</b> 도와드리겠다고 말씀하세요. 내일은 열 문장 가운데 <b>하나만 골라 AI에게 부탁</b>해 보시라고 권합니다. 막히거나 궁금한 점은 언제든 <b>교목실</b>로 오시면 됩니다. 수고 많으셨습니다.",
     html: darkBg("closing") +
       '<h2 class="abs cl-title"><span class="ln">내일은, AI에게</span><span class="ln"><em>말로</em> 부탁해 보세요</span></h2>' +
