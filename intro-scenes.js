@@ -100,7 +100,8 @@
   .sk .bx .ch span{padding:5px 12px;border-radius:999px;background:var(--paper);border:1px solid var(--line);font:600 17px var(--body);color:var(--ink)}
   .sk .core{left:600px;top:150px;width:480px;height:320px;border:3px solid var(--brand);box-shadow:0 0 0 6px rgba(41,92,158,.12),0 24px 60px rgba(41,92,158,.18)}
   .sk .core h3{font-size:40px}
-  .sk .wire{position:absolute;height:4px;background:repeating-linear-gradient(90deg,var(--brand) 0 16px,transparent 16px 26px);transform-origin:left}
+  .sk .wire-w{position:absolute;width:0;height:4px;transform-origin:0 50%}
+  .sk .wire{position:absolute;left:0;top:0;height:4px;background:repeating-linear-gradient(90deg,var(--brand) 0 16px,transparent 16px 26px);transform-origin:left}
 
   .ls{left:120px;top:300px;width:1680px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .ls .c{padding:32px 34px;display:flex;flex-direction:column;gap:14px;min-height:250px}
@@ -827,13 +828,24 @@
       '<div class="card bx" style="left:1210px;top:150px;width:470px"><h3>학교 자료</h3><p>구글 캘린더(학사일정)·공유 드라이브(읽기 전용)·주간소식 PDF</p></div>' +
       '<div class="card bx" style="left:1210px;top:320px;width:470px"><h3>공공 데이터</h3><p>NEIS 급식·기상청 날씨·에어코리아 미세먼지</p></div>' +
       '<div class="card bx" style="left:1210px;top:470px;width:470px"><h3>Claude AI</h3><p>도우미·요약 — 매일 일은 가벼운 모델, 깊게 생각하기는 하루 5번</p></div>' +
-      '<i class="wire" style="left:470px;top:110px;width:130px;transform:rotate(18deg)"></i><i class="wire" style="left:470px;top:420px;width:130px;transform:rotate(-18deg)"></i>' +
-      '<i class="wire" style="left:1080px;top:250px;width:130px;transform:rotate(-22deg)"></i><i class="wire" style="left:1080px;top:300px;width:130px;transform:rotate(-4deg)"></i><i class="wire" style="left:1080px;top:350px;width:130px;transform:rotate(14deg)"></i><i class="wire" style="left:1080px;top:400px;width:130px;transform:rotate(36deg)"></i>' +
+      // 점선은 그린 뒤에 상자 자리를 재서 잇는다(회전은 바깥 칸에, 그어지는 움직임은 안쪽 칸에)
+      '<i class="wire-w"><i class="wire"></i></i>'.repeat(6) +
       "</div>",
     build: function (el, A) {
       return [function (A) {
         A.wipe(".chiprow > *");
         A.kinetic(".title", { delay: 100, each: 22 });
+        // 왼쪽 두 상자 → 가운데 왼쪽 변, 가운데 오른쪽 변 → 오른쪽 네 상자(상자 가운데 높이로)
+        var bx = A.$$(".sk .bx:not(.core)"), core = A.$(".sk .core"), ws = A.$$(".sk .wire-w");
+        function mid(b, side) { return { x: b.offsetLeft + (side === "r" ? b.offsetWidth : 0), y: b.offsetTop + b.offsetHeight / 2 }; }
+        function at(f, side) { return { x: core.offsetLeft + (side === "r" ? core.offsetWidth : 0), y: core.offsetTop + core.offsetHeight * f }; }
+        var gap = 10;
+        [[mid(bx[0], "r"), at(0.3, "l")], [mid(bx[1], "r"), at(0.7, "l")],
+         [at(0.2, "r"), mid(bx[2], "l")], [at(0.4, "r"), mid(bx[3], "l")], [at(0.6, "r"), mid(bx[4], "l")], [at(0.8, "r"), mid(bx[5], "l")]].forEach(function (p, i) {
+          var dx = p[1].x - p[0].x, dy = p[1].y - p[0].y, len = Math.sqrt(dx * dx + dy * dy) - gap * 2, a = Math.atan2(dy, dx);
+          ws[i].style.cssText = "left:" + (p[0].x + Math.cos(a) * gap) + "px;top:" + (p[0].y + Math.sin(a) * gap - 2) + "px;transform:rotate(" + a + "rad)";
+          ws[i].firstChild.style.width = len + "px";
+        });
         A.pop(".sk .core", { delay: 400, s: 0.8 });
         A.rise(".sk .bx:not(.core)", { delay: 700, each: 120, y: 24 });
         A.draw(".sk .wire", { delay: 1100, each: 90 });
