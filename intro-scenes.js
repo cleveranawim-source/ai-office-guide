@@ -15,7 +15,7 @@
     { n: 3, name: "함께 일하기", color: "#9fb3f0" },
     { n: 4, name: "수업", color: "#7fc8a9" },
     { n: 5, name: "학교 생활", color: "#f5a524" },
-    { n: 6, name: "지키는 것", color: "#e59a7a" },
+    { n: 6, name: "우리 학교에서도 하려면", color: "#e59a7a" },
     { n: 7, name: "마무리", color: "#8fd0ff" }
   ]);
 
@@ -83,28 +83,33 @@
   .dy .dot{position:absolute;top:248px;width:30px;height:30px;margin-left:-15px;border-radius:50%;background:#fff;border:6px solid var(--brand);box-shadow:0 6px 16px rgba(41,92,158,.3)}
   .dy .st .ch{align-self:flex-start;padding:3px 12px;border-radius:999px;background:var(--brand-tint);color:var(--brand-deep);font:700 16px var(--body)}
 
-  .pr{left:120px;top:300px;width:1680px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .pr .c{padding:30px 28px 32px;display:flex;flex-direction:column;gap:14px}
+  .lead6{left:120px;top:252px;width:1680px;font:500 28px/1.45 var(--body);color:var(--muted)}
+  .lead6 b{color:var(--ink)}
+  .pr{left:120px;top:336px;width:1680px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .pr .c{position:relative;padding:32px 30px 34px;display:flex;flex-direction:column;gap:16px;min-height:420px}
   .pr .tg{align-self:flex-start;padding:6px 16px;border-radius:999px;font:700 20px var(--body);background:var(--brand-tint);color:var(--brand-deep)}
-  .pr h3{font:800 34px/1.25 var(--display);letter-spacing:-.02em}
-  .pr ul{display:grid;gap:12px}
-  .pr li{position:relative;padding-left:26px;font:500 23px/1.5 var(--body);color:var(--muted)}
+  .pr .no{position:absolute;right:28px;top:24px;font:600 44px var(--mono);color:var(--line)}
+  .pr h3{font:800 40px/1.25 var(--display);letter-spacing:-.025em;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  .pr ul{display:grid;gap:14px}
+  .pr li{position:relative;padding-left:26px;font:500 25px/1.5 var(--body);color:var(--muted)}
   .pr li::before{content:"";position:absolute;left:4px;top:.62em;width:10px;height:10px;border-radius:50%;background:var(--brand)}
   .pr li b{color:var(--ink)}
 
-  .sk{left:120px;top:300px;width:1680px;height:620px}
-  .sk .bx{position:absolute;padding:24px 28px;display:flex;flex-direction:column;gap:8px}
-  .sk .bx h3{font:800 30px var(--display);letter-spacing:-.02em}
-  .sk .bx p{font:500 20px/1.45 var(--body);color:var(--muted)}
-  .sk .bx .ch{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-  .sk .bx .ch span{padding:5px 12px;border-radius:999px;background:var(--paper);border:1px solid var(--line);font:600 17px var(--body);color:var(--ink)}
-  .sk .core{left:600px;top:150px;width:480px;height:320px;border:3px solid var(--brand);box-shadow:0 0 0 6px rgba(41,92,158,.12),0 24px 60px rgba(41,92,158,.18)}
-  .sk .core h3{font-size:40px}
-  .sk .wire-w{position:absolute;width:0;height:4px;transform-origin:0 50%}
-  .sk .wire{position:absolute;left:0;top:0;height:4px;background:repeating-linear-gradient(90deg,var(--brand) 0 16px,transparent 16px 26px);transform-origin:left}
+  .need{left:120px;top:340px;width:1680px;display:grid;grid-template-columns:repeat(3,1fr);gap:72px}
+  .need .c{position:relative;padding:36px 36px 34px;display:flex;flex-direction:column;gap:14px;min-height:430px}
+  .need .nn{width:72px;height:72px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font:600 36px var(--mono)}
+  .need h3{font:800 40px var(--display);letter-spacing:-.02em}
+  .need p{font:500 25px/1.5 var(--body);color:var(--muted)}
+  .need p b{color:var(--ink)}
+  .need .ch{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+  .need .ch span{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);font:600 19px var(--body);color:var(--ink)}
+  .need .plus{position:absolute;top:180px;width:72px;height:72px;display:grid;place-items:center;font:800 60px/1 var(--display);font-style:normal;color:var(--brand)}
+  .need-foot{left:120px;top:868px;width:1680px;display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;font:500 20px var(--body);color:var(--muted)}
+  .need-foot b{font:700 17px var(--mono);letter-spacing:.08em;color:var(--faint);margin-right:6px}
+  .need-foot span{padding:5px 12px;border-radius:8px;background:rgba(41,92,158,.07)}
 
-  .ls{left:120px;top:300px;width:1680px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .ls .c{padding:32px 34px;display:flex;flex-direction:column;gap:14px;min-height:250px}
+  .ls{left:120px;top:332px;width:1680px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .ls .c{padding:30px 34px;display:flex;flex-direction:column;gap:14px;min-height:236px}
   .ls q{font:800 32px/1.4 var(--display);letter-spacing:-.02em;quotes:"“" "”"}
   .ls q::before{content:open-quote;color:var(--brand)}
   .ls q::after{content:close-quote;color:var(--brand)}
@@ -204,7 +209,7 @@
         '<h2 class="op-title">' + o.lines.map(function (l) { return '<span class="ln">' + l + "</span>"; }).join("") + "</h2>" +
         '<div class="op-ba"><div class="row was"><span class="lbl">전에는</span><span class="txt">' + o.was + '<i class="strike"></i></span></div>' +
         '<div class="row now"><span class="lbl">이제는</span><span class="txt">' + o.now + '<i class="hl"></i></span></div></div>' +
-        '<p class="op-part">PART ' + String(o.part).padStart(2, "0") + " / 06</p>",
+        '<p class="op-part">PART ' + String(o.part).padStart(2, "0") + " / 07</p>",
       build: function (el, A) {
         return [function (A) {
           var f = o.flip ? "scaleX(-1) " : "";
@@ -787,68 +792,62 @@
   });
 
   // ════════════════════════════════════════════════════════════
-  // 6 · 지키는 것
+  // 6 · 우리 학교에서도 하려면 — 먼저 정한 원칙 · 필요한 세 가지 · 매일 고치는 방식 · 정리
   // ════════════════════════════════════════════════════════════
   opener({
-    part: 6, art: "basics", lines: ["편리함보다", "<em>먼저 정한</em> 것들"],
-    was: "단체방에 사유·연락처·학생 정보가 그대로", now: "누가 무엇을 보는지 정하고, 화면과 데이터가 함께 지킨다",
-    notes: "학교 앱은 편리함보다 먼저 정해야 할 것이 있습니다. <b>누가 무엇을 보는지</b>입니다. 이 원칙을 화면에서만이 아니라 데이터베이스 권한에서도 함께 지킵니다."
+    part: 6, art: "basics", lines: ["우리 학교에서도", "<em>하려면</em>"],
+    was: "좋아 보이지만, 무엇부터 해야 할지 막막", now: "먼저 정한 원칙 · 필요한 세 가지 · 매일 고치는 방식",
+    notes: "여기서부터는 “우리 학교에서도 해 볼 수 있을까?”에 답합니다. 세 가지를 차례로 보여 드립니다. <b>먼저 정한 원칙</b>, 그리고 <b>필요한 것 세 가지</b>, 마지막으로 <b>어떻게 고쳐 왔는지</b>. 끝에 여섯 가지로 정리합니다."
   });
 
   var PRINC = [
-    ["사생활", "자리를 비우는 까닭은 본인만", ["출장·연수 같은 <b>사유는 그 선생님 일정·홈에만</b>", "빼꼼·학급 시간표의 교체는 <b>이름 없이 과목만</b>", "넵 마감·넵 속 일정은 <b>보낸 분·받는 분에게만</b>", "조직표는 <b>연락처를 읽지 않음</b>", "학생이 보는 분실물 화면엔 <b>특징·선생님 이름 없음</b>"]],
-    ["보안", "교직원만, 필요한 만큼만", ["학교가 만든 계정, 첫 로그인에 <b>비밀번호 바꾸기</b>", "데이터베이스가 <b>활동 중인 교직원만</b> 읽게(휴직은 자료실만)", "로그인 <b>틀린 횟수 제한</b>", "교실 칠판마다 다른 <b>32자리 열쇠</b>"]],
-    ["AI 원칙", "AI는 초안까지", ["보내기·등록·확정은 <b>늘 선생님이 누름</b>", "붙인 파일·드라이브 원문은 <b>저장하지 않음</b>", "답에 <b>바깥 링크·그림을 그리지 않음</b>(숨은 지시 막기)", "학생 이름·생기부 문장은 넣지 않도록 안내"]],
-    ["읽기 쉬움", "누구나 같은 정보를", ["글자 단계 <b>12·13·15·17</b>, 휴대폰 먼저", "흐린 글씨도 <b>대비 4.8 : 1 이상</b>", "화면 낭독기 <b>이름표·오류 알림</b>", "움직임 줄이기 설정을 따름"]]
+    ["사생활", "자리를 비우는 까닭은 본인만", ["출장·연수 사유는 <b>그 선생님 화면에만</b>", "다른 선생님 화면엔 <b>이름 없이 과목만</b>"]],
+    ["보안", "교직원만, 필요한 만큼만", ["학교가 만든 계정, <b>활동 중인 교직원만</b> 읽기", "교실 칠판마다 <b>다른 열쇠</b>"]],
+    ["AI", "AI는 초안까지", ["보내기·등록은 <b>늘 선생님이</b> 누름", "붙인 파일 원문은 <b>저장하지 않음</b>"]],
+    ["읽기 쉬움", "누구나 같은 정보를", ["휴대폰 먼저, 글자는 <b>네 단계로만</b>", "흐린 글씨도 <b>또렷하게</b>(대비 4.8 : 1 이상)"]]
   ];
   D.add({
-    id: "principles", part: 6, label: "네 가지 원칙", kind: "light", min: 2, tour: { title: "화면도, 데이터도 같은 원칙으로", html: '<div class="t-grid">' + PRINC.map(function (p) { return '<div class="t-box"><b>' + p[0] + " · " + p[1] + "</b><ul>" + p[2].map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul></div>"; }).join("") + "</div>" },
-    notes: "네 가지 원칙입니다. <b>사생활</b>: 수업 교체 사유처럼 민감한 것은 본인에게만, 다른 선생님 화면에는 과목만 보입니다. <b>보안</b>: 교직원 계정만, 데이터베이스가 행 단위로 막습니다. <b>AI</b>: 초안까지만, 누르는 건 사람. <b>읽기 쉬움</b>: 글자 크기와 대비를 기준을 정해 지킵니다.",
-    html: chips([{ t: "지키는 것" }]) + '<h2 class="title">화면도, 데이터도 <em>같은 원칙</em>으로</h2>' +
-      '<div class="abs pr">' + PRINC.map(function (p) { return '<div class="card c"><span class="tg">' + p[0] + "</span><h3>" + p[1] + "</h3><ul>" + p[2].map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul></div>"; }).join("") + "</div>",
+    id: "principles", part: 6, label: "먼저 정한 네 가지", kind: "light", min: 1.5,
+    tour: { title: "먼저 정한 네 가지 — 누가 무엇을 보는지부터", html: '<div class="t-grid">' + PRINC.map(function (p) { return '<div class="t-box"><b>' + p[0] + " · " + p[1] + "</b><ul>" + p[2].map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul></div>"; }).join("") + "</div>" },
+    notes: "기능보다 먼저 <b>누가 무엇을 보는지</b>를 정했습니다. <b>사생활</b> — 출장·연수 같은 사유는 그 선생님 본인의 일정·홈에만, 다른 선생님 화면에는 이름 없이 과목만. 넵 마감도 보낸 분·받는 분에게만, 조직표는 연락처를 읽지 않습니다. <b>보안</b> — 학교가 만든 계정만, 데이터베이스가 활동 중인 교직원만 읽게 막고, 로그인 틀린 횟수도 제한합니다. <b>AI</b> — 초안까지만, 누르는 건 사람. 붙인 파일 원문은 저장하지 않고 답에 바깥 링크를 그리지 않습니다. <b>읽기 쉬움</b> — 휴대폰 먼저, 글자 크기와 대비 기준을 정해 지킵니다. 중요한 점은 이 원칙을 <b>화면에서만이 아니라 데이터베이스 권한에서도</b> 함께 지킨다는 것입니다.",
+    html: chips([{ t: "우리 학교에서도" }, { t: "원칙", c: "ghost" }]) + '<h2 class="title">먼저 정한 <em>네 가지</em></h2>' +
+      '<p class="abs lead6">기능보다 먼저 <b>「누가 무엇을 보는지」</b>를 정했습니다 — 화면과 데이터베이스가 함께 지킵니다.</p>' +
+      '<div class="abs pr">' + PRINC.map(function (p, i) { return '<div class="card c"><span class="tg">' + p[0] + '</span><span class="no">0' + (i + 1) + "</span><h3>" + p[1] + "</h3><ul>" + p[2].map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul></div>"; }).join("") + "</div>",
     build: function (el, A) {
       return [function (A) {
-        A.wipe(".chiprow > *");
-        A.kinetic(".title", { delay: 100, each: 22 });
-        A.rise(".pr .c", { delay: 450, each: 150, y: 40 });
-        A.rise(".pr li", { delay: 800, each: 50, y: 12 });
+        A.wipe(".chiprow > *", { each: 110 });
+        A.kinetic(".title", { delay: 100, each: 26 });
+        A.rise(".lead6", { delay: 400, y: 16 });
+        A.rise(".pr .c", { delay: 600, each: 150, y: 40 });
+        A.pop(".pr .no", { delay: 750, each: 150, s: 0.5, snd: false });
+        A.rise(".pr li", { delay: 1000, each: 60, y: 12 });
       }];
     }
   });
 
+  var NEED = [
+    ["학교 계정과 웹앱", "앱 장터 없이 <b>주소로</b> 열고, 홈 화면에 설치하면 앱처럼", ["교직원 계정", "푸시 알림", "교실 칠판 화면"]],
+    ["학교 자료 연결", "새로 적게 하지 않고 <b>이미 있는 자료를 읽어</b> 옵니다", ["구글 캘린더(학사일정)", "공유 드라이브(읽기만)", "주간소식 PDF", "NEIS 급식·날씨"]],
+    ["AI", "매일 일은 가벼운 모델, 깊게 생각하기는 <b>하루 5번</b>으로 비용 관리", ["하루 질문 한도", "초안까지만", "학생 정보 넣지 않기"]]
+  ];
   D.add({
-    id: "stack", part: 6, label: "어떻게 돌아가나", kind: "light", min: 1.5, tour: { title: "웹앱 하나가 학교 자료를 잇습니다", html: '<div class="t-grid"><div class="t-box"><b>선생님 휴대폰·PC</b><span>주소로 여는 웹앱(홈 화면에 설치), 푸시 알림</span></div><div class="t-box"><b>교실 전자칠판</b><span>칠판 창 프로그램·화면보호기, 수업 중 자동 숨김</span></div><div class="t-box"><b>AI 교무실</b><span>Next.js 웹앱 · Vercel(서울) · 12가지 자동 작업 · 한글(HWPX) 서식 채우기</span></div><div class="t-box"><b>Supabase</b><span>데이터베이스·파일·로그인, 행 단위 권한</span></div><div class="t-box"><b>학교·공공 자료</b><span>구글 캘린더·공유 드라이브(읽기 전용)·주간소식 PDF, NEIS 급식·기상청 날씨</span></div><div class="t-box"><b>Claude AI</b><span>도우미·요약 — 매일 일은 가벼운 모델, 깊게 생각하기는 하루 5번</span></div></div>' },
-    notes: "구조는 단순합니다. 선생님 휴대폰·PC와 교실 칠판이 <b>웹앱 하나</b>를 엽니다. 데이터와 파일은 <b>Supabase</b>(데이터베이스·로그인)에, 학교 자료는 <b>구글 캘린더·공유 드라이브·교무부 주간소식</b>에서, 공공 자료는 <b>NEIS 급식·기상청</b>에서 읽어 옵니다. AI는 <b>Claude</b>를 쓰는데, 매일 도는 일은 가벼운 모델로, 비싼 모델은 하루 횟수를 정해 비용을 관리합니다.",
-    html: chips([{ t: "어떻게 돌아가나" }]) + '<h2 class="title">웹앱 하나가 <em>학교 자료</em>를 잇습니다</h2>' +
-      '<div class="abs sk">' +
-      '<div class="card bx" style="left:0;top:20px;width:470px"><h3>선생님 휴대폰·PC</h3><p>주소로 여는 웹앱, 홈 화면에 설치하면 앱처럼</p><div class="ch"><span>푸시 알림</span><span>진동</span><span>오프라인 첫 화면</span></div></div>' +
-      '<div class="card bx" style="left:0;top:330px;width:470px"><h3>교실 전자칠판</h3><p>칠판 창 프로그램·화면보호기가 교실 화면을 띄움</p><div class="ch"><span>2초 깨우기</span><span>수업 중 자동 숨김</span></div></div>' +
-      '<div class="card bx core"><h3>AI 교무실</h3><p>Next.js 웹앱 · Vercel(서울)</p><div class="ch"><span>12가지 자동 작업</span><span>1분마다 넵 배달</span><span>아침·점심 알림</span><span>한글(HWPX) 서식 채우기</span></div></div>' +
-      '<div class="card bx" style="left:1210px;top:0;width:470px"><h3>Supabase</h3><p>데이터베이스·파일·로그인 — 행 단위 권한</p></div>' +
-      '<div class="card bx" style="left:1210px;top:150px;width:470px"><h3>학교 자료</h3><p>구글 캘린더(학사일정)·공유 드라이브(읽기 전용)·주간소식 PDF</p></div>' +
-      '<div class="card bx" style="left:1210px;top:320px;width:470px"><h3>공공 데이터</h3><p>NEIS 급식·기상청 날씨·에어코리아 미세먼지</p></div>' +
-      '<div class="card bx" style="left:1210px;top:470px;width:470px"><h3>Claude AI</h3><p>도우미·요약 — 매일 일은 가벼운 모델, 깊게 생각하기는 하루 5번</p></div>' +
-      // 점선은 그린 뒤에 상자 자리를 재서 잇는다(회전은 바깥 칸에, 그어지는 움직임은 안쪽 칸에)
-      '<i class="wire-w"><i class="wire"></i></i>'.repeat(6) +
-      "</div>",
+    id: "stack", part: 6, label: "필요한 것은 세 가지", kind: "light", min: 1.3,
+    tour: { title: "필요한 것은 세 가지", html: '<div class="t-grid">' + NEED.map(function (n, i) { return '<div class="t-box"><b>' + (i + 1) + ". " + n[0] + "</b><span>" + n[1] + "</span></div>"; }).join("") + '</div><p class="t-note">만든 재료: Next.js 웹앱 · Vercel(서울) · Supabase(데이터베이스·로그인·행 단위 권한) · Claude AI · 한글(HWPX) 서식 채우기</p>' },
+    notes: "준비물은 세 가지입니다. ① <b>학교 계정과 웹앱</b> — 앱 장터에 올리지 않고 주소로 엽니다. 홈 화면에 설치하면 앱처럼 알림도 오고, 교실 칠판도 같은 주소의 화면을 띄웁니다. ② <b>학교 자료 연결</b> — 선생님들께 새로 적게 하지 않고, 학사일정은 구글 캘린더에서, 문서는 공유 드라이브에서 <b>읽기만</b> 해서, 급식·날씨는 공공 데이터에서 가져옵니다. ③ <b>AI</b> — 매일 도는 일은 가벼운 모델로, 비싼 모델은 하루 횟수를 정해 비용을 관리합니다. 아래 작은 글씨는 실제로 쓴 재료입니다 — 개발을 맡을 분께 그대로 전해 주시면 됩니다.",
+    html: chips([{ t: "우리 학교에서도" }, { t: "준비물", c: "ghost" }]) + '<h2 class="title">필요한 것은 <em>세 가지</em></h2>' +
+      '<p class="abs lead6">새 프로그램을 깔지 않습니다 — <b>주소로 여는 웹앱 하나</b>가 학교에 이미 있는 자료를 읽어 옵니다.</p>' +
+      '<div class="abs need">' + NEED.map(function (n, i) { return '<div class="card c"><span class="nn">' + (i + 1) + "</span><h3>" + n[0] + "</h3><p>" + n[1] + '</p><div class="ch">' + n[2].map(function (x) { return "<span>" + x + "</span>"; }).join("") + "</div></div>"; }).join("") + '<i class="plus" style="left:512px">+</i><i class="plus" style="left:1096px">+</i></div>' +
+      '<p class="abs need-foot"><b>만든 재료</b><span>Next.js 웹앱 · Vercel(서울)</span><span>Supabase — 데이터베이스·로그인·행 단위 권한</span><span>Claude AI</span><span>한글(HWPX) 서식 채우기</span></p>',
     build: function (el, A) {
       return [function (A) {
-        A.wipe(".chiprow > *");
-        A.kinetic(".title", { delay: 100, each: 22 });
-        // 왼쪽 두 상자 → 가운데 왼쪽 변, 가운데 오른쪽 변 → 오른쪽 네 상자(상자 가운데 높이로)
-        var bx = A.$$(".sk .bx:not(.core)"), core = A.$(".sk .core"), ws = A.$$(".sk .wire-w");
-        function mid(b, side) { return { x: b.offsetLeft + (side === "r" ? b.offsetWidth : 0), y: b.offsetTop + b.offsetHeight / 2 }; }
-        function at(f, side) { return { x: core.offsetLeft + (side === "r" ? core.offsetWidth : 0), y: core.offsetTop + core.offsetHeight * f }; }
-        var gap = 10;
-        [[mid(bx[0], "r"), at(0.3, "l")], [mid(bx[1], "r"), at(0.7, "l")],
-         [at(0.2, "r"), mid(bx[2], "l")], [at(0.4, "r"), mid(bx[3], "l")], [at(0.6, "r"), mid(bx[4], "l")], [at(0.8, "r"), mid(bx[5], "l")]].forEach(function (p, i) {
-          var dx = p[1].x - p[0].x, dy = p[1].y - p[0].y, len = Math.sqrt(dx * dx + dy * dy) - gap * 2, a = Math.atan2(dy, dx);
-          ws[i].style.cssText = "left:" + (p[0].x + Math.cos(a) * gap) + "px;top:" + (p[0].y + Math.sin(a) * gap - 2) + "px;transform:rotate(" + a + "rad)";
-          ws[i].firstChild.style.width = len + "px";
-        });
-        A.pop(".sk .core", { delay: 400, s: 0.8 });
-        A.rise(".sk .bx:not(.core)", { delay: 700, each: 120, y: 24 });
-        A.draw(".sk .wire", { delay: 1100, each: 90 });
+        A.wipe(".chiprow > *", { each: 110 });
+        A.kinetic(".title", { delay: 100, each: 26 });
+        A.rise(".lead6", { delay: 400, y: 16 });
+        A.rise(".need .c", { delay: 600, each: 200, y: 40, snd: "pluck", v: 0.06 });
+        A.pop(".need .nn", { delay: 750, each: 200, s: 0.4, snd: false });
+        A.pop(".need .plus", { delay: 900, each: 200, s: 0.3, snd: false });
+        A.rise(".need .ch span", { delay: 1100, each: 40, y: 10 });
+        A.wipe(".need-foot", { delay: 1700 });
       }];
     }
   });
@@ -862,32 +861,17 @@
     ["AI한테 조건을 일일이 주고 있어요", "묻기 전에 알아서 채우고, 초안부터", "10월 14일"]
   ];
   D.add({
-    id: "lessons", part: 6, label: "쓰면서 나온 말 한마디", kind: "light", min: 1.5, tour: { title: "쓰면서 나온 말 한마디가 그날 바뀝니다", html: '<div class="t-grid">' + LESSONS.map(function (l) { return '<div class="t-box"><span class="t-q">' + l[0] + "</span><b>→ " + l[1] + "</b><span>" + l[2] + "</span></div>"; }).join("") + "</div>" },
-    notes: "쓰면서 실제로 나온 말과, 그래서 바뀐 것입니다. 날짜를 보시면 대개 <b>그날이나 다음 날</b> 바뀌었습니다. 기능을 많이 만드는 것보다 <b>쓰는 사람의 불편을 바로 고치는 것</b>이 쓰는 사람을 늘렸습니다.",
-    html: chips([{ t: "만들며 배운 것" }]) + '<h2 class="title">쓰면서 나온 말 한마디가 <em>그날</em> 바뀝니다</h2>' +
+    id: "lessons", part: 6, label: "만드는 방식 · 말 한마디가 그날", kind: "light", min: 1.4, tour: { title: "만드는 방식 — 쓰면서 나온 말 한마디가 그날 바뀝니다", html: '<div class="t-grid">' + LESSONS.map(function (l) { return '<div class="t-box"><span class="t-q">' + l[0] + "</span><b>→ " + l[1] + "</b><span>" + l[2] + "</span></div>"; }).join("") + "</div>" },
+    notes: "세 번째는 <b>만드는 방식</b>입니다. 쓰면서 실제로 나온 말과, 그래서 바뀐 것입니다. 날짜를 보시면 대개 <b>그날이나 다음 날</b> 바뀌었습니다. 처음부터 완성된 앱을 만들기보다, <b>작게 내놓고 쓰는 사람의 불편을 바로 고치는 것</b>이 쓰는 사람을 늘렸습니다.",
+    html: chips([{ t: "우리 학교에서도" }, { t: "만드는 방식", c: "ghost" }]) + '<h2 class="title">쓰면서 나온 말 한마디가 <em>그날</em> 바뀝니다</h2>' +
+      '<p class="abs lead6">처음부터 다 만들기보다 <b>작게 내놓고, 불편을 바로 고치기</b> — 그것이 쓰는 사람을 늘렸습니다.</p>' +
       '<div class="abs ls">' + LESSONS.map(function (l) { return '<div class="card c"><q>' + l[0] + '</q><span class="ar">→ ' + l[1] + "</span><small>" + l[2] + "</small></div>"; }).join("") + "</div>",
     build: function (el, A) {
       return [function (A) {
-        A.wipe(".chiprow > *");
+        A.wipe(".chiprow > *", { each: 110 });
         A.kinetic(".title", { delay: 100, each: 22 });
-        A.pop(".ls .c", { delay: 450, each: 130, s: 0.86 });
-      }];
-    }
-  });
-
-  D.add({
-    id: "s-asks", part: 7, label: "이렇게 부탁합니다", kind: "light", min: 1.3, trans: "whip",
-    notes: "기억하실 한 장입니다. 선생님들이 실제로 AI에게 하는 부탁을 열 문장으로 모았습니다. 위 두 줄은 묻기, 나머지는 확인 카드가 되는 부탁입니다. 메뉴 이름을 몰라도 이 문장들로 시작할 수 있다는 것이 이 앱을 쓰는 사람을 늘린 가장 큰 이유였습니다.",
-    html: chips([{ t: "마무리", c: "ai" }, { t: "기억하실 한 장", c: "ghost" }]) + '<h2 class="title">이렇게 <em>말로 부탁</em>합니다 — 열 문장</h2>' +
-      '<div class="abs ten">' + (window.ASKS || []).map(function (a, i) { return '<div class="r"><span class="n">' + String(i + 1).padStart(2, "0") + '</span><span class="s">「' + a.say + '」</span><span class="c">' + a.got + "</span></div>"; }).join("") + "</div>" +
-      '<p class="abs ten-foot"><span>' + (window.ASKS_MORE || "") + '</span><span>·</span><span><b>누르기 전까지는 초안</b> — 등록·보내기·요청은 선생님이</span></p>',
-    build: function (el, A) {
-      return [function (A) {
-        A.wipe(".chiprow > *", { each: 120 });
-        A.kinetic(".title", { delay: 100, each: 24 });
-        A.rise(".ten .r", { delay: 500, each: 90, y: 24, snd: "pluck", v: 0.06 });
-        A.pop(".ten .c", { delay: 800, each: 90, s: 0.7, snd: false });
-        A.wipe(".ten-foot", { delay: 1600 });
+        A.rise(".lead6", { delay: 400, y: 16 });
+        A.pop(".ls .c", { delay: 600, each: 130, s: 0.86 });
       }];
     }
   });
@@ -901,9 +885,9 @@
     ["연수는 휴대폰으로 함께", "따라하기 안내와 발표 다시 보기를 남겨, 나중에 혼자서도."]
   ];
   D.add({
-    id: "start", part: 7, label: "우리 학교에서 시작한다면", kind: "light", min: 1.5, trans: "whip", tour: { title: "우리 학교에서 시작한다면, 여섯 가지", html: '<div class="t-grid">' + START.map(function (s, i) { return '<div class="t-box"><b>' + (i + 1) + ". " + s[0] + "</b><span>" + s[1] + "</span></div>"; }).join("") + "</div>" },
-    notes: "다른 학교에서 시작하신다면 이 여섯 가지를 권합니다. 특히 <b>매일 여는 것부터</b>와 <b>원칙을 먼저</b>가 중요했습니다. 알림을 켠 선생님이 늘면서 넵·서명 같은 기능도 자연스럽게 쓰이기 시작했습니다.",
-    html: chips([{ t: "시작한다면" }]) + '<h2 class="title">우리 학교에서 시작한다면, <em>여섯 가지</em></h2>' +
+    id: "start", part: 6, label: "정리 · 시작은 여섯 가지", kind: "light", min: 1.3, tour: { title: "정리하면, 시작은 여섯 가지", html: '<div class="t-grid">' + START.map(function (s, i) { return '<div class="t-box"><b>' + (i + 1) + ". " + s[0] + "</b><span>" + s[1] + "</span></div>"; }).join("") + "</div>" },
+    notes: "6부를 정리하면, 다른 학교에서 시작하신다면 이 여섯 가지를 권합니다. 특히 <b>매일 여는 것부터</b>와 <b>원칙을 먼저</b>가 중요했습니다. 알림을 켠 선생님이 늘면서 넵·서명 같은 기능도 자연스럽게 쓰이기 시작했습니다.",
+    html: chips([{ t: "우리 학교에서도" }, { t: "정리", c: "ghost" }]) + '<h2 class="title">정리하면, 시작은 <em>여섯 가지</em></h2>' +
       '<div class="abs stt">' + START.map(function (s, i) { return '<div class="card r"><span class="n">' + (i + 1) + "</span><div><h3>" + s[0] + "</h3><p>" + s[1] + "</p></div></div>"; }).join("") + "</div>",
     build: function (el, A) {
       return [function (A) {
@@ -911,6 +895,32 @@
         A.kinetic(".title", { delay: 100, each: 22 });
         A.rise(".stt .r", { delay: 450, each: 110, y: 30, snd: "pluck", v: 0.06 });
         A.pop(".stt .n", { delay: 600, each: 110, s: 0.3, snd: false });
+      }];
+    }
+  });
+
+  // ════════════════════════════════════════════════════════════
+  // 7 · 마무리
+  // ════════════════════════════════════════════════════════════
+  opener({
+    part: 7, art: "cover", lines: ["내일은,", "<em>말로 부탁</em>해 보세요"],
+    was: "메뉴를 찾아 헤매기", now: "열 문장 가운데 하나를 AI에게 말해 보기",
+    notes: "마지막입니다. 오늘 본 것을 한 장으로 가져가실 수 있게, 선생님들이 실제로 하는 부탁 열 문장으로 모았습니다."
+  });
+
+  D.add({
+    id: "s-asks", part: 7, label: "이렇게 부탁합니다", kind: "light", min: 1.3, trans: "push",
+    notes: "기억하실 한 장입니다. 선생님들이 실제로 AI에게 하는 부탁을 열 문장으로 모았습니다. 위 두 줄은 묻기, 나머지는 확인 카드가 되는 부탁입니다. 메뉴 이름을 몰라도 이 문장들로 시작할 수 있다는 것이 이 앱을 쓰는 사람을 늘린 가장 큰 이유였습니다.",
+    html: chips([{ t: "마무리", c: "ai" }, { t: "기억하실 한 장", c: "ghost" }]) + '<h2 class="title">이렇게 <em>말로 부탁</em>합니다 — 열 문장</h2>' +
+      '<div class="abs ten">' + (window.ASKS || []).map(function (a, i) { return '<div class="r"><span class="n">' + String(i + 1).padStart(2, "0") + '</span><span class="s">「' + a.say + '」</span><span class="c">' + a.got + "</span></div>"; }).join("") + "</div>" +
+      '<p class="abs ten-foot"><span>' + (window.ASKS_MORE || "") + '</span><span>·</span><span><b>누르기 전까지는 초안</b> — 등록·보내기·요청은 선생님이</span></p>',
+    build: function (el, A) {
+      return [function (A) {
+        A.wipe(".chiprow > *", { each: 120 });
+        A.kinetic(".title", { delay: 100, each: 24 });
+        A.rise(".ten .r", { delay: 500, each: 90, y: 24, snd: "pluck", v: 0.06 });
+        A.pop(".ten .c", { delay: 800, each: 90, s: 0.7, snd: false });
+        A.wipe(".ten-foot", { delay: 1600 });
       }];
     }
   });
