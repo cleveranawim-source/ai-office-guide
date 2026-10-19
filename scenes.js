@@ -260,6 +260,9 @@
   .steps.tight{gap:8px}
   .steps.tight li{font-size:25px;padding:10px 18px 10px 12px}
   .steps.tight li::before{width:44px;height:44px;font-size:21px}
+  .steps.xtight{gap:5px}
+  .steps.xtight li{font-size:23px;line-height:1.36;padding:7px 16px 7px 10px}
+  .steps.xtight li::before{width:40px;height:40px;font-size:19px}
   .tv{left:960px;top:250px;width:860px;height:520px;border-radius:26px;background:#1c2431;padding:16px;box-shadow:0 40px 90px rgba(14,28,48,.35)}
   .tv::after{content:"";position:absolute;left:50%;bottom:-48px;width:190px;height:48px;margin-left:-95px;background:linear-gradient(#2a3446,#1c2431);clip-path:polygon(18% 0,82% 0,100% 100%,0 100%)}
   .tv .in{position:relative;width:100%;height:100%;border-radius:10px;overflow:hidden;background:#0d1520}
@@ -413,7 +416,8 @@
         var P = null, lis = A.$$(".steps li"), wlt = null;
         function place() {
           var n = A.$(".side-note"), s = A.$(".steps");
-          if (!n) { if (s.offsetTop + s.offsetHeight > 900) s.classList.add("tight"); return; }
+          // 단계가 많아 아래 띠(928px~)에 닿으면 한 번 더 촘촘하게
+          if (!n) { if (s.offsetTop + s.offsetHeight > 900) s.classList.add("tight"); if (s.offsetTop + s.offsetHeight > 912) s.classList.add("xtight"); return; }
           if (s.offsetTop + s.offsetHeight > 700) s.classList.add("tight");
           var top = s.offsetTop + s.offsetHeight + 22;
           n.style.top = Math.min(top, 912 - n.offsetHeight) + "px";
@@ -902,13 +906,13 @@
     id: "p11", part: 2, num: 6, label: "실습 6 · 기기 수리 요청", min: 1, practiceMin: 1,
     chips: [{ t: "실습 6 · AI" }, { t: "1분", c: "ghost" }], title: "고장 난 기기, <em>한 문장으로</em>",
     steps: [
-      { t: '「2-3 교실 프로젝터가 자꾸 꺼져요. 수리 요청해 줘」', s: 0, r: R("ai-repair", "question") },
-      { t: '<span class="q">「디지털 기기 수리요청」</span> 카드: 장소·기기·요청 사항, 신청자는 저절로', s: 0, r: R("ai-repair", "head") },
+      { t: '「2-3 교실 전자칠판 터치가 자꾸 안 돼요. 수리 요청해 줘」', s: 0, r: R("ai-repair", "question") },
+      { t: '<span class="q">「디지털 기기 수리요청」</span> 카드: 장소·기기는 <b>시트 목록에서</b>, 신청자는 저절로', s: 0, r: R("ai-repair", "head") },
       { t: '확인 뒤 <span class="k">시트에 등록</span>', s: 0, r: R("ai-repair", "button"), warn: "누르면 수리 요청 시트에 실제로 적힙니다" }
     ],
     gnote: { html: "<span>같은 방식으로 카드가 되는 것: 가정통신문·통신문 번호·<b>도서관 이용</b>·<b>희망도서</b>·교과협의록·회의 서명부·넵·수업 자료·수업 교체. 신청자 이름은 저절로 들어가고, 빠진 칸은 AI가 다시 묻습니다.</span>" },
     screens: [shot("ai-repair")],
-    notes: "기기 수리는 한 문장이면 됩니다. 장소·기기·증상을 읽어 카드를 채우고, 신청자는 선생님 이름으로 들어갑니다. 오늘은 카드까지만 봅니다."
+    notes: "기기 수리는 한 문장이면 됩니다. 장소·기기·증상을 읽어 카드를 채우는데, 장소와 기기는 수리 요청 시트의 목록에서 고릅니다(목록에 없는 기기는 「기타」, 기기 이름은 요청 사항에). 신청자는 선생님 이름으로 들어가고, 「시트에 등록」을 누르면 수리 맡은 분께 알림이 갑니다. 오늘은 카드까지만 봅니다."
   });
 
   // ════════════════════════════════════════════════════════════
@@ -1210,8 +1214,8 @@
       { t: '카드 머리 칸 = <b>통째로</b>: 부서·교과·부장단·교과 주임단', g: '카드 머리 칸 = <b>통째로</b>: 부서, 그 아래 <b>교과(교과마다)·부장단·교과 주임단</b>과 「그 밖의 선생님」', s: 3, r: R("nep-org-groups", "role"), z: 1.8 },
       { t: '돋보기 → 이름·<b>초성</b>(ㅈㅈㅇ)으로 찾기', s: 4, r: R("nep-org-search", "found"), z: 1.8 },
       { t: '쓰기 창 <span class="q">「새 메시지」</span>: 받는 분 이름표, <b>첫 줄이 제목</b>', s: 5, r: R("nep-compose", "text") },
-      { t: '<span class="k">+</span> 「더 넣기」: 사진·파일 · 넵/완료/파일 받기 · 보낼 시각 · 긴급', s: 6, r: [16, 466, 380, 388] },
-      { t: '<b>20명 이상</b>이거나 학년 담임이 들어가면 보내기 전에 <b>한 번 더</b>', s: 7, r: [6, 730, 400, 126], warn: "보낸 뒤에는 알림을 거둘 수 없어요" }
+      { t: '<span class="k">+</span> 「더 넣기」: 사진·파일 · 넵/완료/파일 받기 · 보낼 시각 · 긴급', s: 6, r: [12, 430, 388, 424] },
+      { t: '<b>20명 이상</b>이거나 학년 담임이 들어가면 보내기 전에 <b>한 번 더</b>(보낸 뒤엔 거둘 수 없어요)', s: 7, r: [6, 744, 400, 114] }
     ],
     gnote: { html: "<span>부서·교과를 통째로 체크하면 <b>묶음</b>으로 보내고(예약 넵은 보낼 때 명단), 한 분이라도 빼면 남은 분 이름으로 풀립니다. 여러 부서에 계신 분은 어디서나 같이 체크됩니다. 찾는 동안에는 「전체」·「모두」 칸이 숨습니다(찾아서 안 보이는 분까지 들어가지 않게). 연락처는 싣지 않습니다. 첨부는 3개까지, 하나에 20MB. 긴급은 수업 중에도 바로 울리고 이번 달 남은 횟수가 보입니다. 화면 속 이름은 예시입니다.</span>" },
     screens: [shot("nep-org"), shot("nep-org-open"), shot("nep-org-picked"), shot("nep-org-groups"), shot("nep-org-search"), shot("nep-compose"), shot("nep-plus"), shot("nep-big")],
