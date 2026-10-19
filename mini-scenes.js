@@ -1,4 +1,4 @@
-/* AI 교무실 짧은 연수(약 27분) — 전자칠판 · 분실물 함 · 넵 · AI 버튼
+/* AI 교무실 짧은 연수(약 28분) — 전자칠판 · 분실물 함 · 넵 · AI 버튼
  * 연수 발표와 같은 엔진(deck.js)과 같은 화면 그림(img/*.jpg, 412×864 기준 좌표)을 쓴다. 동그라미 자리는 img/rects.js의 R(화면, 키).
  * 교실 칠판 그림은 img/board/*.jpg(1600×900). 발표 멘트(notes)는 N(노트)·P(발표자 창)에서 보인다.
  */
@@ -92,6 +92,24 @@
   .ten .r.hot{border-color:var(--ai);box-shadow:0 0 0 3px rgba(109,79,216,.14)}
   .ten-foot{left:120px;top:924px;width:1680px;display:flex;gap:14px;flex-wrap:wrap;font:500 23px var(--body);color:var(--muted)}
   .ten-foot b{color:var(--ink)}
+
+  .bw{left:120px;top:304px;width:840px;display:grid;gap:12px}
+  .bw .r{display:grid;grid-template-columns:236px minmax(0,1fr);gap:20px;align-items:center;padding:15px 22px;border-radius:20px;background:var(--surface);border:1.5px solid var(--line);transition:opacity .4s,box-shadow .4s,border-color .4s,background .4s}
+  .bw.focus .r:not(.on){filter:opacity(.42)}
+  .bw .r.on{border-color:var(--brand);box-shadow:0 14px 34px rgba(14,28,48,.12)}
+  .bw .r.on.warn{border-color:var(--warn);background:var(--warn-tint)}
+  .bw .c{justify-self:start;display:inline-flex;align-items:center;gap:9px;padding:5px 16px;border-radius:999px;border:2px solid #d5dde8;background:#fff;font:500 25px var(--body);color:#12213a;white-space:nowrap}
+  .bw .c b{font-weight:800}
+  .bw .c.live span{color:#1fa855;font-weight:800}
+  .bw .c.live i{width:13px;height:13px;border-radius:50%;background:#1fa855;box-shadow:0 0 0 4px #dcf3e4;animation:bwBlink 1.2s ease-in-out infinite}
+  .bw .c.done span{color:#005fa3;font-weight:800}
+  .bw .c.off span{color:#5b687c}
+  .bw h4{font:800 29px/1.3 var(--display);letter-spacing:-.02em;color:var(--ink)}
+  .bw p{font:500 22px/1.4 var(--body);color:var(--muted);margin-top:3px}
+  .bw p b{color:var(--ink)}
+  .bw-foot{left:120px;top:790px;width:840px;display:grid;gap:4px;font:500 23px/1.45 var(--body);color:var(--muted)}
+  .bw-foot b{color:var(--ink)}
+  @keyframes bwBlink{50%{opacity:.25}}
 
   .cl-title{left:132px;top:170px;font:900 120px/1.08 var(--display);letter-spacing:-.04em}
   .cl-title em{color:var(--glow)}
@@ -314,7 +332,7 @@
       { t: '아래 탭 둘째 칸 <span class="k">넵</span> · 10월 18일부터 메신저처럼', s: 0, r: R("home", "tabNep"), z: 1.8 },
       { t: '아래 탭 가운데 <span class="k">AI</span> · 말로 묻고, 부탁하면 카드로', s: 0, r: R("ai-home", "tab_ai"), z: 1.8 }
     ],
-    note: { html: '<span class="ag3"><span><b>1부</b> 전자칠판 7분</span><span><b>2부</b> 분실물 함 5분</span><span><b>3부</b> 넵 6분</span><span><b>4부</b> AI 버튼 6분</span></span>' },
+    note: { html: '<span class="ag3"><span><b>1부</b> 전자칠판 8분</span><span><b>2부</b> 분실물 함 5분</span><span><b>3부</b> 넵 6분</span><span><b>4부</b> AI 버튼 6분</span></span>' },
     lt: { tag: "오늘 순서", title: "더보기 두 곳, 아래 탭 넵과 AI", sub: "휴대폰으로 AI 교무실을 열고 함께 찾아 두세요" },
     screens: [shot("more-tools")],
     notes: "오늘 볼 곳은 네 군데뿐입니다. 아래 탭 <b>더보기</b>를 열면 「도구」 묶음에 <b>전자칠판 알림</b>, 바로 아래 「학생」 묶음에 <b>분실물 함</b>이 있습니다(10월 19일부터 「학생」 묶음이 「학교」보다 위로 올라왔습니다). 그리고 아래 탭 둘째 칸 <b>넵</b>과 가운데 볼록한 <b>AI</b> 버튼. 다 같이 더보기를 열어 두 메뉴가 어디 있는지 먼저 확인합니다."
@@ -324,7 +342,7 @@
   // 1부 · 전자칠판
   // ════════════════════════════════════════════════════════════
   opener({
-    part: 1, art: "board", min: 7, lines: ["교실 칠판까지", "<em>휴대폰에서</em>"],
+    part: 1, art: "board", min: 8, lines: ["교실 칠판까지", "<em>휴대폰에서</em>"],
     was: "방송·쪽지·교실마다 직접 가서 전달", now: "무엇을 → 어디에 → 보내기, 교실 칠판에 바로",
     notes: "1부는 <b>전자칠판</b>입니다. 먼저 교실 칠판에 무엇이 어떻게 뜨는지 보고, 휴대폰에서 보내는 법을 함께 따라 해 봅니다(보내기 단추는 누르지 않습니다). 끝으로 칠판이 알아서 하는 일 — 아침 8시 45분 쪽지, 수업 중 숨기, 점심시간 분실물 띠 — 을 봅니다."
   });
@@ -346,11 +364,58 @@
       { t: '<b>어디에</b>: 담임은 <span class="q">「내 반」</span>이 기본, 단추에 <span class="q">「2학년 3반에 띄우기」</span>', s: 0, r: R("board-send", "mine"), z: 1.9 },
       { t: '학년 전체는 <b>여러 학년 함께</b> 눌러집니다', s: 1, r: R("board-grades", "g2"), z: 1.9 },
       { t: '<span class="k">직접 고르기</span>: 초록불은 지금 켜진 칠판, 특별실도', s: 2, r: R("board-pick", "grid") },
-      { t: '보낸 뒤 <span class="q">「오늘 칠판에 나간 알림」</span>: 게시 중·확인완료, [종료]로 내리기', s: 3, r: R("board-sent", "live"), z: 1.9 }
+      { t: '보낸 뒤 <span class="q">「오늘 칠판에 나간 알림」</span>: 교실마다 상태가 한 단어로(다음 장면)', s: 3, r: R("board-sent", "liveChip"), z: 1.9 }
     ],
     note: { tone: "warn", html: "<span>오늘은 <b>보내기 단추를 누르지 않습니다</b>. 누르면 실제 교실 칠판에 뜹니다.</span>" },
     screens: [shot("board-send"), shot("board-grades"), shot("board-pick"), shot("board-sent")],
-    notes: "다 같이 더보기 → <b>전자칠판 알림</b>을 엽니다. 보내기 화면은 <b>무엇을 → 어디에 → 보내기</b> 순서입니다. 담임 선생님은 「내 반」이 기본으로 골라져 있고, 보내기 단추에 「2학년 3반에 띄우기」처럼 어디로 가는지가 적힙니다. 학년 전체는 1·2학년처럼 <b>여러 학년을 함께</b> 고를 수 있고, 「직접 고르기」에서는 초록불로 지금 켜진 칠판이 보입니다(특별실 탭도 있습니다). 예약은 오늘이나 <b>내일</b>까지 — 전날 저녁에 내일 아침 안내를 걸어 둘 수 있습니다. 보낸 뒤에는 아래 「오늘 칠판에 나간 알림」에서 교실마다 게시 중·확인완료가 보이고, [종료]로 바로 내릴 수 있습니다. <b>오늘은 보내기 단추를 누르지 않습니다.</b>"
+    notes: "다 같이 더보기 → <b>전자칠판 알림</b>을 엽니다. 보내기 화면은 <b>무엇을 → 어디에 → 보내기</b> 순서입니다. 담임 선생님은 「내 반」이 기본으로 골라져 있고, 보내기 단추에 「2학년 3반에 띄우기」처럼 어디로 가는지가 적힙니다. 학년 전체는 1·2학년처럼 <b>여러 학년을 함께</b> 고를 수 있고, 「직접 고르기」에서는 초록불로 지금 켜진 칠판이 보입니다(특별실 탭도 있습니다). 예약은 오늘이나 <b>내일</b>까지 — 전날 저녁에 내일 아침 안내를 걸어 둘 수 있습니다. 보낸 뒤에는 아래 「오늘 칠판에 나간 알림」에 교실마다 상태가 한 단어로 보이고(다음 장면에서 하나씩), [종료]로 바로 내릴 수 있습니다. <b>오늘은 보내기 단추를 누르지 않습니다.</b>"
+  });
+
+  // ── 보낸 뒤 교실마다 한 단어(앱 lib/board/status-word.ts의 말과 색) ──
+  var BOARD_WORDS = [
+    { c: "live", room: "2-3", w: "게시 중", h: "지금 그 교실 칠판에 떠 있어요", p: "초록불이 깜빡 · 위에 「24분 남음」 · 일찍 내리려면 <b>[종료]</b>", r: "liveChip" },
+    { c: "done", room: "2-3", w: "확인완료", h: "교실에서 칠판 알림을 눌렀어요", p: "누르면 칠판에서 닫혀요 · 시간이 끝나도 <b>확인완료</b> 그대로", r: "done" },
+    { c: "over", room: "2-1", w: "송출마감", h: "떴다가 시간이 다 됐어요", p: "또는 [종료]로 내림 · 떠 있었지만 <b>누른 사람은 없어요</b>", r: "over" },
+    { c: "off", room: "2-8", w: "미표시종료", h: "칠판이 꺼져 있어 못 띄웠어요", p: "한 번도 안 뜨고 끝남 · 그 반에는 <b>넵이나 직접</b> 전해 주세요", r: "unshown", warn: true }
+  ];
+  D.add({
+    id: "boardWords", part: 1, label: "보낸 뒤 · 게시 중 · 확인완료 · 송출마감 · 미표시종료", kind: "light practice", min: 1.2, trans: "push",
+    notes: "보낸 알림은 보내기 화면 아래 <b>「오늘 칠판에 나간 알림」</b>에 교실마다 한 단어로 상태가 나옵니다. ① <b>게시 중</b>(초록, 앞에 초록불이 깜빡임) — 지금 그 교실 칠판에 떠 있습니다. 위에 남은 시간이 나오고, 일찍 내리려면 [종료]를 누릅니다. ② <b>확인완료</b>(파랑) — 떠 있는 동안 교실에서 누군가 칠판의 알림을 눌렀습니다. 누르면 칠판에서 닫히고, 시간이 끝나도 확인완료로 남습니다. ③ <b>송출마감</b>(검정) — 칠판에 떴지만 아무도 누르지 않은 채 정한 시간이 다 됐거나 [종료]로 내렸습니다. 학생들이 봤을 수는 있지만 누른 사람은 없습니다. ④ <b>미표시종료</b>(회색) — 그 교실 칠판이 꺼져 있어서 한 번도 띄우지 못하고 시간이 끝났습니다. 그 반에는 넵이나 직접 전해 주세요. 그 밖에 회색 <b>표시 대기중</b>은 칠판이 지금 꺼져 있어 켜지면 뜬다는 뜻이고, <b>예약</b>은 정한 시각 전입니다. <b>긴급</b>은 칠판에 누르는 단추가 없어서 떠 있는 동안 빨간 「긴급」, 끝나면 송출마감이 됩니다. 보내기 전 「직접 고르기」에서 초록불(켜진 칠판)을 보면 미표시종료를 미리 알 수 있습니다.",
+    html: '<div class="chiprow"><span class="chip">전자칠판</span><span class="chip ghost">보낸 뒤 확인</span></div>' +
+      '<h2 class="title">보낸 뒤, 교실마다 <em>한 단어</em></h2>' +
+      '<div class="abs bw">' + BOARD_WORDS.map(function (b) {
+        return '<div class="r' + (b.warn ? " warn" : "") + '"><span class="c ' + b.c + '"><b>' + b.room + "</b>" + (b.c === "live" ? "<i></i>" : "") + "<span>" + b.w + "</span></span>" +
+          "<div><h4>" + b.h + "</h4><p>" + b.p + "</p></div></div>";
+      }).join("") + "</div>" +
+      '<div class="abs bw-foot"><span>회색 <b>표시 대기중</b> 칠판이 지금 꺼져 있음, 켜지면 떠요 · <b>예약</b> 정한 시각 전</span>' +
+      '<span><b>긴급</b>은 누르는 단추가 없어 떠 있는 동안 빨간 「긴급」, 끝나면 송출마감</span></div>' +
+      cam([shot("board-sent")]),
+    build: function (el, A) {
+      var P = null, box = A.$(".bw"), rows = A.$$(".bw .r");
+      var beats = [function (A) {
+        A.wipe(".chiprow > *", { each: 110 });
+        A.kinetic(".title", { delay: 120, each: 22 });
+        A.rise(".bw .r", { delay: 420, each: 90, y: 26, snd: "pluck", v: 0.05 });
+        A.rise(".bw-foot > *", { delay: 900, each: 120, y: 14 });
+        P = A.phone(".cam");
+        P.enter({ delay: 160 });
+      }];
+      BOARD_WORDS.forEach(function (b, i) {
+        beats.push(function (A) {
+          box.classList.add("focus");
+          rows.forEach(function (r, k) { r.classList.toggle("on", k === i); });
+          A.go(rows[i], [{ transform: "translateX(-16px)" }, { transform: "none" }], { d: 520, e: E.out });
+          P.focus(R("board-sent", b.r), { z: 2.2, tone: b.warn ? "warn" : "", d: 820 });
+        });
+      });
+      beats.push(function (A) {
+        box.classList.remove("focus");
+        rows.forEach(function (r) { r.classList.remove("on"); });
+        P.wide();
+        A.lt({ tag: "한 줄로", title: "파랑은 눌렀음 · 검정은 떴다가 끝 · 회색은 못 띄움", sub: "초록불이 깜빡이면 지금 칠판에 떠 있어요" });
+      });
+      return beats;
+    }
   });
 
   practice({
