@@ -4,7 +4,8 @@
 
 - 첫 화면: `index.html`
 - 교직원: 따라하기 `guide.html` · 연수 발표 `deck.html`(장면 데이터 `scenes.js`)
-- 교직원 짧은 연수(약 25~30분, 전자칠판·분실물 함·넵·AI 버튼): `mini.html`(장면 데이터 `mini-scenes.js` — 연수 발표와 같은 화면 그림·엔진, 칠판 쪽지 그림 `img/board/tmemo.jpg`, 더보기 메뉴 `img/more-tools.jpg`, 넵 대화 비우기 `img/nep-swipe.jpg`·`img/nep-room-menu.jpg`)
+- 교직원 짧은 연수(약 30~35분, 전자칠판·분실물 함·넵·PC 설치본·AI 버튼): `mini.html`(장면 데이터 `mini-scenes.js` — 연수 발표와 같은 화면 그림·엔진, 칠판 쪽지 그림 `img/board/tmemo.jpg`, 더보기 메뉴 `img/more-tools.jpg`, 넵 대화 비우기 `img/nep-swipe.jpg`·`img/nep-room-menu.jpg`)
+- PC 설치본 두 장면은 `pc-scenes.js` 하나를 연수 발표·짧은 연수가 함께 쓴다(그림 `img/pc/desktop.jpg`·`install.jpg`는 이해를 돕는 합성, 창 안 화면은 실제 앱을 설치본 모드로 찍은 것). 따라하기 안내 카드는 `scenes.js`의 `pc`
 - 다른 학교 선생님: 소개 발표 `intro.html` · 휴대폰으로 읽는 둘러보기 `tour.html`(둘 다 `intro-scenes.js`)
 - 발표 엔진 `deck.js`(1920×1080 무대, Web Animations), 휴대폰 틀 `phone.css`, 소리 `sound.js`, 글꼴은 앱과 같은 프리텐다드(`fonts/pretendard`, OFL)
 - 휴대폰 화면 `img/*.jpg`(412×864 기준, 2배)은 **실제 앱을 예시 데이터(지어낸 학교·이름)로 띄워 찍은 것**이다. 실제 교직원·학생 이름은 없다. 동그라미 자리는 찍을 때 잰 값 `img/rects.js`(`R(화면, 키)`).

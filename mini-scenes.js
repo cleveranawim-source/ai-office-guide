@@ -1,4 +1,4 @@
-/* AI 교무실 짧은 연수(약 28분) — 전자칠판 · 분실물 함 · 넵 · AI 버튼
+/* AI 교무실 짧은 연수(약 32분) — 전자칠판 · 분실물 함 · 넵 · PC 설치본 · AI 버튼
  * 연수 발표와 같은 엔진(deck.js)과 같은 화면 그림(img/*.jpg, 412×864 기준 좌표)을 쓴다. 동그라미 자리는 img/rects.js의 R(화면, 키).
  * 교실 칠판 그림은 img/board/*.jpg(1600×900). 발표 멘트(notes)는 N(노트)·P(발표자 창)에서 보인다.
  */
@@ -6,15 +6,16 @@
   "use strict";
   var D = window.DECK, E = D.E, h = D.h;
   var R = window.R || function () { return null; };
-  var TOTAL = 4;
+  var TOTAL = 5;
 
   D.parts([
     { n: 0, name: "시작", color: "#8fd0ff" },
     { n: 1, name: "전자칠판", color: "#79c6d9" },
     { n: 2, name: "분실물 함", color: "#e59a7a" },
     { n: 3, name: "넵", color: "#9fb3f0" },
-    { n: 4, name: "AI 버튼", color: "#b49cf2" },
-    { n: 5, name: "마무리", color: "#8fd0ff" }
+    { n: 4, name: "PC 설치본", color: "#7fc8a9" },
+    { n: 5, name: "AI 버튼", color: "#b49cf2" },
+    { n: 6, name: "마무리", color: "#8fd0ff" }
   ]);
 
   var css = document.createElement("style");
@@ -59,6 +60,7 @@
   .stu-h{position:absolute;top:300px;display:flex;align-items:center;gap:14px;font:800 30px var(--display);letter-spacing:-.02em}
   .stu-h i{width:44px;height:44px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font:700 22px var(--mono);font-style:normal}
   .stu-tv{left:120px;top:370px;width:940px;height:540px}
+  .stu-h .nb{display:inline-block;padding:2px 14px;border-radius:999px;border:2px solid #9fb0c6;background:#16263c;color:#e8eef6;font:700 22px var(--body);letter-spacing:0}
   .stu-ph{left:1180px;top:366px;width:273px;height:553px}
   .stu-ph .phone{transform:scale(.62);transform-origin:0 0}
   .stu-ph .screen img{width:412px;height:864px;display:block}
@@ -103,7 +105,9 @@
   .bw .c.live span{color:#1fa855;font-weight:800}
   .bw .c.live i{width:13px;height:13px;border-radius:50%;background:#1fa855;box-shadow:0 0 0 4px #dcf3e4;animation:bwBlink 1.2s ease-in-out infinite}
   .bw .c.done span{color:#005fa3;font-weight:800}
-  .bw .c.off span{color:#5b687c}
+  .bw .c.over{background:#eaeef3;border-color:#eaeef3}
+  .bw .c.off{background:#fef6f2;border-color:rgba(156,70,34,.2)}
+  .bw .c.off span{color:#9c4622}
   .bw h4{font:800 29px/1.3 var(--display);letter-spacing:-.02em;color:var(--ink)}
   .bw p{font:500 22px/1.4 var(--body);color:var(--muted);margin-top:3px}
   .bw p b{color:var(--ink)}
@@ -151,6 +155,8 @@
   .nkeep p{display:grid;grid-template-columns:150px 1fr;gap:12px;font:500 23px/1.4 var(--body);color:var(--muted)}
   .nkeep p b{color:var(--ink)}
   .nkeep p.warn b{color:var(--warn)}
+  .nkeep p.chg span{color:var(--ink);font-weight:700}
+  .nkeep p i{display:inline-block;margin-left:10px;padding:1px 10px;border-radius:999px;background:var(--new);color:var(--new-ink);font:700 16px var(--body);font-style:normal;vertical-align:2px}
   `;
   document.head.appendChild(css);
 
@@ -299,12 +305,12 @@
   // ════════════════════════════════════════════════════════════
   D.add({
     id: "cover", part: 0, label: "표지 · 접속 안내", kind: "dark", min: 0.5, trans: "fade", bgm: "lobby",
-    notes: "시작 전부터 이 화면을 띄워 둡니다. <b>휴대폰 카메라로 QR을 찍어 AI 교무실을 열어 두시라고</b> 안내합니다. 오늘은 짧게 네 가지 — <b>교실 전자칠판에 띄우기</b>, 새로 열린 <b>분실물 함</b>, 10월 18일에 메신저처럼 바뀐 <b>넵</b>, 그리고 아래 탭 가운데 <b>AI 버튼</b>입니다. 듣기만 하기보다 휴대폰으로 함께 눌러 보는 시간이라고 말씀드립니다.",
+    notes: "시작 전부터 이 화면을 띄워 둡니다. <b>휴대폰 카메라로 QR을 찍어 AI 교무실을 열어 두시라고</b> 안내합니다. 오늘은 짧게 다섯 가지 — <b>교실 전자칠판에 띄우기</b>, 새로 열린 <b>분실물 함</b>, 10월 18일에 메신저처럼 바뀐 <b>넵</b>, 10월 19일에 생긴 <b>PC 설치본</b>, 그리고 아래 탭 가운데 <b>AI 버튼</b>입니다. 듣기만 하기보다 휴대폰으로 함께 눌러 보는 시간이라고 말씀드립니다.",
     html: darkBg("cover") +
       '<div class="abs cv-brand"><img src="img/symbol-128.png" alt=""><div><small>MYONGJI MIDDLE SCHOOL</small><b>AI 교무실</b></div></div>' +
-      '<p class="abs cv-kicker">교직원 연수 · 10월 21일(수) · 약 25~30분</p>' +
+      '<p class="abs cv-kicker">교직원 연수 · 10월 21일(수) · 약 30~35분</p>' +
       '<h1 class="abs cv-title"><span class="ln">칠판, 분실물, 넵,</span><span class="ln">그리고 <em>AI 버튼</em></span></h1>' +
-      '<div class="abs cv-three"><span><i>1</i>전자칠판</span><span><i>2</i>분실물 함</span><span><i>3</i>넵</span><span><i>4</i>AI 버튼</span></div>' +
+      '<div class="abs cv-three"><span><i>1</i>전자칠판</span><span><i>2</i>분실물 함</span><span><i>3</i>넵</span><span><i>4</i>PC 설치본</span><span><i>5</i>AI 버튼</span></div>' +
       '<p class="abs cv-lead">휴대폰 카메라로 오른쪽 <b>QR</b>을 찍어 열어 두세요.</p>' +
       '<div class="abs cv-qr"><img src="img/qr.svg" alt="mjms-office.vercel.app 주소 QR 코드"><p>mjms-office.vercel.app</p><small>카메라로 찍으면 바로 열립니다</small></div>',
     build: function (el, A) {
@@ -325,14 +331,14 @@
 
   practice({
     id: "map", part: 0, num: null, label: "오늘 볼 세 곳", min: 1, trans: "whip",
-    chips: [{ t: "오늘 순서" }, { t: "약 25~30분", c: "ghost" }], title: "오늘은 <em>네 곳</em>만 기억하세요",
+    chips: [{ t: "오늘 순서" }, { t: "약 30~35분", c: "ghost" }], title: "오늘은 <em>네 곳</em>만 기억하세요",
     steps: [
       { t: '더보기 → 도구의 <span class="k">전자칠판 알림</span> · 교실 칠판에 안내·쪽지·긴급', s: 0, r: R("more-tools", "board") },
       { t: '더보기 → 학생의 <span class="k">분실물 함</span> · 사진 한 장으로 넣고, 돌려주고', s: 0, r: R("more-tools", "lost") },
       { t: '아래 탭 둘째 칸 <span class="k">넵</span> · 10월 18일부터 메신저처럼', s: 0, r: R("home", "tabNep"), z: 1.8 },
       { t: '아래 탭 가운데 <span class="k">AI</span> · 말로 묻고, 부탁하면 카드로', s: 0, r: R("ai-home", "tab_ai"), z: 1.8 }
     ],
-    note: { html: '<span class="ag3"><span><b>1부</b> 전자칠판 8분</span><span><b>2부</b> 분실물 함 5분</span><span><b>3부</b> 넵 6분</span><span><b>4부</b> AI 버튼 6분</span></span>' },
+    note: { html: '<span class="ag3"><span><b>1부</b> 전자칠판 9분</span><span><b>2부</b> 분실물 함 5분</span><span><b>3부</b> 넵 6분</span><span><b>4부</b> PC 설치본 3분</span><span><b>5부</b> AI 버튼 6분</span></span>' },
     lt: { tag: "오늘 순서", title: "더보기 두 곳, 아래 탭 넵과 AI", sub: "휴대폰으로 AI 교무실을 열고 함께 찾아 두세요" },
     screens: [shot("more-tools")],
     notes: "오늘 볼 곳은 네 군데뿐입니다. 아래 탭 <b>더보기</b>를 열면 「도구」 묶음에 <b>전자칠판 알림</b>, 바로 아래 「학생」 묶음에 <b>분실물 함</b>이 있습니다(10월 19일부터 「학생」 묶음이 「학교」보다 위로 올라왔습니다). 그리고 아래 탭 둘째 칸 <b>넵</b>과 가운데 볼록한 <b>AI</b> 버튼. 다 같이 더보기를 열어 두 메뉴가 어디 있는지 먼저 확인합니다."
@@ -342,7 +348,7 @@
   // 1부 · 전자칠판
   // ════════════════════════════════════════════════════════════
   opener({
-    part: 1, art: "board", min: 8, lines: ["교실 칠판까지", "<em>휴대폰에서</em>"],
+    part: 1, art: "board", min: 9, lines: ["교실 칠판까지", "<em>휴대폰에서</em>"],
     was: "방송·쪽지·교실마다 직접 가서 전달", now: "무엇을 → 어디에 → 보내기, 교실 칠판에 바로",
     notes: "1부는 <b>전자칠판</b>입니다. 먼저 교실 칠판에 무엇이 어떻게 뜨는지 보고, 휴대폰에서 보내는 법을 함께 따라 해 봅니다(보내기 단추는 누르지 않습니다). 끝으로 칠판이 알아서 하는 일 — 아침 8시 45분 쪽지, 수업 중 숨기, 점심시간 분실물 띠 — 을 봅니다."
   });
@@ -380,14 +386,14 @@
   ];
   D.add({
     id: "boardWords", part: 1, label: "보낸 뒤 · 게시 중 · 확인완료 · 송출마감 · 미표시종료", kind: "light practice", min: 1.2, trans: "push",
-    notes: "보낸 알림은 보내기 화면 아래 <b>「오늘 칠판에 나간 알림」</b>에 교실마다 한 단어로 상태가 나옵니다. ① <b>게시 중</b>(초록, 앞에 초록불이 깜빡임) — 지금 그 교실 칠판에 떠 있습니다. 위에 남은 시간이 나오고, 일찍 내리려면 [종료]를 누릅니다. ② <b>확인완료</b>(파랑) — 떠 있는 동안 교실에서 누군가 칠판의 알림을 눌렀습니다. 누르면 칠판에서 닫히고, 시간이 끝나도 확인완료로 남습니다. ③ <b>송출마감</b>(검정) — 칠판에 떴지만 아무도 누르지 않은 채 정한 시간이 다 됐거나 [종료]로 내렸습니다. 학생들이 봤을 수는 있지만 누른 사람은 없습니다. ④ <b>미표시종료</b>(회색) — 그 교실 칠판이 꺼져 있어서 한 번도 띄우지 못하고 시간이 끝났습니다. 그 반에는 넵이나 직접 전해 주세요. 그 밖에 회색 <b>표시 대기중</b>은 칠판이 지금 꺼져 있어 켜지면 뜬다는 뜻이고, <b>예약</b>은 정한 시각 전입니다. <b>긴급</b>은 칠판에 누르는 단추가 없어서 떠 있는 동안 빨간 「긴급」, 끝나면 송출마감이 됩니다. 보내기 전 「직접 고르기」에서 초록불(켜진 칠판)을 보면 미표시종료를 미리 알 수 있습니다.",
+    notes: "보낸 알림은 보내기 화면 아래 <b>「오늘 칠판에 나간 알림」</b>에 교실마다 한 단어로 상태가 나옵니다. ① <b>게시 중</b>(초록, 앞에 초록불이 깜빡임) — 지금 그 교실 칠판에 떠 있습니다. 위에 남은 시간이 나오고, 일찍 내리려면 [종료]를 누릅니다. ② <b>확인완료</b>(파랑) — 떠 있는 동안 교실에서 누군가 칠판의 알림을 눌렀습니다. 누르면 칠판에서 닫히고, 시간이 끝나도 확인완료로 남습니다. ③ <b>송출마감</b>(회색 칩) — 칠판에 떴지만 아무도 누르지 않은 채 정한 시간이 다 됐거나 [종료]로 내렸습니다. 학생들이 봤을 수는 있지만 누른 사람은 없습니다. ④ <b>미표시종료</b>(주황 칩) — 그 교실 칠판이 꺼져 있어서 한 번도 띄우지 못하고 시간이 끝났습니다. 그 반에는 넵이나 직접 전해 주세요. 그 밖에 회색 글씨 <b>표시 대기중</b>은 칠판이 지금 꺼져 있어 켜지면 뜬다는 뜻이고, <b>예약</b>은 정한 시각 전입니다. <b>긴급</b>은 칠판에 누르는 단추가 없어서 떠 있는 동안 빨간 「긴급」, 끝나면 송출마감이 됩니다. 보내기 전 「직접 고르기」에서 초록불(켜진 칠판)을 보면 미표시종료를 미리 알 수 있습니다.",
     html: '<div class="chiprow"><span class="chip">전자칠판</span><span class="chip ghost">보낸 뒤 확인</span></div>' +
       '<h2 class="title">보낸 뒤, 교실마다 <em>한 단어</em></h2>' +
       '<div class="abs bw">' + BOARD_WORDS.map(function (b) {
         return '<div class="r' + (b.warn ? " warn" : "") + '"><span class="c ' + b.c + '"><b>' + b.room + "</b>" + (b.c === "live" ? "<i></i>" : "") + "<span>" + b.w + "</span></span>" +
           "<div><h4>" + b.h + "</h4><p>" + b.p + "</p></div></div>";
       }).join("") + "</div>" +
-      '<div class="abs bw-foot"><span>회색 <b>표시 대기중</b> 칠판이 지금 꺼져 있음, 켜지면 떠요 · <b>예약</b> 정한 시각 전</span>' +
+      '<div class="abs bw-foot"><span>회색 글씨 <b>표시 대기중</b> 칠판이 지금 꺼져 있음, 켜지면 떠요 · <b>예약</b> 정한 시각 전</span>' +
       '<span><b>긴급</b>은 누르는 단추가 없어 떠 있는 동안 빨간 「긴급」, 끝나면 송출마감</span></div>' +
       cam([shot("board-sent")]),
     build: function (el, A) {
@@ -412,7 +418,7 @@
         box.classList.remove("focus");
         rows.forEach(function (r) { r.classList.remove("on"); });
         P.wide();
-        A.lt({ tag: "한 줄로", title: "파랑은 눌렀음 · 검정은 떴다가 끝 · 회색은 못 띄움", sub: "초록불이 깜빡이면 지금 칠판에 떠 있어요" });
+        A.lt({ tag: "한 줄로", title: "파랑 글씨는 눌렀음 · 회색 칩은 떴다가 끝 · 주황 칩은 못 띄움", sub: "초록불이 깜빡이면 지금 칠판에 떠 있어요" });
       });
       return beats;
     }
@@ -430,6 +436,22 @@
     ],
     screens: [shot("board-photo"), shot("board-memo"), shot("board-alert"), shot("board-alert-confirm"), shot("board-voice-rec")],
     notes: "종류별로 짧게 봅니다. <b>사진</b>은 칠판에 크게 뜨니 학생 얼굴이 나온 사진은 피해 주세요. <b>쪽지</b>는 60자까지, 수업 화면을 가리지 않고 오른쪽 위에 노란 쪽지로 뜹니다. <b>긴급</b>은 정해 둔 대피 문구로 칠판 전체가 빨간 화면이 되고 경보음이 울립니다 — 보내기 전에 몇 곳에 뜨는지, 꺼진 칠판이 몇 곳인지 확인 창이 한 번 더 묻습니다. 실제 상황이나 훈련 때만 써 주세요. <b>음성</b>은 30초까지 녹음하면 칠판에서 「띵」 뒤 두 번 나옵니다. 교실 스피커가 꺼져 있을 수 있으니 중요한 내용은 글로도 적어 주세요. 목소리 파일은 하루 뒤 지워집니다."
+  });
+
+  aiWay({
+    id: "aiBoard", part: 1, label: "AI로 하면 · 칠판 알림", min: 1, isNew: true,
+    title: "칠판 알림도 <em>말로</em>",
+    menu: "더보기 → 전자칠판 알림 → 글 · 예약 · 어디에",
+    say: "2학년 전체 칠판에 내일 아침 8시 20분에 ~ 띄워 줘",
+    steps: [
+      { t: '메뉴로는 <span class="k">전자칠판 알림</span>에서 글 · 예약 · 어디에를 고르기', s: 0, r: R("board-send", "where") },
+      { t: 'AI에게 <span class="q">「2학년 전체 칠판에 내일 아침 8시 20분에 ~ 띄워 줘」</span>', s: 1, r: R("ai-board", "question") },
+      { t: '카드 맨 위에 <b>곳</b>(2학년 전체 10곳), 아래 <b>글 · 시각 · 유지 시간</b>', s: 1, r: R("ai-board", "card") },
+      { t: '확인하고 <span class="k">내일 08:20에 예약하기</span> — 누를 때 나가요', s: 1, r: R("ai-board", "button"), z: 1.9 },
+      { t: '<span class="q">「2-3반 칠판에 쪽지」</span> <span class="q">「과학실 칠판에 ~」</span>도, 긴급은 한 번 더 물어요', s: 1 }
+    ],
+    screens: [shot("board-send"), shot("ai-board")],
+    notes: "칠판 알림도 AI에게 말로 할 수 있습니다(10월 20일 새로). 아래 탭 AI에서 「2학년 전체 칠판에 내일 아침 8시 20분에 현장체험학습 버스는 8:40에 출발합니다, 늦지 않게! 띄워 줘」라고 하면, 곳(2학년 전체 10곳)·글·시각·유지 시간을 채운 <b>전자칠판 카드</b>가 뜹니다. 확인하고 <b>「내일 08:20에 예약하기」</b>를 눌러야 나갑니다 — 보내기 화면과 똑같이 보내집니다. 「2-3반 칠판에 쪽지」, 「과학실 칠판에 내일 8시 40분에 ~」, 「전교실 긴급 ~」도 됩니다. 곳을 말하지 않으면 AI가 되묻고, 긴급은 누를 때 한 번 더 확인합니다. 고칠 곳이 있으면 AI에게 다시 말하거나 칠판 화면에서 직접 보내 주세요."
   });
 
   tvScene({
@@ -466,11 +488,12 @@
   });
 
   D.add({
-    id: "student", part: 2, label: "학생은 이렇게 봅니다", kind: "light", min: 1.2,
-    notes: "학생들은 두 곳에서 봅니다. ① <b>점심시간 교실 칠판</b> — 시계 아래 분실물 띠에 보관 중인 물건 사진이 흘러가고, 사진 아래에 찾으러 갈 교무실이 보입니다. 일과 중에는 학생이 휴대폰이 없으니 칠판을 보고 바로 찾아옵니다. ② <b>학생용 보기</b> — 분실물 함 맨 아래 「학생용 보기」 주소입니다. QR은 칠판에 띄우지 않고 <b>인쇄해서 교실에 붙여</b> 두면 방과후에 휴대폰으로 봅니다(로그인 없음, 보기만). 두 곳 모두 <b>특징과 넣은 선생님 이름은 나오지 않습니다</b>. 찾으러 온 학생에게 특징을 물어 확인하고 돌려주시면 됩니다.",
+    id: "student", part: 2, label: "학생은 이렇게 봅니다", kind: "light", min: 1.4,
+    notes: "학생들은 세 곳에서 봅니다. ① <b>점심시간 교실 칠판</b> — 시계 아래 분실물 띠에 보관 중인 물건 사진이 흘러가고, 사진 아래에 찾으러 갈 교무실이 보입니다. 일과 중에는 학생이 휴대폰이 없으니 칠판을 보고 바로 찾아옵니다. ② <b>칠판 왼쪽 아래 [분실물 함] 단추</b>(10월 20일 새로) — 점심시간이 아니어도 학생이 누르면 보관 중인 물건 사진이 바둑판으로 뜨고, 사진 아래 찾으러 갈 교무실이 크게 보입니다. [닫기]로 돌아갑니다. ③ <b>학생용 보기</b> — 분실물 함 맨 아래 「학생용 보기」 주소입니다. QR은 칠판에 띄우지 않고 <b>인쇄해서 교실에 붙여</b> 두면 방과후에 휴대폰으로 봅니다(로그인 없음, 보기만). 세 곳 모두 <b>특징과 넣은 선생님 이름은 나오지 않습니다</b>. 찾으러 온 학생에게 특징을 물어 확인하고 돌려주시면 됩니다.",
     html: '<div class="chiprow"><span class="chip">학생 화면</span><span class="chip ghost">보기만</span></div><h2 class="title">학생은 <em>이렇게</em> 봅니다</h2>' +
       '<p class="stu-h a" style="left:120px"><i>1</i>점심시간, 교실 칠판</p>' +
-      '<div class="abs tv stu-tv"><div class="in"><img src="img/board/lunch.jpg" alt="" style="opacity:1"></div></div>' +
+      '<p class="stu-h c" style="left:120px"><i>1</i>칠판 왼쪽 아래 <span class="nb">분실물 함</span> 단추 — 언제든</p>' +
+      '<div class="abs tv stu-tv"><div class="in"><img src="img/board/lunch.jpg" alt="" style="opacity:1"><img class="lp" src="img/board/lostpanel.jpg" alt=""></div></div>' +
       '<p class="stu-h b" style="left:1180px"><i>2</i>교실에 붙인 QR → 학생용 보기</p>' +
       '<div class="abs stu-ph"><div class="phone"><div class="screen"><img src="img/found.jpg" alt=""></div></div></div>' +
       '<div class="abs stu-ls"><span>로그인 없이</span><span>보관 중인 것만</span><span>사진 · 종류 · 발견 장소 · 날짜</span><span>찾으러 갈 교무실</span><span class="no">특징 · 넣은 선생님 이름</span></div>',
@@ -478,12 +501,18 @@
       return [
         function (A) {
           A.wipe(".chiprow > *"); A.kinetic(".title", { delay: 100, each: 26 });
-          A.hide(".stu-h, .stu-tv, .stu-ph, .stu-ls span");
+          A.hide(".stu-h, .stu-tv, .stu-ph, .stu-ls span, .stu-tv img.lp");
           A.later(function () {
             A.go(".stu-h.a", [{ opacity: 0, clipPath: "inset(0 100% 0 0)" }, { opacity: 1, clipPath: "inset(0 0 0 0)" }], { d: 650 });
             A.go(".stu-tv", [{ opacity: 0, transform: "translateY(60px) scale(.95)" }, { opacity: 1, transform: "none" }], { d: 1000, delay: 120, e: E.out });
             A.sfx("pop", { delay: 300 });
           }, 600);
+        },
+        function (A) {
+          A.go(".stu-h.a", [{ opacity: 1 }, { opacity: 0 }], { d: 300 });
+          A.go(".stu-h.c", [{ opacity: 0, clipPath: "inset(0 100% 0 0)" }, { opacity: 1, clipPath: "inset(0 0 0 0)" }], { d: 650, delay: 200 });
+          A.go(".stu-tv img.lp", [{ opacity: 0, transform: "scale(1.04)" }, { opacity: 1, transform: "none" }], { d: 700, e: E.out });
+          A.sfx("pop", { delay: 200 });
         },
         function (A) {
           A.go(".stu-h.b", [{ opacity: 0, clipPath: "inset(0 100% 0 0)" }, { opacity: 1, clipPath: "inset(0 0 0 0)" }], { d: 650 });
@@ -521,7 +550,7 @@
   opener({
     part: 3, art: "nep", min: 6, lines: ["넵은 이제", "<em>메신저처럼</em>"],
     was: "넵 목록에서 제목을 찾아 하나씩 열기", now: "선생님별 방에서 주고받고, 카드 안 버튼 하나로",
-    notes: "3부는 <b>넵</b>입니다. 10월 18일에 넵 화면이 <b>메신저처럼</b> 바뀌었습니다. 첫 화면이 조직도·받은·보낸 세 탭이 되었고, 받은 넵은 <b>보낸 선생님별 방</b>에 모입니다. 종류 이름도 바뀌었습니다. 받은 넵을 방에서 처리하고 답장하는 것을 함께 해 보고, 보내는 법과 19일에 새로 생긴 <b>대화 비우기</b>까지 봅니다. 배달 규칙(수업 중이면 교시가 끝난 뒤 도착)은 그대로입니다."
+    notes: "3부는 <b>넵</b>입니다. 10월 18일에 넵 화면이 <b>메신저처럼</b> 바뀌었습니다. 첫 화면이 조직도·받은·보낸 세 탭이 되었고, 받은 넵은 <b>보낸 선생님별 방</b>에 모입니다. 종류 이름도 바뀌었습니다. 받은 넵을 방에서 처리하고 답장하는 것을 함께 해 보고, 보내는 법과 19일에 새로 생긴 <b>대화 비우기</b>까지 봅니다. 10월 20일부터는 <b>일과 중이면 받는 분이 수업 중이어도 바로</b> 도착합니다(근무 시간 밖에 보낸 것만 다음 근무일 아침)."
   });
 
   var NEP_TABS = [
@@ -531,7 +560,7 @@
   ];
   D.add({
     id: "nepTabs", part: 3, label: "넵 첫 화면: 조직도 · 받은 · 보낸", kind: "light", min: 0.8, isNew: true, trans: "zoom",
-    notes: "넵을 열면 맨 위에 탭이 셋입니다. <b>조직도</b>가 처음 열리는 탭으로, 전체 교직원·교장·교감·부서·교과 카드가 있습니다. 이름을 누르면 그 선생님과의 방이 열리고, 오른쪽 칸을 체크하면 여러 분께 한 번에 씁니다. <b>받은</b> 탭은 보낸 선생님마다 한 줄 — 카카오톡 대화 목록과 같습니다. 맨 위에는 늘 「나에게」가 있습니다. <b>보낸</b> 탭은 내가 보낸 넵마다 한 줄로, 누가 얼마나 처리했는지 숫자로 보입니다. 홈 맨 위 「처리할 넵」 줄을 누르면 받은 탭으로 옵니다.",
+    notes: "넵을 열면 맨 위에 탭이 셋입니다. <b>조직도</b>가 처음 열리는 탭으로, 맨 위에 전체 교직원, 그 아래 부서 목록 맨 위 줄에 교장·교감, 이어서 부서·교과가 한 줄씩 있습니다(줄을 누르면 펼쳐지고, 펼쳐 둔 부서는 다음에도 펼친 채). 이름을 누르면 그 선생님과의 방이 열리고, 오른쪽 칸을 체크하면 여러 분께 한 번에 씁니다. <b>받은</b> 탭은 보낸 선생님마다 한 줄 — 카카오톡 대화 목록과 같습니다. 맨 위에는 늘 「나에게」가 있습니다. <b>보낸</b> 탭은 내가 보낸 넵마다 한 줄로, 누가 얼마나 처리했는지 숫자로 보입니다. 홈 맨 위 「처리할 넵」 줄을 누르면 받은 탭으로 옵니다.",
     html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip ghost">10월 18일 바뀜</span></div><h2 class="title">넵 첫 화면은 <em>세 탭</em></h2>' +
       '<div class="abs n3">' + NEP_TABS.map(function (t, i) {
         return '<div class="c"><div class="ph"><img src="img/' + t[0] + '.jpg" alt=""></div><div class="cap"><span class="no">' + (i + 1) + '</span><div><h3>' + t[1] + ' <small>' + t[2] + '</small></h3><p>' + t[3] + '</p></div></div></div>';
@@ -557,12 +586,12 @@
   ];
   D.add({
     id: "nepNames", part: 3, label: "이름이 바뀐 넵 네 가지", kind: "light", min: 1, isNew: true,
-    notes: "종류 이름이 바뀌었습니다. 예전 <b>알림</b>은 <b>메시지</b>(읽으면 끝, 그래도 [넵]을 누르면 보낸 분 현황에 「넵」으로 셉니다), <b>확인요청</b>은 <b>넵 받기</b>, <b>업무요청</b>은 <b>완료 받기</b>, <b>제출요청</b>은 <b>파일 받기</b>입니다. 처리하면 단추가 초록 「넵함 ✓」「완료함 ✓」「제출함 ✓」로 바뀝니다. 새로 생긴 것은 교무부의 <b>보강 모집</b> 넵 — 그 교시 공강인 분께만 가고 [신청] 한 번이면 됩니다(결근 사유·선생님 이름은 싣지 않음). 그대로인 것: 받는 분이 <b>수업 중이면 교시가 끝난 뒤</b>, <b>근무 시간 밖이면 다음 근무일 아침</b>에 도착하고, 긴급만 바로 울립니다(한 달 횟수 제한). 나에게 보낸 메모는 바로 옵니다.",
+    notes: "종류 이름이 바뀌었습니다. 예전 <b>알림</b>은 <b>메시지</b>(읽으면 끝, 그래도 [넵]을 누르면 보낸 분 현황에 「넵」으로 셉니다), <b>확인요청</b>은 <b>넵 받기</b>, <b>업무요청</b>은 <b>완료 받기</b>, <b>제출요청</b>은 <b>파일 받기</b>입니다. 처리하면 단추가 초록 「넵함 ✓」「완료함 ✓」「제출함 ✓」로 바뀝니다. 새로 생긴 것은 교무부의 <b>보강 모집</b> 넵 — 그 교시 공강인 분께만 가고 [신청] 한 번이면 됩니다(결근 사유·선생님 이름은 싣지 않음). 도착 시각도 하나 바뀌었습니다(10월 20일). 예전엔 받는 분이 수업 중이면 교시가 끝날 때까지 기다렸는데, 이제는 <b>일과 중이면 수업 중이어도 바로</b> 도착합니다. <b>근무 시간 밖·주말·휴일</b>에 보낸 것은 그대로 <b>다음 근무일 아침</b>에 도착하고, <b>긴급</b>만 퇴근 뒤·주말에도 바로 울립니다(한 달 횟수 제한). 나에게 보낸 메모는 바로 옵니다.",
     html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip ghost">예전 이름 → 지금 이름</span></div><h2 class="title">넵 네 가지, <em>이름이 바뀌었어요</em></h2>' +
       '<div class="abs nm">' + NEP_NAMES.map(function (n) {
         return '<div class="r"><span class="old">' + n[0] + '<i></i></span><span class="ar">→</span><span class="new">' + n[1] + '</span><span class="bt">' + (n[3] ? "<b>" + n[3] + '</b><span>→</span><b class="dn">' + n[4] + "</b>" : n[2]) + "</span></div>";
       }).join("") + '<div class="r plus"><span class="new">보강 모집<small>그 교시 공강인 분께만 · 사유·이름 없이</small></span><span class="bt"><b>신청</b></span></div></div>' +
-      '<div class="abs card nkeep"><h3>그대로인 것</h3><p><b>수업 중</b><span>교시가 끝나면 도착</span></p><p><b>근무 시간 밖</b><span>다음 근무일 아침에</span></p><p><b>나에게</b><span>메모는 바로 도착</span></p><p class="warn"><b>긴급</b><span>바로 울림 · 한 달 횟수 제한</span></p></div>',
+      '<div class="abs card nkeep"><h3>언제 도착하나</h3><p class="chg"><b>일과 중</b><span>바로 도착 — 수업 중이어도<i>10/20 바뀜</i></span></p><p><b>근무 시간 밖</b><span>다음 근무일 아침에</span></p><p><b>나에게</b><span>메모는 바로 도착</span></p><p class="warn"><b>긴급</b><span>퇴근 뒤·주말에도 바로 · 한 달 횟수 제한</span></p></div>',
     build: function (el, A) {
       return [
         function (A) {
@@ -633,16 +662,26 @@
   });
 
   // ════════════════════════════════════════════════════════════
-  // 4부 · AI 버튼
+  // 4부 · PC 설치본(장면은 pc-scenes.js — 연수 발표와 같이 쓴다)
   // ════════════════════════════════════════════════════════════
   opener({
-    part: 4, art: "ai", min: 6, lines: ["메뉴를 몰라도", "<em>말하면</em> 됩니다"],
+    part: 4, art: "basics", flip: true, min: 3, lines: ["교무실 PC에는", "<em>프로그램으로</em>"],
+    was: "브라우저 탭을 찾아 다시 열고, 알림은 휴대폰으로만", now: "오른쪽 가장자리 좁은 창 하나, 넵·알림은 윈도우 알림으로",
+    notes: "4부는 10월 19일에 생긴 <b>PC 설치본</b>입니다. 교무실 PC에 AI 교무실을 <b>프로그램으로</b> 깔면, 화면 오른쪽에 메신저처럼 좁은 창으로 뜨고 넵·알림이 윈도우 알림으로 옵니다. 지금은 휴대폰으로 보고, 깔기는 자리로 돌아가 해 보시면 됩니다."
+  });
+  window.PC_SCENES(D, { part: 4, minWhat: 1.2, minInstall: 1.2 });
+
+  // ════════════════════════════════════════════════════════════
+  // 5부 · AI 버튼
+  // ════════════════════════════════════════════════════════════
+  opener({
+    part: 5, art: "ai", min: 6, lines: ["메뉴를 몰라도", "<em>말하면</em> 됩니다"],
     was: "메뉴를 찾고, 양식을 찾아 처음부터 직접", now: "말로 부탁하면 카드로 초안까지, 누르는 건 선생님",
-    notes: "4부는 아래 탭 가운데 <b>AI 버튼</b>입니다. 학교 자료를 찾아 답하고, 부탁하면 <b>확인 카드</b>로 초안까지 만듭니다. 카드는 누르기 전까지 선생님만 보는 초안입니다. 쉬운 질문 하나를 함께 해 보고, 카드가 되는 부탁을 봅니다."
+    notes: "5부는 아래 탭 가운데 <b>AI 버튼</b>입니다. 학교 자료를 찾아 답하고, 부탁하면 <b>확인 카드</b>로 초안까지 만듭니다. 카드는 누르기 전까지 선생님만 보는 초안입니다. 쉬운 질문 하나를 함께 해 보고, 카드가 되는 부탁을 봅니다."
   });
 
   D.add({
-    id: "aiIntro", part: 4, label: "말하기 → 카드 → 누르기", kind: "light", min: 1, trans: "zoom",
+    id: "aiIntro", part: 5, label: "말하기 → 카드 → 누르기", kind: "light", min: 1, trans: "zoom",
     notes: "AI 버튼은 세 박자입니다. <b>묻기</b> — 시간표·급식·학사일정·주간소식은 물론 자료실 파일과 <b>학교 공유 드라이브</b> 문서의 본문까지 찾아 답하고 출처를 붙입니다. 📎로 붙인 PDF·사진·한글·엑셀 파일과 웹 주소도 읽습니다. <b>부탁하기</b> — 수리 요청·가정통신문·진도표·분실물·넵 초안처럼 말로 부탁하면 필요한 것만 되묻고 카드를 만듭니다. <b>누르는 건 선생님</b> — 카드에서 고친 뒤 [등록]·[넣기]·[보내기]를 눌러야 실제로 적히거나 갑니다. 질문은 하루 60개, 어려운 일은 「깊게 생각하기」(하루 5번). 학생 이름이나 실제 생기부 문장은 넣지 마세요 — 질문은 외부 AI로 보내집니다.",
     html: '<div class="chiprow"><span class="chip ai">AI 버튼</span></div><h2 class="title">말하면, <em>카드로</em>. 누르는 건 선생님</h2>' +
       '<div class="abs card askc" style="left:120px"><span class="sn">1</span><h3>묻기</h3><p>자료실·공유 드라이브 파일의 <b>본문까지</b> 찾아 답하고, 출처를 붙입니다.</p><div class="chips"><span>학사일정</span><span>급식</span><span>빈 교실</span><span>담임</span><span>자료실·양식</span><span>공유 드라이브</span><span>📎 파일·사진·웹 주소</span></div></div>' +
@@ -670,7 +709,7 @@
   });
 
   practice({
-    id: "first", part: 4, num: 4, label: "실습 4 · AI에게 첫 질문", min: 2, practiceMin: 2, trans: "zoom",
+    id: "first", part: 5, num: 4, label: "실습 4 · AI에게 첫 질문", min: 2, practiceMin: 2, trans: "zoom",
     chips: [{ t: "실습 4 · AI" }, { t: "2분", c: "ghost" }], title: "첫 질문은 <em>쉬운 것부터</em>",
     steps: [
       { t: '아래 탭 가운데 <span class="k">AI</span>', s: 0, r: R("ai-home", "tab_ai"), z: 1.8 },
@@ -686,7 +725,7 @@
   });
 
   practice({
-    id: "cards", part: 4, num: null, label: "부탁하면 카드로", min: 2,
+    id: "cards", part: 5, num: null, label: "부탁하면 카드로", min: 2,
     chips: [{ t: "둘러보기" }, { t: "카드까지만", c: "ghost" }], title: "부탁하면 <em>카드로</em>, 누르는 건 선생님",
     steps: [
       { t: '<span class="q">「2-3 교실 전자칠판 터치가 자꾸 안 돼요. 수리 요청해 줘」</span>', s: 0, r: R("ai-repair", "question") },
@@ -701,7 +740,7 @@
   });
 
   D.add({
-    id: "tenAsks", part: 4, label: "해 볼 부탁 열 문장", kind: "light", min: 1, trans: "whip",
+    id: "tenAsks", part: 5, label: "해 볼 부탁 열 문장", kind: "light", min: 1, trans: "whip",
     notes: "따라 말할 수 있는 열 문장입니다. 왼쪽 위 두 줄은 묻기, 나머지는 카드가 되는 부탁입니다. 오늘 본 <b>칠판 수리 요청과 넵 초안</b>도 들어 있습니다(보라 테두리). 사진으로 분실물 넣기는 아래 줄에 있습니다. 이 목록은 AI 교무실 연수 자료 첫 화면에도 있으니, 내일 아침 하나만 골라 해 보시라고 권해 주세요.",
     html: '<div class="chiprow"><span class="chip ai">가져가기</span><span class="chip ghost">연수 자료 첫 화면에도 있어요</span></div><h2 class="title">내일 해 볼 <em>부탁 열 문장</em></h2>' +
       '<div class="abs ten">' + (window.ASKS || []).map(function (a, i) { return '<div class="r' + (/수리|넵/.test(a.got) ? " hot" : "") + '"><span class="n">' + String(i + 1).padStart(2, "0") + '</span><span class="s">「' + a.say + '」</span><span class="c">' + a.got + "</span></div>"; }).join("") + "</div>" +
@@ -724,11 +763,12 @@
     ["1", "칠판에 쪽지 하나", "더보기 → 전자칠판 알림 → 쪽지 → 「내 반」", ""],
     ["2", "주운 물건은 사진 한 장으로", "분실물 함 → 분실물 넣기, 돌려주면 「돌려줬어요」", ""],
     ["3", "받은 넵은 방에서 버튼 하나로", "넵 → 받은 → [넵]·[완료], 아래 칸은 그분께 답장", ""],
-    ["4", "AI에게 한 문장", "「이번 주 학사일정 알려 줘」부터", "ai"]
+    ["4", "교무실 PC에 설치본", "파일 열기 → 「PC 보호」면 추가 정보 → 실행 → 로그인", ""],
+    ["5", "AI에게 한 문장", "「이번 주 학사일정 알려 줘」부터", "ai"]
   ];
   D.add({
-    id: "closing", part: 5, label: "마무리 · 질문", kind: "dark", min: 1.5, trans: "whip", bgm: "end",
-    notes: "오늘 본 네 가지를 하나씩 해 보시라고 권합니다. 담임 선생님은 <b>내 반 칠판에 쪽지 하나</b>, 물건을 주우면 <b>사진 한 장으로 분실물 함에</b>, 받은 넵은 <b>선생님별 방에서 버튼 하나로</b>, 그리고 <b>AI에게 한 문장</b>. 질문을 받고, 막히거나 궁금한 점은 언제든 <b>교목실</b>로 오시면 된다고 말씀드립니다. 칠판이 꺼져 있거나 안 뜨는 교실은 따로 알려 달라고 부탁합니다.",
+    id: "closing", part: 6, label: "마무리 · 질문", kind: "dark", min: 1.5, trans: "whip", bgm: "end",
+    notes: "오늘 본 다섯 가지를 하나씩 해 보시라고 권합니다. 담임 선생님은 <b>내 반 칠판에 쪽지 하나</b>, 물건을 주우면 <b>사진 한 장으로 분실물 함에</b>, 받은 넵은 <b>선생님별 방에서 버튼 하나로</b>, 교무실 PC에는 <b>설치본</b>, 그리고 <b>AI에게 한 문장</b>. 질문을 받고, 막히거나 궁금한 점은 언제든 <b>교목실</b>로 오시면 된다고 말씀드립니다. 칠판이 꺼져 있거나 안 뜨는 교실은 따로 알려 달라고 부탁합니다.",
     html: darkBg("closing") +
       '<h2 class="abs cl-title"><span class="ln">내일은,</span><span class="ln"><em>하나씩</em> 해 보세요</span></h2>' +
       '<div class="abs cl-do">' + DO.map(function (d) { return "<div" + (d[3] ? ' class="' + d[3] + '"' : "") + "><i>" + d[0] + "</i><p><b>" + d[1] + "</b><span>" + d[2] + "</span></p></div>"; }).join("") + "</div>" +

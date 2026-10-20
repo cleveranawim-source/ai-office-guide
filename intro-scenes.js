@@ -594,8 +594,8 @@
   });
 
   D.add({
-    id: "s-desk", part: 2, label: "PC에서도", kind: "light", min: 0.6, tour: { title: "PC에서도 같은 화면", html: '<p>컴퓨터에서는 왼쪽 메뉴와 넓은 달력으로 보입니다. 휴대폰과 같은 주소, 같은 계정입니다.</p><img src="img/desk/home.jpg" alt="PC 홈 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy"><img src="img/desk/calendar.jpg" alt="PC 일정 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy">' },
-    notes: "같은 주소를 컴퓨터에서 열면 왼쪽 메뉴가 있는 넓은 화면입니다. 일정 달력은 넓은 화면에서 일정 이름까지 보입니다. 휴대폰을 먼저 설계했고, 컴퓨터는 같은 화면을 넓게 씁니다.",
+    id: "s-desk", part: 2, label: "PC에서도", kind: "light", min: 0.6, tour: { title: "PC에서도 같은 화면", html: '<p>컴퓨터에서는 왼쪽 메뉴와 넓은 달력으로 보입니다. 휴대폰과 같은 주소, 같은 계정입니다. 교무실 PC에는 오른쪽에 좁은 창으로 두고 윈도우 알림을 받는 <b>설치본</b>도 있습니다.</p><img src="img/desk/home.jpg" alt="PC 홈 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy"><img src="img/desk/calendar.jpg" alt="PC 일정 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy">' },
+    notes: "같은 주소를 컴퓨터에서 열면 왼쪽 메뉴가 있는 넓은 화면입니다. 일정 달력은 넓은 화면에서 일정 이름까지 보입니다. 휴대폰을 먼저 설계했고, 컴퓨터는 같은 화면을 넓게 씁니다. 교무실 PC에는 <b>설치본</b>도 있습니다 — 사이트를 창 하나에 띄우는 작은 프로그램이라, 화면 오른쪽에 메신저처럼 좁은 창으로 두고 넵·알림을 윈도우 알림으로 받습니다. 사이트를 고치면 설치본은 다시 나눠 주지 않아도 됩니다.",
     html: chips([{ t: "매일 여는 화면" }, { t: "PC", c: "ghost" }]) + '<h2 class="title">컴퓨터에서도 <em>같은 화면</em>, 넓게</h2>' +
       '<div class="abs bw" style="left:120px;top:300px;width:1040px"><div class="bar"><i></i><i></i><i></i></div><img src="img/desk/home.jpg" alt=""></div>' +
       '<div class="abs bw" style="left:820px;top:400px;width:980px"><div class="bar"><i></i><i></i><i></i></div><img src="img/desk/calendar.jpg" alt=""></div>',
@@ -631,7 +631,7 @@
       { t: '<span class="aib">AI로도</span> 「상담 기록 넵 보내 줘」 → 초안, <b>보내기는 선생님</b>', s: 5, r: R("ai-nep", "people") }
     ],
     screens: ["nep-org-picked", "nep-plus", "nep-inbox", "nep-room", "nep-board", "ai-nep"],
-    notes: "넵은 교내 메시지입니다. 메신저처럼 생겼습니다 — 첫 화면은 <b>조직도</b>이고, 이름을 누르면 그 선생님과의 방, 칸을 체크하면 여러 분께 한 번에 씁니다. 종류는 <b>메시지 · 넵 받기 · 완료 받기 · 파일 받기</b> 네 가지라, 받는 분은 [넵]·[완료]·[제출] 버튼 하나로 답하고 보낸 분은 「4/9 완료」처럼 숫자로 봅니다. 받은 넵은 <b>보낸 선생님별 방</b>에 모이고, 방 아래 칸이 곧 그분께 가는 답장입니다. 받는 분이 수업 중이면 교시가 끝난 뒤, 근무 시간 밖이면 다음 근무일 아침에 도착하게 해서 <b>수업과 쉬는 시간을 지킵니다</b>. 글에 “23일까지”라고 쓰면 마감이 미리 채워지고, 그 마감은 받는 분의 일정에만 나타납니다. <b>AI에게 말로</b> 해도 받는 사람·마감까지 채운 초안이 뜨지만, <b>AI는 보내지 않습니다</b>."
+    notes: "넵은 교내 메시지입니다. 메신저처럼 생겼습니다 — 첫 화면은 <b>조직도</b>이고, 이름을 누르면 그 선생님과의 방, 칸을 체크하면 여러 분께 한 번에 씁니다. 종류는 <b>메시지 · 넵 받기 · 완료 받기 · 파일 받기</b> 네 가지라, 받는 분은 [넵]·[완료]·[제출] 버튼 하나로 답하고 보낸 분은 「4/9 완료」처럼 숫자로 봅니다. 받은 넵은 <b>보낸 선생님별 방</b>에 모이고, 방 아래 칸이 곧 그분께 가는 답장입니다. 일과 중에는 바로 도착하고, 근무 시간 밖에 보낸 것은 다음 근무일 아침에 도착하게 해서 <b>퇴근 뒤 시간을 지킵니다</b>(긴급만 예외). 글에 “23일까지”라고 쓰면 마감이 미리 채워지고, 그 마감은 받는 분의 일정에만 나타납니다. <b>AI에게 말로</b> 해도 받는 사람·마감까지 채운 초안이 뜨지만, <b>AI는 보내지 않습니다</b>."
   });
 
   show({
