@@ -728,19 +728,20 @@
 
   D.add({
     id: "s-tv", part: 4, label: "교실 칠판 모습", kind: "light", min: 1.5,
-    tour: { title: "교실 칠판에는 이렇게", html: '<div class="t-grid">' + [["lunch", "점심시간 — 큰 시계 아래 분실물 띠(사진이 흘러가고 찾으러 갈 교무실을 크게)"], ["notice-photo", "안내 — 사진은 크게, 글은 아래"], ["memo", "8:45 — 수업이 바뀐 반에 「오늘 바뀐 수업」 쪽지"], ["alert", "긴급 — 빨간 전체 화면과 경보음"], ["voice", "음성 — 「띵」 뒤 두 번, [다시 듣기]"], ["inclass-composite", "수업 중 — 30초 뒤 숨고 안내는 구석 포스트잇(합성 그림)"]].map(function (x) { return '<div class="t-box"><img src="img/board/' + x[0] + '.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px"><span>' + x[1] + "</span></div>"; }).join("") + "</div>" },
-    notes: "교실 칠판에는 이렇게 뜹니다. 평소엔 반 이름과 큰 시계. <b>점심시간</b>에는 그 아래 <b>분실물 띠</b>가 붙어 보관 중인 물건 사진이 옆으로 흘러가고, 찾으러 갈 교무실이 크게 보입니다(학생용 QR은 교실에 인쇄해 붙입니다). 안내는 사진이 위에 크게. 아침 8시 45분에는 <b>수업이 바뀐 반 칠판 귀퉁이에 「오늘 바뀐 수업」 쪽지가 저절로</b> 붙습니다(사유 없이 교시·과목·교실만). 긴급은 빨간 전체 화면, 음성 안내에는 [다시 듣기]. 칠판 창 프로그램이 깔린 교실은 수업이 시작하면 30초 뒤 칠판이 저절로 숨고, 수업 중에 온 안내는 구석 포스트잇으로만 뜹니다(마지막 그림은 합성). 교실 PC 화면보호기도 학교 보안 점검 기준을 지키며 칠판을 띄웁니다.",
+    tour: { title: "교실 칠판에는 이렇게", html: '<div class="t-grid">' + [["idle", "평소 — 반 이름과 큰 시계, 왼쪽 아래 [지난 알림]·[작은 창]·[분실물 함]·[숨기기]"], ["lunch", "점심시간 — 큰 시계 아래 분실물 띠(사진이 흘러가고 찾으러 갈 교무실을 크게)"], ["notice-photo", "안내 — 사진은 크게, 글은 아래"], ["memo", "8:45 — 수업이 바뀐 반에 「오늘 바뀐 수업」 쪽지"], ["alert", "긴급 — 빨간 전체 화면과 경보음"], ["voice", "음성 — 「띵」 뒤 두 번, [다시 듣기]"], ["inclass-composite", "수업 중 — 30초 뒤 숨고 안내는 구석 포스트잇(합성 그림)"]].map(function (x) { return '<div class="t-box"><img src="img/board/' + x[0] + '.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px"><span>' + x[1] + "</span></div>"; }).join("") + "</div>" },
+    notes: "교실 칠판에는 이렇게 뜹니다. 평소엔 반 이름과 큰 시계. " + (window.BOARD_BTNS ? window.BOARD_BTNS.notes : "") + " <b>점심시간</b>에는 그 아래 <b>분실물 띠</b>가 붙어 보관 중인 물건 사진이 옆으로 흘러가고, 찾으러 갈 교무실이 크게 보입니다(학생용 QR은 교실에 인쇄해 붙입니다). 안내는 사진이 위에 크게. 아침 8시 45분에는 <b>수업이 바뀐 반 칠판 귀퉁이에 「오늘 바뀐 수업」 쪽지가 저절로</b> 붙습니다(사유 없이 교시·과목·교실만). 긴급은 빨간 전체 화면, 음성 안내에는 [다시 듣기]. 칠판 창 프로그램이 깔린 교실은 수업이 시작하면 30초 뒤 칠판이 저절로 숨고, 수업 중에 온 안내는 구석 포스트잇으로만 뜹니다(마지막 그림은 합성). 교실 PC 화면보호기도 학교 보안 점검 기준을 지키며 칠판을 띄웁니다.",
     html: chips([{ t: "수업" }, { t: "교실 칠판", c: "ghost" }]) + '<h2 class="title" style="width:860px">교실 칠판에는 <em>이렇게</em> 뜹니다</h2>' +
-      '<ol class="steps bt">' + [["점심시간", "큰 시계 아래 분실물 띠(사진이 흘러가요)"], ["안내", "사진은 위에 크게, 글은 아래"], ["8:45 쪽지", "수업이 바뀐 반에 「오늘 바뀐 수업」"], ["긴급", "빨간 전체 화면과 경보음"], ["음성", "「띵」 뒤 두 번, [다시 듣기]"], ["수업 중", "30초 뒤 숨고, 안내는 구석 포스트잇"]].map(function (x) { return "<li><span><b>" + x[0] + "</b> · " + x[1] + "</span></li>"; }).join("") + "</ol>" +
-      '<div class="abs tv"><div class="in">' + ["lunch", "notice-photo", "memo", "alert", "voice", "inclass-composite"].map(function (n) { return '<img src="img/board/' + n + '.jpg" alt="">'; }).join("") + "</div></div>" +
+      '<ol class="steps bt">' + [["왼쪽 아래 단추", "지난 알림 · 작은 창 · 분실물 함 · 숨기기"], ["점심시간", "큰 시계 아래 분실물 띠(사진이 흘러가요)"], ["안내", "사진은 위에 크게, 글은 아래"], ["8:45 쪽지", "수업이 바뀐 반에 「오늘 바뀐 수업」"], ["긴급", "빨간 전체 화면과 경보음"], ["음성", "「띵」 뒤 두 번, [다시 듣기]"], ["수업 중", "30초 뒤 숨고, 안내는 구석 포스트잇"]].map(function (x) { return "<li><span><b>" + x[0] + "</b> · " + x[1] + "</span></li>"; }).join("") + "</ol>" +
+      '<div class="abs tv"><div class="in">' + ["idle", "lunch", "notice-photo", "memo", "alert", "voice", "inclass-composite"].map(function (n) { return '<img src="img/board/' + n + '.jpg" alt="">'; }).join("") + "</div></div>" + (window.BOARD_BTNS ? window.BOARD_BTNS.html : "") +
       '<p class="abs tv-note">마지막 그림은 이해를 돕는 합성 그림 · 반·이름은 예시</p>',
     build: function (el, A) {
       var imgs = A.$$(".tv img"), lis = A.$$(".steps.bt li"), cur = -1;
       function showI(i) {
         lis.forEach(function (li, k) { li.classList.toggle("on", k === i); li.classList.toggle("done", k < i); });
+        if (window.BOARD_BTNS) window.BOARD_BTNS.show(A, el, i === 0);
         if (cur >= 0) A.go(imgs[cur], [{ opacity: 1 }, { opacity: 0 }], { d: 500, e: E.in });
         A.go(imgs[i], [{ opacity: 0, transform: "scale(1.04)" }, { opacity: 1, transform: "none" }], { d: 700, e: E.out });
-        A.sfx(i === 3 ? "alert" : "pop");
+        A.sfx(/alert\.jpg$/.test(imgs[i].src) ? "alert" : "pop");
         cur = i;
       }
       var beats = [function (A) {

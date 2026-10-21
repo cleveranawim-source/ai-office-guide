@@ -276,11 +276,13 @@
         '<h2 class="title" style="width:820px">' + o.title + "</h2>" +
         '<ol class="steps bt">' + o.items.map(function (x) { return "<li><span><b>" + x[0] + "</b> · " + x[1] + "</span></li>"; }).join("") + "</ol>" +
         '<div class="abs tv"><div class="in">' + o.items.map(function (x) { return '<img src="img/board/' + x[2] + '.jpg" alt="">'; }).join("") + "</div></div>" +
-        (o.foot ? '<p class="abs tv-note">' + o.foot + "</p>" : ""),
+        (o.foot ? '<p class="abs tv-note">' + o.foot + "</p>" : "") +
+        (o.items.some(function (x) { return x[3] === "btns"; }) && window.BOARD_BTNS ? window.BOARD_BTNS.html : ""),
       build: function (el, A) {
         var imgs = A.$$(".tv img"), lis = A.$$(".steps.bt li"), cur = -1;
         function show(i) {
           lis.forEach(function (li, k) { li.classList.toggle("on", k === i); li.classList.toggle("done", k < i); });
+          if (window.BOARD_BTNS) window.BOARD_BTNS.show(A, el, o.items[i][3] === "btns");
           if (cur >= 0) A.go(imgs[cur], [{ opacity: 1 }, { opacity: 0 }], { d: 500, e: E.in });
           A.go(imgs[i], [{ opacity: 0, transform: "scale(1.04)" }, { opacity: 1, transform: "none" }], { d: 700, e: E.out });
           A.sfx(o.items[i][2] === "alert" ? "alert" : "pop");
@@ -354,11 +356,11 @@
   });
 
   tvScene({
-    id: "tv", part: 1, label: "교실 칠판에는 이렇게", min: 1.5, trans: "zoom",
+    id: "tv", part: 1, label: "교실 칠판에는 이렇게", min: 1.8, trans: "zoom",
     chips: [{ t: "교실 칠판" }, { t: "반·이름은 예시", c: "ghost" }], title: "교실 칠판에는 <em>이렇게</em> 뜹니다",
-    items: [["평소", "반 이름과 큰 시계", "idle"], ["안내", "사진은 위에 크게, 글은 아래", "notice-photo"], ["링크", "QR과 [▶ 영상 틀기]", "youtube"], ["쪽지", "오른쪽 위 노란 쪽지, 수업 화면은 그대로", "tmemo"], ["긴급", "빨간 전체 화면과 경보음", "alert"], ["음성", "「띵」 뒤 두 번, [다시 듣기]", "voice"]],
+    items: [["평소", "반 이름과 큰 시계", "idle"], ["왼쪽 아래", "지난 알림 · 작은 창 · 분실물 함 · 숨기기", "idle", "btns"], ["안내", "사진은 위에 크게, 글은 아래", "notice-photo"], ["링크", "QR과 [▶ 영상 틀기]", "youtube"], ["쪽지", "오른쪽 위 노란 쪽지, 수업 화면은 그대로", "tmemo"], ["긴급", "빨간 전체 화면과 경보음", "alert"], ["음성", "「띵」 뒤 두 번, [다시 듣기]", "voice"]],
     foot: "알림을 교실에서 누르면 보낸 선생님 화면에 「확인완료」",
-    notes: "교실 칠판은 평소에 <b>반 이름과 큰 시계</b>만 보입니다. 휴대폰에서 보내면 바로 뜹니다. <b>안내</b>는 사진을 붙이면 위에 크게, 글은 아래. <b>링크</b>를 붙이면 학생이 찍을 QR과, 유튜브면 칠판에서 바로 트는 [▶ 영상 틀기]가 뜹니다. <b>쪽지</b>는 수업 화면을 가리지 않고 오른쪽 위에 노란 쪽지로(60자). <b>긴급</b>은 빨간 전체 화면과 경보음. <b>음성</b>은 「띵」 뒤 두 번 저절로 나오고 [다시 듣기]도 됩니다. 교실에서 알림을 누르면 보낸 선생님 화면에 「확인완료」로 바뀝니다. 학생들도 보는 화면이니 개인적인 내용은 넵으로 보내 주세요."
+    notes: "교실 칠판은 평소에 <b>반 이름과 큰 시계</b>만 보입니다. 왼쪽 아래에는 단추가 넷 있습니다 — <b>[지난 알림]</b> 오늘 그 교실에 뜬 알림 다시 보기, <b>[작은 창]</b> 칠판을 구석 작은 창으로 줄여 PC 쓰기, <b>[분실물 함]</b> 보관 중인 물건 사진 바둑판(10월 20일 새로), <b>[숨기기]</b> 칠판을 숨기기(알림이 오면 다시 뜨고, 다시 크게 보려면 바탕화면 「전자칠판」 아이콘, 수업 중에 누르면 그 수업 동안만). 듀얼 모니터 교실은 [화면 옮기기]도 있습니다. 휴대폰에서 보내면 바로 뜹니다. <b>안내</b>는 사진을 붙이면 위에 크게, 글은 아래. <b>링크</b>를 붙이면 학생이 찍을 QR과, 유튜브면 칠판에서 바로 트는 [▶ 영상 틀기]가 뜹니다. <b>쪽지</b>는 수업 화면을 가리지 않고 오른쪽 위에 노란 쪽지로(60자). <b>긴급</b>은 빨간 전체 화면과 경보음. <b>음성</b>은 「띵」 뒤 두 번 저절로 나오고 [다시 듣기]도 됩니다. 교실에서 알림을 누르면 보낸 선생님 화면에 「확인완료」로 바뀝니다. 학생들도 보는 화면이니 개인적인 내용은 넵으로 보내 주세요."
   });
 
   practice({

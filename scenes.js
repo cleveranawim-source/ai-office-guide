@@ -1571,16 +1571,17 @@
   });
 
   D.add({
-    id: "boardTV", part: 7, label: "교실 칠판에는 이렇게", kind: "light", min: 1.2, isNew: true,
-    notes: "교실 칠판에는 이렇게 뜹니다. 평소엔 <b>반 이름과 큰 시계</b>. <b>점심시간</b>에는 그 아래 <b>분실물 띠</b>가 붙어 보관 중인 물건 사진이 옆으로 흘러가고, 찾으러 갈 교무실이 크게 보입니다(특징은 안 나옴, QR은 띠에서 빼고 교실에 인쇄해 붙입니다). 칠판 왼쪽 아래 <b>[분실물 함]</b> 단추를 누르면 점심시간이 아니어도 보관 중인 물건 사진이 바둑판으로 뜹니다(10월 20일). 안내는 사진이 위에 크게, 글은 아래. 아침 <b>8시 45분</b>에는 수업이 바뀐 반 칠판 귀퉁이에 「오늘 바뀐 수업」 쪽지가 저절로 붙습니다(사유 없이 교시·과목·교실만). 긴급은 빨간 전체 화면, 음성 안내에는 [다시 듣기]. 칠판 창 프로그램이 깔린 교실은 <b>수업 시작 30초 뒤 칠판이 저절로 숨고</b>, 수업 중에 온 안내는 구석 포스트잇으로만 뜹니다(마지막 그림은 이해를 돕는 합성 그림입니다).",
+    id: "boardTV", part: 7, label: "교실 칠판에는 이렇게", kind: "light", min: 1.5, isNew: true,
+    notes: "교실 칠판에는 이렇게 뜹니다. 평소엔 <b>반 이름과 큰 시계</b>. " + (window.BOARD_BTNS ? window.BOARD_BTNS.notes : "") + " <b>점심시간</b>에는 그 아래 <b>분실물 띠</b>가 붙어 보관 중인 물건 사진이 옆으로 흘러가고, 찾으러 갈 교무실이 크게 보입니다(특징은 안 나옴, QR은 띠에서 빼고 교실에 인쇄해 붙입니다). 칠판 왼쪽 아래 <b>[분실물 함]</b> 단추를 누르면 점심시간이 아니어도 보관 중인 물건 사진이 바둑판으로 뜹니다(10월 20일). 안내는 사진이 위에 크게, 글은 아래. 아침 <b>8시 45분</b>에는 수업이 바뀐 반 칠판 귀퉁이에 「오늘 바뀐 수업」 쪽지가 저절로 붙습니다(사유 없이 교시·과목·교실만). 긴급은 빨간 전체 화면, 음성 안내에는 [다시 듣기]. 칠판 창 프로그램이 깔린 교실은 <b>수업 시작 30초 뒤 칠판이 저절로 숨고</b>, 수업 중에 온 안내는 구석 포스트잇으로만 뜹니다(마지막 그림은 이해를 돕는 합성 그림입니다).",
     html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip ghost">교실 칠판</span></div><h2 class="title" style="width:860px">교실 칠판에는 <em>이렇게</em> 뜹니다</h2>' +
-      '<ol class="steps bt">' + [["점심시간", "큰 시계 아래 분실물 띠(사진이 흘러가요)"], ["분실물 함", "왼쪽 아래 단추 — 언제든 사진 바둑판"], ["안내", "사진은 위에 크게, 글은 아래"], ["8:45 쪽지", "수업이 바뀐 반에 「오늘 바뀐 수업」"], ["긴급", "빨간 전체 화면과 경보음"], ["음성", "「띵」 뒤 두 번, [다시 듣기]"], ["수업 중", "30초 뒤 숨고, 안내는 구석 포스트잇"]].map(function (x) { return "<li><span><b>" + x[0] + "</b> · " + x[1] + "</span></li>"; }).join("") + "</ol>" +
-      '<div class="abs tv"><div class="in">' + ["lunch", "lostpanel", "notice-photo", "memo", "alert", "voice", "inclass-composite"].map(function (n) { return '<img src="img/board/' + n + '.jpg" alt="">'; }).join("") + "</div></div>" +
+      '<ol class="steps bt">' + [["왼쪽 아래 단추", "지난 알림 · 작은 창 · 분실물 함 · 숨기기"], ["점심시간", "큰 시계 아래 분실물 띠(사진이 흘러가요)"], ["분실물 함", "왼쪽 아래 단추 — 언제든 사진 바둑판"], ["안내", "사진은 위에 크게, 글은 아래"], ["8:45 쪽지", "수업이 바뀐 반에 「오늘 바뀐 수업」"], ["긴급", "빨간 전체 화면과 경보음"], ["음성", "「띵」 뒤 두 번, [다시 듣기]"], ["수업 중", "30초 뒤 숨고, 안내는 구석 포스트잇"]].map(function (x) { return "<li><span><b>" + x[0] + "</b> · " + x[1] + "</span></li>"; }).join("") + "</ol>" +
+      '<div class="abs tv"><div class="in">' + ["idle", "lunch", "lostpanel", "notice-photo", "memo", "alert", "voice", "inclass-composite"].map(function (n) { return '<img src="img/board/' + n + '.jpg" alt="">'; }).join("") + "</div></div>" + (window.BOARD_BTNS ? window.BOARD_BTNS.html : "") +
       '<p class="abs tv-note">마지막 그림은 이해를 돕는 합성 그림 · 반·이름은 예시</p>',
     build: function (el, A) {
       var imgs = A.$$(".tv img"), lis = A.$$(".steps.bt li"), cur = -1;
       function show(i) {
         lis.forEach(function (li, k) { li.classList.toggle("on", k === i); li.classList.toggle("done", k < i); });
+        if (window.BOARD_BTNS) window.BOARD_BTNS.show(A, el, i === 0);
         if (cur >= 0) A.go(imgs[cur], [{ opacity: 1 }, { opacity: 0 }], { d: 500, e: E.in });
         A.go(imgs[i], [{ opacity: 0, transform: "scale(1.04)" }, { opacity: 1, transform: "none" }], { d: 700, e: E.out });
         A.sfx(/alert\.jpg$/.test(imgs[i].src) ? "alert" : "pop");

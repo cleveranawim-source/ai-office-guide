@@ -5,6 +5,7 @@
 - 첫 화면: `index.html`
 - 교직원: 따라하기 `guide.html` · 연수 발표 `deck.html`(장면 데이터 `scenes.js`)
 - 교직원 짧은 연수(약 35분, 전자칠판·시험 날 담임·분실물 함·넵·PC 설치본·AI 버튼): `mini.html`(장면 데이터 `mini-scenes.js` — 연수 발표와 같은 화면 그림·엔진, 칠판 쪽지 그림 `img/board/tmemo.jpg`, 더보기 메뉴 `img/more-tools.jpg`, 넵 대화 비우기 `img/nep-swipe.jpg`·`img/nep-room-menu.jpg`)
+- 교실 칠판 왼쪽 아래 단추 줄 확대(`board-btns.js` + `img/board/buttons.png`)는 세 발표의 칠판 장면이 함께 쓴다. 칠판 그림(`img/board/*.jpg`)은 칠판 창 프로그램 모드(?app=1)로 찍어 [숨기기]까지 보인다
 - PC 설치본 두 장면은 `pc-scenes.js` 하나를 연수 발표·짧은 연수가 함께 쓴다(그림 `img/pc/desktop.jpg`·`install.jpg`는 이해를 돕는 합성, 창 안 화면은 실제 앱을 설치본 모드로 찍은 것). 따라하기 안내 카드는 `scenes.js`의 `pc`
 - 다른 학교 선생님: 소개 발표 `intro.html` · 휴대폰으로 읽는 둘러보기 `tour.html`(둘 다 `intro-scenes.js`)
 - 발표 엔진 `deck.js`(1920×1080 무대, Web Animations), 휴대폰 틀 `phone.css`, 소리 `sound.js`, 글꼴은 앱과 같은 프리텐다드(`fonts/pretendard`, OFL)
