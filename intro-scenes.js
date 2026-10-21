@@ -594,8 +594,8 @@
   });
 
   D.add({
-    id: "s-desk", part: 2, label: "PC에서도", kind: "light", min: 0.6, tour: { title: "PC에서도 같은 화면", html: '<p>컴퓨터에서는 왼쪽 메뉴와 넓은 달력으로 보입니다. 휴대폰과 같은 주소, 같은 계정입니다. 교무실 PC에는 오른쪽에 좁은 창으로 두고 윈도우 알림을 받는 <b>설치본</b>도 있습니다.</p><img src="img/desk/home.jpg" alt="PC 홈 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy"><img src="img/desk/calendar.jpg" alt="PC 일정 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy">' },
-    notes: "같은 주소를 컴퓨터에서 열면 왼쪽 메뉴가 있는 넓은 화면입니다. 일정 달력은 넓은 화면에서 일정 이름까지 보입니다. 휴대폰을 먼저 설계했고, 컴퓨터는 같은 화면을 넓게 씁니다. 교무실 PC에는 <b>설치본</b>도 있습니다 — 사이트를 창 하나에 띄우는 작은 프로그램이라, 화면 오른쪽에 메신저처럼 좁은 창으로 두고 넵·알림을 윈도우 알림으로 받습니다. 사이트를 고치면 설치본은 다시 나눠 주지 않아도 됩니다.",
+    id: "s-desk", part: 2, label: "PC에서도", kind: "light", min: 0.6, tour: { title: "PC에서도 같은 화면", html: '<p>컴퓨터에서는 왼쪽 메뉴와 넓은 달력으로 보입니다. 휴대폰과 같은 주소, 같은 계정입니다. 교무실 PC에는 오른쪽에 좁은 창으로 두고 알림을 카드로 받는 <b>설치본</b>도 있습니다.</p><img src="img/desk/home.jpg" alt="PC 홈 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy"><img src="img/desk/calendar.jpg" alt="PC 일정 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy">' },
+    notes: "같은 주소를 컴퓨터에서 열면 왼쪽 메뉴가 있는 넓은 화면입니다. 일정 달력은 넓은 화면에서 일정 이름까지 보입니다. 휴대폰을 먼저 설계했고, 컴퓨터는 같은 화면을 넓게 씁니다. 교무실 PC에는 <b>설치본</b>도 있습니다 — 사이트를 창 하나에 띄우는 작은 프로그램이라, 화면 오른쪽에 메신저처럼 좁은 창으로 두고 넵·알림을 화면 오른쪽 아래 알림 카드(「잎사귀 편지」)로 받습니다. 사이트를 고치면 설치본은 다시 나눠 주지 않아도 됩니다.",
     html: chips([{ t: "매일 여는 화면" }, { t: "PC", c: "ghost" }]) + '<h2 class="title">컴퓨터에서도 <em>같은 화면</em>, 넓게</h2>' +
       '<div class="abs bw" style="left:120px;top:300px;width:1040px"><div class="bar"><i></i><i></i><i></i></div><img src="img/desk/home.jpg" alt=""></div>' +
       '<div class="abs bw" style="left:820px;top:400px;width:980px"><div class="bar"><i></i><i></i><i></i></div><img src="img/desk/calendar.jpg" alt=""></div>',

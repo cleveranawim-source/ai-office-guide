@@ -1,4 +1,4 @@
-/* AI 교무실 짧은 연수(약 32분) — 전자칠판 · 분실물 함 · 넵 · PC 설치본 · AI 버튼
+/* AI 교무실 짧은 연수(약 35분) — 전자칠판 · 분실물 함 · 넵 · PC 설치본 · AI 버튼
  * 연수 발표와 같은 엔진(deck.js)과 같은 화면 그림(img/*.jpg, 412×864 기준 좌표)을 쓴다. 동그라미 자리는 img/rects.js의 R(화면, 키).
  * 교실 칠판 그림은 img/board/*.jpg(1600×900). 발표 멘트(notes)는 N(노트)·P(발표자 창)에서 보인다.
  */
@@ -115,13 +115,13 @@
   .bw-foot b{color:var(--ink)}
   @keyframes bwBlink{50%{opacity:.25}}
 
-  .cl-title{left:132px;top:170px;font:900 120px/1.08 var(--display);letter-spacing:-.04em}
+  .cl-title{left:132px;top:130px;font:900 120px/1.08 var(--display);letter-spacing:-.04em}
   .cl-title em{color:var(--glow)}
-  .cl-do{left:140px;top:470px;width:1040px;display:grid;gap:14px}
-  .cl-do div{display:grid;grid-template-columns:60px 1fr;gap:22px;align-items:center;padding:15px 24px;border-radius:22px;background:rgba(6,18,31,.72);border:1px solid rgba(143,208,255,.22);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-  .cl-do i{width:60px;height:60px;border-radius:18px;background:var(--glow);color:var(--night);display:grid;place-items:center;font:700 30px var(--mono);font-style:normal}
+  .cl-do{left:140px;top:430px;width:1040px;display:grid;gap:10px}
+  .cl-do div{display:grid;grid-template-columns:56px 1fr;gap:22px;align-items:center;padding:10px 24px;border-radius:22px;background:rgba(6,18,31,.72);border:1px solid rgba(143,208,255,.22);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .cl-do i{width:56px;height:56px;border-radius:18px;background:var(--glow);color:var(--night);display:grid;place-items:center;font:700 30px var(--mono);font-style:normal}
   .cl-do div.ai i{background:#c9b6ff}
-  .cl-do b{display:block;font:800 33px/1.25 var(--display);color:#fff;letter-spacing:-.02em}
+  .cl-do b{display:block;font:800 30px/1.25 var(--display);color:#fff;letter-spacing:-.02em}
   .cl-do span{display:block;font:500 22px/1.4 var(--body);color:#bcd2ea;margin-top:4px}
   .cl-ask{right:120px;top:560px;width:560px;text-align:right;padding:34px 40px;border-radius:28px;background:rgba(6,18,31,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(143,208,255,.25)}
   .cl-ask strong{color:var(--glow)}
@@ -305,12 +305,12 @@
   // ════════════════════════════════════════════════════════════
   D.add({
     id: "cover", part: 0, label: "표지 · 접속 안내", kind: "dark", min: 0.5, trans: "fade", bgm: "lobby",
-    notes: "시작 전부터 이 화면을 띄워 둡니다. <b>휴대폰 카메라로 QR을 찍어 AI 교무실을 열어 두시라고</b> 안내합니다. 오늘은 짧게 다섯 가지 — <b>교실 전자칠판에 띄우기</b>, 새로 열린 <b>분실물 함</b>, 10월 18일에 메신저처럼 바뀐 <b>넵</b>, 10월 19일에 생긴 <b>PC 설치본</b>, 그리고 아래 탭 가운데 <b>AI 버튼</b>입니다. 듣기만 하기보다 휴대폰으로 함께 눌러 보는 시간이라고 말씀드립니다.",
+    notes: "시작 전부터 이 화면을 띄워 둡니다. <b>휴대폰 카메라로 QR을 찍어 AI 교무실을 열어 두시라고</b> 안내합니다. 오늘은 짧게 다섯 가지 — <b>교실 전자칠판에 띄우기</b>(시험 날 담임 선생님이 할 일 포함), 새로 열린 <b>분실물 함</b>, 10월 18일에 메신저처럼 바뀐 <b>넵</b>, 10월 19일에 생긴 <b>PC 설치본</b>, 그리고 아래 탭 가운데 <b>AI 버튼</b>입니다. 듣기만 하기보다 휴대폰으로 함께 눌러 보는 시간이라고 말씀드립니다.",
     html: darkBg("cover") +
       '<div class="abs cv-brand"><img src="img/symbol-128.png" alt=""><div><small>MYONGJI MIDDLE SCHOOL</small><b>AI 교무실</b></div></div>' +
-      '<p class="abs cv-kicker">교직원 연수 · 10월 21일(수) · 약 30~35분</p>' +
+      '<p class="abs cv-kicker">교직원 연수 · 10월 21일(수) · 약 35분</p>' +
       '<h1 class="abs cv-title"><span class="ln">칠판, 분실물, 넵,</span><span class="ln">그리고 <em>AI 버튼</em></span></h1>' +
-      '<div class="abs cv-three"><span><i>1</i>전자칠판</span><span><i>2</i>분실물 함</span><span><i>3</i>넵</span><span><i>4</i>PC 설치본</span><span><i>5</i>AI 버튼</span></div>' +
+      '<div class="abs cv-three"><span><i>1</i>전자칠판·시험 날</span><span><i>2</i>분실물 함</span><span><i>3</i>넵</span><span><i>4</i>PC 설치본</span><span><i>5</i>AI 버튼</span></div>' +
       '<p class="abs cv-lead">휴대폰 카메라로 오른쪽 <b>QR</b>을 찍어 열어 두세요.</p>' +
       '<div class="abs cv-qr"><img src="img/qr.svg" alt="mjms-office.vercel.app 주소 QR 코드"><p>mjms-office.vercel.app</p><small>카메라로 찍으면 바로 열립니다</small></div>',
     build: function (el, A) {
@@ -331,24 +331,24 @@
 
   practice({
     id: "map", part: 0, num: null, label: "오늘 볼 세 곳", min: 1, trans: "whip",
-    chips: [{ t: "오늘 순서" }, { t: "약 30~35분", c: "ghost" }], title: "오늘은 <em>네 곳</em>만 기억하세요",
+    chips: [{ t: "오늘 순서" }, { t: "약 35분", c: "ghost" }], title: "오늘은 <em>네 곳</em>만 기억하세요",
     steps: [
       { t: '더보기 → 도구의 <span class="k">전자칠판 알림</span> · 교실 칠판에 안내·쪽지·긴급', s: 0, r: R("more-tools", "board") },
       { t: '더보기 → 학생의 <span class="k">분실물 함</span> · 사진 한 장으로 넣고, 돌려주고', s: 0, r: R("more-tools", "lost") },
       { t: '아래 탭 둘째 칸 <span class="k">넵</span> · 10월 18일부터 메신저처럼', s: 0, r: R("home", "tabNep"), z: 1.8 },
       { t: '아래 탭 가운데 <span class="k">AI</span> · 말로 묻고, 부탁하면 카드로', s: 0, r: R("ai-home", "tab_ai"), z: 1.8 }
     ],
-    note: { html: '<span class="ag3"><span><b>1부</b> 전자칠판 9분</span><span><b>2부</b> 분실물 함 5분</span><span><b>3부</b> 넵 6분</span><span><b>4부</b> PC 설치본 3분</span><span><b>5부</b> AI 버튼 6분</span></span>' },
+    note: { html: '<span class="ag3"><span><b>1부</b> 전자칠판·시험 날 12분</span><span><b>2부</b> 분실물 함 5분</span><span><b>3부</b> 넵 6분</span><span><b>4부</b> PC 설치본 3분</span><span><b>5부</b> AI 버튼 6분</span></span>' },
     lt: { tag: "오늘 순서", title: "더보기 두 곳, 아래 탭 넵과 AI", sub: "휴대폰으로 AI 교무실을 열고 함께 찾아 두세요" },
     screens: [shot("more-tools")],
-    notes: "오늘 볼 곳은 네 군데뿐입니다. 아래 탭 <b>더보기</b>를 열면 「도구」 묶음에 <b>전자칠판 알림</b>, 바로 아래 「학생」 묶음에 <b>분실물 함</b>이 있습니다(10월 19일부터 「학생」 묶음이 「학교」보다 위로 올라왔습니다). 그리고 아래 탭 둘째 칸 <b>넵</b>과 가운데 볼록한 <b>AI</b> 버튼. 다 같이 더보기를 열어 두 메뉴가 어디 있는지 먼저 확인합니다."
+    notes: "오늘 볼 곳은 네 군데뿐입니다. 아래 탭 <b>더보기</b>를 열면 「도구」 묶음 맨 위에 <b>전자칠판 알림</b>, 그 아래 「학생」 묶음에 <b>분실물 함</b>이 있습니다(10월 19일부터 「학생」 묶음이 「학교」보다 위로 올라왔습니다). 그리고 아래 탭 둘째 칸 <b>넵</b>과 가운데 볼록한 <b>AI</b> 버튼. 다 같이 더보기를 열어 두 메뉴가 어디 있는지 먼저 확인합니다."
   });
 
   // ════════════════════════════════════════════════════════════
   // 1부 · 전자칠판
   // ════════════════════════════════════════════════════════════
   opener({
-    part: 1, art: "board", min: 9, lines: ["교실 칠판까지", "<em>휴대폰에서</em>"],
+    part: 1, art: "board", min: 12, lines: ["교실 칠판까지", "<em>휴대폰에서</em>"],
     was: "방송·쪽지·교실마다 직접 가서 전달", now: "무엇을 → 어디에 → 보내기, 교실 칠판에 바로",
     notes: "1부는 <b>전자칠판</b>입니다. 먼저 교실 칠판에 무엇이 어떻게 뜨는지 보고, 휴대폰에서 보내는 법을 함께 따라 해 봅니다(보내기 단추는 누르지 않습니다). 끝으로 칠판이 알아서 하는 일 — 아침 8시 45분 쪽지, 수업 중 숨기, 점심시간 분실물 띠 — 을 봅니다."
   });
@@ -452,6 +452,31 @@
     ],
     screens: [shot("board-send"), shot("ai-board")],
     notes: "칠판 알림도 AI에게 말로 할 수 있습니다(10월 20일 새로). 아래 탭 AI에서 「2학년 전체 칠판에 내일 아침 8시 20분에 현장체험학습 버스는 8:40에 출발합니다, 늦지 않게! 띄워 줘」라고 하면, 곳(2학년 전체 10곳)·글·시각·유지 시간을 채운 <b>전자칠판 카드</b>가 뜹니다. 확인하고 <b>「내일 08:20에 예약하기」</b>를 눌러야 나갑니다 — 보내기 화면과 똑같이 보내집니다. 「2-3반 칠판에 쪽지」, 「과학실 칠판에 내일 8시 40분에 ~」, 「전교실 긴급 ~」도 됩니다. 곳을 말하지 않으면 AI가 되묻고, 긴급은 누를 때 한 번 더 확인합니다. 고칠 곳이 있으면 AI에게 다시 말하거나 칠판 화면에서 직접 보내 주세요."
+  });
+
+  // ── 시험 날 담임 역할(앱 lib/board/exam.ts · 담임 카드 app/(main)/board/ExamCard.tsx · 칠판 ExamPanel.tsx) ──
+  tvScene({
+    id: "examTV", part: 1, label: "시험 날 교실 칠판", min: 1, isNew: true,
+    chips: [{ t: "시험 날" }, { t: "담임 선생님", c: "ghost" }], title: "시험 날, 칠판은 <em>시험 화면</em>",
+    items: [["아침", "담임 선생님이 넣기 전엔 「결시 입력 전」", "exam-before"], ["넣고 나면", "재적·응시·결시와 결시·별도 고사실 명단", "exam"], ["시험 시간", "숨겨 둔 칠판도 전체 화면, 학생이 눌러도 안 닫혀요", "exam"]],
+    foot: "그 학년에 시험이 있는 날만 · 시간표와 과목코드는 교무부가 넣어요 · 반·이름은 예시",
+    notes: "시험 기간에는 교실 칠판이 <b>시험 화면</b>으로 바뀝니다. 그 학년에 시험이 있는 날, 큰 시계 자리에 반 이름·시험 이름과 그날 <b>시험 시간표</b>(교시·시간·과목·과목코드)가 뜹니다. 시간표와 과목코드는 교무부(관리자)가 넣습니다. 담임 선생님이 할 일은 <b>응시 현황</b>입니다 — 넣기 전에는 「결시 입력 전 · 담임 선생님이 넣으면 여기에 뜹니다」로 남아 있고, 넣으면 재적·응시·결시 수와 결시·별도 고사실 학생의 번호·이름·사유, 제적 번호, 비고가 뜹니다. 감독 선생님이 칠판에 손으로 쓰던 것을 대신하고, 교무부도 같은 현황을 한곳에서 봅니다(입력 전인 반이 따로 보입니다). 시험 시간(첫 시험 10분 전부터)에는 숨겨 둔 칠판도 <b>전체 화면</b>으로 뜨고, 학생이 눌러도 닫히지 않으며, 안내의 「띵동」 소리도 나지 않습니다(긴급은 그대로)."
+  });
+
+  practice({
+    id: "examCard", part: 1, num: null, label: "시험 날 아침 · 담임 카드", min: 1.8, isNew: true,
+    chips: [{ t: "시험 날 · 담임" }, { t: "보기만", c: "ghost" }], title: "시험 날 아침, <em>결시만</em> 넣어 주세요",
+    steps: [
+      { t: '아침 조회 때 더보기 → <span class="k">전자칠판 알림</span> → 맨 위 <span class="q">「2학기 중간고사 · 2학년 3반」</span>', s: 0, r: R("exam-card", "head"), z: 1.8 },
+      { t: '<b>반 번호 끝번호</b>(여 1~, 남 21~)는 처음 한 번 — 다음 시험 날엔 미리 채워져요', s: 0, r: R("exam-card", "ends") },
+      { t: '번호를 누를 때마다 <b>결시</b> → <b>별도 고사실</b> → <b>제적</b> → 다시 응시', s: 1, r: [24, 140, 364, 262] },
+      { t: '결시·별도 고사실은 <b>이름·사유</b>도 — 칠판에 그대로 떠요(감독 선생님 확인용)', s: 1, r: R("exam-card-pad", "names") },
+      { t: '비고(지각 등) → <span class="k">저장하기</span> · 지각·조퇴면 그날 안에 고쳐 저장', s: 2, r: R("exam-card-save", "save"), z: 1.8 }
+    ],
+    note: { html: "<span>이 카드는 <b>담임 반 학년에 시험이 있는 날만</b> 보여요. 넣지 않으면 칠판에 「결시 입력 전」으로 남고, 교무부 현황에도 「입력 전」으로 보입니다.</span>" },
+    screens: [shot("exam-card"), shot("exam-card-pad"), shot("exam-card-save")],
+    lt: { tag: "시험 날 · 담임", title: "아침 조회 때 한 번, 번호 누르고 저장", sub: "칠판 시험 화면에 바로 떠요 · 그날 안에는 고칠 수 있어요" },
+    notes: "담임 선생님의 역할입니다. 시험 날 <b>아침 조회 때 한 번</b> 넣으면 됩니다. 더보기 → 전자칠판 알림을 열면 맨 위에 「2학기 중간고사 · 2학년 3반」 카드가 있습니다(담임 반 학년에 시험이 있는 날만 보입니다). 처음 한 번은 <b>반 번호 끝번호</b>를 우리 반에 맞게 고릅니다 — 여학생 1번부터, 남학생 21번부터라 끝번호만 고르면 되고, 다음 시험 날에는 미리 채워져 있습니다. 그다음 <b>번호판</b>에서 결시한 학생 번호를 누릅니다. 누를 때마다 결시(주황) → 별도 고사실(파랑) → 제적(유예·전학, 회색) → 다시 응시로 바뀌고, 재적·결시·응시 수가 저절로 맞춰집니다. 별도 고사실 학생도 응시에 듭니다. 결시·별도 고사실 학생은 <b>이름과 사유</b>(질병·보건실 등)를 적습니다 — 감독 선생님이 학생을 확인하도록 칠판에 그대로 뜹니다. 비고에는 지각 같은 것을 적고 <b>저장하기</b>. 지각·조퇴가 생기면 그날 안에 다시 열어 「고쳐 저장하기」 하시면 됩니다. 오늘은 시험 날이 아니라 카드가 보이지 않으니 화면으로만 봅니다."
   });
 
   tvScene({
@@ -666,8 +691,8 @@
   // ════════════════════════════════════════════════════════════
   opener({
     part: 4, art: "basics", flip: true, min: 3, lines: ["교무실 PC에는", "<em>프로그램으로</em>"],
-    was: "브라우저 탭을 찾아 다시 열고, 알림은 휴대폰으로만", now: "오른쪽 가장자리 좁은 창 하나, 넵·알림은 윈도우 알림으로",
-    notes: "4부는 10월 19일에 생긴 <b>PC 설치본</b>입니다. 교무실 PC에 AI 교무실을 <b>프로그램으로</b> 깔면, 화면 오른쪽에 메신저처럼 좁은 창으로 뜨고 넵·알림이 윈도우 알림으로 옵니다. 지금은 휴대폰으로 보고, 깔기는 자리로 돌아가 해 보시면 됩니다."
+    was: "브라우저 탭을 찾아 다시 열고, 알림은 휴대폰으로만", now: "오른쪽 가장자리 좁은 창 하나, 넵·알림은 알림 카드로",
+    notes: "4부는 10월 19일에 생긴 <b>PC 설치본</b>입니다. 교무실 PC에 AI 교무실을 <b>프로그램으로</b> 깔면, 화면 오른쪽에 메신저처럼 좁은 창으로 뜨고 넵·알림이 오른쪽 아래 알림 카드(「잎사귀 편지」)로 옵니다. 지금은 휴대폰으로 보고, 깔기는 자리로 돌아가 해 보시면 됩니다."
   });
   window.PC_SCENES(D, { part: 4, minWhat: 1.2, minInstall: 1.2 });
 
@@ -730,13 +755,13 @@
     steps: [
       { t: '<span class="q">「2-3 교실 전자칠판 터치가 자꾸 안 돼요. 수리 요청해 줘」</span>', s: 0, r: R("ai-repair", "question") },
       { t: '장소·기기는 <b>시트 목록에서</b> 골라 채우고, 신청자는 저절로', s: 0, r: R("ai-repair", "card") },
-      { t: '<span class="k">시트에 등록</span> → 수리 맡은 분께 알림', s: 0, r: R("ai-repair", "button"), z: 1.9, warn: "누르면 수리 요청 시트에 실제로 적힙니다" },
+      { t: '<span class="k">시트에 등록</span> → 수리 맡은 분께 <b>내 이름으로 넵</b>', s: 0, r: R("ai-repair", "button"), z: 1.9, warn: "누르면 수리 요청 시트에 실제로 적힙니다" },
       { t: '<span class="q">「오늘 2-2반이랑 2-3반 5단원 했어, 진도표에 적어 줘」</span> → 진도표 카드', s: 1, r: R("ai-progress", "card") },
       { t: '<span class="q">「11월 3일~5일 공개수업 가정통신문 초안 써 줘」</span> → 통신문 카드', s: 2, r: R("ai-letter", "head") },
       { t: '<span class="q">「2학년 담임께 상담 기록 금요일까지 내 달라고 넵 보내 줘」</span> → 넵 초안, <b>AI는 보내지 않아요</b>', s: 3, r: R("ai-nep", "card") }
     ],
     screens: [shot("ai-repair"), shot("ai-progress"), shot("ai-letter"), shot("ai-nep")],
-    notes: "부탁은 카드로 돌아옵니다. 교실 <b>전자칠판이 고장 나면</b> 「2-3 교실 전자칠판 터치가 자꾸 안 돼요, 수리 요청해 줘」 — 장소와 기기는 수리 요청 시트의 목록에서 골라 채우고(목록에 없는 기기는 「기타」로, 기기 이름은 요청 사항에), 신청자는 선생님 이름으로 들어갑니다. <b>「시트에 등록」</b>을 누르면 시트에 적히고 수리 맡은 분께 알림이 갑니다. 진도표도 「오늘 2-2반이랑 2-3반 5단원 했어, 진도표에 적어 줘」 하면 그날 실제 수업 칸을 찾아 카드로 만들고, 가정통신문은 학교 양식 첫 문장을 지킨 초안 카드가 됩니다. 3부에서 본 <b>넵도 말로</b> — 「2학년 담임 선생님들께 상담 기록 금요일까지 내 달라고 넵 보내 줘」 하면 종류(파일 받기)·제목·본문·마감과 받는 분 명단이 채워진 넵 초안이 뜹니다. <b>AI는 넵을 바로 보내지 않고</b>, 이름까지 확인한 뒤 「넵 보내기」는 선생님이 누릅니다. 모두 <b>누르기 전까지는 나만 보는 초안</b>입니다."
+    notes: "부탁은 카드로 돌아옵니다. 교실 <b>전자칠판이 고장 나면</b> 「2-3 교실 전자칠판 터치가 자꾸 안 돼요, 수리 요청해 줘」 — 장소와 기기는 수리 요청 시트의 목록에서 골라 채우고(목록에 없는 기기는 「기타」로, 기기 이름은 요청 사항에), 신청자는 선생님 이름으로 들어갑니다. <b>「시트에 등록」</b>을 누르면 시트에 적히고 수리 맡은 분께 선생님 이름으로 넵(메시지)이 갑니다. 진도표도 「오늘 2-2반이랑 2-3반 5단원 했어, 진도표에 적어 줘」 하면 그날 실제 수업 칸을 찾아 카드로 만들고, 가정통신문은 학교 양식 첫 문장을 지킨 초안 카드가 됩니다. 3부에서 본 <b>넵도 말로</b> — 「2학년 담임 선생님들께 상담 기록 금요일까지 내 달라고 넵 보내 줘」 하면 종류(파일 받기)·제목·본문·마감과 받는 분 명단이 채워진 넵 초안이 뜹니다. <b>AI는 넵을 바로 보내지 않고</b>, 이름까지 확인한 뒤 「넵 보내기」는 선생님이 누릅니다. 모두 <b>누르기 전까지는 나만 보는 초안</b>입니다."
   });
 
   D.add({
@@ -761,14 +786,15 @@
   // ════════════════════════════════════════════════════════════
   var DO = [
     ["1", "칠판에 쪽지 하나", "더보기 → 전자칠판 알림 → 쪽지 → 「내 반」", ""],
-    ["2", "주운 물건은 사진 한 장으로", "분실물 함 → 분실물 넣기, 돌려주면 「돌려줬어요」", ""],
-    ["3", "받은 넵은 방에서 버튼 하나로", "넵 → 받은 → [넵]·[완료], 아래 칸은 그분께 답장", ""],
-    ["4", "교무실 PC에 설치본", "파일 열기 → 「PC 보호」면 추가 정보 → 실행 → 로그인", ""],
-    ["5", "AI에게 한 문장", "「이번 주 학사일정 알려 줘」부터", "ai"]
+    ["2", "시험 날 아침엔 결시 입력", "전자칠판 알림 맨 위 카드 → 번호 누르기 → 저장(담임)", ""],
+    ["3", "주운 물건은 사진 한 장으로", "분실물 함 → 분실물 넣기, 돌려주면 「돌려줬어요」", ""],
+    ["4", "받은 넵은 방에서 버튼 하나로", "넵 → 받은 → [넵]·[완료], 아래 칸은 그분께 답장", ""],
+    ["5", "교무실 PC에 설치본", "파일 열기 → 「PC 보호」면 추가 정보 → 실행 → 로그인", ""],
+    ["6", "AI에게 한 문장", "「이번 주 학사일정 알려 줘」부터", "ai"]
   ];
   D.add({
     id: "closing", part: 6, label: "마무리 · 질문", kind: "dark", min: 1.5, trans: "whip", bgm: "end",
-    notes: "오늘 본 다섯 가지를 하나씩 해 보시라고 권합니다. 담임 선생님은 <b>내 반 칠판에 쪽지 하나</b>, 물건을 주우면 <b>사진 한 장으로 분실물 함에</b>, 받은 넵은 <b>선생님별 방에서 버튼 하나로</b>, 교무실 PC에는 <b>설치본</b>, 그리고 <b>AI에게 한 문장</b>. 질문을 받고, 막히거나 궁금한 점은 언제든 <b>교목실</b>로 오시면 된다고 말씀드립니다. 칠판이 꺼져 있거나 안 뜨는 교실은 따로 알려 달라고 부탁합니다.",
+    notes: "오늘 본 다섯 가지를 하나씩 해 보시라고 권합니다. 담임 선생님은 <b>내 반 칠판에 쪽지 하나</b>, 시험 날 아침엔 <b>결시 입력</b>, 물건을 주우면 <b>사진 한 장으로 분실물 함에</b>, 받은 넵은 <b>선생님별 방에서 버튼 하나로</b>, 교무실 PC에는 <b>설치본</b>, 그리고 <b>AI에게 한 문장</b>. 질문을 받고, 막히거나 궁금한 점은 언제든 <b>교목실</b>로 오시면 된다고 말씀드립니다. 칠판이 꺼져 있거나 안 뜨는 교실은 따로 알려 달라고 부탁합니다.",
     html: darkBg("closing") +
       '<h2 class="abs cl-title"><span class="ln">내일은,</span><span class="ln"><em>하나씩</em> 해 보세요</span></h2>' +
       '<div class="abs cl-do">' + DO.map(function (d) { return "<div" + (d[3] ? ' class="' + d[3] + '"' : "") + "><i>" + d[0] + "</i><p><b>" + d[1] + "</b><span>" + d[2] + "</span></p></div>"; }).join("") + "</div>" +

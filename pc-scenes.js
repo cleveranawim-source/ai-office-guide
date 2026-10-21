@@ -26,13 +26,13 @@
   // 합성 그림 속 자리(1920×1080 기준) — 그림을 만들 때 잰 값
   var AT = {
     full: [0, 0, 1920, 1080],
-    app: [1456, 56, 440, 834],
-    toast: [1532, 914, 364, 106],
+    app: [1456, 36, 440, 800],
+    toast: [1556, 859, 350, 169],
     tray: [1749, 1042, 30, 30],
     menu: [1090, 640, 330, 220],
     quit: [1098, 802, 314, 48],
     auto: [1098, 741, 314, 48],
-    close: [1849, 57, 46, 34]
+    close: [1849, 37, 46, 34]
   };
   var VW = 900, VH = 506;
   function fit(r, maxS) {
@@ -45,7 +45,7 @@
 
   var ROWS = [
     { h: "오른쪽 가장자리, 좁은 창 하나", p: "창 안은 <b>휴대폰 화면과 같아요</b> · 크기·자리는 기억", z: "app", ring: "app" },
-    { h: "넵·알림은 윈도우 알림으로", p: "오른쪽 아래에 떠요 · <b>누르면 그 화면</b>이 열려요", z: "toast", ring: "toast" },
+    { h: "넵·알림은 알림 카드로", p: "오른쪽 아래에 <b>누를 때까지</b> 남아요 · 누르면 그 화면이 열려요", z: "toast", ring: "toast" },
     { h: "✕는 끄기가 아니라 숨기기", p: "트레이에 남아 <b>알림을 계속</b> 받아요 · 끄려면 오른쪽 클릭 → 끝내기", z: "trayArea", ring: "quit" },
     { h: "켜면 저절로, 창은 하나", p: "<b>윈도우 시작 때 자동 실행</b>(메뉴에서 끄기) · 두 번 눌러도 같은 창", z: "trayArea", ring: "auto" },
     { h: "새 판도 저절로", p: "하루 한 번 확인 · 「새 판을 받았어요」 알림을 누르면 바로", z: "full" }
@@ -56,11 +56,11 @@
     var E = D.E;
     D.add({
       id: "pcWhat", part: o.part, label: "PC 설치본 · 이렇게 생겼어요", kind: "light", min: o.minWhat || 1.2, isNew: true, trans: "zoom",
-      notes: "교무실 PC에는 이제 <b>AI 교무실 프로그램(설치본)</b>을 깔 수 있습니다(10월 19일). 브라우저 탭이 아니라 프로그램이라 ① 화면 <b>오른쪽 가장자리에 메신저처럼 좁은 창</b> 하나로 뜨고, 창 안은 휴대폰 화면과 같습니다. 크기와 자리는 끈 때 그대로 기억합니다. ② 넵·서명 요청 같은 알림이 <b>윈도우 알림</b>으로 오른쪽 아래에 뜨고, 누르면 그 화면이 열립니다 — 휴대폰 알림과 같은 알림이 PC에도 오는 것입니다. ③ 창의 <b>✕는 끄기가 아니라 숨기기</b>입니다. 알림을 계속 받으려고 오른쪽 아래 트레이에 남아 있고, 완전히 끄려면 트레이 아이콘을 오른쪽 클릭해 「끝내기」를 누릅니다. ④ 처음 깔면 <b>윈도우 시작 때 저절로 켜지게</b> 되어 있고(같은 메뉴에서 끌 수 있음), 두 번 눌러도 창은 하나만 뜹니다. ⑤ 새 판이 나오면 하루 한 번 스스로 받아 두고 「새 판을 받았어요」 알림을 줍니다. 그림은 이해를 돕는 합성 그림입니다." + (o.notesExtra || ""),
+      notes: "교무실 PC에는 이제 <b>AI 교무실 프로그램(설치본)</b>을 깔 수 있습니다(10월 19일). 브라우저 탭이 아니라 프로그램이라 ① 화면 <b>오른쪽 가장자리에 메신저처럼 좁은 창</b> 하나로 뜨고, 창 안은 휴대폰 화면과 같습니다. 크기와 자리는 끈 때 그대로 기억합니다. ② 넵·서명 요청 같은 알림이 오른쪽 아래에 <b>알림 카드(「잎사귀 편지」)</b>로 내려앉습니다(반짝 세 음). 카드는 누를 때까지 남고, 누르면 그 화면이 열립니다. 3개가 넘으면 「알림 N개 더 · 알림함 열기」로 묶이고, 남은 카드가 있으면 트레이 아이콘에 빨간 점이 붙습니다 — 휴대폰 알림과 같은 알림이 PC에도 오는 것입니다. ③ 창의 <b>✕는 끄기가 아니라 숨기기</b>입니다. 알림을 계속 받으려고 오른쪽 아래 트레이에 남아 있고, 완전히 끄려면 트레이 아이콘을 오른쪽 클릭해 「끝내기」를 누릅니다. ④ 처음 깔면 <b>윈도우 시작 때 저절로 켜지게</b> 되어 있고(같은 메뉴에서 끌 수 있음), 두 번 눌러도 창은 하나만 뜹니다. ⑤ 새 판이 나오면 하루 한 번 스스로 받아 두고 「새 판을 받았어요」 알림을 줍니다. 그림은 이해를 돕는 합성 그림입니다." + (o.notesExtra || ""),
       html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip ghost">교무실 PC · 윈도우</span></div>' +
         '<h2 class="title">교무실 PC에는 <em>프로그램으로</em></h2>' +
         '<div class="abs pc-ls">' + ROWS.map(function (r, i) { return '<div class="r"><i>' + (i + 1) + "</i><div><h4>" + r.h + "</h4><p>" + r.p + "</p></div></div>"; }).join("") + "</div>" +
-        '<div class="abs pc-v"><img src="img/pc/desktop.jpg" alt="교무실 PC 바탕화면 오른쪽에 AI 교무실 창, 오른쪽 아래 윈도우 알림, 트레이 메뉴"><div class="pc-ring"></div></div>' +
+        '<div class="abs pc-v"><img src="img/pc/desktop.jpg" alt="교무실 PC 바탕화면 오른쪽에 AI 교무실 창, 오른쪽 아래 알림 카드, 트레이 메뉴"><div class="pc-ring"></div></div>' +
         '<p class="abs pc-cap">이해를 돕는 합성 그림 · 창 안 화면은 실제 앱</p>',
       build: function (el, A) {
         var img = A.$(".pc-v img"), ring = A.$(".pc-ring"), box = A.$(".pc-ls"), rows = A.$$(".pc-ls .r");
@@ -105,7 +105,7 @@
 
     D.add({
       id: "pcInstall", part: o.part, label: "PC 설치본 · 깔기", kind: "light", min: o.minInstall || 1.2, isNew: true, trans: "push",
-      notes: "까는 법은 세 단계입니다. ① <b>설치 파일을 받아 엽니다</b> — 운영 사이트의 /downloads/desktop/ 폴더에 있습니다(지금 판은 0.3.0: mjms-office.vercel.app/downloads/desktop/mjms-office-0.3.0-windows-x64-setup.exe, 판이 바뀌면 파일 이름도 바뀝니다). <b>관리자 권한 없이</b> 내 윈도우 계정에만 깔리고, 설치 화면은 한국어입니다. ② 학교에서 만든 프로그램이라 아직 서명 전이어서 처음 열 때 <b>「Windows의 PC 보호」</b>가 뜰 수 있습니다 — <b>「추가 정보」</b>를 누르면 나오는 <b>[실행]</b>을 누르면 됩니다. ③ 창이 뜨면 <b>이름·비밀번호로 한 번 더 로그인</b>합니다(브라우저 로그인과 따로). 그다음부터 이 PC로 윈도우 알림이 옵니다. 알림 설정 화면에는 「켜짐 · 설치한 프로그램은 알림이 늘 켜져 있습니다」가 보이고, 시험 발송으로 확인할 수 있습니다. 설치 직후 창이 검게만 보이면 <b>PC를 한 번 다시 시작</b>해 주세요. 맥은 따로 받은 .dmg를 열어 응용 프로그램 폴더로 끌어 넣고, 트레이 대신 화면 위 메뉴 막대에 아이콘이 생깁니다(⌘Q는 완전히 꺼서 알림도 멈춥니다). 예전 0.2.0을 깐 분은 0.3.0을 한 번만 다시 깔면 그다음부터 저절로 새 판을 받습니다." + (o.notesExtra2 || ""),
+      notes: "까는 법은 세 단계입니다. ① <b>설치 파일을 받아 엽니다</b> — 운영 사이트의 /downloads/desktop/ 폴더에 있습니다(지금 판은 0.3.3: mjms-office.vercel.app/downloads/desktop/mjms-office-0.3.3-windows-x64-setup.exe, 판이 바뀌면 파일 이름도 바뀝니다). <b>관리자 권한 없이</b> 내 윈도우 계정에만 깔리고, 설치 화면은 한국어입니다. ② 학교에서 만든 프로그램이라 아직 서명 전이어서 처음 열 때 <b>「Windows의 PC 보호」</b>가 뜰 수 있습니다 — <b>「추가 정보」</b>를 누르면 나오는 <b>[실행]</b>을 누르면 됩니다. ③ 창이 뜨면 <b>이름·비밀번호로 한 번 더 로그인</b>합니다(브라우저 로그인과 따로). 그다음부터 이 PC로 알림 카드가 옵니다. 알림 설정 화면에는 「켜짐 · 설치한 프로그램은 알림이 늘 켜져 있습니다」가 보이고, 시험 발송으로 확인할 수 있습니다. 설치 직후 창이 검게만 보이면 <b>PC를 한 번 다시 시작</b>해 주세요. 맥은 따로 받은 .dmg를 열어 응용 프로그램 폴더로 끌어 넣고, 트레이 대신 화면 위 메뉴 막대에 아이콘이 생깁니다(⌘Q는 완전히 꺼서 알림도 멈춥니다). 예전 0.2.0을 깐 분은 새 판을 한 번만 다시 깔면 그다음부터 저절로 새 판을 받습니다." + (o.notesExtra2 || ""),
       html: '<div class="chiprow"><span class="chip">교무실 PC</span><span class="chip ghost">자리에서 해 보세요</span></div>' +
         '<h2 class="title">깔기는 <em>세 단계</em></h2>' +
         '<div class="abs pc-fig"><img src="img/pc/install.jpg" alt="설치 파일 받기, Windows의 PC 보호에서 실행, 창이 뜨면 로그인"><div class="pc-dim" style="left:0;width:486px"></div><div class="pc-dim" style="left:486px;width:484px"></div><div class="pc-dim" style="left:970px;width:530px"></div></div>',
@@ -123,7 +123,7 @@
           },
           function (A) { only(0); A.sfx("pop"); say({ tag: "1", title: "설치 파일을 받아 열기", sub: "mjms-office.vercel.app/downloads/desktop/ · 관리자 권한 없이 내 계정에만" }); },
           function (A) { only(1); A.sfx("pop"); say({ tag: "2", title: "「PC 보호」가 뜨면 추가 정보 → 실행", sub: "학교에서 만든 프로그램이라 아직 서명 전이에요", tone: "warn" }); },
-          function (A) { only(2); A.sfx("pop"); say({ tag: "3", title: "창이 뜨면 이름·비밀번호로 로그인", sub: "브라우저와 따로 한 번 · 그다음부터 이 PC로 윈도우 알림" }); },
+          function (A) { only(2); A.sfx("pop"); say({ tag: "3", title: "창이 뜨면 이름·비밀번호로 로그인", sub: "브라우저와 따로 한 번 · 그다음부터 이 PC로 알림 카드" }); },
           function (A) { only(-1); say({ tag: "안 될 때", title: "창이 검게만 보이면 PC를 한 번 다시 시작", sub: "맥은 .dmg를 응용 프로그램 폴더로 · 아이콘은 화면 위 메뉴 막대에" }); }
         ];
       }
