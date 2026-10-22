@@ -132,6 +132,20 @@
   .cl-qr p{font:700 26px var(--body);margin-top:16px}
   .cl-qr small{font:500 19px var(--body);color:var(--muted)}
 
+  .try{left:120px;top:286px;width:1080px;display:flex;flex-direction:column;gap:16px}
+  .try .r{display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:start;padding:22px 30px}
+  .try .n{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:#fff;font:600 26px var(--mono)}
+  .try h3{font:800 32px/1.3 var(--display);letter-spacing:-.02em}
+  .try p{margin-top:6px;font:500 23px/1.5 var(--body);color:var(--muted)}
+  .try p b{color:var(--ink)}
+  .try .pw{display:inline-block;margin-left:6px;padding:2px 16px;border-radius:10px;background:var(--ink);color:#fff;font:700 30px var(--mono);letter-spacing:.06em}
+  .try-qr{left:1290px;top:286px;width:500px;padding:34px 34px 28px;border-radius:32px;background:#fff;text-align:center;box-shadow:0 30px 70px rgba(14,28,48,.18);border:2px solid var(--line)}
+  .try-qr img{width:100%;display:block}
+  .try-qr p{font:800 30px var(--mono);margin-top:18px;color:var(--brand);letter-spacing:-.01em}
+  .try-qr small{display:block;margin-top:6px;font:500 20px var(--body);color:var(--muted)}
+  .try-foot{left:120px;top:930px;width:1680px;display:flex;flex-wrap:wrap;gap:10px 12px;font:600 21px var(--body);color:var(--muted)}
+  .try-foot span{padding:6px 14px;border-radius:999px;background:rgba(41,92,158,.07)}
+
   .tv{left:960px;top:250px;width:860px;height:520px;border-radius:26px;background:#1c2431;padding:16px;box-shadow:0 40px 90px rgba(14,28,48,.35)}
   .tv::after{content:"";position:absolute;left:50%;bottom:-48px;width:190px;height:48px;margin-left:-95px;background:linear-gradient(#2a3446,#1c2431);clip-path:polygon(18% 0,82% 0,100% 100%,0 100%)}
   .tv .in{position:relative;width:100%;height:100%;border-radius:10px;overflow:hidden;background:#0d1520}
@@ -922,6 +936,31 @@
         A.rise(".ten .r", { delay: 500, each: 90, y: 24, snd: "pluck", v: 0.06 });
         A.pop(".ten .c", { delay: 800, each: 90, s: 0.7, snd: false });
         A.wipe(".ten-foot", { delay: 1600 });
+      }];
+    }
+  });
+
+  // 다른 학교 선생님이 직접 써 보는 체험판(별도 배포 mjms-demo, 지어낸 학교). 비밀번호는 저장소에 두지 않는다 —
+  // 발표 때 intro.html?pw=… 로 열면 화면에 뜨고, 아니면 「발표자가 알려 드립니다」.
+  var DEMO_PW = (new URLSearchParams(location.search).get("pw") || "").replace(/[^0-9A-Za-z_-]/g, "").slice(0, 24);
+  D.add({
+    id: "s-try", part: 7, label: "직접 써 보세요(체험판)", kind: "light", min: 1.5, trans: "push",
+    notes: "오늘 보신 앱을 직접 써 보실 수 있게 <b>체험판</b>을 열어 두었습니다. 우리 학교와 완전히 떨어진 따로 된 앱이고, 학교·선생님·학생 이름은 모두 지어낸 것입니다. QR을 찍고 명단에서 아무 선생님이나 고르세요 — 옆 분과 겹치지 않게 고르면 서로 넵을 주고받을 수 있습니다. 예시가 가장 많은 계정은 홍길동(2학년 3반 담임)입니다. 노트북이 있으면 맨 위 띠의 [교실 칠판 띄우기]로 칠판을 띄우고 휴대폰에서 보내 보세요. AI는 한 분에 하루 10번, 매일 밤 3시에 처음 상태로 돌아가며 11월 22일까지 열어 둡니다.",
+    html: chips([{ t: "마무리", c: "ai" }, { t: "체험판", c: "ghost" }]) + '<h2 class="title">직접 <em>써 보세요</em> — 체험판</h2>' +
+      '<div class="abs try">' +
+      '<div class="r card"><span class="n">1</span><div><h3>휴대폰으로 QR</h3><p>또는 주소 <b>mjms-demo.vercel.app</b></p></div></div>' +
+      '<div class="r card"><span class="n">2</span><div><h3>명단에서 아무 선생님이나</h3><p>옆 분과 겹치지 않게 — 서로 넵을 주고받습니다. 예시가 가장 많은 계정은 <b>홍길동</b>(2학년 3반 담임)</p></div></div>' +
+      '<div class="r card"><span class="n">3</span><div><h3>비밀번호' + (DEMO_PW ? ' <span class="pw">' + DEMO_PW + "</span>" : "") + '</h3><p>' + (DEMO_PW ? "모든 계정이 같은 비밀번호입니다" : "발표자가 알려 드립니다 · 모든 계정이 같은 비밀번호") + '</p></div></div>' +
+      '<div class="r card"><span class="n">4</span><div><h3>넵 · AI 부탁 · 교실 칠판</h3><p>노트북에 <b>[교실 칠판 띄우기]</b>로 칠판을 열고, 휴대폰에서 <b>전자칠판 알림</b>을 보내 보세요</p></div></div>' +
+      "</div>" +
+      '<div class="abs try-qr"><img src="img/qr-demo.svg" alt="체험판 주소 QR 코드"><p>mjms-demo.vercel.app</p><small>AI 교무실 체험판 · 지어낸 학교</small></div>' +
+      '<p class="abs try-foot"><span>11월 22일까지</span><span>매일 밤 3시에 처음 상태로</span><span>학교·선생님·학생 이름은 모두 지어낸 것</span><span>AI는 한 분에 하루 10번</span><span>우리 학교 앱과 완전히 떨어진 따로 된 앱</span></p>',
+    build: function (el, A) {
+      return [function (A) {
+        A.kinetic(".title", { delay: 100, each: 24 });
+        A.rise(".try .r", { delay: 400, each: 140, y: 26, snd: "pluck", v: 0.06 });
+        A.go(".try-qr", [{ transform: "perspective(1200px) translateX(160px) rotateY(-30deg)", opacity: 0 }, { transform: "none", opacity: 1 }], { d: 1100, delay: 600, e: E.out });
+        A.wipe(".try-foot", { delay: 1300 });
       }];
     }
   });
