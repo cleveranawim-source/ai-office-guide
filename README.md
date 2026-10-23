@@ -8,6 +8,10 @@
 - 교실 칠판 왼쪽 아래 단추 줄 확대(`board-btns.js` + `img/board/buttons.png`)는 세 발표의 칠판 장면이 함께 쓴다. 칠판 그림(`img/board/*.jpg`)은 칠판 창 프로그램 모드(?app=1)로 찍어 [숨기기]까지 보인다
 - PC 설치본 두 장면은 `pc-scenes.js` 하나를 연수 발표·짧은 연수가 함께 쓴다(그림 `img/pc/desktop.jpg`·`install.jpg`는 이해를 돕는 합성, 창 안 화면은 실제 앱을 설치본 모드로 찍은 것). 따라하기 안내 카드는 `scenes.js`의 `pc`
 - 다른 학교 선생님: 소개 발표 `intro.html` · 휴대폰으로 읽는 둘러보기 `tour.html`(둘 다 `intro-scenes.js`)
+- 다른 학교 연수 꾸러미(2026-10-23): 체험 안내 `visit.html`(QR 하나 — 발표 체험판·마무리 장면의 `img/qr-visit.svg`) · 진행자 꾸러미 `host.html`(진행 순서·사전 점검·자리 카드 인쇄·질문 장면).
+  체험 미션은 `missions.js` 하나(체험판에서 눌러 확인한 흐름만, 장면 id를 적으면 소개 발표·둘러보기에 「체험판 미션 N」 칩이 붙는다), 자리 카드 계정은 `seats.js`(홀짝 이웃이 짝꿍, 홍길동은 발표자용).
+  체험판 비밀번호는 저장소에 두지 않는다 — `intro.html?pw=…`·`visit.html?pw=…`·`host.html?pw=…`로 열 때만 화면에 뜬다.
+- 소개 발표·둘러보기의 휴대폰 화면 중 경건회 줄·교목실·종교 교과·종교 인사말이 찍힌 것은 체험판(지어낸 학교)과 같게 지운 사본 `img/ext/`를 쓴다(`intro-scenes.js`의 `EXT`). 자리는 원본과 같아 동그라미는 원래 이름(`R("home", …)`)으로 찾는다. 교직원 연수 자료는 원본 그대로.
 - 발표 엔진 `deck.js`(1920×1080 무대, Web Animations), 휴대폰 틀 `phone.css`, 소리 `sound.js`, 글꼴은 앱과 같은 프리텐다드(`fonts/pretendard`, OFL)
 - 휴대폰 화면 `img/*.jpg`(412×864 기준, 2배)은 **실제 앱을 예시 데이터(지어낸 학교·이름)로 띄워 찍은 것**이다. 실제 교직원·학생 이름은 없다. 동그라미 자리는 찍을 때 잰 값 `img/rects.js`(`R(화면, 키)`).
 - 교실 칠판 그림 `img/board/*.jpg`(점심시간 분실물 띠는 `lunch.jpg`), PC 화면 `img/desk/*.jpg`(진도 지도 「한 달」·「주별 표」는 `pg-*.jpg` — 따라하기 안내 카드에는 `figs`로 붙인다). `img/board/inclass-composite.jpg`는 이해를 돕는 합성 그림이다.

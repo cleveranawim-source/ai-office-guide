@@ -112,6 +112,9 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
 .t-box .t-q { font-weight: 800; font-size: 17px; color: var(--ink); }
 .t-q::before { content: "“"; color: var(--brand); } .t-q::after { content: "”"; color: var(--brand); }
 .foot { color: var(--muted); font-size: 13px; text-align: center; padding: 10px 0 0; }
+.trytag { justify-self: start; text-decoration: none; display: inline-flex; gap: 6px; align-items: center; font: 800 13px var(--body); padding: 3px 10px; border-radius: 999px; background: var(--ai-tint); color: var(--ai); }
+.trytag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.trytag.no { background: var(--bg); color: var(--muted); border: 1px solid var(--line); }
 .qrbox { display: grid; grid-template-columns: 96px 1fr; gap: 14px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 14px; }
 .qrbox img { width: 96px; height: 96px; background: #fff; border-radius: 10px; padding: 6px; }
 :focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
@@ -130,7 +133,8 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
     <h1>학교 일을, <em>말로 부탁</em>하는 앱</h1>
     <p>메뉴를 몰라도 됩니다. 아래 탭 가운데 <b>AI</b>에게 말하면 학교 자료로 답하고 카드로 초안까지 — <b>누르는 건 선생님</b>. 명지중학교 교직원이 매일 쓰는 학교 앱 AI 교무실을 기능별 실제 화면으로 소개합니다. 화면은 실제 앱을 <b>예시 데이터</b>로 띄워 찍은 것이라, 학교·이름·내용은 모두 지어낸 것입니다.</p>
     <div class="acts">
-      <a class="btn" href="intro.html">소개 발표 보기(가로 화면)</a>
+      <a class="btn" href="visit.html">체험판 · 미션</a>
+      <a class="btn ghost" href="intro.html">소개 발표 보기(가로 화면)</a>
       <a class="btn ghost" href="#asks">열 문장</a>
       <a class="btn ghost" href="#part6">지키는 원칙</a>
     </div>
@@ -153,6 +157,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
 </script>
 <script src="img/rects.js"></script>
 <script src="asks.js"></script>
+<script src="missions.js"></script>
 <script src="intro-scenes.js"></script>
 <script>
 (function () {
@@ -179,9 +184,15 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
   document.getElementById("asks-more").textContent = (window.ASKS_MORE || "") + ".";
   document.getElementById("body").innerHTML = body;
 
+  // 체험판 미션이 있는 장면(intro-scenes.js 끝의 「체험판과 잇기」) — 누르면 체험 안내의 그 미션으로
+  function tag(d) {
+    if (!d.tryTag) return "";
+    var n = (d.tryTag.t.match(/\d+/) || [])[0];
+    return d.tryTag.no ? '<span class="trytag no">' + d.tryTag.t + "</span>" : '<a class="trytag" href="visit.html#m' + n + '">' + d.tryTag.t + "</a>";
+  }
   function textCard(d) {
     var t = d.tour === true ? {} : d.tour;
-    return '<article class="g-card" id="' + d.id + '"><header><div class="eyebrow">' + (t.kicker || d.label) + "</div><h3>" + (t.title || strip(d.label)) + "</h3></header>" + (t.html || "") + "</article>";
+    return '<article class="g-card" id="' + d.id + '"><header>' + tag(d) + '<div class="eyebrow">' + (t.kicker || d.label) + "</div><h3>" + (t.title || strip(d.label)) + "</h3></header>" + (t.html || "") + "</article>";
   }
   function card(d) {
     var o = d.guide;
@@ -191,7 +202,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
       if (!g || g.s !== s) { g = { s: s, steps: [] }; groups.push(g); }
       g.steps.push({ n: i + 1, st: st });
     });
-    var html = '<article class="g-card" id="' + d.id + '"><header><div class="eyebrow">' + (o.chips ? strip(o.chips[0].t) : D.PARTS[d.part].name) + "</div><h3>" + String(o.title).replace(/<br>/g, " ") + "</h3></header>";
+    var html = '<article class="g-card" id="' + d.id + '"><header>' + tag(d) + '<div class="eyebrow">' + (o.chips ? strip(o.chips[0].t) : D.PARTS[d.part].name) + "</div><h3>" + String(o.title).replace(/<br>/g, " ") + "</h3></header>";
     groups.forEach(function (g) {
       html += '<div class="g-group"><div class="g-ph"><div class="phone"><div class="screen"><div class="scr"><img class="shot" loading="lazy" decoding="async" src="img/' + o.screens[g.s] + '.jpg" alt=""></div></div></div></div>' +
         '<ol class="g-steps">' + g.steps.map(function (x) { return '<li><i>' + x.n + "</i><span>" + (x.st.g || x.st.t) + "</span></li>"; }).join("") + "</ol></div>";

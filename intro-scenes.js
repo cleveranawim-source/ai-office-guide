@@ -6,6 +6,9 @@
 (function () {
   "use strict";
   var D = window.DECK, E = D.E, h = D.h;
+  // 장면을 모아 두었다가 맨 끝에서 체험판 미션 표시를 붙인다(아래 「체험판과 잇기」).
+  var ALL = [], add0 = D.add;
+  D.add = function (d) { ALL.push(d); return add0.apply(D, arguments); };
   var R = window.R || function () { return null; };
 
   D.parts([
@@ -145,6 +148,11 @@
   .try-qr small{display:block;margin-top:6px;font:500 20px var(--body);color:var(--muted)}
   .try-foot{left:120px;top:930px;width:1680px;display:flex;flex-wrap:wrap;gap:10px 12px;font:600 21px var(--body);color:var(--muted)}
   .try-foot span{padding:6px 14px;border-radius:999px;background:rgba(41,92,158,.07)}
+  .chip.mission{background:var(--ai-tint);color:var(--ai-ink);font-weight:800}
+  .chip.mission::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--ai)}
+  .chip.mission.no{background:#e9edf2;color:var(--muted)}
+  .chip.mission.no::before{background:var(--faint)}
+  .try-qr p.lbl{font-family:var(--body);letter-spacing:-.01em}
 
   .tv{left:960px;top:250px;width:860px;height:520px;border-radius:26px;background:#1c2431;padding:16px;box-shadow:0 40px 90px rgba(14,28,48,.35)}
   .tv::after{content:"";position:absolute;left:50%;bottom:-48px;width:190px;height:48px;margin-left:-95px;background:linear-gradient(#2a3446,#1c2431);clip-path:polygon(18% 0,82% 0,100% 100%,0 100%)}
@@ -204,7 +212,11 @@
   // ── 부품 ──
   var CHECK = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
   function scr(inner) { return '<div class="scr">' + inner + "</div>"; }
-  function shot(name) { return scr('<img class="shot" src="img/' + name + '.jpg" alt="">'); }
+  // 다른 학교 선생님께 보이는 화면은 체험판(지어낸 학교)과 같게 — 경건회 줄·교목실·종교 교과·종교 인사말을 지운 사본(img/ext/, 2026-10-23).
+  // 자리는 그대로라 동그라미(R)는 원래 화면 이름으로 찾는다. 교직원 연수 자료는 원본(img/)을 그대로 쓴다.
+  var EXT = { "home": 1, "tt-class": 1, "nep-org-picked": 1, "ai-letter": 1 };
+  function ext(name) { return EXT[name] ? "ext/" + name : name; } // "ext/home"은 EXT에 없어 그대로
+  function shot(name) { return scr('<img class="shot" src="img/' + ext(name) + '.jpg" alt="">'); }
   function cam(screens) { return '<div class="cam"><div class="rig"><div class="phone"><div class="screen">' + screens.join("") + '<div class="fx"></div></div></div></div></div>'; }
   function strip(s) { return String(s).replace(/<[^>]+>/g, ""); }
   function darkBg(art, flip) {
@@ -246,6 +258,7 @@
 
   // 둘러보기: 왼쪽 요점, 오른쪽 휴대폰(넘길 때마다 요점 하나 · 화면 이동 · 동그라미)
   function show(o) {
+    o.screens = o.screens.map(ext); // 둘러보기(tour.html)도 이 이름으로 그림을 연다
     D.add({
       id: o.id, part: o.part, label: o.label, kind: "light practice", min: o.min, notes: o.notes, trans: o.trans || "push", guide: o,
       html: chips(o.chips || [{ t: D.PARTS[o.part].name }]) +
@@ -318,7 +331,7 @@
   });
 
   var HOOK_WORDS = [
-    ["오늘 경건회 인도는?", 150, 150, 40, -4], ["등교지도 누구 차례?", 1240, 120, 44, 3], ["빈 교실 어디?", 680, 210, 52, -2],
+    ["이번 주 학사일정은?", 150, 150, 40, -4], ["등교지도 누구 차례?", 1240, 120, 44, 3], ["빈 교실 어디?", 680, 210, 52, -2],
     ["급식 메뉴", 1560, 300, 38, 5], ["평가계획서 제출했나요?", 120, 380, 46, 2], ["가정통신문 번호", 1290, 470, 42, -3],
     ["복합기 수리 요청", 200, 620, 40, 4], ["진도 어디까지 나갔지?", 1180, 690, 48, -2], ["회의 서명 받으러 한 바퀴", 140, 850, 42, -3],
     ["6교시 누가 들어가요?", 1380, 880, 44, 3], ["넵? 읽으셨어요?", 760, 900, 40, 2], ["그 자료 어느 폴더에?", 720, 60, 38, -5]
@@ -578,7 +591,7 @@
       { t: '급식과 <span class="q">「다가오는 일정」</span>(오늘부터 7일)', s: 1, r: R("home-3", "upcoming") }
     ],
     screens: ["home", "home-3"],
-    notes: "앱을 열면 보이는 홈입니다. 위쪽 큰 글씨는 <b>선생님마다 다른 한마디</b>입니다. 오늘 동료 수업을 교체로 맡아 준 선생님에게는 “고마워요”, 급식지도 당번에게는 “점심 챙기세요”처럼, 그 선생님의 오늘에 맞춰 AI와 규칙이 함께 고릅니다(퇴근했다고 단정하거나 다그치는 말은 쓰지 않습니다). 그 아래 날씨, 오늘 일정, 경건회 인도·등교지도 당번, 그리고 처리할 넵, 오늘 시간표, 오늘 알림, 급식, 다가오는 일정 순서입니다."
+    notes: "앱을 열면 보이는 홈입니다. 위쪽 큰 글씨는 <b>선생님마다 다른 한마디</b>입니다. 오늘 동료 수업을 교체로 맡아 준 선생님에게는 “고마워요”, 급식지도 당번에게는 “점심 챙기세요”처럼, 그 선생님의 오늘에 맞춰 AI와 규칙이 함께 고릅니다(퇴근했다고 단정하거나 다그치는 말은 쓰지 않습니다). 그 아래 날씨, 오늘 일정, 등교지도·급식지도 당번, 그리고 처리할 넵, 오늘 시간표, 오늘 알림, 급식, 다가오는 일정 순서입니다."
   });
 
   show({
@@ -608,10 +621,10 @@
   });
 
   D.add({
-    id: "s-desk", part: 2, label: "PC에서도", kind: "light", min: 0.6, tour: { title: "PC에서도 같은 화면", html: '<p>컴퓨터에서는 왼쪽 메뉴와 넓은 달력으로 보입니다. 휴대폰과 같은 주소, 같은 계정입니다. 교무실 PC에는 오른쪽에 좁은 창으로 두고 알림을 카드로 받는 <b>설치본</b>도 있습니다.</p><img src="img/desk/home.jpg" alt="PC 홈 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy"><img src="img/desk/calendar.jpg" alt="PC 일정 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy">' },
+    id: "s-desk", part: 2, label: "PC에서도", kind: "light", min: 0.6, tour: { title: "PC에서도 같은 화면", html: '<p>컴퓨터에서는 왼쪽 메뉴와 넓은 달력으로 보입니다. 휴대폰과 같은 주소, 같은 계정입니다. 교무실 PC에는 오른쪽에 좁은 창으로 두고 알림을 카드로 받는 <b>설치본</b>도 있습니다.</p><img src="img/ext/desk/home.jpg" alt="PC 홈 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy"><img src="img/desk/calendar.jpg" alt="PC 일정 화면" style="width:100%;border-radius:12px;border:1px solid var(--line)" loading="lazy">' },
     notes: "같은 주소를 컴퓨터에서 열면 왼쪽 메뉴가 있는 넓은 화면입니다. 일정 달력은 넓은 화면에서 일정 이름까지 보입니다. 휴대폰을 먼저 설계했고, 컴퓨터는 같은 화면을 넓게 씁니다. 교무실 PC에는 <b>설치본</b>도 있습니다 — 사이트를 창 하나에 띄우는 작은 프로그램이라, 화면 오른쪽에 메신저처럼 좁은 창으로 두고 넵·알림을 화면 오른쪽 아래 알림 카드(「잎사귀 편지」)로 받습니다. 사이트를 고치면 설치본은 다시 나눠 주지 않아도 됩니다.",
     html: chips([{ t: "매일 여는 화면" }, { t: "PC", c: "ghost" }]) + '<h2 class="title">컴퓨터에서도 <em>같은 화면</em>, 넓게</h2>' +
-      '<div class="abs bw" style="left:120px;top:300px;width:1040px"><div class="bar"><i></i><i></i><i></i></div><img src="img/desk/home.jpg" alt=""></div>' +
+      '<div class="abs bw" style="left:120px;top:300px;width:1040px"><div class="bar"><i></i><i></i><i></i></div><img src="img/ext/desk/home.jpg" alt=""></div>' +
       '<div class="abs bw" style="left:820px;top:400px;width:980px"><div class="bar"><i></i><i></i><i></i></div><img src="img/desk/calendar.jpg" alt=""></div>',
     build: function (el, A) {
       return [function (A) {
@@ -945,15 +958,15 @@
   var DEMO_PW = (new URLSearchParams(location.search).get("pw") || "").replace(/[^0-9A-Za-z_-]/g, "").slice(0, 24);
   D.add({
     id: "s-try", part: 7, label: "직접 써 보세요(체험판)", kind: "light", min: 1.5, trans: "push",
-    notes: "오늘 보신 앱을 직접 써 보실 수 있게 <b>체험판</b>을 열어 두었습니다. 우리 학교와 완전히 떨어진 따로 된 앱이고, 학교·선생님·학생 이름은 모두 지어낸 것입니다. QR을 찍고 명단에서 아무 선생님이나 고르세요 — 옆 분과 겹치지 않게 고르면 서로 넵을 주고받을 수 있습니다. 체험판의 넵은 저녁·주말에도 바로 갑니다(실제 앱은 근무 밖에 보낸 넵을 다음 근무일 아침에 전합니다). 예시가 가장 많은 계정은 홍길동(2학년 3반 담임)입니다. 노트북이 있으면 맨 위 띠의 [교실 칠판 띄우기]로 칠판을 띄우고 휴대폰에서 보내 보세요. AI는 한 분에 하루 10번, 매일 밤 3시에 처음 상태로 돌아가며 11월 22일까지 열어 둡니다.",
+    notes: "오늘 보신 앱을 직접 써 보실 수 있게 <b>체험판</b>을 열어 두었습니다. 우리 학교와 완전히 떨어진 따로 된 앱이고, 학교·선생님·학생 이름은 모두 지어낸 것입니다. QR을 찍으면 <b>체험 안내</b>가 열립니다 — 맨 위 [체험판 열기], 그 아래 발표 순서대로 미션 여덟 가지. 자리 카드를 나눠 드렸다면 카드의 이름으로 로그인하고 자리 번호를 체험 안내에 넣으세요(짝꿍 이름이 미션에 들어갑니다). 카드가 없으면 명단에서 아무 선생님이나 — 옆 분과 겹치지 않게 고르면 서로 넵을 주고받을 수 있습니다. 체험판의 넵은 저녁·주말에도 바로 갑니다(실제 앱은 근무 밖에 보낸 넵을 다음 근무일 아침에 전합니다). 예시가 가장 많은 홍길동(2학년 3반 담임)은 발표자 계정으로 남겨 두고, 자리 카드에는 넣지 않았습니다. 노트북이 있으면 맨 위 띠의 [교실 칠판 띄우기]로 칠판을 띄우고 휴대폰에서 보내 보세요. AI는 한 분에 하루 10번, 매일 밤 3시에 처음 상태로 돌아가며 11월 22일까지 열어 둡니다.",
     html: chips([{ t: "마무리", c: "ai" }, { t: "체험판", c: "ghost" }]) + '<h2 class="title">직접 <em>써 보세요</em> — 체험판</h2>' +
       '<div class="abs try">' +
-      '<div class="r card"><span class="n">1</span><div><h3>휴대폰으로 QR</h3><p>또는 주소 <b>mjms-demo.vercel.app</b></p></div></div>' +
-      '<div class="r card"><span class="n">2</span><div><h3>명단에서 아무 선생님이나</h3><p>옆 분과 겹치지 않게 — 서로 넵을 주고받습니다. 예시가 가장 많은 계정은 <b>홍길동</b>(2학년 3반 담임)</p></div></div>' +
+      '<div class="r card"><span class="n">1</span><div><h3>휴대폰으로 QR → 체험 안내</h3><p>맨 위 <b>[체험판 열기]</b> · 체험판 주소는 <b>mjms-demo.vercel.app</b></p></div></div>' +
+      '<div class="r card"><span class="n">2</span><div><h3>자리 카드의 이름으로</h3><p>카드가 없으면 명단에서 아무 선생님이나 — 옆 분과 겹치지 않게, 서로 넵을 주고받습니다</p></div></div>' +
       '<div class="r card"><span class="n">3</span><div><h3>비밀번호' + (DEMO_PW ? ' <span class="pw">' + DEMO_PW + "</span>" : "") + '</h3><p>' + (DEMO_PW ? "모든 계정이 같은 비밀번호입니다" : "발표자가 알려 드립니다 · 모든 계정이 같은 비밀번호") + '</p></div></div>' +
-      '<div class="r card"><span class="n">4</span><div><h3>넵 · AI 부탁 · 교실 칠판</h3><p>노트북에 <b>[교실 칠판 띄우기]</b>로 칠판을 열고, 휴대폰에서 <b>전자칠판 알림</b>을 보내 보세요</p></div></div>' +
+      '<div class="r card"><span class="n">4</span><div><h3>미션 여덟 가지, 발표 순서대로</h3><p>AI에게 묻기 · 짝꿍과 넵 · 교체안 · 교실 칠판(노트북에 <b>[교실 칠판 띄우기]</b>) · 분실물 함</p></div></div>' +
       "</div>" +
-      '<div class="abs try-qr"><img src="img/qr-demo.svg" alt="체험판 주소 QR 코드"><p>mjms-demo.vercel.app</p><small>AI 교무실 체험판 · 지어낸 학교</small></div>' +
+      '<div class="abs try-qr"><img src="img/qr-visit.svg" alt="체험 안내 QR 코드"><p class="lbl">체험 안내 · 미션</p><small>체험판 열기 · 미션 여덟 가지 · 발표 다시 보기</small></div>' +
       '<p class="abs try-foot"><span>11월 22일까지</span><span>매일 밤 3시에 처음 상태로</span><span>학교·선생님·학생 이름은 모두 지어낸 것</span><span>AI는 한 분에 하루 10번</span><span>우리 학교 앱과 완전히 떨어진 따로 된 앱</span></p>',
     build: function (el, A) {
       return [function (A) {
@@ -967,11 +980,11 @@
 
   D.add({
     id: "closing", part: 7, label: "고맙습니다 · 질문", kind: "dark", min: 3, trans: "whip", bgm: "end",
-    notes: "한 문장으로 마무리합니다 — <b>메뉴를 몰라도, AI에게 말하면 카드로. 누르는 건 선생님.</b> QR로 오늘 본 내용과 열 문장을 휴대폰에서 다시 보실 수 있습니다(기능별 화면과 설명). 질문을 받겠습니다.",
+    notes: "한 문장으로 마무리합니다 — <b>메뉴를 몰라도, AI에게 말하면 카드로. 누르는 건 선생님.</b> QR 하나에 체험판·미션·발표 다시 보기, 그리고 학교에 가져가실 「우리 학교에서 시작한다면」 한 장이 모두 있습니다. 질문을 받겠습니다.",
     html: darkBg("closing") +
       '<h2 class="abs cl-title"><span class="ln">고맙습니다.</span><span class="ln"><em>질문</em> 받겠습니다</span></h2>' +
-      '<p class="abs cl-lead">메뉴를 몰라도, <b>말하면 카드로 — 누르는 건 선생님.</b><br>오늘 본 화면과 열 문장은 휴대폰에서 다시 볼 수 있습니다.<br>화면 속 학교·이름·내용은 모두 예시입니다.</p>' +
-      '<div class="abs cl-qr"><img src="img/qr-tour.svg" alt="소개 다시 보기 QR 코드"><p>휴대폰으로 다시 보기</p><small>AI 교무실 기능 둘러보기</small></div>',
+      '<p class="abs cl-lead">메뉴를 몰라도, <b>말하면 카드로 — 누르는 건 선생님.</b><br>체험판·미션·발표 다시 보기는 QR 하나로.<br>화면 속 학교·이름·내용은 모두 예시입니다.</p>' +
+      '<div class="abs cl-qr"><img src="img/qr-visit.svg" alt="체험 안내 QR 코드"><p>체험 · 다시 보기</p><small>체험판 · 미션 · 우리 학교에서 시작한다면</small></div>',
     build: function (el, A) {
       return [function (A) {
         A.go(".art-wrap img", [{ transform: "scale(1.3) translate(2%,2%)", filter: "brightness(.35)" }, { transform: "scale(1.1)", filter: "brightness(1)" }], { d: 2000, e: E.out });
@@ -982,5 +995,23 @@
       }];
     }
   });
+
+
+  // ════════════════════════════════════════════════════════════
+  // 체험판과 잇기(missions.js): 체험 미션이 있는 장면 오른쪽 위에 「체험판 미션 N」, 체험판에 없는 장면은 회색 표시.
+  // 둘러보기(tour.html)는 d.tryTag를 카드 머리에 붙인다.
+  // ════════════════════════════════════════════════════════════
+  var TRY = {};
+  (window.MISSIONS || []).forEach(function (m) { (m.scenes || []).forEach(function (id) { (TRY[id] = TRY[id] || []).push(m.n); }); });
+  var NOT_IN_DEMO = { "s-life": "체험판에는 없어요" };
+  ALL.forEach(function (d) {
+    var t = TRY[d.id] ? "체험판 미션 " + TRY[d.id].join("·") : NOT_IN_DEMO[d.id];
+    if (!t || typeof d.html !== "string") return;
+    d.tryTag = { t: t, no: !TRY[d.id] };
+    // 장면 맨 위 칩 줄 끝에 하나 더(칩 줄이 없는 장면은 붙이지 않는다)
+    var at = d.html.indexOf('<div class="chiprow">'), end = at < 0 ? -1 : d.html.indexOf("</div>", at);
+    if (end > 0) d.html = d.html.slice(0, end) + '<span class="chip mission' + (TRY[d.id] ? "" : " no") + '">' + t + "</span>" + d.html.slice(end);
+  });
+  D.add = add0;
 
 })();
