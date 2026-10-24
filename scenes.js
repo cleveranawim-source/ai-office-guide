@@ -1380,7 +1380,7 @@
       { t: '받은 분은 <span class="k">내 서명으로 서명하기</span> 한 번', s: 3, r: R("sign-meeting", "sign") },
       { t: '만든 분은 <span class="k">PDF 내려받기</span>·안 한 분께 알림·마감', s: 4, r: [31, 172, 350, 44] }
     ],
-    gnote: { html: "<span>내 서명이 없거나 이번만 다르게 하려면 <b>「이번만 손으로」</b>. AI 도우미에게 말로 부탁해도 됩니다(이 부 마지막 장면). 화면 속 이름은 예시입니다.</span>" },
+    gnote: { html: "<span>내 서명이 없거나 이번만 다르게 하려면 <b>「이번만 손으로」</b>. AI 해죠에게 말로 부탁해도 됩니다(이 부 마지막 장면). 화면 속 이름은 예시입니다.</span>" },
     screens: [shot("sign-list"), shot("sign-meeting-new"), shot("sign-meeting-new-bottom"), shot("sign-meeting"), shot("sign-mine")],
     notes: "회의 서명부는 만들 때 참석자를 넵과 같은 조직도로 고르고, 「나도 명단에 넣기」를 켜 둘 수 있습니다. 받은 분은 알림을 눌러 <b>내 서명으로 서명하기</b> 한 번이면 끝, 만든 분은 명단에 서명 시각이 차는 것을 보고 PDF를 내려받습니다. 안 한 분께 다시 알림, 마감도 여기서 합니다."
   });
@@ -1672,9 +1672,9 @@
       { t: '글을 열어 <span class="k">내려받기</span>(링크는 앱 안에서 열기)', s: 2, r: R("library-post", "download") },
       { t: '올릴 땐 <span class="k">+ 게시</span>: 섹션·제목·설명, 링크 또는 파일(20MB까지)', s: 3, r: R("library-new", "submit") }
     ],
-    note: { html: "<span>자료실 파일 본문은 <b>AI 도우미가 읽고 답</b>합니다. 휴직 중인 선생님도 자료실은 볼 수 있습니다.</span>" },
+    note: { html: "<span>자료실 파일 본문은 <b>AI 해죠가 읽고 답</b>합니다. 휴직 중인 선생님도 자료실은 볼 수 있습니다.</span>" },
     screens: [shot("library"), shot("library-search"), shot("library-post"), shot("library-new")],
-    notes: "자료실은 부서별 자료와 양식을 모아 둔 곳입니다. 검색은 제목·설명에서 찾고, 파일 본문은 AI 도우미가 읽어 답합니다. 올릴 때는 섹션·제목·설명과 링크 또는 파일(최대 20MB)."
+    notes: "자료실은 부서별 자료와 양식을 모아 둔 곳입니다. 검색은 제목·설명에서 찾고, 파일 본문은 AI 해죠가 읽어 답합니다. 올릴 때는 섹션·제목·설명과 링크 또는 파일(최대 20MB)."
   });
 
   aiWay({
