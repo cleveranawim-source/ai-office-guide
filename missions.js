@@ -26,7 +26,7 @@ window.MISSIONS = [
       '받은 분: <span class="k">넵</span> → <span class="q">받은</span> → 보낸 분 줄 → 카드의 <span class="k">넵</span>',
       '보낸 분: <span class="q">보낸</span>에 <span class="q">1/1 넵</span>'
     ],
-    see: "누가 읽고 눌렀는지 보낸 사람이 바로 압니다. 글 속 날짜는 AI가 찾아 「넵 속 일정」으로 보낸 분·받은 분 일정에만 넣습니다."
+    see: "누가 읽고 눌렀는지 보낸 사람이 바로 압니다. 글 속 날짜는 AI가 찾아 「넵 속 일정」으로 보낸 분·받은 분 일정에만 넣습니다. 받은 탭에 종 그림 「띵동」 방이 있으면 학교 자동 안내(당번·보강 모집)입니다."
   },
   {
     n: 4, part: "AI와 일하기", title: "AI가 넵 초안을", min: 2, ai: 1, pair: true, scenes: ["s-cards", "airules"],
