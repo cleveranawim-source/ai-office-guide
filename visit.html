@@ -202,7 +202,7 @@ section { display: grid; gap: 14px; min-width: 0; }
   </section>
 
   <section id="missions" aria-labelledby="missions-h">
-    <div class="sh"><span class="tag">체험 미션</span><h2 id="missions-h">발표 순서대로, 여덟 가지</h2><p>보라색 문장은 누르면 복사됩니다 — AI 입력칸에 붙여 넣으세요. 해 본 미션은 오른쪽 칸에 표시해 두세요(이 휴대폰에만 남습니다).</p></div>
+    <div class="sh"><span class="tag">체험 미션</span><h2 id="missions-h">발표 순서대로, 여덟 가지</h2><p>보라색 문장은 누르면 복사됩니다 — AI 글 칸에 붙여 넣으세요. 해 본 미션은 오른쪽 칸에 표시해 두세요(이 휴대폰에만 남습니다).</p></div>
     <div class="prog"><div class="bar"><i id="prog-bar"></i></div><b id="prog-n">0 / 8 해 봄</b></div>
     <div class="ms" id="ms"></div>
     <h3 class="more-h">더 해 보기</h3>
@@ -315,7 +315,7 @@ section { display: grid; gap: 14px; min-width: 0; }
     var s = e.target.closest && e.target.closest(".say");
     if (!s) return;
     var text = s.textContent;
-    var ok = function () { toast("복사했어요 — AI 입력칸에 붙여 넣으세요"); };
+    var ok = function () { toast("복사했어요 — AI 글 칸에 붙여 넣으세요"); };
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(ok, function () { toast("길게 눌러 복사해 주세요"); });
       else toast("길게 눌러 복사해 주세요");

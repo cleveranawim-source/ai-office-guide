@@ -864,9 +864,9 @@
 
   D.add({
     id: "aiIntro", part: 2, label: "말하기 → 카드 → 누르기", kind: "light", min: 1, trans: "zoom",
-    notes: "오늘의 세 박자입니다. <b>묻기</b> — 시간표·급식·학사일정·주간소식은 물론 자료실 한글·PDF 파일 본문까지 찾아 답하고 출처를 붙입니다. 자료실에 없으면 <b>학교 공유 드라이브</b>(부서 자료·교육계획서·교과 자료 등)도 찾아 읽습니다. <b>📎로 붙인 파일(PDF·사진·한글·엑셀)과 붙여 넣은 웹 주소</b>도 읽습니다. <b>부탁하기</b> — 가정통신문, 기기 수리 같은 신청을 말로 하면 필요한 것만 되묻습니다. 넵도 초안 카드로 만들어 [넵 보내기]를 누르면 갑니다. <b>확인 카드</b> — 카드에서 고친 뒤 [등록]을 눌러야 실제로 적힙니다. <b>오늘 실습은 카드가 뜨는 데까지만</b> 합니다. 질문은 하루 60개까지, 어려운 일은 「깊게 생각하기」(하루 5번). 이 세 박자를 3부부터 부마다 「AI로 하면」으로 다시 봅니다.",
+    notes: "오늘의 세 박자입니다. <b>묻기</b> — 시간표·급식·학사일정·주간소식은 물론 자료실 한글·PDF 파일 본문까지 찾아 답하고 출처를 붙입니다. 자료실에 없으면 <b>학교 공유 드라이브</b>(부서 자료·교육계획서·교과 자료 등)도 찾아 읽습니다. <b>＋로 붙인 파일(PDF·사진·한글·엑셀)과 붙여 넣은 웹 주소</b>도 읽습니다. <b>부탁하기</b> — 가정통신문, 기기 수리 같은 신청을 말로 하면 필요한 것만 되묻습니다. 넵도 초안 카드로 만들어 [넵 보내기]를 누르면 갑니다. <b>확인 카드</b> — 카드에서 고친 뒤 [등록]을 눌러야 실제로 적힙니다. <b>오늘 실습은 카드가 뜨는 데까지만</b> 합니다. 질문은 하루 60개까지, 어려운 일은 「깊게 생각하기」(하루 5번). 이 세 박자를 3부부터 부마다 「AI로 하면」으로 다시 봅니다.",
     html: '<div class="chiprow"><span class="chip">AI에게 부탁하기</span></div><h2 class="title">말하면, <em>카드로</em>. 누르는 건 선생님</h2>' +
-      '<div class="abs card askc" style="left:120px"><span class="sn">1</span><h3>묻기</h3><p>자료실·공유 드라이브 파일의 <b>본문까지</b> 찾아 답하고, 출처 링크를 붙입니다.</p><div class="chips"><span>빈 교실</span><span>급식</span><span>학사일정·주간소식</span><span>담임</span><span>자료실 내용</span><span>생기부 기재요령</span><span class="nwc">공유 드라이브</span><span class="nwc">📎 파일·웹 주소</span></div></div>' +
+      '<div class="abs card askc" style="left:120px"><span class="sn">1</span><h3>묻기</h3><p>자료실·공유 드라이브 파일의 <b>본문까지</b> 찾아 답하고, 출처 링크를 붙입니다.</p><div class="chips"><span>빈 교실</span><span>급식</span><span>학사일정·주간소식</span><span>담임</span><span>자료실 내용</span><span>생기부 기재요령</span><span class="nwc">공유 드라이브</span><span class="nwc">＋로 붙인 파일·웹 주소</span></div></div>' +
       '<div class="abs card askc" style="left:700px"><span class="sn">2</span><h3>부탁하기</h3><p>말로 부탁하면 AI가 <b>필요한 것만</b> 되묻고 초안을 만듭니다.</p><div class="chips"><span>가정통신문</span><span>통신문 번호</span><span>기기 수리</span><span>도서관 이용</span><span>희망도서</span><span>교과협의록</span><span>회의 서명부</span><span>넵 보내기</span><span>수업교체 계산</span><span>학습지·퀴즈</span><span class="nwc">진도표 적기</span><span class="nwc">분실물 넣기</span><span class="nwc">보강 모집</span></div></div>' +
       '<div class="abs card askc confirm" style="left:1280px"><span class="sn">3</span><h3>누르는 건 선생님</h3><p>확인 카드에서 고친 뒤 <b>[등록]</b>을 눌러야 실제로 적힙니다. 누르기 전 초안은 나만 봅니다.</p></div>' +
       '<div class="abs aibar"><div class="strip"></div><p><span class="badge-new">NEW</span>&nbsp; 아래 탭 가운데 볼록한 AI 버튼</p></div>',
@@ -895,16 +895,16 @@
     chips: [{ t: "실습 4 · AI" }, { t: "2분", c: "ghost" }], title: "첫 부탁은 <em>쉬운 것부터</em>",
     steps: [
       { t: '아래 탭 가운데 <span class="k">AI</span>', s: 0, r: R("ai-home", "tab_ai"), z: 1.8 },
-      { t: '<b>추천 질문</b>은 그날 나에게 맞춰 바뀝니다(처리 안 한 넵·마감·시간대)', s: 0, r: R("ai-home", "chips") },
-      { t: '입력칸에 <span class="q">「이번 주 학사일정 알려 줘」</span> → <span class="k">보내기</span>', s: 0, r: R("ai-home", "input") },
-      { t: '요일별로 정리한 답. 시간표·급식·담임·빈 교실도 이렇게 묻습니다', s: 1, r: R("ai-week", "answer") },
-      { t: '두 번째: <span class="q">「수행평가 못 본 학생은 어떻게 처리해?」</span> → 답 끝에 <b>출처</b>와 <span class="k">열기 ›</span>', s: 2, r: R("ai-library", "links"), z: 1.95 },
-      { t: '답이 좋았는지 <b>👍 👎</b> — 대화 내용은 담기지 않아요', s: 2, r: R("ai-library", "feedback"), z: 1.95 }
+      { t: '<b>추천 질문</b> 줄은 그날 나에게 맞춰 바뀌고, 누르면 바로 물어봅니다', s: 0, r: R("ai-home", "chips") },
+      { t: '글 칸에 <span class="q">「이번 주 학사일정 알려 줘」</span> → 파란 <span class="k">↑</span>', s: 1, r: R("ai-typed", "send"), z: 1.9 },
+      { t: '요일별로 정리한 답. 시간표·급식·담임·빈 교실도 이렇게 묻습니다', s: 2, r: R("ai-week", "answer") },
+      { t: '두 번째: <span class="q">「수행평가 못 본 학생은 어떻게 처리해?」</span> → 답 끝에 <b>출처</b>와 <span class="k">열기 ›</span>', s: 3, r: R("ai-library", "links"), z: 1.95 },
+      { t: '답이 좋았는지 <b>👍 👎</b> — 대화 내용은 담기지 않아요', s: 3, r: R("ai-library", "feedback"), z: 1.95 }
     ],
     note: { tone: "warn", html: "<span>학생 이름·실제 생기부 문장은 넣지 마세요. 질문은 외부 AI로 전송되고, <b>하루 60개</b>까지 묻습니다.</span>" },
-    gnote: { tone: "warn", html: "<span>AI는 자료실 파일의 <b>본문까지</b> 읽고, 자료실에 없으면 <b>학교 공유 드라이브</b>에서도 찾습니다. <b>📎</b>로 PDF·사진·한글(hwpx)·엑셀 파일이나 웹 주소를 붙여도 읽고 답합니다(붙인 것은 이 대화에서만 씀). 학생 이름·실제 생기부 문장은 넣지 마세요. 질문은 외부 AI로 전송되고, <b>하루 60개</b>까지 묻습니다.</span>" },
-    screens: [shot("ai-home"), shot("ai-week"), shot("ai-library")],
-    notes: "이제 <b>첫 부탁</b>입니다. 모두 아래 탭 가운데 AI를 누르고, 쉬운 것부터 — <b>「이번 주 학사일정 알려 줘」</b>를 보내 봅니다. 요일별로 정리된 답이 오면 성공입니다. 두 번째로 자료실에 있는 것을 물어봅니다. AI는 시간표·급식·학사일정·주간소식은 물론 <b>자료실 파일 본문과 학교 공유 드라이브</b>까지 찾아 읽고, 답 끝에 출처를 붙입니다. 추천 질문은 그날 선생님의 넵·마감·시간대에 맞춰 바뀝니다. 👍👎에는 대화 내용이 담기지 않고, 👎 뒤 「관리자에게 보내기」를 누른 때만 그 대화를 보냅니다."
+    gnote: { tone: "warn", html: "<span>AI는 자료실 파일의 <b>본문까지</b> 읽고, 자료실에 없으면 <b>학교 공유 드라이브</b>에서도 찾습니다. 글 칸 왼쪽 <b>＋</b>로 PDF·사진·한글(hwpx)·엑셀 파일을 붙이거나 글에 웹 주소를 넣어도 읽고 답합니다(붙인 것은 이 대화에서만 씀). 오른쪽 <b>마이크</b>를 누르고 말하면 글 칸에 적히고, 보내기는 선생님이 누릅니다. 학생 이름·실제 생기부 문장은 넣지 마세요. 질문은 외부 AI로 전송되고, <b>하루 60개</b>까지 묻습니다.</span>" },
+    screens: [shot("ai-home"), shot("ai-typed"), shot("ai-week"), shot("ai-library")],
+    notes: "이제 <b>첫 부탁</b>입니다. 모두 아래 탭 가운데 AI를 누르면 「<b>○○ 선생님, 무엇을 도와드릴까요?</b>」와 추천 질문 몇 줄이 뜹니다. 쉬운 것부터 — 아래 글 칸에 <b>「이번 주 학사일정 알려 줘」</b>를 쓰면 오른쪽 마이크 자리가 파란 화살표로 바뀌니 그것을 눌러 보냅니다. 요일별로 정리된 답이 오면 성공입니다. 두 번째로 자료실에 있는 것을 물어봅니다. AI는 시간표·급식·학사일정·주간소식은 물론 <b>자료실 파일 본문과 학교 공유 드라이브</b>까지 찾아 읽고, 답 끝에 출처를 붙입니다. 추천 질문은 그날 선생님의 넵·마감·시간대에 맞춰 바뀝니다. 👍👎에는 대화 내용이 담기지 않고, 👎 뒤 「관리자에게 보내기」를 누른 때만 그 대화를 보냅니다."
   });
 
   practice({
@@ -1443,14 +1443,15 @@
     id: "aiDeep", part: 6, num: null, label: "깊게 생각하기·학부모 답장", min: 1.2, isNew: true,
     chips: [{ t: "NEW", c: "new" }, { t: "보기만", c: "ghost" }], title: "어려운 일엔 <em>깊게 생각하기</em>",
     steps: [
-      { t: '📎로 PDF를 붙이고 <span class="k">깊게 생각하기</span>를 켭니다(하루 5번)', s: 0, r: R("ai-deep-ready", "deep"), newf: true, z: 1.9 },
-      { t: '붙인 자료는 <b>이 대화에서만</b> 씁니다. 저장하지 않아요', s: 0, r: R("ai-deep-ready", "file") },
-      { t: '긴 지침과 우리 학교 계획을 견줘 <b>쪽수와 함께</b> 정리', s: 1, r: R("ai-deep", "answer") },
-      { t: '학부모 문자 답장 초안: 확인 안 된 일은 인정·사과하지 않게', s: 2, r: R("ai-parent", "answer"), newf: true }
+      { t: '글 칸 왼쪽 <span class="k">＋</span> → <b>파일·사진 붙이기</b>로 PDF를, <b>깊게 생각하기</b> 스위치를 켭니다(하루 5번)', s: 0, r: R("ai-plus", "menu"), newf: true },
+      { t: '켜지면 글 칸 위에 파란 <span class="q">「깊게 생각하기 · 오늘 4번 남음」</span>(✕로 끔)', s: 1, r: R("ai-deep-ready", "deep"), z: 1.9 },
+      { t: '붙인 자료는 <b>이 대화에서만</b> 씁니다. 저장하지 않아요', s: 1, r: R("ai-deep-ready", "file") },
+      { t: '긴 지침과 우리 학교 계획을 견줘 <b>쪽수와 함께</b> 정리', s: 2, r: R("ai-deep", "answer") },
+      { t: '학부모 문자 답장 초안: 확인 안 된 일은 인정·사과하지 않게', s: 3, r: R("ai-parent", "answer"), newf: true }
     ],
     gnote: { html: "<span>깊게 생각하기는 더 똑똑한 AI가 오래 생각합니다. 켜고 보낸 <b>그 질문 하나만</b>이고, 다 쓰면 막지 않고 보통으로 답합니다. 학부모 답장은 다른 학생 이야기를 넣지 않고, 폭언·위협이면 교감·교권보호 담당과 먼저 상의를 권합니다.</span>" },
-    screens: [shot("ai-deep-ready"), shot("ai-deep"), shot("ai-parent")],
-    notes: "<b>깊게 생각하기</b>는 긴 PDF 분석·계획서·수업 자료처럼 어려운 일에 씁니다. 켜고 보낸 한 질문만 더 똑똑한 AI가 오래 생각하고, <b>선생님마다 하루 5번</b>입니다. 붙인 파일은 이 대화에서만 쓰고 저장하지 않습니다. <b>학부모 답장 초안</b>은 확인되지 않은 일을 인정·사과하지 않고, 처분·성적처럼 절차로 정할 일은 약속하지 않게 씁니다."
+    screens: [shot("ai-plus"), shot("ai-deep-ready"), shot("ai-deep"), shot("ai-parent")],
+    notes: "<b>깊게 생각하기</b>는 긴 PDF 분석·계획서·수업 자료처럼 어려운 일에 씁니다. 글 칸 왼쪽 <b>＋</b>를 누르면 「파일·사진 붙이기」와 「깊게 생각하기」 스위치가 함께 있습니다. 켜면 글 칸 위에 파란 칩이 붙고(✕로 끔), 켜고 보낸 한 질문만 더 똑똑한 AI가 오래 생각합니다. <b>선생님마다 하루 5번</b>입니다. 붙인 파일은 이 대화에서만 쓰고 저장하지 않습니다. <b>학부모 답장 초안</b>은 확인되지 않은 일을 인정·사과하지 않고, 처분·성적처럼 절차로 정할 일은 약속하지 않게 씁니다."
   });
 
   D.add({
@@ -1705,7 +1706,7 @@
       { t: '사진을 누르면 상세 → <span class="k">주인에게 돌려줬어요</span>', s: 2, r: R("lost-found-detail", "back") },
       { t: '학생은 <b>점심시간 칠판 분실물 띠</b>, 칠판 왼쪽 아래 <span class="k">분실물 함</span> 단추, <span class="k">학생용 보기</span>(교실에 붙인 QR)로', s: 3, r: R("lost-found-2", "note") },
       { t: '학생용 보기도 <b>떠다니는 함</b>(보기만) — 누르면 사진·장소·<span class="q">「찾으러 갈 곳」</span>만, <b>특징은 안 보임</b>', s: 4, r: [16, 112, 380, 680] },
-      { t: '<span class="aib">AI로도</span> 사진을 붙이고 「2층 복도에서 주웠어요, 분실물로 올려 줘」 → <span class="k">함에 넣기</span>', g: '<b>AI로도</b>: 물건 사진을 📎로 붙이고 「2층 복도 정수기 옆에서 주웠어요, 분실물로 올려 줘」 → 종류·특징은 사진을 보고, 발견 장소는 말에서 채운 카드 → <span class="k">함에 넣기</span>. 「분실물 함에 우산 있어?」 「○○ 돌려줬어」도 됩니다', s: 5, r: R("ai-lost", "card") }
+      { t: '<span class="aib">AI로도</span> 사진을 붙이고 「2층 복도에서 주웠어요, 분실물로 올려 줘」 → <span class="k">함에 넣기</span>', g: '<b>AI로도</b>: 물건 사진을 <b>＋</b>로 붙이고 「2층 복도 정수기 옆에서 주웠어요, 분실물로 올려 줘」 → 종류·특징은 사진을 보고, 발견 장소는 말에서 채운 카드 → <span class="k">함에 넣기</span>. 「분실물 함에 우산 있어?」 「○○ 돌려줬어」도 됩니다', s: 5, r: R("ai-lost", "card") }
     ],
     gnote: { html: "<span>사진에는 학생 얼굴·이름표가 나오지 않게 물건만 찍어 주세요. <b>특징 칸</b>은 주인 확인용이라 학생 화면·칠판에는 나오지 않습니다 — 찾으러 온 학생에게 특징을 물어보고 돌려주세요. 휴대폰을 기울이면 사진이 그쪽으로 흘러갑니다.</span>" },
     screens: [shot("lost-found"), shot("lost-found-add"), shot("lost-found-detail"), shot("lost-found-2"), shot("found"), shot("ai-lost")],

@@ -6,7 +6,7 @@ window.MISSIONS = [
     n: 1, part: "AI와 일하기", title: "AI에게 묻기", min: 1, ai: 1, scenes: ["s-ai", "map"],
     steps: [
       '아래 탭 가운데 <span class="k">AI</span>',
-      '<span class="say">오늘 내 수업 알려 줘</span> → <span class="k">보내기</span>'
+      '아래 글 칸에 <span class="say">오늘 내 수업 알려 줘</span> → 오른쪽 파란 <span class="k">↑</span>(보내기)'
     ],
     see: "시간표를 읽고 교시·반·교실로 답합니다. 「이번 주 학사일정 알려 줘」, 「오늘 급식 뭐야?」도 같은 방법입니다."
   },
