@@ -214,7 +214,7 @@
   function scr(inner) { return '<div class="scr">' + inner + "</div>"; }
   // 다른 학교 선생님께 보이는 화면은 체험판(지어낸 학교)과 같게 — 경건회 줄·교목실·종교 교과·종교 인사말을 지운 사본(img/ext/, 2026-10-23).
   // 자리는 그대로라 동그라미(R)는 원래 화면 이름으로 찾는다. 교직원 연수 자료는 원본(img/)을 그대로 쓴다.
-  var EXT = { "home": 1, "tt-class": 1, "nep-org-picked": 1, "ai-letter": 1 };
+  var EXT = { "home": 1, "tt-class": 1, "nep-org-picked": 1, "ai-letter": 1, "nep-inbox": 1 };
   function ext(name) { return EXT[name] ? "ext/" + name : name; } // "ext/home"은 EXT에 없어 그대로
   function shot(name) { return scr('<img class="shot" src="img/' + ext(name) + '.jpg" alt="">'); }
   function cam(screens) { return '<div class="cam"><div class="rig"><div class="phone"><div class="screen">' + screens.join("") + '<div class="fx"></div></div></div></div></div>'; }
