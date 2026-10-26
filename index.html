@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI 교무실 소개</title>
+<meta name="description" content="AI 교무실 소개 — 다른 학교 선생님께: 소개 발표, 체험판 체험 안내와 미션, 기능 둘러보기(화면 속 학교·이름·내용은 예시)">
+<meta name="theme-color" content="#06121f">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="AI 교무실 소개">
+<link rel="stylesheet" href="fonts/pretendard/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* 다른 학교 선생님께 드리는 AI 교무실 소개 사이트의 첫 화면(우리 학교 교직원 연수 사이트와 따로). 위는 소개 발표 표지와 같은 밤하늘 띠, 아래는 세 갈래 카드와 AI 부탁 열 문장. */
+:root {
+  --bg: #f2f5f9; --surface: #ffffff; --ink: #0e1c30; --muted: #55677f; --line: #dbe3ec;
+  --night: #06121f; --glow: #8fd0ff; --brand: #295c9e; --brand-tint: #e3edf8; --new: #f5a524; --new-ink: #3b2600;
+  --ai: #6d4fd8; --ai-tint: #efeafd; --on-ai: #ffffff;
+  --body: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-tint: #17304f; --ai: #b9a5ff; --ai-tint: #251c45; --on-ai: #1a1033; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0a1320; --surface: #111d30; --ink: #e6edf6; --muted: #9db0c8; --line: #23374e; --brand: #7cb8f0; --brand-tint: #17304f; --ai: #b9a5ff; --ai-tint: #251c45; --on-ai: #1a1033; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.65 var(--body); word-break: keep-all; -webkit-font-smoothing: antialiased; }
+p, h1, h2, h3, ol { margin: 0; }
+a { color: inherit; }
+.hero { position: relative; overflow: hidden; background: var(--night); color: #fff; }
+.hero .art { position: absolute; inset: -6%; background: url(img/art/cover.jpg) 70% 50% / cover no-repeat; animation: kb 22s ease-in-out infinite alternate; }
+.hero .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4, 12, 24, .95) 0%, rgba(4, 12, 24, .78) 45%, rgba(4, 12, 24, .35) 100%), linear-gradient(0deg, rgba(4, 12, 24, .8), transparent 50%); }
+@keyframes kb { from { transform: scale(1.12) translate(2%, 1%); } to { transform: scale(1.02) translate(-2%, -1%); } }
+.hero .in { position: relative; max-width: 1040px; margin: 0 auto; padding: 36px 16px 44px; display: grid; gap: 14px; }
+.brand { display: flex; gap: 12px; align-items: center; }
+.brand img { width: 44px; height: 44px; border-radius: 12px; background: #fff; padding: 6px; }
+.brand small { display: block; font: 600 11px var(--mono); letter-spacing: .24em; color: var(--glow); }
+.brand b { font: 800 18px var(--body); }
+.hero h1 { font: 900 clamp(34px, 8vw, 60px)/1.1 var(--body); letter-spacing: -.035em; margin-top: 18px; text-wrap: balance; }
+.hero h1 em { font-style: normal; color: var(--glow); }
+.hero p { color: #cfe0f3; max-width: 34em; }
+.hero p b { color: #fff; }
+main { max-width: 1040px; margin: -26px auto 0; padding: 0 16px 60px; position: relative; display: grid; gap: 22px; }
+.ways { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.way { display: grid; gap: 8px; align-content: start; padding: 22px 22px 20px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); text-decoration: none; box-shadow: 0 16px 40px rgba(14, 28, 48, .08); min-width: 0; }
+.way:hover { border-color: var(--brand); }
+.way .tag { font: 600 12px var(--mono); letter-spacing: .12em; color: var(--brand); }
+.way h2 { font: 800 24px/1.3 var(--body); letter-spacing: -.02em; }
+.way p { color: var(--muted); font-size: 15px; }
+.way .go { margin-top: 6px; font-weight: 700; color: var(--brand); }
+.first { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 20px 22px; display: grid; gap: 12px; }
+.first h2 { font: 800 19px var(--body); }
+.first ol { list-style: none; padding: 0; display: grid; gap: 8px; counter-reset: f; }
+.first li a { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 12px; border-radius: 14px; background: var(--bg); text-decoration: none; }
+.first li a::before { counter-increment: f; content: counter(f); width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--brand); color: var(--bg); font: 700 15px var(--mono); }
+.first li b { font-weight: 700; }
+.first li small { display: block; color: var(--muted); font-size: 13px; }
+.first li span.arrow { color: var(--muted); }
+.new { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 20px 22px; display: grid; gap: 10px; }
+.new h2 { font: 800 19px var(--body); display: flex; gap: 8px; align-items: center; }
+.new ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; color: var(--ink); }
+.nw { font: 800 11px var(--mono); letter-spacing: .06em; background: var(--new); color: var(--new-ink); border-radius: 4px; padding: 2px 6px; }
+.add { color: var(--muted); font-size: 14px; text-align: center; }
+.asks { background: var(--surface); border: 2px solid var(--ai); border-radius: 22px; padding: 20px 22px; display: grid; gap: 12px; }
+.asks .tag { font: 600 12px var(--mono); letter-spacing: .12em; color: var(--ai); }
+.asks h2 { font: 800 24px/1.3 var(--body); letter-spacing: -.02em; }
+.asks > p { color: var(--muted); font-size: 15px; max-width: 40em; }
+.asks ol { list-style: none; padding: 0; display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); counter-reset: a; }
+.asks li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 2px 10px; padding: 10px 12px; border-radius: 12px; background: var(--bg); }
+.asks li::before { counter-increment: a; content: counter(a); grid-row: span 2; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--ai); color: var(--on-ai); font: 700 13px var(--mono); margin-top: 2px; }
+.asks li b { font-weight: 700; }
+.asks li span { font-size: 13px; font-weight: 700; color: var(--ai); }
+.asks .more { font-size: 14px; color: var(--muted); }
+.older { margin-top: 6px; }
+.older summary { cursor: pointer; font-weight: 700; color: var(--muted); }
+.older ul { margin-top: 8px; }
+.out { display: grid; gap: 14px; }
+.out-h { display: grid; gap: 6px; }
+.out-h .tag { font: 600 12px var(--mono); letter-spacing: .12em; color: var(--brand); }
+.out-h h2 { font: 800 24px/1.3 var(--body); letter-spacing: -.02em; }
+.out-h p { color: var(--muted); font-size: 15px; max-width: 40em; }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .hero .art { animation: none; } }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="art"></div><div class="shade"></div>
+  <div class="in">
+    <div class="brand"><img src="img/symbol-128.png" alt=""><div><small>MYONGJI MIDDLE SCHOOL</small><b>AI 교무실</b></div></div>
+    <h1>AI 교무실을<br><em>소개합니다</em></h1>
+    <p>한 중학교가 교직원과 함께 만들어 쓰는 학교 앱입니다. 발표로 보고, 체험판으로 직접 써 보세요. 화면은 예시 데이터로 띄운 것이라 학교·선생님·학생 이름과 내용은 모두 지어낸 것입니다.</p>
+  </div>
+</header>
+<main>
+  <div class="ways">
+    <a class="way" href="intro.html">
+      <span class="tag">가로 화면 · 약 45분</span>
+      <h2>소개 발표</h2>
+      <p>핵심은 AI에게 말로 부탁하기 — 말하기 → 카드 → 누르기, AI가 하지 않는 다섯 가지, 매일 여는 화면과 수업, 지키는 원칙, 우리 학교에서 시작한다면. 체험판에서 해 볼 장면에는 「체험판 미션」 표시.</p>
+      <span class="go">열기 →</span>
+    </a>
+    <a class="way" href="visit.html">
+      <span class="tag">휴대폰 · QR 하나 · 11월 22일까지</span>
+      <h2>체험 안내와 미션</h2>
+      <p>체험판 열기, 발표 순서대로 미션 여덟 가지(짝꿍과 넵 주고받기·AI 교체안·교실 칠판·분실물 함…), 발표 다시 보기, 학교에 가져갈 「우리 학교에서 시작한다면」 한 장.</p>
+      <span class="go">열기 →</span>
+    </a>
+    <a class="way" href="tour.html">
+      <span class="tag">휴대폰 세로로</span>
+      <h2>기능 둘러보기</h2>
+      <p>소개 발표를 휴대폰으로 읽기 좋게. 맨 위에 AI에게 하는 부탁 열 문장, 기능마다 실제 화면과 요점.</p>
+      <span class="go">열기 →</span>
+    </a>
+  </div>
+  <section class="asks" aria-labelledby="asks-h">
+    <span class="tag">AI에게 부탁하기</span>
+    <h2 id="asks-h">체험판에서 해 볼 부탁 열 문장</h2>
+    <p>하나만 골라 AI에게 말해 보세요. 카드는 누르기 전까지 나만 보는 초안이고, 등록·보내기·요청은 선생님이 누릅니다. <a href="visit.html">체험 안내 →</a></p>
+    <ol id="asks-list"></ol>
+    <p class="more" id="asks-more"></p>
+  </section>
+  <p class="add" style="text-align:left">발표하시는 분께: <a href="host.html">연수 진행 꾸러미</a> — 진행 순서와 시각, 사전 점검, 질문에 바로 갈 장면.</p>
+  <p class="add">이 페이지를 홈 화면에 추가하면 앱처럼 열 수 있어요.</p>
+</main>
+<script src="asks.js"></script>
+<script>
+  // 열 문장은 asks.js 하나에서(발표·둘러보기와 같은 목록)
+  (function () {
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+    document.getElementById("asks-list").innerHTML = (window.ASKS || []).map(function (a) { return "<li><b>「" + esc(a.say) + "」</b><span>→ " + esc(a.got) + "</span></li>"; }).join("");
+    document.getElementById("asks-more").textContent = (window.ASKS_MORE || "") + ".";
+  })();
+</script>
+</body>
+</html>
