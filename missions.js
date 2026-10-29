@@ -13,7 +13,7 @@ window.MISSIONS = [
   {
     n: 2, part: "매일 여는 화면", title: "홈과 빼꼼 둘러보기", min: 2, ai: 0, scenes: ["s-home", "s-today"],
     steps: [
-      '<span class="k">홈</span>: 오늘 일정·당번, <span class="q">오늘 시간표</span>, <span class="q">오늘 알림</span>, 급식, 다가오는 일정',
+      '<span class="k">홈</span>: 위쪽 <span class="q">빼꼼</span>과 수업·일정 칸, <span class="q">오늘 시간표</span>, 급식, 다가오는 일정',
       '홈 위쪽 <span class="k">빼꼼</span>: 이번 주 날짜를 눌러 공지·특별 일정·바뀐 수업'
     ],
     see: "빼꼼의 바뀐 수업은 선생님 이름 없이 과목만 보입니다 — 사유는 그 선생님 본인에게만."
