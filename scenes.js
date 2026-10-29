@@ -946,7 +946,7 @@
     id: "home", part: 3, num: null, label: "새 홈 화면 둘러보기", min: 0.8, isNew: true,
     chips: [{ t: "NEW", c: "new" }, { t: "둘러보기", c: "ghost" }], title: "홈 화면, 이렇게 <em>바뀌었어요</em>",
     steps: [
-      { t: '큰 글씨는 <b>선생님마다 다른 한마디</b>. 오른쪽 위 <span class="k">종</span>은 나에게 온 알림', g: '큰 글씨는 <b>선생님마다 다른 한마디</b>(AI가 그날 내 수업·당번·교체를 보고 씁니다). 오른쪽 위 <span class="k">종</span>은 나에게 온 알림 모음', s: 0, r: R("home", "hero") },
+      { t: '큰 글씨는 <b>선생님마다 다른 한마디</b>. 오른쪽 위 <span class="k">종</span>은 나에게 온 알림', g: '큰 글씨는 <b>선생님마다 다른 한마디</b>(AI가 그날 내 수업·당번·교체를 보고 씁니다). 오른쪽 위 <span class="k">종</span>은 나에게 온 알림 모음', s: 0, r: R("home", "hero"), newf: true },
       { t: '<span class="q">「빼꼼 · 오늘 학교는」</span> 판: 일정·경건회·지도 세 줄, 어디를 눌러도 <b>빼꼼</b>', g: '<span class="q">「빼꼼 · 오늘 학교는」</span> 판: 오늘 <b>일정</b>(첫 일정 + 외 N건)·<b>경건회</b>(인도·말씀·찬송)·<b>지도</b>(등교·급식, 내 이름은 굵게) 세 줄. 판 어디를 눌러도 빼꼼 그날로 갑니다', s: 0, r: R("home", "peek"), newf: true, z: 1.6 },
       { t: '판 오른쪽 위 알약 <span class="q">「공지 3 · 교체 5」</span> = 빼꼼의 공지·바뀐 수업 수', s: 0, r: R("home", "pill"), newf: true, z: 1.9 },
       { t: '두 칸 <span class="q">내 수업 · 내 일정</span>: 누르면 <b>시간표·달력</b>', g: '두 칸 <span class="q">내 수업 · 내 일정</span>: 누르면 <b>시간표·달력</b>(오른쪽 화살표 = 누르는 칸). 내 일정은 「일정 3 · 넵 2」처럼 나눠 셉니다', s: 0, r: R("home", "tiles"), newf: true, z: 1.9 },
@@ -964,7 +964,7 @@
     id: "today", part: 3, num: null, label: "빼꼼 둘러보기", min: 0.5,
     chips: [{ t: "둘러보기" }, { t: "옛 현황판", c: "ghost" }], title: "오늘 달라진 것은 <em>빼꼼</em>",
     steps: [
-      { t: '홈 위쪽 <span class="q">「빼꼼」</span> 판(어디를 눌러도)이나 더보기 맨 위 <span class="k">빼꼼</span>', s: 0, r: R("home", "peek"), z: 1.6 },
+      { t: '홈 위쪽 <span class="q">「빼꼼」</span> 판(어디를 눌러도)이나 더보기 맨 위 <span class="k">빼꼼</span>', s: 0, r: R("home", "peek"), newf: true, z: 1.6 },
       { t: '맨 위 <span class="q">「알림판」</span>: 고정 공지와 올린 지 하루 안 된 공지', s: 1, r: R("today", "board") },
       { t: '알림판 첫 줄 <span class="q">「금주의 기도제목」</span>: 누르면 월요교사기도회 순서지(말씀·기도제목)', s: 1, r: R("today", "prayer"), newf: true },
       { t: '요일을 눌러 이번 주 다른 날도 봅니다', s: 1, r: R("today", "days") },
