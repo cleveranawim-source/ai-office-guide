@@ -414,15 +414,15 @@
   });
 
   D.add({
-    id: "numbers", part: 0, label: "숫자로 보면", kind: "dark", min: 1, trans: "fade", tour: { title: "6주 동안, 매일 고친 학교 앱", html: '<div class="t-grid"><div class="t-box"><span class="t-num">6<small>주</small></span><span>9월 4일 첫 줄부터, 지금도 쓰면서 고치는 중</span></div><div class="t-box"><span class="t-num">210<small>번</small></span><span>고쳐서 내보낸 횟수 — 선생님 의견은 대개 그날 반영</span></div><div class="t-box"><span class="t-num">74<small>명</small></span><span>교직원 모두 계정(교사·행정실·교육공무직)</span></div><div class="t-box"><span class="t-num">12<small>가지</small></span><span>저절로 도는 일 — 아침·점심 알림, 칠판 쪽지, 넵 배달, 드라이브 요약…</span></div></div>' },
-    notes: "2026년 9월 4일에 첫 줄을 썼고, 6주 동안 <b>210번 고쳐서 내보냈습니다</b>. 선생님 한 분의 말이 대개 그날 반영됩니다. 교직원 74명 모두 계정이 있고, 아침 알림·교실 칠판 쪽지·드라이브 요약 같은 <b>저절로 도는 일이 12가지</b>입니다. 숫자보다 중요한 것은 “쓰는 사람의 말로 매일 고친다”는 점입니다.",
+    id: "numbers", part: 0, label: "숫자로 보면", kind: "dark", min: 1, trans: "fade", tour: { title: "8주 동안, 매일 고친 학교 앱", html: '<div class="t-grid"><div class="t-box"><span class="t-num">8<small>주</small></span><span>9월 4일 첫 줄부터, 지금도 쓰면서 고치는 중</span></div><div class="t-box"><span class="t-num">600<small>번</small></span><span>고쳐서 내보낸 횟수(10월 30일까지 약 600번) — 선생님 의견은 대개 그날 반영</span></div><div class="t-box"><span class="t-num">74<small>명</small></span><span>교직원 모두 계정(교사·행정실·교육공무직)</span></div><div class="t-box"><span class="t-num">16<small>가지</small></span><span>저절로 도는 일 — 아침·점심 알림, 칠판 쪽지, 넵 배달, 드라이브 요약…</span></div></div>' },
+    notes: "2026년 9월 4일에 첫 줄을 썼고, 8주 동안(10월 30일까지) <b>약 600번 고쳐서 내보냈습니다</b> — 하루 열 번꼴입니다. 선생님 한 분의 말이 대개 그날 반영됩니다. 교직원 74명 모두 계정이 있고, 아침 알림·교실 칠판 쪽지·드라이브 요약 같은 <b>저절로 도는 일이 16가지</b>입니다. 숫자보다 중요한 것은 “쓰는 사람의 말로 매일 고친다”는 점입니다.",
     html: darkBg("class") +
-      '<h2 class="abs nb-title"><span class="ln">6주 동안, <em>매일 고친</em> 학교 앱</span></h2>' +
+      '<h2 class="abs nb-title"><span class="ln">8주 동안, <em>매일 고친</em> 학교 앱</span></h2>' +
       '<div class="abs nb">' +
-      '<div class="t"><div class="v"><span data-n="6">0</span><small>주</small></div><p class="k">9월 4일 첫 줄부터</p><p class="s">설계 9월 2일 · 지금도 쓰면서 고치는 중</p></div>' +
-      '<div class="t"><div class="v"><span data-n="210">0</span><small>번</small></div><p class="k">고쳐서 내보낸 횟수</p><p class="s">선생님 의견은 대개 그날 반영</p></div>' +
+      '<div class="t"><div class="v"><span data-n="8">0</span><small>주</small></div><p class="k">9월 4일 첫 줄부터</p><p class="s">설계 9월 2일 · 지금도 쓰면서 고치는 중</p></div>' +
+      '<div class="t"><div class="v"><span data-n="600">0</span><small>번</small></div><p class="k">고쳐서 내보낸 횟수</p><p class="s">10월 30일까지 · 의견은 대개 그날 반영</p></div>' +
       '<div class="t"><div class="v"><span data-n="74">0</span><small>명</small></div><p class="k">교직원 모두 계정</p><p class="s">교사·행정실·교육공무직</p></div>' +
-      '<div class="t"><div class="v"><span data-n="12">0</span><small>가지</small></div><p class="k">저절로 도는 일</p><p class="s">아침·점심 알림, 칠판 쪽지, 넵 배달, 드라이브 요약…</p></div>' +
+      '<div class="t"><div class="v"><span data-n="16">0</span><small>가지</small></div><p class="k">저절로 도는 일</p><p class="s">아침·점심 알림, 칠판 쪽지, 넵 배달, 드라이브 요약…</p></div>' +
       '</div><p class="abs nb-foot">학교 안에서 쓰는 사람이 말하면, 만드는 사람이 바로 고칩니다.<br><b>“좋은 앱”보다 “우리 학교에 맞는 앱”</b>을 목표로 합니다.</p>',
     build: function (el, A) {
       return [function (A) {
