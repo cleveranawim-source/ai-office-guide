@@ -57,7 +57,7 @@ window.MISSIONS = [
   {
     n: 7, part: "수업", title: "진도 한 줄 적기", min: 1, ai: 0, scenes: ["s-progress"],
     steps: [
-      '<span class="k">홈</span> <span class="q">오늘 시간표</span>의 <span class="k">진도 기록</span>',
+      '<span class="k">홈</span> <span class="q">오늘 시간표</span> 머리 오른쪽 <span class="k">진도</span>',
       '오늘 수업 칸에 한 줄(예: 3단원 2차시 토의) → 아래 <span class="k">모두 저장</span>'
     ],
     see: "오늘 실제로 하는 수업마다 칸이 하나 — 교체로 바뀐 수업도 반영됩니다. 아래 「학급별 보기」에서 반마다 기록."
