@@ -29,9 +29,10 @@
   .cv-brand small{display:block;font:600 18px var(--mono);letter-spacing:.26em;color:var(--glow)}
   .cv-brand b{font:800 36px var(--display);letter-spacing:-.01em}
   .cv-kicker{left:140px;top:300px;font:700 30px var(--body);color:var(--glow);letter-spacing:.05em}
-  .by-line{left:140px;bottom:64px;font:500 24px var(--body);color:rgba(207,224,243,.72);letter-spacing:.02em}
-  .by-line b{color:#fff;font-weight:700;margin-left:.35em}
-  .by-line.under{left:auto;bottom:auto;right:124px;top:840px;text-align:right}
+  .by-line{left:140px;bottom:56px;display:flex;align-items:center;gap:12px;font:500 24px var(--body);color:rgba(207,224,243,.72);letter-spacing:.02em}
+  .by-line img{height:80px;width:auto;margin-right:6px;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35))}
+  .by-line b{color:#fff;font-weight:700}
+  .by-line.under{left:auto;bottom:auto;right:124px;justify-content:flex-end;top:840px;text-align:right}
   .cv-title{left:130px;top:352px;font:900 156px/1.06 var(--display);letter-spacing:-.045em;color:#fff}
   .cv-title em{color:var(--glow)}
   .cv-lead{left:140px;top:730px;font:500 34px/1.6 var(--body);color:#cfe0f3}
@@ -534,7 +535,7 @@
       '<h1 class="abs cv-title"><span class="ln">AI에게,</span><span class="ln"><em>말로</em> 부탁하기</span></h1>' +
       '<p class="abs cv-lead">휴대폰 카메라로 오른쪽 <b>QR</b>을 찍어 주세요.<br>처음 받은 <b>비밀번호</b>도 준비해 주세요.</p>' +
       '<div class="abs cv-qr"><img src="img/qr.svg" alt="mjms-office.vercel.app 주소 QR 코드"><p>mjms-office.vercel.app</p><small>카메라로 찍으면 바로 열립니다</small></div>' +
-      '<p class="abs by-line">만든이 <b>명지중학교 이승열</b></p>',
+      '<p class="abs by-line"><img src="img/yeol.png" alt=""><span>만든이 <b>명지중학교 이승열</b></span></p>',
     build: function (el, A) {
       return [function (A) {
         A.go(".art-wrap img", [{ transform: "scale(1.35)", filter: "brightness(.3)" }, { transform: "scale(1.12)", filter: "brightness(1)" }], { d: 2200, e: E.out });
@@ -1830,7 +1831,7 @@
       '<h2 class="abs cl-title"><span class="ln">내일은, AI에게</span><span class="ln"><em>말로</em> 부탁해 보세요</span></h2>' +
       '<div class="abs cl-done">' + DONE.map(function (t) { return "<div" + (t[1] ? ' class="ai"' : "") + "><i>" + CHECK + "</i>" + t[0] + "</div>"; }).join("") + "</div>" +
       '<p class="abs cl-ask"><b>질문 받겠습니다</b><span>막히거나 궁금하면<br><strong>교목실</strong>로 오세요</span></p>' +
-      '<p class="abs by-line under">만든이 <b>명지중학교 이승열</b></p>',
+      '<p class="abs by-line under"><img src="img/yeol.png" alt=""><span>만든이 <b>명지중학교 이승열</b></span></p>',
     build: function (el, A) {
       return [
         function (A) {
