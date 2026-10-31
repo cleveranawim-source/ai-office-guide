@@ -36,6 +36,11 @@ a { color: inherit; }
 .hero .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4, 12, 24, .95) 0%, rgba(4, 12, 24, .78) 45%, rgba(4, 12, 24, .35) 100%), linear-gradient(0deg, rgba(4, 12, 24, .8), transparent 50%); }
 @keyframes kb { from { transform: scale(1.12) translate(2%, 1%); } to { transform: scale(1.02) translate(-2%, -1%); } }
 .hero .in { position: relative; max-width: 1040px; margin: 0 auto; padding: 36px 16px 44px; display: grid; gap: 14px; }
+.hero .sig { position: absolute; top: 30px; right: 16px; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.hero .sig img { height: 50px; width: auto; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .45)); }
+.hero .sig span { font-size: 11px; color: #a9bfd8; white-space: nowrap; }
+.hero .sig b { color: #fff; font-weight: 700; margin-left: 4px; }
+@media (min-width: 760px) { .hero .sig { top: 32px; flex-direction: row; align-items: center; gap: 12px; } .hero .sig img { height: 64px; } .hero .sig span { font-size: 13px; } }
 .brand { display: flex; gap: 12px; align-items: center; }
 .brand img { width: 44px; height: 44px; border-radius: 12px; background: #fff; padding: 6px; }
 .brand small { display: block; font: 600 11px var(--mono); letter-spacing: .24em; color: var(--glow); }
@@ -93,6 +98,7 @@ main { max-width: 1040px; margin: -26px auto 0; padding: 0 16px 60px; position: 
   <div class="art"></div><div class="shade"></div>
   <div class="in">
     <div class="brand"><img src="img/symbol-128.png" alt=""><div><small>MYONGJI MIDDLE SCHOOL</small><b>AI 교무실</b></div></div>
+    <div class="sig"><img src="img/yeol.png" alt="" width="45" height="50"><span>만든이<b>명지중학교 이승열</b></span></div>
     <h1>AI 교무실을<br><em>소개합니다</em></h1>
     <p>한 중학교가 교직원과 함께 만들어 쓰는 학교 앱입니다. 발표로 보고, 체험판으로 직접 써 보세요. 화면은 예시 데이터로 띄운 것이라 학교·선생님·학생 이름과 내용은 모두 지어낸 것입니다.</p>
   </div>
