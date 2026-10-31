@@ -368,15 +368,15 @@
     chips: [{ t: "실습 1 · 전자칠판" }, { t: "보내지는 않아요", c: "ghost" }], title: "무엇을 → 어디에 → <em>보내기</em>",
     steps: [
       { t: '더보기 → <span class="k">전자칠판 알림</span>: 맨 위 <span class="q">안내 · 쪽지 · 긴급</span>', s: 0, r: R("board-send", "kinds") },
-      { t: '<b>무엇을</b>: 칠판에 띄울 말, + 링크 · 사진 · 음성 · 예약 · 띄울 시간', s: 0, r: R("board-send", "options") },
-      { t: '<b>어디에</b>: 담임은 <span class="q">「내 반」</span>이 기본, 단추에 <span class="q">「2학년 3반에 띄우기」</span>', s: 0, r: R("board-send", "mine"), z: 1.9 },
-      { t: '학년 전체는 <b>여러 학년 함께</b> 눌러집니다', s: 1, r: R("board-grades", "g2"), z: 1.9 },
-      { t: '<span class="k">직접 고르기</span>: 초록불은 지금 켜진 칠판, 특별실도', s: 2, r: R("board-pick", "grid") },
-      { t: '보낸 뒤 <span class="q">「오늘 칠판에 나간 알림」</span>: 교실마다 상태가 한 단어로(다음 장면)', s: 3, r: R("board-sent", "liveChip"), z: 1.9 }
+      { t: '<b>무엇을</b>: 칠판에 띄울 말, 아래 한 줄에 링크 · 사진 · 음성 · 예약 · 10분', s: 0, r: R("board-send", "options") },
+      { t: '<span class="k">예약</span>: <span class="q">오늘 · 내일</span>과 시각만 고르면 돼요', s: 1, r: R("board-schedule", "day"), z: 1.9 },
+      { t: '<b>어디에</b>: 담임은 <span class="q">「내 반」</span>이 기본, 학년 전체는 <b>여러 학년 함께</b>', s: 2, r: R("board-grades", "g2"), z: 1.9 },
+      { t: '<span class="k">직접 고르기</span>: 초록불은 지금 켜진 칠판, 특별실도', s: 3, r: R("board-pick", "grid") },
+      { t: '보낸 뒤 <span class="q">「오늘 칠판에 나간 알림」</span>: 교실마다 상태가 한 단어로(다음 장면)', s: 4, r: R("board-sent", "liveChip"), z: 1.9 }
     ],
     note: { tone: "warn", html: "<span>오늘은 <b>보내기 단추를 누르지 않습니다</b>. 누르면 실제 교실 칠판에 뜹니다.</span>" },
-    screens: [shot("board-send"), shot("board-grades"), shot("board-pick"), shot("board-sent")],
-    notes: "다 같이 더보기 → <b>전자칠판 알림</b>을 엽니다. 보내기 화면은 <b>무엇을 → 어디에 → 보내기</b> 순서입니다. 담임 선생님은 「내 반」이 기본으로 골라져 있고, 보내기 단추에 「2학년 3반에 띄우기」처럼 어디로 가는지가 적힙니다. 학년 전체는 1·2학년처럼 <b>여러 학년을 함께</b> 고를 수 있고, 「직접 고르기」에서는 초록불로 지금 켜진 칠판이 보입니다(특별실 탭도 있습니다). 예약은 오늘이나 <b>내일</b>까지 — 전날 저녁에 내일 아침 안내를 걸어 둘 수 있습니다. 보낸 뒤에는 아래 「오늘 칠판에 나간 알림」에 교실마다 상태가 한 단어로 보이고(다음 장면에서 하나씩), [종료]로 바로 내릴 수 있습니다. <b>오늘은 보내기 단추를 누르지 않습니다.</b>"
+    screens: [shot("board-send"), shot("board-schedule"), shot("board-grades"), shot("board-pick"), shot("board-sent")],
+    notes: "다 같이 더보기 → <b>전자칠판 알림</b>을 엽니다. 보내기 화면은 <b>무엇을 → 어디에 → 보내기</b> 순서입니다. 담임 선생님은 「내 반」이 기본으로 골라져 있고, 보내기 단추에 「2학년 3반에 띄우기」처럼 어디로 가는지가 적힙니다. 학년 전체는 1·2학년처럼 <b>여러 학년을 함께</b> 고를 수 있고, 「직접 고르기」에서는 초록불로 지금 켜진 칠판이 보입니다(특별실 탭도 있습니다). <b>예약</b>을 누르면 다음 10분 눈금이 미리 채워져 있어 <b>오늘 · 내일</b>과 시각만 고르면 됩니다 — 전날 저녁에 내일 아침 안내를 걸어 둘 수 있고, 마음이 바뀌면 「예약 없이 지금 띄우기」를 누릅니다. 보낸 뒤에는 아래 「오늘 칠판에 나간 알림」에 교실마다 상태가 한 단어로 보이고(다음 장면에서 하나씩), [종료]로 바로 내릴 수 있습니다. <b>오늘은 보내기 단추를 누르지 않습니다.</b>"
   });
 
   // ── 보낸 뒤 교실마다 한 단어(앱 lib/board/status-word.ts의 말과 색) ──
@@ -430,11 +430,11 @@
     id: "kinds", part: 1, num: null, label: "사진·쪽지·긴급·음성", min: 1.5,
     chips: [{ t: "둘러보기" }, { t: "보기만", c: "ghost" }], title: "쪽지는 귀퉁이에, 긴급은 <em>전체 화면</em>으로",
     steps: [
-      { t: '안내에 <span class="k">+ 사진</span>: 칠판에 사진이 크게(학생 얼굴은 피해서)', s: 0, r: R("board-photo", "thumb") },
+      { t: '안내에 <span class="k">사진</span>: 칠판에 사진이 크게(학생 얼굴은 피해서)', s: 0, r: R("board-photo", "thumb") },
       { t: '<span class="k">쪽지</span>: 60자, 칠판 오른쪽 위 노란 쪽지(띵 한 번)', s: 1, r: R("board-memo", "body") },
       { t: '<span class="k">긴급</span>: 지진·화재·전시 대피·외부인 침입·교실 대기 문구', s: 2, r: R("board-alert", "presets") },
       { t: '보내기 전 <b>확인 창</b>: 몇 곳에 뜨는지, 꺼진 칠판은 몇 곳인지', s: 3, r: R("board-alert-confirm", "where"), warn: "긴급은 경보음과 함께 바로 뜹니다" },
-      { t: '<span class="k">+ 음성</span>: 30초까지 녹음, 칠판에서 「띵」 뒤 두 번', s: 4, r: R("board-voice-rec", "status") }
+      { t: '<span class="k">음성</span>: 30초까지 녹음, 칠판에서 「띵」 뒤 두 번', s: 4, r: R("board-voice-rec", "status") }
     ],
     screens: [shot("board-photo"), shot("board-memo"), shot("board-alert"), shot("board-alert-confirm"), shot("board-voice-rec")],
     notes: "종류별로 짧게 봅니다. <b>사진</b>은 칠판에 크게 뜨니 학생 얼굴이 나온 사진은 피해 주세요. <b>쪽지</b>는 60자까지, 수업 화면을 가리지 않고 오른쪽 위에 노란 쪽지로 뜹니다. <b>긴급</b>은 정해 둔 대피 문구로 칠판 전체가 빨간 화면이 되고 경보음이 울립니다 — 보내기 전에 몇 곳에 뜨는지, 꺼진 칠판이 몇 곳인지 확인 창이 한 번 더 묻습니다. 실제 상황이나 훈련 때만 써 주세요. <b>음성</b>은 30초까지 녹음하면 칠판에서 「띵」 뒤 두 번 나옵니다. 교실 스피커가 꺼져 있을 수 있으니 중요한 내용은 글로도 적어 주세요. 목소리 파일은 하루 뒤 지워집니다."
@@ -446,13 +446,13 @@
     menu: "더보기 → 전자칠판 알림 → 글 · 예약 · 어디에",
     say: "2학년 전체 칠판에 내일 아침 8시 20분에 ~ 띄워 줘",
     steps: [
-      { t: '메뉴로는 <span class="k">전자칠판 알림</span>에서 글 · 예약 · 어디에를 고르기', s: 0, r: R("board-send", "where") },
+      { t: '메뉴로는 <span class="k">전자칠판 알림</span>에서 글 · 예약(오늘·내일·시각) · 어디에를 고르기', s: 0, r: R("board-schedule", "day") },
       { t: 'AI에게 <span class="q">「2학년 전체 칠판에 내일 아침 8시 20분에 ~ 띄워 줘」</span>', s: 1, r: R("ai-board", "question") },
       { t: '카드 맨 위에 <b>곳</b>(2학년 전체 10곳), 아래 <b>글 · 시각 · 유지 시간</b>', s: 1, r: R("ai-board", "card") },
       { t: '확인하고 <span class="k">내일 08:20에 예약하기</span> — 누를 때 나가요', s: 1, r: R("ai-board", "button"), z: 1.9 },
       { t: '<span class="q">「2-3반 칠판에 쪽지」</span> <span class="q">「과학실 칠판에 ~」</span>도, 긴급은 한 번 더 물어요', s: 1 }
     ],
-    screens: [shot("board-send"), shot("ai-board")],
+    screens: [shot("board-schedule"), shot("ai-board")],
     notes: "칠판 알림도 AI에게 말로 할 수 있습니다(10월 20일 새로). 아래 탭 AI에서 「2학년 전체 칠판에 내일 아침 8시 20분에 현장체험학습 버스는 8:40에 출발합니다, 늦지 않게! 띄워 줘」라고 하면, 곳(2학년 전체 10곳)·글·시각·유지 시간을 채운 <b>전자칠판 카드</b>가 뜹니다. 확인하고 <b>「내일 08:20에 예약하기」</b>를 눌러야 나갑니다 — 보내기 화면과 똑같이 보내집니다. 「2-3반 칠판에 쪽지」, 「과학실 칠판에 내일 8시 40분에 ~」, 「전교실 긴급 ~」도 됩니다. 곳을 말하지 않으면 AI가 되묻고, 긴급은 누를 때 한 번 더 확인합니다. 고칠 곳이 있으면 AI에게 다시 말하거나 칠판 화면에서 직접 보내 주세요."
   });
 
