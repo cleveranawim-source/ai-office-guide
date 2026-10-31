@@ -36,6 +36,11 @@ a { color: inherit; }
 .hero .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4, 12, 24, .95) 0%, rgba(4, 12, 24, .78) 45%, rgba(4, 12, 24, .35) 100%), linear-gradient(0deg, rgba(4, 12, 24, .8), transparent 50%); }
 @keyframes kb { from { transform: scale(1.12) translate(2%, 1%); } to { transform: scale(1.02) translate(-2%, -1%); } }
 .hero .in { position: relative; max-width: 1040px; margin: 0 auto; padding: 36px 16px 44px; display: grid; gap: 14px; }
+.hero .sig { position: absolute; top: 30px; right: 16px; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.hero .sig img { height: 50px; width: auto; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .45)); }
+.hero .sig span { font-size: 11px; color: #a9bfd8; white-space: nowrap; }
+.hero .sig b { color: #fff; font-weight: 700; margin-left: 4px; }
+@media (min-width: 760px) { .hero .sig { top: 32px; flex-direction: row; align-items: center; gap: 12px; } .hero .sig img { height: 64px; } .hero .sig span { font-size: 13px; } }
 .brand { display: flex; gap: 12px; align-items: center; }
 .brand img { width: 44px; height: 44px; border-radius: 12px; background: #fff; padding: 6px; }
 .brand small { display: block; font: 600 11px var(--mono); letter-spacing: .24em; color: var(--glow); }
@@ -93,6 +98,7 @@ main { max-width: 1040px; margin: -26px auto 0; padding: 0 16px 60px; position: 
   <div class="art"></div><div class="shade"></div>
   <div class="in">
     <div class="brand"><img src="img/symbol-128.png" alt=""><div><small>MYONGJI MIDDLE SCHOOL</small><b>AI 교무실</b></div></div>
+    <div class="sig"><img src="img/yeol.png" alt="" width="45" height="50"><span>만든이<b>명지중학교 이승열</b></span></div>
     <h1>AI에게,<br><em>말로 부탁하세요</em></h1>
     <p>메뉴를 몰라도 됩니다. 아래 탭 가운데 <b>AI</b>에게 말하면 카드로 초안까지 — <b>누르는 건 선생님</b>. 교직원 연수에서 함께 해 본 것을 언제든 다시 볼 수 있어요. 휴대폰에서는 따라하기 안내가, 컴퓨터에서는 발표 다시 보기가 편합니다.</p>
   </div>
