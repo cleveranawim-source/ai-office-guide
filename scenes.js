@@ -419,11 +419,14 @@
         var P = null, lis = A.$$(".steps li"), wlt = null;
         function place() {
           var n = A.$(".side-note"), s = A.$(".steps");
-          // 단계가 많아 아래 띠(928px~)에 닿으면 한 번 더 촘촘하게
-          if (!n) { if (s.offsetTop + s.offsetHeight > 900) s.classList.add("tight"); if (s.offsetTop + s.offsetHeight > 912) s.classList.add("xtight"); return; }
-          if (s.offsetTop + s.offsetHeight > 700) s.classList.add("tight");
+          // 단계가 많아 아래 띠(928px~)에 닿으면 한 번 더 촘촘하게. 「오늘은 누르지 않아요」 띠(.lt.up, 832px~)가 뜨는 장면은 그 위(816px)까지
+          var floor = o.steps.some(function (st) { return st.warn; }) ? 816 : 912;
+          function bottom() { return s.offsetTop + s.offsetHeight + (n ? 22 + n.offsetHeight : 0); }
+          if (!n) { if (bottom() > floor - 12) s.classList.add("tight"); if (bottom() > floor) s.classList.add("xtight"); return; }
+          if (s.offsetTop + s.offsetHeight > 700 || bottom() > floor) s.classList.add("tight");
+          if (bottom() > floor) s.classList.add("xtight");
           var top = s.offsetTop + s.offsetHeight + 22;
-          n.style.top = Math.min(top, 912 - n.offsetHeight) + "px";
+          n.style.top = Math.min(top, floor - n.offsetHeight) + "px";
         }
         var beats = [function (A) {
           place();
@@ -1003,8 +1006,8 @@
     chips: [{ t: "NEW", c: "new" }, { t: "둘러보기", c: "ghost" }], title: "놓친 알림은 <em>종</em>에, 요약은 <em>남겨 둡니다</em>",
     steps: [
       { t: '홈 오른쪽 위 <span class="k">종</span>: 어깨의 빨간 숫자 = 확인 안 한 알림', s: 0, r: R("home", "bell"), z: 1.9 },
-      { t: '눌러 그 화면으로 가거나 <span class="k">확인</span>을 누르면 아래로 옮겨 둡니다', s: 1, r: [16, 270, 380, 120] },
-      { t: '평일 <b>3시 30분</b>: 공유 드라이브에 <b>새로 만든 문서</b>를 한두 문장으로', s: 1, r: [16, 520, 380, 300], newf: true },
+      { t: '눌러 그 화면으로 가거나 <span class="k">확인</span>을 누르면 아래로 옮겨 둡니다', s: 1, r: [16, 299, 380, 115] },
+      { t: '평일 <b>3시 30분</b>: 공유 드라이브에 <b>새로 만든 문서</b>를 한두 문장으로', s: 1, r: [16, 415, 380, 207], newf: true },
       { t: '금요일 <b>3시</b>: <span class="q">「다음 주 미리 보기」</span> — 마감 넵·수업 교체·나와 관련된 일정', s: 1, newf: true },
       { t: '<span class="q">「확인한 알림 N」</span>: 다시 찾아볼 수 있게 남고, <span class="k">지우기</span>·<span class="k">모두 지우기</span>로 지움', s: 2, r: R("alerts-done", "summary"), newf: true }
     ],
@@ -1125,9 +1128,9 @@
     steps: [
       { t: '메뉴로는 <span class="k">수업교체</span> → <span class="q">「계산하기」</span>에서 날짜·사유·교시를 하나씩', s: 0, r: R("sub-calc", "calendar") },
       { t: 'AI에게: <span class="q">「다음 주 목요일 4~7교시 출장, 교체해 줘」</span>', s: 1, r: R("ai-swap", "question") },
-      { t: '<b>같은 계산기</b>로 그날 학사일정·이미 잡힌 교체까지 반영한 <span class="q">「수업 교체안」</span>', s: 1, r: [16, 326, 380, 130] },
-      { t: '<span class="q">「1안 · 추천」</span>이 상대 선생님 부담이 가장 적은 안. 갚는 날짜를 고르고', s: 1, r: [31, 458, 350, 34] },
-      { t: '<span class="k">내 서명으로 이 안 요청</span>은 선생님이 누릅니다', s: 1, r: [31, 734, 236, 40], warn: "누르면 상대 선생님께 실제로 요청이 갑니다" }
+      { t: '<b>같은 계산기</b>로 그날 학사일정·이미 잡힌 교체까지 반영한 <span class="q">「수업 교체안」</span>', s: 1, r: [16, 313, 380, 118] },
+      { t: '<span class="q">「1안 · 추천」</span>이 상대 선생님 부담이 가장 적은 안. 갚는 날짜를 고르고', s: 1, r: [31, 440, 310, 28] },
+      { t: '<span class="k">내 서명으로 이 안 요청</span>은 선생님이 누릅니다', s: 1, r: [31, 704, 226, 40], warn: "누르면 상대 선생님께 실제로 요청이 갑니다" }
     ],
     gnote: { html: "<span>AI도 메뉴의 「계산하기」와 <b>같은 계산기</b>를 씁니다 — 그날 학사일정과 이미 잡힌 교체까지 반영합니다. 카드에서 갚는 날짜를 고르고 「내 서명으로 이 안 요청」을 눌러야 상대 선생님께 갑니다. 받은 쪽은 수업교체 「요청」에서 서명하고 수락합니다.</span>" },
     screens: [shot("sub-calc"), shot("ai-swap")],
@@ -1433,7 +1436,7 @@
       { t: '회의 이름·날짜·시간·장소, 참석자는 <b>조직도</b>로(교과협의회는 <span class="q">「교과협의회 명단 불러오기」</span>)', s: 1, r: R("sign-meeting-new", "picker") },
       { t: '<span class="k">서명부 만들고 알림 보내기</span>', s: 2, r: R("sign-meeting-new-bottom", "submit"), warn: "누르면 참석자께 실제로 알림이 갑니다" },
       { t: '받은 분은 <span class="k">내 서명으로 서명하기</span> 한 번', s: 3, r: R("sign-meeting", "sign") },
-      { t: '만든 분은 <span class="k">PDF 내려받기</span>·안 한 분께 알림·마감', s: 4, r: [31, 172, 350, 44] }
+      { t: '만든 분은 <span class="k">PDF 내려받기</span>·안 한 분께 알림·마감', s: 4, r: [31, 192, 334, 44] }
     ],
     gnote: { html: "<span>내 서명이 없거나 이번만 다르게 하려면 <b>「이번만 손으로」</b>. AI 해죠에게 말로 부탁해도 됩니다(이 부 마지막 장면). 화면 속 이름은 예시입니다.</span>" },
     screens: [shot("sign-list"), shot("sign-meeting-new"), shot("sign-meeting-new-bottom"), shot("sign-meeting"), shot("sign-mine")],
@@ -1644,7 +1647,7 @@
     id: "boardTV", part: 7, label: "교실 칠판에는 이렇게", kind: "light", min: 1.5, isNew: true,
     notes: "교실 칠판에는 이렇게 뜹니다. 평소엔 <b>반 이름과 큰 시계</b>. " + (window.BOARD_BTNS ? window.BOARD_BTNS.notes : "") + " <b>점심시간</b>에는 그 아래 <b>분실물 띠</b>가 붙어 보관 중인 물건 사진이 옆으로 흘러가고, 찾으러 갈 교무실이 크게 보입니다(특징은 안 나옴, QR은 띠에서 빼고 교실에 인쇄해 붙입니다). 점심이 시작되고 2분 뒤에는 <b>분실물 함</b>이 하루 한 번 저절로 열립니다(닫으면 그날은 그만, 10월 29일). 칠판 왼쪽 아래 <b>[분실물 함]</b> 단추를 누르면 점심시간이 아니어도 보관 중인 물건 사진이 바둑판으로 뜹니다(10월 20일). 안내는 사진이 위에 크게, 글은 아래. 아침 <b>8시 45분</b>에는 수업이 바뀐 반 칠판 귀퉁이에 「오늘 바뀐 수업」 쪽지가 저절로 붙습니다(사유 없이 교시·과목·교실만, 교실은 「1학년 3반 교실」처럼 학생이 아는 이름으로). 10월 25일에 만든 <b>소리 내어 읽기는 협의할 때까지 쉬어</b> 글로만 붙고, 시험 날에는 「띵」도 없이 조용히 붙습니다. 칠판 시계는 교실 PC 시계가 틀려도 <b>학교 서버 시각</b>을 따릅니다(10월 28일). 긴급은 빨간 전체 화면, 음성 안내에는 [다시 듣기]. 칠판 창 프로그램이 깔린 교실은 <b>수업 시작 30초 뒤 칠판이 저절로 숨고</b>, 수업 중에 온 안내는 구석 포스트잇으로만 뜹니다(마지막 그림은 이해를 돕는 합성 그림입니다).",
     html: '<div class="chiprow"><span class="chip new">NEW</span><span class="chip ghost">교실 칠판</span></div><h2 class="title" style="width:860px">교실 칠판에는 <em>이렇게</em> 뜹니다</h2>' +
-      '<ol class="steps bt">' + [["왼쪽 아래 단추", "지난 알림 · 작은 창 · 분실물 함 · 숨기기"], ["점심시간", "큰 시계 아래 분실물 띠 · 시작 2분 뒤 분실물 함이 한 번 저절로"], ["분실물 함", "왼쪽 아래 단추 — 언제든 사진 바둑판, 많으면 한 화면씩 5초마다 넘김"], ["안내", "사진은 위에 크게, 글은 아래"], ["8:45 쪽지", "수업이 바뀐 반에 「오늘 바뀐 수업」, 글로만(소리 읽기는 보류)"], ["긴급", "빨간 전체 화면과 경보음"], ["음성", "「띵」 뒤 두 번, [다시 듣기]"], ["수업 중", "30초 뒤 숨고, 안내는 구석 포스트잇"]].map(function (x) { return "<li><span><b>" + x[0] + "</b> · " + x[1] + "</span></li>"; }).join("") + "</ol>" +
+      '<ol class="steps bt tight">' + [["왼쪽 아래 단추", "지난 알림 · 작은 창 · 분실물 함 · 숨기기"], ["점심시간", "큰 시계 아래 분실물 띠 · 시작 2분 뒤 분실물 함이 한 번 저절로"], ["분실물 함", "왼쪽 아래 단추 — 언제든 사진 바둑판, 많으면 한 화면씩 5초마다 넘김"], ["안내", "사진은 위에 크게, 글은 아래"], ["8:45 쪽지", "수업이 바뀐 반에 「오늘 바뀐 수업」, 글로만(소리 읽기는 보류)"], ["긴급", "빨간 전체 화면과 경보음"], ["음성", "「띵」 뒤 두 번, [다시 듣기]"], ["수업 중", "30초 뒤 숨고, 안내는 구석 포스트잇"]].map(function (x) { return "<li><span><b>" + x[0] + "</b> · " + x[1] + "</span></li>"; }).join("") + "</ol>" +
       '<div class="abs tv"><div class="in">' + ["idle", "lunch", "lostpanel", "notice-photo", "memo", "alert", "voice", "inclass-composite"].map(function (n) { return '<img src="img/board/' + n + '.jpg" alt="">'; }).join("") + "</div></div>" + (window.BOARD_BTNS ? window.BOARD_BTNS.html : "") +
       '<p class="abs tv-note">마지막 그림은 이해를 돕는 합성 그림 · 반·이름은 예시</p>',
     build: function (el, A) {
