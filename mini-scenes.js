@@ -310,7 +310,7 @@
     notes: "시작 전부터 이 화면을 띄워 둡니다. <b>휴대폰 카메라로 QR을 찍어 AI 교무실을 열어 두시라고</b> 안내합니다. 오늘은 짧게 다섯 가지 — <b>교실 전자칠판에 띄우기</b>(시험 날 담임 선생님이 할 일 포함), 새로 열린 <b>분실물 함</b>, 10월 18일에 메신저처럼 바뀐 <b>넵</b>, 10월 19일에 생긴 <b>PC 설치본</b>, 그리고 아래 탭 가운데 <b>AI 버튼</b>입니다. 듣기만 하기보다 휴대폰으로 함께 눌러 보는 시간이라고 말씀드립니다.",
     html: darkBg("cover") +
       '<div class="abs cv-brand"><img src="img/symbol-128.png" alt=""><div><small>MYONGJI MIDDLE SCHOOL</small><b>AI 교무실</b></div></div>' +
-      '<p class="abs cv-kicker">교직원 연수 · 10월 21일(수) · 약 35분</p>' +
+      '<p class="abs cv-kicker">교직원 연수 · 약 35분</p>' +
       '<h1 class="abs cv-title"><span class="ln">칠판, 분실물, 넵,</span><span class="ln">그리고 <em>AI 버튼</em></span></h1>' +
       '<div class="abs cv-three"><span><i>1</i>전자칠판·시험 날</span><span><i>2</i>분실물 함</span><span><i>3</i>넵</span><span><i>4</i>PC 설치본</span><span><i>5</i>AI 버튼</span></div>' +
       '<p class="abs cv-lead">휴대폰 카메라로 오른쪽 <b>QR</b>을 찍어 열어 두세요.</p>' +
