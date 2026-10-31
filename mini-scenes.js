@@ -25,6 +25,9 @@
   .cv-brand small{display:block;font:600 18px var(--mono);letter-spacing:.26em;color:var(--glow)}
   .cv-brand b{font:800 36px var(--display);letter-spacing:-.01em}
   .cv-kicker{left:140px;top:300px;font:700 30px var(--body);color:var(--glow);letter-spacing:.05em}
+  .by-line{left:140px;bottom:64px;font:500 24px var(--body);color:rgba(207,224,243,.72);letter-spacing:.02em}
+  .by-line b{color:#fff;font-weight:700;margin-left:.35em}
+  .by-line.under{left:auto;bottom:auto;right:124px;top:860px;text-align:right}
   .cv-title{left:130px;top:352px;font:900 132px/1.08 var(--display);letter-spacing:-.045em;color:#fff}
   .cv-title em{color:var(--glow)}
   .cv-three{left:140px;top:680px;display:flex;gap:14px}
@@ -314,7 +317,8 @@
       '<h1 class="abs cv-title"><span class="ln">칠판, 분실물, 넵,</span><span class="ln">그리고 <em>AI 버튼</em></span></h1>' +
       '<div class="abs cv-three"><span><i>1</i>전자칠판·시험 날</span><span><i>2</i>분실물 함</span><span><i>3</i>넵</span><span><i>4</i>PC 설치본</span><span><i>5</i>AI 버튼</span></div>' +
       '<p class="abs cv-lead">휴대폰 카메라로 오른쪽 <b>QR</b>을 찍어 열어 두세요.</p>' +
-      '<div class="abs cv-qr"><img src="img/qr.svg" alt="mjms-office.vercel.app 주소 QR 코드"><p>mjms-office.vercel.app</p><small>카메라로 찍으면 바로 열립니다</small></div>',
+      '<div class="abs cv-qr"><img src="img/qr.svg" alt="mjms-office.vercel.app 주소 QR 코드"><p>mjms-office.vercel.app</p><small>카메라로 찍으면 바로 열립니다</small></div>' +
+      '<p class="abs by-line">만든이 <b>명지중학교 이승열</b></p>',
     build: function (el, A) {
       return [function (A) {
         A.go(".art-wrap img", [{ transform: "scale(1.35)", filter: "brightness(.3)" }, { transform: "scale(1.12)", filter: "brightness(1)" }], { d: 2200, e: E.out });
@@ -801,7 +805,8 @@
     html: darkBg("closing") +
       '<h2 class="abs cl-title"><span class="ln">내일은,</span><span class="ln"><em>하나씩</em> 해 보세요</span></h2>' +
       '<div class="abs cl-do">' + DO.map(function (d) { return "<div" + (d[3] ? ' class="' + d[3] + '"' : "") + "><i>" + d[0] + "</i><p><b>" + d[1] + "</b><span>" + d[2] + "</span></p></div>"; }).join("") + "</div>" +
-      '<p class="abs cl-ask"><b>질문 받겠습니다</b><span>막히거나 궁금하면<br><strong>교목실</strong>로 오세요</span></p>',
+      '<p class="abs cl-ask"><b>질문 받겠습니다</b><span>막히거나 궁금하면<br><strong>교목실</strong>로 오세요</span></p>' +
+      '<p class="abs by-line under">만든이 <b>명지중학교 이승열</b></p>',
     build: function (el, A) {
       return [
         function (A) {
