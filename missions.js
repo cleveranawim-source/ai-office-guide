@@ -24,7 +24,7 @@ window.MISSIONS = [
       '<span class="k">넵</span> → <span class="q">조직도</span>에서 <b>{pair}</b> 선생님 이름(돋보기로 찾아도 됩니다) → 그분과의 방',
       '아래 칸에 한두 줄 → 왼쪽 <span class="k">+</span> → <span class="q">넵 받기</span> → <span class="k">보내기</span>',
       '받은 분: <span class="k">넵</span> → <span class="q">받은</span> → 보낸 분 줄 → 카드의 <span class="k">넵</span>',
-      '보낸 분: <span class="q">보낸</span>에 <span class="q">1/1 넵</span>'
+      '보낸 분: 그분과의 방, 내 말풍선 아래 <span class="q">넵함 ✓</span>(누르기 전엔 「안 읽음」)'
     ],
     see: "누가 읽고 눌렀는지 보낸 사람이 바로 압니다. 글 속 날짜는 AI가 찾아 「넵 속 일정」으로 보낸 분·받은 분 일정에만 넣습니다. 받은 탭에 종 그림 「띵동」 방이 있으면 학교 자동 안내(당번·보강 모집)입니다."
   },
