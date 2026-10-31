@@ -584,7 +584,7 @@
   var NEP_TABS = [
     ["nep-org", "조직도", "처음 열면 여기", "<b>이름을 누르면</b> 그분과의 방, 오른쪽 <b>칸을 체크</b>하면 여러 분께"],
     ["nep-inbox", "받은", "선생님별 방", "보낸 분마다 한 줄. <b>안 읽은 수</b>(주황)와 처리할 칩 「넵 받기 1」"],
-    ["nep-sent", "보낸", "처리 현황", "「4/9 완료」·「읽음 1」·「내일 08:00 도착」, 누르면 현황판"]
+    ["nep-sent", "보낸", "처리 현황", "여러 분께·예약한 넵 — 「4/9 완료」·「읽음 48」·「내일 08:00 도착」, 누르면 현황판"]
   ];
   D.add({
     id: "nepTabs", part: 3, label: "넵 첫 화면: 조직도 · 받은 · 보낸", kind: "light", min: 0.8, isNew: true, trans: "zoom",
@@ -667,7 +667,7 @@
       { t: '체크하면 아래 막대 <span class="k">3명에게 쓰기</span> · 부서·교과는 머리 칸으로 통째로', s: 1, r: R("nep-org-picked", "bar"), z: 1.8 },
       { t: '쓰기 창 <span class="q">「새 메시지」</span>: 제목 칸이 없어요 — <b>첫 줄이 제목</b>', s: 2, r: R("nep-compose", "text") },
       { t: '<span class="k">+</span> 「더 넣기」: 사진·파일 · 넵/완료/파일 받기 · 보낼 시각 · 긴급', s: 3, r: [12, 430, 388, 424] },
-      { t: '<span class="q">「보낸」</span>: 「4/9 완료」·「읽음 1」처럼 숫자로', s: 4, r: R("nep-sent", "progress") },
+      { t: '<span class="q">「보낸」</span>(여러 분께): 「4/9 완료」처럼 숫자로 — 한 분께 보낸 건 그분 방에', s: 4, r: R("nep-sent", "progress") },
       { t: '눌러 현황판: <span class="q">「아직 5명」</span> → <span class="k">5명에게 다시 알림</span>', s: 5, r: R("nep-board", "remind") }
     ],
     note: { tone: "warn", html: "<span><b>20명 이상</b>이거나 학년 담임이 들어가면 보내기 전에 한 번 더 묻습니다. 보낸 뒤에는 거둘 수 없어요.</span>" },

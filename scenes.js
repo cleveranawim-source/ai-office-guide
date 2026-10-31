@@ -1189,7 +1189,7 @@
   var NEP_TABS = [
     ["nep-org", "조직도", "처음 열면 여기", "<b>이름을 누르면</b> 그분과의 방, 오른쪽 <b>칸을 체크</b>하면 여러 분께"],
     ["nep-inbox", "받은", "선생님별 방", "보낸 분마다 한 줄. <b>안 읽은 수</b>(주황)와 처리할 칩 「넵 받기 1」"],
-    ["nep-sent", "보낸", "처리 현황", "「4/9 완료」·「읽음 1」·「내일 08:00 도착」, 누르면 현황판"]
+    ["nep-sent", "보낸", "처리 현황", "여러 분께·예약한 넵 — 「4/9 완료」·「읽음 48」·「내일 08:00 도착」, 누르면 현황판"]
   ];
   D.add({
     id: "nepTabs", part: 4, label: "넵 첫 화면: 조직도 · 받은 · 보낸", kind: "light", min: 0.7, isNew: true, trans: "push",
@@ -1256,7 +1256,7 @@
       { t: '방을 열면 왼쪽 카드: 본문·첨부·<span class="q">「✔ 완료 받기 · 오늘 16:30까지」</span>', s: 2, r: R("nep-room", "card") },
       { t: '카드 안 <span class="k">완료</span> → 초록 <span class="q">「완료함 ✓」</span>', g: '카드 안 <span class="k">완료</span> → 초록 <span class="q">「완료함 ✓」</span>(넵 받기는 <span class="k">넵</span>, 파일 받기는 <span class="k">제출</span>)', s: 3, r: R("nep-room-done", "done"), z: 1.9 },
       { t: '아래 칸에 쓰면 <b>그 선생님 한 분께 답장</b> — 오른쪽 남색 말풍선', s: 4, r: R("nep-room-reply", "input") },
-      { t: '<span class="q">「보낸」</span>: 「4/9 완료」·「읽음 1」·「내일 08:00 도착」', s: 5, r: R("nep-sent", "progress") },
+      { t: '<span class="q">「보낸」</span>(여러 분께·예약): 「4/9 완료」·「읽음 48」·「내일 08:00 도착」 — 한 분께 보낸 넵은 그분 방에', s: 5, r: R("nep-sent", "progress") },
       { t: '눌러 현황판: <span class="q">「아직 5명」</span> → <span class="k">5명에게 다시 알림</span>', s: 6, r: R("nep-board", "remind") },
       { t: '아래 <span class="q">「답장 2」</span>: 받은 답장을 모아 봅니다', s: 7, r: R("nep-board-replies", "replies") }
     ],
