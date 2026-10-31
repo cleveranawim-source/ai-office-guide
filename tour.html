@@ -113,7 +113,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
 .t-box .t-q { font-weight: 800; font-size: 17px; color: var(--ink); }
 .t-q::before { content: "“"; color: var(--brand); } .t-q::after { content: "”"; color: var(--brand); }
 .foot { color: var(--muted); font-size: 13px; text-align: center; padding: 10px 0 0; }
-.by { color: var(--muted); font-size: 13px; text-align: center; margin: 0; } .by b { color: var(--ink); font-weight: 700; }
+.by { display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--muted); font-size: 13px; margin: 0; } .by b { color: var(--ink); font-weight: 700; } .by img { width: auto; height: 56px; }
 .trytag { justify-self: start; text-decoration: none; display: inline-flex; gap: 6px; align-items: center; font: 800 13px var(--body); padding: 3px 10px; border-radius: 999px; background: var(--ai-tint); color: var(--ai); }
 .trytag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
 .trytag.no { background: var(--bg); color: var(--muted); border: 1px solid var(--line); }
@@ -153,7 +153,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
   </section>
   <div id="body" style="display:grid;gap:28px"></div>
   <p class="foot">AI 교무실 · 명지중학교 · 2026년 10월 기준 · 화면 속 학교·이름·내용은 예시입니다.</p>
-  <p class="by">만든이 <b>명지중학교 이승열</b></p>
+  <p class="by"><img src="img/yeol.png" alt="" width="50" height="56"><span>만든이 <b>명지중학교 이승열</b></span></p>
 </main>
 <script>
   window.DECK = { E: {}, PARTS: [], list: [], parts: function (l) { var P = this.PARTS; l.forEach(function (p) { P[p.n] = p; }); }, add: function (d) { this.list.push(d); }, h: function () {} };

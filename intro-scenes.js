@@ -35,8 +35,9 @@
   .steps.xtight{gap:5px}
   .steps.xtight li{font-size:23px;line-height:1.36;padding:7px 16px 7px 10px}
   .steps.xtight li::before{width:40px;height:40px;font-size:19px}
-  .by-line{left:140px;bottom:64px;font:500 24px var(--body);color:rgba(207,224,243,.72);letter-spacing:.02em}
-  .by-line b{color:#fff;font-weight:700;margin-left:.35em}
+  .by-line{left:140px;bottom:56px;display:flex;align-items:center;gap:12px;font:500 24px var(--body);color:rgba(207,224,243,.72);letter-spacing:.02em}
+  .by-line img{height:80px;width:auto;margin-right:6px;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35))}
+  .by-line b{color:#fff;font-weight:700}
   .cv-title{left:130px;top:352px;font:900 150px/1.06 var(--display);letter-spacing:-.045em;color:#fff}
   .cv-title em{color:var(--glow)}
   .cv-lead{left:140px;top:730px;font:500 34px/1.6 var(--body);color:#cfe0f3}
@@ -325,7 +326,7 @@
       '<h1 class="abs cv-title"><span class="ln">학교 일을,</span><span class="ln"><em>말로 부탁</em>하는 앱</span></h1>' +
       '<p class="abs cv-lead">메뉴를 몰라도, AI에게 말하면 카드로 초안까지<br>교직원 74명이 매일 여는 <b>AI 교무실</b>을 소개합니다</p>' +
       '<div class="abs cv-ph"><div class="phone"><div class="screen">' + shot("ai-swap") + "</div></div></div>" +
-      '<p class="abs by-line">만든이 <b>명지중학교 이승열</b></p>',
+      '<p class="abs by-line"><img src="img/yeol.png" alt=""><span>만든이 <b>명지중학교 이승열</b></span></p>',
     build: function (el, A) {
       return [function (A) {
         A.go(".art-wrap img", [{ transform: "scale(1.35)", filter: "brightness(.3)" }, { transform: "scale(1.12)", filter: "brightness(1)" }], { d: 2200, e: E.out });
@@ -997,7 +998,7 @@
       '<h2 class="abs cl-title"><span class="ln">고맙습니다.</span><span class="ln"><em>질문</em> 받겠습니다</span></h2>' +
       '<p class="abs cl-lead">메뉴를 몰라도, <b>말하면 카드로 — 누르는 건 선생님.</b><br>체험판·미션·발표 다시 보기는 QR 하나로.<br>화면 속 학교·이름·내용은 모두 예시입니다.</p>' +
       '<div class="abs cl-qr"><img src="img/qr-visit.svg" alt="체험 안내 QR 코드"><p>체험 · 다시 보기</p><small>체험판 · 미션 · 우리 학교에서 시작한다면</small></div>' +
-      '<p class="abs by-line">만든이 <b>명지중학교 이승열</b></p>',
+      '<p class="abs by-line"><img src="img/yeol.png" alt=""><span>만든이 <b>명지중학교 이승열</b></span></p>',
     build: function (el, A) {
       return [function (A) {
         A.go(".art-wrap img", [{ transform: "scale(1.3) translate(2%,2%)", filter: "brightness(.35)" }, { transform: "scale(1.1)", filter: "brightness(1)" }], { d: 2000, e: E.out });

@@ -2,7 +2,7 @@
 
 **주소: https://ai-office-intro.vercel.app** (베르셀 프로젝트 `ai-office-intro`)
 
-만든이: 명지중학교 이승열 — 모든 페이지 아래·발표 표지와 마지막 장에 「만든이 명지중학교 이승열」(2026-10-31 요청), HTML에는 `<meta name="author">`.
+만든이: 명지중학교 이승열(Yeol). **새로 만드는 산출물(페이지·발표·포스터·인쇄물)에는 늘 서명을 넣는다**(2026-10-31 요청) — 흰 테두리를 지운 Yeol 스티커(`img/yeol.png` 웹용 171×192, 원본 `img/yeol-sticker.png`) + 「만든이 명지중학교 이승열」 한 줄(AI 교무실 자료는 격식 있게 이름만 — 「Yeol」 글자는 쓰지 않음, 2026-10-31). 페이지는 맨 아래 `.by`, 발표는 표지와 마지막 장 `.by-line`, HTML에는 `<meta name="author">`.
 
 이 갈래(`intro`)는 다른 학교 연수에 쓰는 외부용 사이트만 담는다. 우리 학교 교직원 연수 사이트(`main` 갈래, GitHub Pages
 https://cleveranawim-source.github.io/ai-office-guide/)와는 파일·주소·링크를 섞지 않는다(2026-10-26 사용자 요청 「아예 구분」).
