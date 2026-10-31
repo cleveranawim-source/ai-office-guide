@@ -29,6 +29,12 @@
   .cv-brand small{display:block;font:600 18px var(--mono);letter-spacing:.26em;color:var(--glow)}
   .cv-brand b{font:800 36px var(--display);letter-spacing:-.01em}
   .cv-kicker{left:140px;top:300px;font:700 30px var(--body);color:var(--glow);letter-spacing:.05em}
+  .steps.tight{gap:8px}
+  .steps.tight li{font-size:25px;padding:10px 18px 10px 12px}
+  .steps.tight li::before{width:44px;height:44px;font-size:21px}
+  .steps.xtight{gap:5px}
+  .steps.xtight li{font-size:23px;line-height:1.36;padding:7px 16px 7px 10px}
+  .steps.xtight li::before{width:40px;height:40px;font-size:19px}
   .by-line{left:140px;bottom:64px;font:500 24px var(--body);color:rgba(207,224,243,.72);letter-spacing:.02em}
   .by-line b{color:#fff;font-weight:700;margin-left:.35em}
   .cv-title{left:130px;top:352px;font:900 150px/1.06 var(--display);letter-spacing:-.045em;color:#fff}
@@ -270,9 +276,13 @@
         var P = null, lis = A.$$(".steps li");
         function place() {
           var n = A.$(".side-note"), s = A.$(".steps");
-          if (!n) { if (s.offsetTop + s.offsetHeight > 900) s.classList.add("tight"); return; }
-          if (s.offsetTop + s.offsetHeight > 700) s.classList.add("tight");
-          n.style.top = Math.min(s.offsetTop + s.offsetHeight + 22, 912 - n.offsetHeight) + "px";
+          // 단계가 많아 아래 띠(928px~)에 닿으면 한 번 더 촘촘하게. 「오늘은 누르지 않아요」 띠(.lt.up, 832px~)가 뜨는 장면은 그 위(816px)까지
+          var floor = o.steps.some(function (st) { return st.warn; }) ? 816 : 912;
+          function bottom() { return s.offsetTop + s.offsetHeight + (n ? 22 + n.offsetHeight : 0); }
+          if (!n) { if (bottom() > floor - 12) s.classList.add("tight"); if (bottom() > floor) s.classList.add("xtight"); return; }
+          if (s.offsetTop + s.offsetHeight > 700 || bottom() > floor) s.classList.add("tight");
+          if (bottom() > floor) s.classList.add("xtight");
+          n.style.top = Math.min(s.offsetTop + s.offsetHeight + 22, floor - n.offsetHeight) + "px";
         }
         var beats = [function (A) {
           place();
@@ -382,8 +392,8 @@
     title: "말하면, <em>카드로</em>. 누르는 건 선생님", ltTitle: "말하기 → 카드 → 누르기",
     steps: [
       { t: '<span class="aib">① 말하기</span> 「다음 주 목요일 4~7교시 출장, 교체해 줘」', s: 0, r: R("ai-swap", "question") },
-      { t: '<span class="aib">② 카드</span> 그날 학사일정·시간표·이미 잡힌 교체를 보고 <b>교체안</b>까지', s: 0, r: [16, 326, 380, 130] },
-      { t: '<span class="aib">③ 누르기</span> 「내 서명으로 이 안 요청」은 <b>선생님이</b>', s: 0, r: [31, 734, 236, 40], warn: true },
+      { t: '<span class="aib">② 카드</span> 그날 학사일정·시간표·이미 잡힌 교체를 보고 <b>교체안</b>까지', s: 0, r: [16, 313, 380, 118] },
+      { t: '<span class="aib">③ 누르기</span> 「내 서명으로 이 안 요청」은 <b>선생님이</b>', s: 0, r: [31, 704, 226, 40], warn: true },
       { t: '같은 세 박자로 <b>넵 초안</b> — AI는 보내지 않습니다', s: 1, r: R("ai-nep", "people") },
       { t: '<b>회의 서명부</b>·가정통신문·수리 요청·학습지까지', s: 2, r: R("ai-sign", "card") }
     ],
@@ -614,8 +624,8 @@
     steps: [
       { t: '평일 <b>7:50 아침 · 11:30 점심</b> 알림 — 맨 위에 나에게만 해당하는 줄', s: 0, r: R("notifications-on", "test") },
       { t: '보건실 입실 알림: <b>이름 없이 반·성별만</b>, 1분 안에', s: 0, r: R("notifications-on", "nurse"), z: 1.9 },
-      { t: '놓친 알림은 홈 종 → <b>알림함</b>, 확인하면 지워짐', s: 1, r: [16, 150, 380, 130] },
-      { t: '평일 3:30 <b>공유 드라이브 새 문서</b> 요약, 금요일 3시 <b>다음 주 미리 보기</b>', s: 1, r: [16, 380, 380, 330] }
+      { t: '놓친 알림은 홈 종 → <b>알림함</b>, 확인하면 지워짐', s: 1, r: [16, 159, 380, 93] },
+      { t: '평일 3:30 <b>공유 드라이브 새 문서</b> 요약, 금요일 3시 <b>다음 주 미리 보기</b>', s: 1, r: [16, 415, 380, 207] }
     ],
     screens: ["notifications-on", "alerts"],
     notes: "알림은 모두에게 같은 글을 보내지 않습니다. 아침·점심 알림 맨 위에는 <b>그 선생님에게만 해당하는 줄</b> — 내 당번, 바뀐 내 수업, 내 수업과 겹치는 행사, 오늘 마감인 요청 — 이 오고, 학교 일정은 AI가 누구 일인지 읽어 관련 있는 분께만 보냅니다. 오후에는 공유 드라이브에 새로 만든 문서를 한두 문장으로 요약해 보내고, 금요일에는 다음 주 미리 보기를 보냅니다."
