@@ -119,7 +119,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
 .t-box .t-q { font-weight: 800; font-size: 17px; color: var(--ink); }
 .t-q::before { content: "“"; color: var(--brand); } .t-q::after { content: "”"; color: var(--brand); }
 .foot { color: var(--muted); font-size: 13px; text-align: center; padding: 10px 0 0; }
-.by { display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--muted); font-size: 13px; margin: 0; } .by b { color: var(--ink); font-weight: 700; } .by img { width: auto; height: 56px; }
+.by { display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--muted); font-size: 13px; margin: 0; } .by b { color: var(--ink); font-weight: 700; } .by img { width: auto; height: 56px; } .badges { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin: 0; } .badges img { width: 56px; height: 56px; } .badges small { flex-basis: 100%; text-align: center; color: var(--muted); font-size: 11px; }
 .trytag { justify-self: start; text-decoration: none; display: inline-flex; gap: 6px; align-items: center; font: 800 13px var(--body); padding: 3px 10px; border-radius: 999px; background: var(--ai-tint); color: var(--ai); }
 .trytag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
 .trytag.no { background: var(--bg); color: var(--muted); border: 1px solid var(--line); }
@@ -160,6 +160,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
   <div id="body" style="display:grid;gap:28px"></div>
   <p class="foot">AI 교무실 · 명지중학교 · 2026년 10월 기준 · 화면 속 학교·이름·내용은 예시입니다.</p>
   <p class="by"><img src="img/yeol.png" alt="" width="50" height="56"><span>만든이 <b>명지중학교 이승열</b></span></p>
+  <p class="badges" aria-label="서울특별시교육청 디지털 배지"><img src="img/badge-lms.png" alt="디지털 교수학습 배지" title="디지털 교수학습 · 서울특별시교육청" width="56" height="56"><img src="img/badge-ai.png" alt="AI 융합교육 배지" title="AI 융합교육 · 서울특별시교육청" width="56" height="56"><img src="img/badge-content.png" alt="AI·디지털 교육자료 배지" title="AI·디지털 교육자료 · 서울특별시교육청" width="56" height="56"><small>서울특별시교육청 디지털 배지</small></p>
 </main>
 <script>
   window.DECK = { E: {}, PARTS: [], list: [], parts: function (l) { var P = this.PARTS; l.forEach(function (p) { P[p.n] = p; }); }, add: function (d) { this.list.push(d); }, h: function () {} };
