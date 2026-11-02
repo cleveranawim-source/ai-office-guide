@@ -45,6 +45,12 @@ p, h1, h2, h3, ol, ul { margin: 0; }
 .hero .art { position: absolute; inset: -6%; background: url(img/art/cover.jpg) 70% 50% / cover no-repeat; opacity: .55; }
 .hero .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4, 12, 24, .95), rgba(4, 12, 24, .55)); }
 .hero .in { position: relative; max-width: 1040px; margin: 0 auto; padding: 30px 16px 34px; display: grid; gap: 12px; }
+.hero .hrow { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.hero .sig { flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.hero .sig img { height: 50px; width: auto; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .45)); }
+.hero .sig span { font: 400 11px var(--body); letter-spacing: 0; color: #a9bfd8; white-space: nowrap; }
+.hero .sig b { color: #fff; font-weight: 700; margin-left: 4px; }
+@media (min-width: 760px) { .hero .sig { flex-direction: row; align-items: center; gap: 12px; } .hero .sig img { height: 64px; } .hero .sig span { font-size: 13px; } }
 .hero small { font: 600 12px var(--mono); letter-spacing: .22em; color: var(--glow); }
 .hero h1 { font: 900 clamp(30px, 7.5vw, 52px)/1.12 var(--body); letter-spacing: -.035em; text-wrap: balance; }
 .hero h1 em { font-style: normal; color: var(--glow); }
@@ -131,7 +137,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 22px 16px 80px; display: grid
 <header class="hero">
   <div class="art"></div><div class="shade"></div>
   <div class="in">
-    <small>MYONGJI MIDDLE SCHOOL · AI 교무실</small>
+    <div class="hrow"><small>MYONGJI MIDDLE SCHOOL · AI 교무실</small><div class="sig"><img src="img/yeol.png" alt="" width="45" height="50"><span>만든이<b>명지중학교 이승열</b></span></div></div>
     <h1>학교 일을, <em>말로 부탁</em>하는 앱</h1>
     <p>메뉴를 몰라도 됩니다. 아래 탭 가운데 <b>AI</b>에게 말하면 학교 자료로 답하고 카드로 초안까지 — <b>누르는 건 선생님</b>. 명지중학교 교직원이 매일 쓰는 학교 앱 AI 교무실을 기능별 실제 화면으로 소개합니다. 화면은 실제 앱을 <b>예시 데이터</b>로 띄워 찍은 것이라, 학교·이름·내용은 모두 지어낸 것입니다.</p>
     <div class="acts">

@@ -45,6 +45,12 @@ button { font: inherit; color: inherit; }
 .hero .art { position: absolute; inset: -6%; background: url(img/art/cover.jpg) 70% 50% / cover no-repeat; opacity: .55; }
 .hero .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4, 12, 24, .95), rgba(4, 12, 24, .6)); }
 .hero .in { position: relative; max-width: 1040px; margin: 0 auto; padding: 30px 16px 34px; display: grid; gap: 12px; }
+.hero .hrow { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.hero .sig { flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.hero .sig img { height: 50px; width: auto; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .45)); }
+.hero .sig span { font: 400 11px var(--body); letter-spacing: 0; color: #a9bfd8; white-space: nowrap; }
+.hero .sig b { color: #fff; font-weight: 700; margin-left: 4px; }
+@media (min-width: 760px) { .hero .sig { flex-direction: row; align-items: center; gap: 12px; } .hero .sig img { height: 64px; } .hero .sig span { font-size: 13px; } }
 .hero small { font: 700 13px var(--body); letter-spacing: .08em; color: var(--glow); }
 .hero h1 { font: 900 clamp(34px, 8vw, 56px)/1.1 var(--body); letter-spacing: -.035em; }
 .hero h1 em { font-style: normal; color: var(--glow); }
@@ -172,7 +178,7 @@ section { display: grid; gap: 14px; min-width: 0; }
 <header class="hero">
   <div class="art"></div><div class="shade"></div>
   <div class="in">
-    <small>AI 교무실 · 다른 학교 선생님께</small>
+    <div class="hrow"><small>AI 교무실 · 다른 학교 선생님께</small><div class="sig"><img src="img/yeol.png" alt="" width="45" height="50"><span>만든이<b>명지중학교 이승열</b></span></div></div>
     <h1>직접 <em>써 보세요</em></h1>
     <p>발표에서 본 학교 앱을 <b>체험판</b>으로 써 볼 수 있습니다. 명지중학교 앱과 완전히 떨어진 따로 된 앱이고, <b>학교·선생님·학생 이름은 모두 지어낸 것</b>입니다. 아래 미션 여덟 개를 발표 순서대로 해 보세요.</p>
     <div class="acts">
